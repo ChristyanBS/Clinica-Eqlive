@@ -1,1013 +1,747 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Clínica Eqlive | Medicina Funcional e Integrativa</title>
-
-   
-
+    <title>Clínica Eqlive | Medicina Integrativa em Itaboraí</title>
+    
     <!-- Tailwind CSS -->
-
     <script src="https://cdn.tailwindcss.com"></script>
-
-   
-
-    <!-- Google Fonts: Playfair Display (Serif similar to Parsley) & Inter (Clean Sans) -->
-
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-
-
     <!-- Icons -->
-
     <script src="https://unpkg.com/lucide@latest"></script>
 
-
-
     <script>
-
         tailwind.config = {
-
             theme: {
-
                 extend: {
-
                     colors: {
-
                         eqlive: {
-
-                            base: '#F9F8F6',     // Off-white background like Parsley
-
-                            green: '#3C5C50',    // Sage green accent
-
-                            dark: '#1C1C1E',     // Soft black
-
-                            sand: '#EDE8E1',     // Beige secondary
-
-                            light: '#FFFFFF'
-
+                            base: '#F9F8F6',     // Off-white Parsley style
+                            green: '#3C5C50',    // Sage Green Brand
+                            dark: '#1C1C1E',     // Soft Black
+                            sand: '#EDE8E1',     // Beige Secondary
+                            accent: '#D4A373'    // Gold/Bronze for Essence
                         }
-
                     },
-
                     fontFamily: {
-
                         sans: ['Inter', 'sans-serif'],
-
                         serif: ['Playfair Display', 'serif'],
-
                     }
-
                 }
-
             }
-
         }
-
     </script>
-
     <style>
-
         body {
-
             background-color: #F9F8F6;
-
             color: #1C1C1E;
-
+            scroll-behavior: smooth;
         }
-
-        .fade-in-up {
-
-            animation: fadeInUp 0.8s ease-out forwards;
-
+        /* Page Transition Animations */
+        .page-section {
+            display: none;
             opacity: 0;
-
-            transform: translateY(20px);
-
+            transition: opacity 0.4s ease-in-out;
         }
-
-        @keyframes fadeInUp {
-
-            to {
-
-                opacity: 1;
-
-                transform: translateY(0);
-
-            }
-
+        .page-section.active {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.5s ease-out forwards;
         }
-
-        .delay-100 { animation-delay: 0.1s; }
-
-        .delay-200 { animation-delay: 0.2s; }
-
-        .delay-300 { animation-delay: 0.3s; }
-
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F8F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3C5C50;
+            border-radius: 4px;
+        }
+        
+        /* Image Hover Effects */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom {
+            transition: transform 0.7s ease;
+        }
+        .group:hover .img-zoom {
+            transform: scale(1.05);
+        }
     </style>
-
 </head>
-
-<body class="antialiased">
-
-
+<body class="antialiased flex flex-col min-h-screen">
 
     <!-- NAVIGATION -->
-
-    <nav class="fixed w-full z-50 bg-[#F9F8F6]/90 backdrop-blur-md border-b border-gray-200 transition-all duration-300" id="navbar">
-
+    <nav class="fixed w-full z-50 bg-[#F9F8F6]/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <div class="flex justify-between items-center h-20">
-
                 <!-- Logo -->
-
-                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigateTo('home')">
                     <span class="font-serif text-2xl font-semibold tracking-wide text-eqlive-green">Eqlive.</span>
-
                 </div>
-
-               
-
+                
                 <!-- Desktop Menu -->
-
-                <div class="hidden md:flex space-x-8 items-center">
-
-                    <a href="#services" class="text-sm font-medium text-gray-600 hover:text-eqlive-green transition">O que tratamos</a>
-
-                    <a href="#methodology" class="text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Como funciona</a>
-
-                    <a href="#membership" class="text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Planos</a>
-
-                    <a href="#about" class="text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Sobre nós</a>
-
-                    <a href="https://wa.me/5521967815767" target="_blank" class="bg-eqlive-green text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-opacity-90 transition shadow-sm">
-
-                        Agendar Consulta
-
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <button onclick="navigateTo('about')" class="nav-link text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Quem Somos</button>
+                    <button onclick="navigateTo('specialties')" class="nav-link text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Especialidades</button>
+                    <button onclick="navigateTo('essence')" class="nav-link text-sm font-medium text-eqlive-accent hover:text-yellow-700 transition font-serif italic">Eqlive Essence</button>
+                    <button onclick="navigateTo('blog')" class="nav-link text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Blog</button>
+                    <button onclick="navigateTo('faq')" class="nav-link text-sm font-medium text-gray-600 hover:text-eqlive-green transition">FAQ</button>
+                    <button onclick="navigateTo('location')" class="nav-link text-sm font-medium text-gray-600 hover:text-eqlive-green transition">Localização</button>
+                    
+                    <a href="https://wa.me/5521967815767" target="_blank" class="bg-eqlive-green text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-opacity-90 transition shadow-md flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Agendar
                     </a>
-
                 </div>
-
-
 
                 <!-- Mobile menu button -->
-
-                <div class="md:hidden flex items-center">
-
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
-
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
                         <i data-lucide="menu" class="w-6 h-6"></i>
-
                     </button>
-
                 </div>
-
             </div>
-
         </div>
-
-       
-
+        
         <!-- Mobile Menu Panel -->
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
-
-            <div class="px-4 pt-2 pb-6 space-y-1">
-
-                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50">O que tratamos</a>
-
-                <a href="#methodology" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50">Como funciona</a>
-
-                <a href="#membership" class="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50">Planos</a>
-
-                <a href="https://wa.me/5521967815767" class="block px-3 py-3 text-base font-medium text-eqlive-green font-semibold">Agendar Agora</a>
-
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full h-screen overflow-y-auto pb-20 z-40">
+            <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+                <button onclick="mobileNav('home')" class="text-left px-3 py-4 text-lg font-medium text-gray-700 border-b border-gray-100">Início</button>
+                <button onclick="mobileNav('about')" class="text-left px-3 py-4 text-lg font-medium text-gray-700 border-b border-gray-100">Quem Somos</button>
+                <button onclick="mobileNav('specialties')" class="text-left px-3 py-4 text-lg font-medium text-gray-700 border-b border-gray-100">Especialidades</button>
+                <button onclick="mobileNav('essence')" class="text-left px-3 py-4 text-lg font-serif italic text-eqlive-accent border-b border-gray-100">Eqlive Essence</button>
+                <button onclick="mobileNav('blog')" class="text-left px-3 py-4 text-lg font-medium text-gray-700 border-b border-gray-100">Blog</button>
+                <button onclick="mobileNav('faq')" class="text-left px-3 py-4 text-lg font-medium text-gray-700 border-b border-gray-100">Dúvidas (FAQ)</button>
+                <button onclick="mobileNav('location')" class="text-left px-3 py-4 text-lg font-medium text-gray-700 border-b border-gray-100">Localização</button>
+                <a href="https://wa.me/5521967815767" class="mt-4 block w-full bg-eqlive-green text-white text-center py-4 rounded-lg text-lg font-medium">Agendar Consulta</a>
             </div>
-
         </div>
-
     </nav>
 
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow pt-20">
 
+        <!-- ================= PAGE: HOME ================= -->
+        <div id="home" class="page-section active">
+            <!-- Hero -->
+            <section class="relative pt-12 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="z-10">
+                            <span class="text-eqlive-green font-bold tracking-widest text-xs uppercase mb-4 block">Clínica Médica em Itaboraí</span>
+                            <h1 class="font-serif text-5xl lg:text-7xl leading-[1.1] text-eqlive-dark mb-6">
+                                Saúde Integrativa <br/> para uma vida <br/><i class="font-serif italic text-eqlive-green">plena.</i>
+                            </h1>
+                            <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                                Uma abordagem que une a medicina tradicional, genética e estilo de vida. Tratamos a causa raiz, não apenas os sintomas.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button onclick="navigateTo('specialties')" class="bg-eqlive-dark text-white px-8 py-4 rounded-full text-center font-medium hover:bg-gray-800 transition shadow-lg flex items-center justify-center gap-2">
+                                    Conheça nossos tratamentos
+                                </button>
+                                <button onclick="navigateTo('about')" class="bg-white border border-gray-300 text-gray-700 px-8 py-4 rounded-full text-center font-medium hover:bg-gray-50 transition">
+                                    Nossa História
+                                </button>
+                            </div>
+                        </div>
+                        <div class="relative lg:h-[650px] w-full">
+                            <div class="absolute inset-0 bg-eqlive-green/10 rounded-t-[150px] rounded-b-[20px] transform rotate-2 scale-95 origin-bottom-right"></div>
+                            <img src="https://clinicaeqlive.com/wp-content/uploads/2025/03/68b2026d-dedb-4074-a5aa-7c9c5c925698.jpg" 
+                                 alt="Clínica Eqlive Interior" 
+                                 class="relative rounded-t-[150px] rounded-b-[20px] w-full h-full object-cover shadow-2xl z-0">
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- HERO SECTION -->
+            <!-- Quick Service Preview with Images -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h2 class="font-serif text-3xl text-eqlive-dark">Nossos Pilares de Atendimento</h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Card 1 -->
+                        <div class="group cursor-pointer" onclick="navigateTo('specialties')">
+                            <div class="relative h-64 rounded-2xl overflow-hidden mb-4">
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition z-10"></div>
+                                <img src="data:image/jpeg;base64,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" alt="Médico" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-eqlive-green transition">Medicina Integrativa</h3>
+                            <p class="text-gray-500 text-sm">Olhar o paciente como um todo.</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="group cursor-pointer" onclick="navigateTo('specialties')">
+                             <div class="relative h-64 rounded-2xl overflow-hidden mb-4">
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition z-10"></div>
+                                <img src="https://clinicaeqlive.com/wp-content/uploads/2025/05/medium-shot-smiley-woman-stretching-scaled-e1747333030277.jpg" alt="Nutrição" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-eqlive-green transition">Nutrição & Estilo de Vida</h3>
+                            <p class="text-gray-500 text-sm">Alimentação como remédio.</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="group cursor-pointer" onclick="navigateTo('specialties')">
+                             <div class="relative h-64 rounded-2xl overflow-hidden mb-4">
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Genética" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <h3 class="font-serif text-xl mb-1 group-hover:text-eqlive-green transition">Tecnologia & Genética</h3>
+                            <p class="text-gray-500 text-sm">Precisão no diagnóstico.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-    <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- ================= PAGE: QUEM SOMOS ================= -->
+        <div id="about" class="page-section">
+            <section class="bg-eqlive-green text-white py-24 relative overflow-hidden">
+                <div class="absolute inset-0 z-0 opacity-20">
+                     <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Fundo texture" class="w-full h-full object-cover">
+                </div>
+                <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+                    <h1 class="font-serif text-5xl mb-6">Sobre a Eqlive</h1>
+                    <p class="text-green-100 text-xl font-light">Mais do que uma clínica, um espaço de acolhimento e transformação em Itaboraí.</p>
+                </div>
+            </section>
+            
+            <section class="py-20 bg-white">
+                <div class="max-w-6xl mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+                        <div class="relative">
+                            <div class="absolute top-4 left-4 w-full h-full border-2 border-eqlive-green rounded-2xl z-0"></div>
+                            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipe Médica conversando" class="rounded-2xl shadow-xl relative z-10 w-full">
+                        </div>
+                        <div>
+                            <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-2 block">Nossa Origem</span>
+                            <h2 class="font-serif text-3xl text-eqlive-dark mb-6">Uma Nova Medicina é Possível</h2>
+                            <div class="prose text-gray-600 leading-relaxed space-y-4">
+                                <p>A Clínica Eqlive nasceu do desejo de oferecer uma medicina mais humana, atenta e resolutiva. Percebemos que o modelo tradicional, focado apenas na doença, deixava lacunas importantes no cuidado ao paciente.</p>
+                                <p>Nossa fundação é baseada na integração de diversas especialidades médicas com o estilo de vida, nutrição e saúde mental. Acreditamos que cada paciente é único, e por isso, nossos tratamentos são personalizados.</p>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <!-- Values with Images -->
+                    <div class="grid md:grid-cols-3 gap-8">
+                         <div class="bg-eqlive-base p-8 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-eqlive-green">
+                                <i data-lucide="heart" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-serif text-xl mb-3">Acolhimento</h3>
+                            <p class="text-sm text-gray-600">Aqui você é ouvido com calma e atenção. Seu relato é a parte mais importante do diagnóstico.</p>
+                        </div>
+                         <div class="bg-eqlive-base p-8 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-eqlive-green">
+                                <i data-lucide="microscope" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-serif text-xl mb-3">Ciência</h3>
+                            <p class="text-sm text-gray-600">Protocolos baseados nas mais recentes evidências científicas de longevidade e saúde.</p>
+                        </div>
+                         <div class="bg-eqlive-base p-8 rounded-xl text-center">
+                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-eqlive-green">
+                                <i data-lucide="users" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-serif text-xl mb-3">Comunidade</h3>
+                            <p class="text-sm text-gray-600">Criamos um ecossistema de saúde para você e sua família se sentirem seguros.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- ================= PAGE: ESPECIALIDADES (Agora com Imagens) ================= -->
+        <div id="specialties" class="page-section">
+            <section class="py-16 bg-eqlive-base">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs">Nossos Serviços</span>
+                        <h2 class="font-serif text-4xl mt-3 mb-6">Especialidades Médicas</h2>
+                        <p class="text-gray-600">Nossa equipe multidisciplinar trabalha em conjunto para oferecer um diagnóstico preciso e um plano de tratamento eficaz.</p>
+                    </div>
 
-                <!-- Text Content -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Card 1: Avaliação Neuropsicológica -->
+                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 group flex flex-col h-full border border-gray-100">
+                            <div class="h-48 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-purple-900/10 group-hover:bg-transparent transition z-10"></div>
+                                <img src="data:image/jpeg;base64,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" alt="Neuropsicologia" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i data-lucide="brain" class="w-6 h-6 text-purple-600"></i>
+                                    <h3 class="font-serif text-xl font-medium">Neuropsicologia</h3>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-6 leading-relaxed flex-grow">
+                                    Investigação detalhada das funções cognitivas. Essencial para diagnóstico de TDAH, autismo e demências, proporcionando clareza mental.
+                                </p>
+                                <a href="https://wa.me/5521967815767?text=Gostaria%20de%20saber%20sobre%20Avaliação%20Neuropsicológica" class="inline-flex items-center text-purple-700 font-medium text-sm hover:underline mt-auto">
+                                    Agendar Avaliação <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
 
-                <div class="fade-in-up">
+                        <!-- Card 2: Clínica Geral -->
+                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 group flex flex-col h-full border border-gray-100">
+                            <div class="h-48 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Clínica Geral" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i data-lucide="stethoscope" class="w-6 h-6 text-blue-600"></i>
+                                    <h3 class="font-serif text-xl font-medium">Clínica Geral</h3>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-6 leading-relaxed flex-grow">
+                                    O ponto de partida para sua saúde. Realizamos check-ups completos e acompanhamento preventivo para você e sua família.
+                                </p>
+                                <a href="https://wa.me/5521967815767?text=Gostaria%20de%20agendar%20Clínico%20Geral" class="inline-flex items-center text-blue-700 font-medium text-sm hover:underline mt-auto">
+                                    Agendar Consulta <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
 
-                    <span class="text-eqlive-green font-medium tracking-wider text-xs uppercase mb-4 block">Medicina Integrativa em Itaboraí</span>
+                        <!-- Card 3: Endocrinologia -->
+                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 group flex flex-col h-full border border-gray-100">
+                            <div class="h-48 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-pink-900/10 group-hover:bg-transparent transition z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Endocrinologia" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i data-lucide="activity" class="w-6 h-6 text-pink-600"></i>
+                                    <h3 class="font-serif text-xl font-medium">Endocrinologia</h3>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-6 leading-relaxed flex-grow">
+                                    Equilíbrio hormonal é vida. Tratamento para tireoide, diabetes, obesidade, menopausa e reposição hormonal bioidêntica.
+                                </p>
+                                <a href="https://wa.me/5521967815767?text=Gostaria%20de%20agendar%20Endocrinologista" class="inline-flex items-center text-pink-700 font-medium text-sm hover:underline mt-auto">
+                                    Agendar Consulta <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
 
-                    <h1 class="font-serif text-5xl lg:text-6xl leading-tight text-eqlive-dark mb-6">
+                        <!-- Card 4: Nutricionista -->
+                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 group flex flex-col h-full border border-gray-100">
+                            <div class="h-48 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-green-900/10 group-hover:bg-transparent transition z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nutricionista" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i data-lucide="salad" class="w-6 h-6 text-green-600"></i>
+                                    <h3 class="font-serif text-xl font-medium">Nutricionista</h3>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-6 leading-relaxed flex-grow">
+                                    Nutrição funcional que vai além da dieta. Planos personalizados para emagrecimento, hipertrofia e desinflamação do corpo.
+                                </p>
+                                <a href="https://wa.me/5521967815767?text=Gostaria%20de%20agendar%20Nutricionista" class="inline-flex items-center text-green-700 font-medium text-sm hover:underline mt-auto">
+                                    Agendar Consulta <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
 
-                        Medicina que vai à <br/><i class="font-serif italic text-eqlive-green">raiz do problema.</i>
+                        <!-- Card 5: Psiquiatria -->
+                        <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 group flex flex-col h-full border border-gray-100">
+                            <div class="h-48 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Psiquiatria" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i data-lucide="smile" class="w-6 h-6 text-indigo-600"></i>
+                                    <h3 class="font-serif text-xl font-medium">Psiquiatria</h3>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-6 leading-relaxed flex-grow">
+                                    Cuidado humanizado para saúde mental. Tratamento de ansiedade, depressão e burnout com acolhimento e escuta ativa.
+                                </p>
+                                <a href="https://wa.me/5521967815767?text=Gostaria%20de%20agendar%20Psiquiatra" class="inline-flex items-center text-indigo-700 font-medium text-sm hover:underline mt-auto">
+                                    Agendar Consulta <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
 
-                    </h1>
+                         <!-- Card 6: Teste Genético -->
+                         <div class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 group flex flex-col h-full border-2 border-eqlive-green/20 relative">
+                             <div class="absolute top-4 right-4 bg-eqlive-green text-white text-xs font-bold px-3 py-1 rounded-full z-20">DESTAQUE</div>
+                            <div class="h-48 overflow-hidden relative">
+                                <div class="absolute inset-0 bg-green-900/10 group-hover:bg-transparent transition z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1530213786676-41ad9f7736f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Genética" class="w-full h-full object-cover img-zoom">
+                            </div>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i data-lucide="dna" class="w-6 h-6 text-eqlive-green"></i>
+                                    <h3 class="font-serif text-xl font-medium">Teste Genético</h3>
+                                </div>
+                                <p class="text-gray-500 text-sm mb-6 leading-relaxed flex-grow">
+                                    A medicina do futuro. Mapeamento do seu DNA para descobrir predisposições, sensibilidades alimentares e a dieta ideal para seu corpo.
+                                </p>
+                                <a href="https://wa.me/5521967815767?text=Quero%20saber%20sobre%20o%20Teste%20Genetico" class="inline-flex items-center text-eqlive-green font-medium text-sm hover:underline mt-auto">
+                                    Saiba Mais <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                    <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
-
-                        A Clínica Eqlive combina testes genéticos avançados, nutrição funcional e tempo de qualidade para tratar seus sintomas de forma definitiva, não apenas mascará-los.
-
+        <!-- ================= PAGE: ESSENCE ================= -->
+        <div id="essence" class="page-section">
+            <section class="relative bg-eqlive-dark text-white py-24 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Spa like background" class="w-full h-full object-cover opacity-30">
+                    <div class="absolute inset-0 bg-gradient-to-t from-eqlive-dark via-eqlive-dark/50 to-transparent"></div>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+                    <div class="inline-block border border-eqlive-accent text-eqlive-accent px-4 py-1 rounded-full text-sm tracking-widest uppercase mb-6">Programa Exclusivo</div>
+                    <h1 class="font-serif italic text-6xl text-eqlive-accent mb-6">Eqlive Essence</h1>
+                    <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                        Uma jornada de reconexão com sua melhor versão. O Essence é o nosso programa premium de longevidade, estética e bem-estar integrado.
                     </p>
+                </div>
+            </section>
 
-                    <div class="flex flex-col sm:flex-row gap-4">
+            <section class="py-20 bg-[#F5F2EF]">
+                <div class="max-w-5xl mx-auto px-4">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="font-serif text-3xl mb-6 text-gray-900">O que é o Essence?</h2>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                O Eqlive Essence não é apenas um tratamento, é uma experiência. Combinamos protocolos de soroterapia (vitaminas na veia), tecnologias estéticas avançadas e acompanhamento médico rigoroso para resultados visíveis de dentro para fora.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <div class="bg-white p-2 rounded-full shadow-sm text-eqlive-accent">
+                                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                                    </div>
+                                    <div class="pt-1">
+                                        <h4 class="font-bold text-gray-900">Protocolos de Longevidade</h4>
+                                        <p class="text-sm text-gray-600">Estratégias para envelhecer com vitalidade.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="bg-white p-2 rounded-full shadow-sm text-eqlive-accent">
+                                        <i data-lucide="droplet" class="w-5 h-5"></i>
+                                    </div>
+                                     <div class="pt-1">
+                                        <h4 class="font-bold text-gray-900">Soroterapia Personalizada</h4>
+                                        <p class="text-sm text-gray-600">Nutrientes injetáveis para absorção máxima.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="bg-white p-2 rounded-full shadow-sm text-eqlive-accent">
+                                        <i data-lucide="crown" class="w-5 h-5"></i>
+                                    </div>
+                                     <div class="pt-1">
+                                        <h4 class="font-bold text-gray-900">Estética Integrativa</h4>
+                                        <p class="text-sm text-gray-600">Beleza que reflete sua saúde interna.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="mt-10">
+                                <a href="https://wa.me/5521967815767?text=Quero%20conhecer%20o%20Eqlive%20Essence" class="bg-eqlive-accent text-white px-8 py-3 rounded-full hover:bg-[#c29363] transition shadow-lg inline-block">
+                                    Agendar Avaliação Essence
+                                </a>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -inset-4 bg-eqlive-accent/20 rounded-full blur-2xl"></div>
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mulher com pele saudável" class="relative rounded-xl shadow-2xl z-10">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                        <a href="https://wa.me/5521967815767" class="bg-eqlive-dark text-white px-8 py-4 rounded-full text-center font-medium hover:bg-gray-800 transition shadow-lg flex items-center justify-center gap-2">
+        <!-- ================= PAGE: BLOG ================= -->
+        <div id="blog" class="page-section">
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h2 class="font-serif text-4xl text-eqlive-dark mb-4">Blog Vivendo em Equilíbrio</h2>
+                        <p class="text-gray-600">Informação de qualidade para você tomar melhores decisões sobre sua saúde.</p>
+                    </div>
 
-                            Agendar Avaliação <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Post 1 -->
+                        <article class="bg-white flex flex-col group cursor-pointer hover:shadow-lg transition rounded-xl overflow-hidden border border-gray-100">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alimentação" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col">
+                                <div class="text-xs text-eqlive-green font-bold uppercase mb-2">Nutrição</div>
+                                <h3 class="font-serif text-xl font-medium mb-3 group-hover:text-eqlive-green transition">Como a inflamação afeta seu corpo?</h3>
+                                <p class="text-gray-500 text-sm mb-4 line-clamp-3">Entenda os sinais de inflamação crônica e como alimentos anti-inflamatórios podem mudar sua disposição.</p>
+                                <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                                    <span>15 Mar, 2025</span>
+                                    <span class="flex items-center gap-1">Ler mais <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                                </div>
+                            </div>
+                        </article>
 
+                        <!-- Post 2 -->
+                        <article class="bg-white flex flex-col group cursor-pointer hover:shadow-lg transition rounded-xl overflow-hidden border border-gray-100">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Meditação" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col">
+                                <div class="text-xs text-eqlive-green font-bold uppercase mb-2">Saúde Mental</div>
+                                <h3 class="font-serif text-xl font-medium mb-3 group-hover:text-eqlive-green transition">Ansiedade x Estresse: Qual a diferença?</h3>
+                                <p class="text-gray-500 text-sm mb-4 line-clamp-3">Saber diferenciar é o primeiro passo para o tratamento correto. Veja as abordagens integrativas.</p>
+                                <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                                    <span>10 Mar, 2025</span>
+                                    <span class="flex items-center gap-1">Ler mais <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="bg-white flex flex-col group cursor-pointer hover:shadow-lg transition rounded-xl overflow-hidden border border-gray-100">
+                            <div class="h-48 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1576091160550-217358c7e618?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Genética" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col">
+                                <div class="text-xs text-eqlive-green font-bold uppercase mb-2">Genética</div>
+                                <h3 class="font-serif text-xl font-medium mb-3 group-hover:text-eqlive-green transition">Por que fazer um teste genético?</h3>
+                                <p class="text-gray-500 text-sm mb-4 line-clamp-3">A medicina de precisão chegou. Descubra como seu DNA pode guiar sua dieta e prevenção de doenças.</p>
+                                <div class="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                                    <span>05 Mar, 2025</span>
+                                    <span class="flex items-center gap-1">Ler mais <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: FAQ ================= -->
+        <div id="faq" class="page-section">
+            <section class="py-16 bg-eqlive-base">
+                <div class="max-w-3xl mx-auto px-4">
+                    <h2 class="font-serif text-3xl text-center mb-12">Perguntas Frequentes</h2>
+                    
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm cursor-pointer hover:shadow-md transition" onclick="toggleFaq(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-medium text-lg text-gray-800">Vocês aceitam plano de saúde?</h3>
+                                <div class="bg-gray-100 p-1 rounded-full"><i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i></div>
+                            </div>
+                            <div class="mt-4 text-gray-600 hidden">
+                                Trabalhamos preferencialmente com atendimento particular para garantir o tempo e qualidade necessários na medicina integrativa. No entanto, fornecemos toda a documentação para solicitação de reembolso junto ao seu convênio.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm cursor-pointer hover:shadow-md transition" onclick="toggleFaq(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-medium text-lg text-gray-800">Como funciona a primeira consulta?</h3>
+                                <div class="bg-gray-100 p-1 rounded-full"><i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i></div>
+                            </div>
+                            <div class="mt-4 text-gray-600 hidden">
+                                Nossa primeira consulta dura cerca de 1 hora. Realizamos uma anamnese detalhada (histórico de vida), exame físico e traçamos o plano inicial de exames e estilo de vida.
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="bg-white rounded-lg p-6 shadow-sm cursor-pointer hover:shadow-md transition" onclick="toggleFaq(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-medium text-lg text-gray-800">O que é Medicina Integrativa?</h3>
+                                <div class="bg-gray-100 p-1 rounded-full"><i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300"></i></div>
+                            </div>
+                            <div class="mt-4 text-gray-600 hidden">
+                                É uma prática que reafirma a importância da relação entre paciente e profissional de saúde. Focamos na pessoa como um todo, informado por evidências e fazendo uso de todas as abordagens terapêuticas adequadas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: LOCATION ================= -->
+        <div id="location" class="page-section">
+            <section class="h-[calc(100vh-80px)] relative flex flex-col md:flex-row">
+                <!-- Info Panel -->
+                <div class="bg-white p-10 md:w-1/3 flex flex-col justify-center shadow-2xl z-10 order-2 md:order-1 relative overflow-hidden">
+                    <!-- Deco Image bottom -->
+                    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
+                     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="absolute bottom-0 left-0 w-full opacity-10" alt="Office">
+
+                    <h2 class="font-serif text-3xl mb-6 text-eqlive-green relative z-20">Onde estamos</h2>
+                    <div class="space-y-6 relative z-20">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-100 p-2 rounded-full text-eqlive-green"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Endereço</h4>
+                                <p class="text-gray-600 text-sm">R. Dr. Pereira dos Santos, 107<br>Centro, Itaboraí - RJ<br>CEP: 24800-041</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-100 p-2 rounded-full text-eqlive-green"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Horário</h4>
+                                <p class="text-gray-600 text-sm">Segunda a Sexta: 08h às 18h<br>Sábado: 08h às 12h</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                             <div class="bg-green-100 p-2 rounded-full text-eqlive-green"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Contato</h4>
+                                <p class="text-gray-600 text-sm">(21) 96781-5767</p>
+                                <p class="text-gray-600 text-sm">clinicaeqlive@gmail.com</p>
+                            </div>
+                        </div>
+                        <a href="https://goo.gl/maps/1QJqX8Z8Z8Z8Z8Z8Z" target="_blank" class="block w-full text-center bg-eqlive-dark text-white py-3 rounded-lg hover:bg-gray-800 transition mt-4 shadow-lg">
+                            Abrir no Google Maps
                         </a>
-
-                        <a href="#methodology" class="bg-white border border-gray-300 text-gray-700 px-8 py-4 rounded-full text-center font-medium hover:bg-gray-50 transition">
-
-                            Como funciona
-
-                        </a>
-
                     </div>
-
-                   
-
-                    <div class="mt-10 flex items-center gap-4 text-sm text-gray-500">
-
-                        <div class="flex -space-x-2">
-
-                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80" alt="User">
-
-                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80" alt="User">
-
-                            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80" alt="User">
-
-                        </div>
-
-                        <p>+500 vidas transformadas</p>
-
-                    </div>
-
                 </div>
-
-
-
-                <!-- Hero Image -->
-
-                <div class="relative lg:h-[600px] w-full fade-in-up delay-200">
-
-                    <div class="absolute inset-0 bg-eqlive-green/10 rounded-t-[100px] rounded-b-[20px] transform rotate-3"></div>
-
-                    <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-
-                         alt="Médica conversando com paciente em ambiente acolhedor"
-
-                         class="relative rounded-t-[100px] rounded-b-[20px] w-full h-full object-cover shadow-2xl">
-
-                   
-
-                    <!-- Floating Card -->
-
-                    <div class="absolute bottom-10 left-[-20px] bg-white p-5 rounded-xl shadow-xl max-w-xs hidden md:block">
-
-                        <div class="flex items-start gap-3">
-
-                            <div class="bg-green-100 p-2 rounded-full text-eqlive-green">
-
-                                <i data-lucide="dna" class="w-6 h-6"></i>
-
-                            </div>
-
-                            <div>
-
-                                <p class="font-serif font-semibold text-gray-900">Teste Genético</p>
-
-                                <p class="text-xs text-gray-500 mt-1">Análise completa do seu DNA para um tratamento 100% personalizado.</p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                <!-- Map Embed -->
+                <div class="w-full md:w-2/3 bg-gray-200 h-64 md:h-auto order-1 md:order-2">
+                   <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.657597148564!2d-42.85994922384218!3d-22.74768817936733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99c1d1d393cac3%3A0x48711d7f352bf3fd!2sCl%C3%ADnica%20Eqlive!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
-
-            </div>
-
+            </section>
         </div>
 
-    </section>
+    </main>
 
-
-
-    <!-- PROBLEM / SOLUTION (The Parsley "Why" approach) -->
-
-    <section class="py-20 bg-white">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center mb-16">
-
-                <h2 class="font-serif text-4xl text-eqlive-dark mb-4">A saúde mudou. A medicina também deveria.</h2>
-
-                <p class="text-gray-600 max-w-2xl mx-auto">Muitos pacientes chegam à Eqlive sentindo que ninguém realmente ouviu seus sintomas. Nós fazemos diferente.</p>
-
-            </div>
-
-
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-                <!-- Traditional -->
-
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-
-                    <h3 class="text-gray-400 font-semibold uppercase tracking-wider text-sm mb-6">Medicina Tradicional</h3>
-
-                    <ul class="space-y-4">
-
-                        <li class="flex items-start gap-3 text-gray-500">
-
-                            <i data-lucide="clock" class="w-5 h-5 text-red-300 flex-shrink-0"></i>
-
-                            <span>Consultas de 15 minutos</span>
-
-                        </li>
-
-                        <li class="flex items-start gap-3 text-gray-500">
-
-                            <i data-lucide="pill" class="w-5 h-5 text-red-300 flex-shrink-0"></i>
-
-                            <span>Foco em prescrever remédios para sintomas</span>
-
-                        </li>
-
-                        <li class="flex items-start gap-3 text-gray-500">
-
-                            <i data-lucide="file-x" class="w-5 h-5 text-red-300 flex-shrink-0"></i>
-
-                            <span>Exames padronizados e superficiais</span>
-
-                        </li>
-
-                        <li class="flex items-start gap-3 text-gray-500">
-
-                            <i data-lucide="user-x" class="w-5 h-5 text-red-300 flex-shrink-0"></i>
-
-                            <span>Você é tratado como um número</span>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <!-- Eqlive -->
-
-                <div class="bg-eqlive-green p-8 rounded-2xl text-white shadow-xl relative overflow-hidden">
-
-                    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
-
-                    <h3 class="text-green-200 font-semibold uppercase tracking-wider text-sm mb-6">Na Eqlive</h3>
-
-                    <ul class="space-y-4">
-
-                        <li class="flex items-start gap-3">
-
-                            <i data-lucide="check-circle" class="w-5 h-5 text-green-300 flex-shrink-0"></i>
-
-                            <span class="font-medium">Consultas aprofundadas (até 1 hora)</span>
-
-                        </li>
-
-                        <li class="flex items-start gap-3">
-
-                            <i data-lucide="check-circle" class="w-5 h-5 text-green-300 flex-shrink-0"></i>
-
-                            <span class="font-medium">Busca pela causa raiz (Root Cause)</span>
-
-                        </li>
-
-                        <li class="flex items-start gap-3">
-
-                            <i data-lucide="check-circle" class="w-5 h-5 text-green-300 flex-shrink-0"></i>
-
-                            <span class="font-medium">Testes Genéticos e Análise Metabólica</span>
-
-                        </li>
-
-                        <li class="flex items-start gap-3">
-
-                            <i data-lucide="check-circle" class="w-5 h-5 text-green-300 flex-shrink-0"></i>
-
-                            <span class="font-medium">Plano de Nutrição e Estilo de Vida</span>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- WHAT WE TREAT (Services) -->
-
-    <section id="services" class="py-20 bg-eqlive-base">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="mb-12">
-
-                <h2 class="font-serif text-4xl text-eqlive-dark mb-4">O que nós tratamos</h2>
-
-                <p class="text-gray-600 max-w-2xl">Nossa abordagem integrativa é ideal para condições complexas e crônicas, ou para quem busca otimizar a saúde preventiva.</p>
-
-            </div>
-
-
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- Card 1 -->
-
-                <div class="bg-white p-8 rounded-xl hover:shadow-lg transition duration-300 group">
-
-                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 transition">
-
-                        <i data-lucide="activity" class="w-6 h-6"></i>
-
-                    </div>
-
-                    <h3 class="font-serif text-xl font-medium mb-2">Saúde Metabólica</h3>
-
-                    <p class="text-sm text-gray-500 mb-4">Resistência à insulina, ganho de peso inexplicável, fadiga crônica e pré-diabetes.</p>
-
-                    <a href="#" class="text-eqlive-green text-sm font-semibold hover:underline">Saiba mais &rarr;</a>
-
-                </div>
-
-
-
-                <!-- Card 2 -->
-
-                <div class="bg-white p-8 rounded-xl hover:shadow-lg transition duration-300 group">
-
-                    <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 mb-6 group-hover:scale-110 transition">
-
-                        <i data-lucide="heart" class="w-6 h-6"></i>
-
-                    </div>
-
-                    <h3 class="font-serif text-xl font-medium mb-2">Saúde Hormonal</h3>
-
-                    <p class="text-sm text-gray-500 mb-4">Menopausa, SOP, tireoide, TPM severa e desequilíbrios hormonais.</p>
-
-                    <a href="#" class="text-eqlive-green text-sm font-semibold hover:underline">Saiba mais &rarr;</a>
-
-                </div>
-
-
-
-                <!-- Card 3 -->
-
-                <div class="bg-white p-8 rounded-xl hover:shadow-lg transition duration-300 group">
-
-                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
-
-                        <i data-lucide="wind" class="w-6 h-6"></i>
-
-                    </div>
-
-                    <h3 class="font-serif text-xl font-medium mb-2">Saúde Digestiva</h3>
-
-                    <p class="text-sm text-gray-500 mb-4">Síndrome do intestino irritável, inchaço, sensibilidades alimentares e refluxo.</p>
-
-                    <a href="#" class="text-eqlive-green text-sm font-semibold hover:underline">Saiba mais &rarr;</a>
-
-                </div>
-
-
-
-                 <!-- Card 4 (Genetic - Eqlive Specific) -->
-
-                 <div class="bg-white p-8 rounded-xl hover:shadow-lg transition duration-300 group border border-eqlive-green/20">
-
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-eqlive-green mb-6 group-hover:scale-110 transition">
-
-                        <i data-lucide="dna" class="w-6 h-6"></i>
-
-                    </div>
-
-                    <h3 class="font-serif text-xl font-medium mb-2">Genética & Longevidade</h3>
-
-                    <p class="text-sm text-gray-500 mb-4">Mapeamento genético para entender como seu corpo envelhece e como prevenir doenças futuras.</p>
-
-                    <a href="#" class="text-eqlive-green text-sm font-semibold hover:underline">Saiba mais &rarr;</a>
-
-                </div>
-
-
-
-                 <!-- Card 5 -->
-
-                 <div class="bg-white p-8 rounded-xl hover:shadow-lg transition duration-300 group">
-
-                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition">
-
-                        <i data-lucide="shield" class="w-6 h-6"></i>
-
-                    </div>
-
-                    <h3 class="font-serif text-xl font-medium mb-2">Autoimune</h3>
-
-                    <p class="text-sm text-gray-500 mb-4">Apoio para Hashimoto, Artrite Reumatoide e outras condições inflamatórias.</p>
-
-                    <a href="#" class="text-eqlive-green text-sm font-semibold hover:underline">Saiba mais &rarr;</a>
-
-                </div>
-
-
-
-                <!-- Card 6 -->
-
-                <div class="bg-white p-8 rounded-xl hover:shadow-lg transition duration-300 group flex flex-col justify-center items-center text-center bg-gray-50 border-2 border-dashed border-gray-200">
-
-                    <h3 class="font-serif text-xl font-medium mb-2 text-gray-400">Clínica Geral</h3>
-
-                    <p class="text-sm text-gray-500 mb-4">Check-ups completos e cuidado contínuo para sua família.</p>
-
-                    <a href="https://wa.me/5521967815767" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm hover:bg-black transition">Agendar Check-up</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- METHODOLOGY (How it works) -->
-
-    <section id="methodology" class="py-24 bg-white overflow-hidden">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-                <div class="relative">
-
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-
-                         alt="Frutas e anotações médicas"
-
-                         class="rounded-3xl shadow-2xl z-10 relative">
-
-                    <!-- Decor element -->
-
-                    <div class="absolute -bottom-10 -left-10 w-full h-full bg-eqlive-sand rounded-3xl -z-0"></div>
-
-                </div>
-
-
-
-                <div>
-
-                    <h2 class="font-serif text-4xl text-eqlive-dark mb-8">Nossa Metodologia</h2>
-
-                    <div class="space-y-10">
-
-                        <!-- Step 1 -->
-
-                        <div class="flex gap-6">
-
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-eqlive-green text-white flex items-center justify-center font-serif font-bold text-lg">1</div>
-
-                            <div>
-
-                                <h3 class="text-xl font-semibold mb-2">Aprofundamento na História</h3>
-
-                                <p class="text-gray-600 leading-relaxed">Não olhamos apenas seus sintomas atuais. Analisamos sua história de vida, genética, ambiente e estresse para conectar os pontos.</p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Step 2 -->
-
-                        <div class="flex gap-6">
-
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-eqlive-sand text-eqlive-dark flex items-center justify-center font-serif font-bold text-lg">2</div>
-
-                            <div>
-
-                                <h3 class="text-xl font-semibold mb-2">Dados e Tecnologia</h3>
-
-                                <p class="text-gray-600 leading-relaxed">Utilizamos testes genéticos e laboratoriais avançados para ver o que exames de rotina muitas vezes perdem.</p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- Step 3 -->
-
-                        <div class="flex gap-6">
-
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-eqlive-sand text-eqlive-dark flex items-center justify-center font-serif font-bold text-lg">3</div>
-
-                            <div>
-
-                                <h3 class="text-xl font-semibold mb-2">Plano de Ação Integrado</h3>
-
-                                <p class="text-gray-600 leading-relaxed">Você recebe mais do que uma receita. Recebe um plano de nutrição, suplementação precisa e mudanças de estilo de vida.</p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                   
-
-                    <div class="mt-12">
-
-                        <a href="https://wa.me/5521967815767" class="text-eqlive-green font-semibold border-b-2 border-eqlive-green pb-1 hover:text-green-800 hover:border-green-800 transition">
-
-                            Comece sua jornada hoje
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- TESTIMONIALS -->
-
-    <section class="py-20 bg-eqlive-green text-white">
-
-        <div class="max-w-4xl mx-auto px-4 text-center">
-
-            <i data-lucide="quote" class="w-12 h-12 mx-auto mb-6 opacity-50"></i>
-
-            <h3 class="font-serif text-2xl md:text-4xl italic leading-relaxed mb-8">
-
-                "Finalmente encontrei uma clínica que não me deu apenas um remédio e me mandou embora. Na Eqlive, entendi o porquê das minhas dores e recuperei minha energia."
-
-            </h3>
-
-            <div class="flex items-center justify-center gap-4">
-
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80" alt="Paciente" class="w-12 h-12 rounded-full border-2 border-green-400">
-
-                <div class="text-left">
-
-                    <p class="font-bold">Mariana Costa</p>
-
-                    <p class="text-green-200 text-sm">Paciente há 2 anos</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- PRICING / MEMBERSHIP (Inspirado no modelo Parsley) -->
-
-    <section id="membership" class="py-24 bg-eqlive-base">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center mb-16">
-
-                <h2 class="font-serif text-4xl text-eqlive-dark mb-4">Invista na sua saúde</h2>
-
-                <p class="text-gray-600">Escolha como você quer começar sua transformação.</p>
-
-            </div>
-
-
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-                <!-- Card 1: Consulta Avulsa -->
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition relative">
-
-                    <h3 class="font-serif text-2xl mb-2">Avaliação Inicial</h3>
-
-                    <p class="text-gray-500 mb-6 text-sm">Ideal para diagnóstico inicial e check-up.</p>
-
-                    <div class="text-4xl font-bold mb-6 text-gray-900">Consulta</div>
-
-                   
-
-                    <ul class="space-y-4 mb-8">
-
-                        <li class="flex items-center gap-3 text-sm text-gray-600">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i> Consulta de 1 hora
-
-                        </li>
-
-                        <li class="flex items-center gap-3 text-sm text-gray-600">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i> Análise física completa
-
-                        </li>
-
-                        <li class="flex items-center gap-3 text-sm text-gray-600">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-500"></i> Pedido de exames detalhados
-
-                        </li>
-
-                    </ul>
-
-
-
-                    <a href="https://wa.me/5521967815767" class="block w-full text-center py-3 border border-eqlive-dark rounded-lg font-medium hover:bg-gray-50 transition">Agendar Avulso</a>
-
-                </div>
-
-
-
-                <!-- Card 2: Programa Eqlive (Membership style) -->
-
-                <div class="bg-eqlive-dark text-white p-8 rounded-2xl shadow-2xl relative transform md:-translate-y-4">
-
-                    <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MAIS POPULAR</div>
-
-                    <h3 class="font-serif text-2xl mb-2">Programa Eqlive</h3>
-
-                    <p class="text-gray-400 mb-6 text-sm">Acompanhamento contínuo para resultados reais.</p>
-
-                    <div class="text-4xl font-bold mb-6">Completo</div>
-
-                   
-
-                    <ul class="space-y-4 mb-8">
-
-                        <li class="flex items-center gap-3 text-sm text-gray-300">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i> <strong>Teste Genético Incluso</strong>
-
-                        </li>
-
-                        <li class="flex items-center gap-3 text-sm text-gray-300">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i> 5 Consultas por ano
-
-                        </li>
-
-                        <li class="flex items-center gap-3 text-sm text-gray-300">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i> Acompanhamento Nutricional
-
-                        </li>
-
-                        <li class="flex items-center gap-3 text-sm text-gray-300">
-
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i> Chat direto com a equipe
-
-                        </li>
-
-                    </ul>
-
-
-
-                    <a href="https://wa.me/5521967815767" class="block w-full text-center py-3 bg-eqlive-green text-white rounded-lg font-medium hover:bg-opacity-90 transition">Saber Valores</a>
-
-                    <p class="text-xs text-center mt-3 text-gray-500">Planos personalizados disponíveis</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- FOOTER -->
-
+    <!-- FOOTER (Global) -->
     <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-
                 <div class="col-span-1 md:col-span-1">
-
                     <span class="font-serif text-2xl font-bold text-eqlive-green block mb-4">Eqlive.</span>
-
-                    <p class="text-gray-500 text-sm leading-relaxed">
-
-                        Medicina integrativa focada em longevidade e bem-estar. Cuidamos de você por inteiro, em Itaboraí.
-
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">
+                        Medicina integrativa focada em longevidade e bem-estar. Cuidamos de você por inteiro.
                     </p>
-
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/clinicaeqlive" target="_blank" class="text-gray-400 hover:text-eqlive-green transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-eqlive-green transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    </div>
                 </div>
-
-               
-
+                
                 <div>
-
-                    <h4 class="font-semibold mb-4 text-gray-900">Serviços</h4>
-
+                    <h4 class="font-semibold mb-4 text-gray-900">Mapa do Site</h4>
                     <ul class="space-y-2 text-sm text-gray-600">
-
-                        <li><a href="#" class="hover:text-eqlive-green">Clínica Geral</a></li>
-
-                        <li><a href="#" class="hover:text-eqlive-green">Teste Genético</a></li>
-
-                        <li><a href="#" class="hover:text-eqlive-green">Medicina do Estilo de Vida</a></li>
-
-                        <li><a href="#" class="hover:text-eqlive-green">Longevidade</a></li>
-
+                        <li><button onclick="navigateTo('home')" class="hover:text-eqlive-green text-left">Início</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-eqlive-green text-left">Quem Somos</button></li>
+                        <li><button onclick="navigateTo('specialties')" class="hover:text-eqlive-green text-left">Especialidades</button></li>
+                        <li><button onclick="navigateTo('essence')" class="hover:text-eqlive-accent text-left">Eqlive Essence</button></li>
                     </ul>
-
                 </div>
 
-
-
                 <div>
-
                     <h4 class="font-semibold mb-4 text-gray-900">Contato</h4>
-
                     <ul class="space-y-2 text-sm text-gray-600">
-
                         <li class="flex items-center gap-2">
-
                             <i data-lucide="map-pin" class="w-4 h-4"></i> Itaboraí, RJ
-
                         </li>
-
                         <li class="flex items-center gap-2">
-
-                            <i data-lucide="phone" class="w-4 h-4"></i> (21) 96781-5767
-
+                            <a href="https://wa.me/5521967815767" class="hover:text-green-600 flex items-center gap-2">
+                                <i data-lucide="phone" class="w-4 h-4"></i> (21) 96781-5767
+                            </a>
                         </li>
-
-                        <li class="flex items-center gap-2">
-
-                            <i data-lucide="mail" class="w-4 h-4"></i> clinicaeqlive@gmail.com
-
-                        </li>
-
                     </ul>
-
                 </div>
-
-
 
                 <div>
-
                     <h4 class="font-semibold mb-4 text-gray-900">Newsletter</h4>
-
-                    <p class="text-sm text-gray-500 mb-4">Receba dicas de saúde baseadas em evidência.</p>
-
+                    <p class="text-sm text-gray-500 mb-4">Receba conteúdos exclusivos.</p>
                     <form class="flex gap-2">
-
                         <input type="email" placeholder="Seu e-mail" class="bg-gray-50 border border-gray-200 rounded px-3 py-2 text-sm w-full focus:outline-none focus:border-eqlive-green">
-
                         <button class="bg-eqlive-green text-white px-3 py-2 rounded text-sm hover:bg-opacity-90">OK</button>
-
                     </form>
-
                 </div>
-
             </div>
 
-
-
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-
-                <p class="text-xs text-gray-400">© 2025 Clínica Eqlive. Todos os direitos reservados.</p>
-
-                <div class="flex gap-4">
-
-                    <a href="#" class="text-gray-400 hover:text-gray-600"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-
-                    <a href="#" class="text-gray-400 hover:text-gray-600"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-
-                </div>
-
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <p>© 2025 Clínica Eqlive. Todos os direitos reservados.</p>
             </div>
-
         </div>
-
     </footer>
 
-
-
-    <!-- Scripts -->
-
+    <!-- LOGIC -->
     <script>
-
         // Initialize Icons
-
         lucide.createIcons();
 
+        // Mobile Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-
-        // Mobile Menu Toggle
-
-        const btn = document.getElementById('mobile-menu-btn');
-
-        const menu = document.getElementById('mobile-menu');
-
-
-
-        btn.addEventListener('click', () => {
-
-            menu.classList.toggle('hidden');
-
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
+        function mobileNav(pageId) {
+            mobileMenu.classList.add('hidden');
+            navigateTo(pageId);
+        }
 
-
-        // Smooth Scroll for anchor links
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-            anchor.addEventListener('click', function (e) {
-
-                e.preventDefault();
-
-                menu.classList.add('hidden'); // Close mobile menu if open
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-
-                    behavior: 'smooth'
-
-                });
-
+        // Router Logic (SPA)
+        function navigateTo(pageId) {
+            window.scrollTo(0, 0);
+            
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+                // Allow CSS transition
+                setTimeout(() => {
+                    if(!section.classList.contains('active')) {
+                        section.style.display = 'none';
+                    }
+                }, 400); 
             });
 
-        });
-
-
-
-        // Navbar scroll effect
-
-        window.addEventListener('scroll', () => {
-
-            const nav = document.getElementById('navbar');
-
-            if (window.scrollY > 50) {
-
-                nav.classList.add('shadow-sm');
-
-                nav.classList.replace('bg-[#F9F8F6]/90', 'bg-white/95');
-
-            } else {
-
-                nav.classList.remove('shadow-sm');
-
-                nav.classList.replace('bg-white/95', 'bg-[#F9F8F6]/90');
-
+            // Show target page
+            const target = document.getElementById(pageId);
+            if(target) {
+                target.style.display = 'block';
+                // Trigger reflow
+                void target.offsetWidth; 
+                target.classList.add('active');
             }
+        }
 
-        });
-
+        // FAQ Logic
+        function toggleFaq(element) {
+            const answer = element.querySelector('div.text-gray-600');
+            const icon = element.querySelector('i[data-lucide="chevron-down"]');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
     </script>
-
 </body>
-
 </html>
