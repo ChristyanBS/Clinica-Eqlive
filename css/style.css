@@ -1,0 +1,51 @@
+body {
+    background-color: #F9F8F6;
+    color: #132D2E;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Page Transition Animations */
+.page-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Scrollbar for Carousel (if needed fallback) */
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    /* padding-right: 20px; */
+}
+
+/* Zoom effect on images */
+.img-zoom {
+    transition: transform 0.7s ease;
+}
+.group:hover .img-zoom {
+    transform: scale(1.05);
+}
+
+/* Typographic utilities matching Parsley vibe */
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Ajustes finos para Mobile */
+@media (max-width: 768px) {
+    h1 {
+        line-height: 1.1;
+    }
+}
