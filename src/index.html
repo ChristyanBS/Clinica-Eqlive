@@ -57,7 +57,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigateTo('home')">
-                    <span class="font-serif text-3xl font-semibold tracking-wide text-eqlive-dark group-hover:opacity-80 transition">Eqlive</span>
+                    <img src="assets/images/banner_logo.png" alt="Eqlive" class="h-12 group-hover:opacity-80 transition">
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -617,30 +617,188 @@
 
         <!-- ================= PAGE: BLOG ================= -->
         <div id="blog" class="page-section hidden">
-            <section class="py-24 bg-white">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center mb-20">
-                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Conteúdo</span>
-                        <h2 class="font-serif text-5xl text-eqlive-dark mb-6">Blog Vivendo em Equilíbrio</h2>
-                        <p class="text-gray-600 text-lg">Informação de qualidade para você tomar melhores decisões sobre sua saúde.</p>
+                <!-- Hero Section -->
+                <section class="relative bg-eqlive-dark text-white py-24 overflow-hidden">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Background" class="w-full h-full object-cover opacity-20">
                     </div>
-                    <div class="grid md:grid-cols-3 gap-10">
-                        <!-- Post 1 -->
-                        <article class="bg-white flex flex-col group cursor-pointer hover:shadow-xl transition rounded-2xl overflow-hidden border border-gray-100">
-                            <div class="h-64 overflow-hidden relative">
-                                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80" alt="Alimentação" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase text-eqlive-green">Nutrição</div>
-                            </div>
-                            <div class="p-8 flex-grow flex flex-col">
-                                <h3 class="font-serif text-2xl font-medium mb-4 text-eqlive-dark group-hover:text-eqlive-green transition">Como a inflamação afeta seu corpo?</h3>
-                                <p class="text-gray-500 text-sm mb-6 line-clamp-3 leading-relaxed">Entenda os sinais de inflamação crônica e como alimentos anti-inflamatórios podem mudar sua disposição e saúde a longo prazo.</p>
-                                <span class="text-eqlive-green text-sm font-bold mt-auto flex items-center gap-2">Ler Artigo <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                    <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+                        <h1 class="font-serif text-5xl md:text-6xl mb-6">Vivendo em Equilíbrio</h1>
+                        <h2 class="text-2xl md:text-3xl mb-6 text-eqlive-peach">Descubra o seu novo espaço de Saúde, Conhecimento e Transformação</h2>
+                        <p class="text-lg text-gray-300 max-w-2xl mx-auto">Você já imaginou ter um espaço confiável para aprender sobre saúde de verdade, cuidar melhor de si e encontrar inspiração para uma vida com mais equilíbrio? <strong>É exatamente isso que você acaba de encontrar.</strong></p>
+                    </div>
+                </section>
+
+                <!-- Featured Post -->
+                <section class="py-20 bg-eqlive-base">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <article onclick="openPostModal(1)" class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition cursor-pointer">
+                            <div class="grid md:grid-cols-2">
+                                <div class="overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fome Emocional" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-12 flex flex-col justify-center">
+                                    <span class="text-eqlive-green font-bold uppercase text-xs tracking-wider mb-4">Destaques</span>
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">História de Transformação: "Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 6 de junho de 2025 • 3 min read</p>
+                                </div>
                             </div>
                         </article>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+
+                <!-- Posts Recentes -->
+                <section class="py-24 bg-white">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <h2 class="font-serif text-4xl text-eqlive-dark mb-20 text-center">POSTS RECENTES</h2>
+                        
+                        <div class="grid md:grid-cols-3 gap-10 mb-16">
+                            <!-- Post 1 -->
+                            <article onclick="openPostModal(1)" class="bg-eqlive-base rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                </div>
+                                <div class="p-8">
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">História de Transformação: "Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 6 de junho de 2025 • 3 min read</p>
+                                </div>
+                            </article>
+
+                            <!-- Post 2 -->
+                            <article onclick="openPostModal(2)" class="bg-eqlive-base rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                </div>
+                                <div class="p-8">
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">Como identificar sinais de desequilíbrio hormonal?</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 29 de maio de 2025 • 2 min read</p>
+                                </div>
+                            </article>
+
+                            <!-- Post 3 -->
+                            <article onclick="openPostModal(3)" class="bg-eqlive-base rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                </div>
+                                <div class="p-8">
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">Carboidrato à Noite Engorda? Entenda de uma Vez por Todas!</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 21 de maio de 2025 • 3 min read</p>
+                                </div>
+                            </article>
+
+                            <!-- Post 4 -->
+                            <article onclick="openPostModal(4)" class="bg-eqlive-base rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                </div>
+                                <div class="p-8">
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">Check-up Clínico Anual: Por que Você Deveria Fazer Todo Ano</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 12 de maio de 2025 • 3 min read</p>
+                                </div>
+                            </article>
+
+                            <!-- Post 5 -->
+                            <article onclick="openPostModal(5)" class="bg-eqlive-base rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d5cb0f95f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                </div>
+                                <div class="p-8">
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">Dica da Semana: Prevenção e Cuidado com a Saúde Mental</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 6 de maio de 2025 • 3 min read</p>
+                                </div>
+                            </article>
+
+                            <!-- Post 6 -->
+                            <article onclick="openPostModal(6)" class="bg-eqlive-base rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                </div>
+                                <div class="p-8">
+                                    <h3 class="font-sans font-bold text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">Vivendo em Equilíbrio: Descubra o Seu Novo Espaço de Saúde</h3>
+                                    <p class="text-gray-700 text-base mb-4 font-medium">Published On: 29 de abril de 2025 • 3 min read</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- O que você vai encontrar -->
+                <section class="py-24 bg-eqlive-base">
+                    <div class="max-w-7xl mx-auto px-4">
+                        <h2 class="font-serif text-4xl text-center text-eqlive-dark mb-16">O que você vai encontrar no Vivendo em Equilíbrio?</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-16 items-center">
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 bg-eqlive-green text-white rounded-full p-3">
+                                        <i data-lucide="check" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Endocrinologia e os impactos dos hormônios no seu bem-estar</h3>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 bg-eqlive-green text-white rounded-full p-3">
+                                        <i data-lucide="check" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Nutrição prática e desmistificação de dietas da moda</h3>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 bg-eqlive-green text-white rounded-full p-3">
+                                        <i data-lucide="check" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Psicologia e saúde mental</h3>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 bg-eqlive-green text-white rounded-full p-3">
+                                        <i data-lucide="check" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Avaliação neuropsicológica</h3>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 bg-eqlive-green text-white rounded-full p-3">
+                                        <i data-lucide="check" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Check-ups e autocuidado</h3>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="flex-shrink-0 bg-eqlive-green text-white rounded-full p-3">
+                                        <i data-lucide="check" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Histórias reais de transformação</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Saúde e Bem-estar" class="rounded-2xl shadow-xl w-full">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <section class="relative bg-gradient-to-r from-eqlive-dark to-eqlive-dark/90 text-white py-24 overflow-hidden">
+                    <div class="absolute inset-0 opacity-10">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover">
+                    </div>
+                    <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+                        <h2 class="font-serif text-4xl md:text-5xl mb-6">Vivendo em Equilíbrio é mais do que um blog.</h2>
+                        <p class="text-xl text-gray-300 mb-10">É um espaço para quem acredita que saúde verdadeira se constrói todos os dias, com pequenos passos, boas escolhas e muito acolhimento.</p>
+                        <a href="https://wa.me/5521967815767" class="inline-block bg-eqlive-green text-white px-10 py-4 rounded-full font-bold hover:bg-eqlive-accent transition shadow-lg">
+                            Fale Conosco
+                        </a>
+                    </div>
+                </section>
+            </div>
 
         <!-- ================= PAGE: LOCATION ================= -->
         <div id="location" class="page-section hidden">
@@ -659,7 +817,7 @@
                             <div class="bg-green-50 p-4 rounded-full text-eqlive-green"><i data-lucide="clock" class="w-6 h-6"></i></div>
                             <div>
                                 <h4 class="font-bold text-gray-900 text-lg mb-2">Horário</h4>
-                                <p class="text-gray-600">Segunda a Sexta: 08h às 18h<br>Sábado: 08h às 12h</p>
+                                <p class="text-gray-600">Segunda a Sexta: 9h às 19h<br>Sábado: 9h às 12h</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-6">
@@ -689,7 +847,7 @@
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
-                    <span class="font-serif text-3xl font-bold text-white block mb-6">Eqlive.</span>
+                    <img src="assets/images/banner_logo.png" alt="Eqlive Logo" class="h-16 mb-6 rounded">
                     <p class="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
                         Medicina integrativa focada em longevidade e bem-estar. Cuidamos de você por inteiro, tratando a causa raiz e não apenas os sintomas.
                     </p>
@@ -739,11 +897,451 @@
         </a>
     </div>
 
+    <!-- Modal do Blog Post -->
+    <div id="postModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto shadow-2xl">
+            <!-- Header Modal -->
+            <div class="sticky top-0 bg-eqlive-dark text-white p-6 flex justify-between items-center">
+                <h2 id="postTitle" class="font-serif text-2xl md:text-3xl"></h2>
+                <button onclick="closePostModal()" class="text-white hover:text-gray-300 transition">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Conteúdo Modal -->
+            <div class="p-8 md:p-12">
+                <div id="postImage" class="mb-8 rounded-xl overflow-hidden">
+                    <img id="modalImg" src="" alt="" class="w-full h-auto object-cover">
+                </div>
+                
+                <div id="postContent" class="prose prose-lg max-w-none">
+                    <!-- Conteúdo será injetado aqui -->
+                </div>
+                
+                <!-- CTA -->
+                <div class="mt-12 bg-eqlive-base p-8 rounded-xl text-center">
+                    <h3 class="font-bold text-xl text-eqlive-dark mb-4">Quer mais informações personalizadas?</h3>
+                    <a href="https://wa.me/5521967815767" class="inline-block bg-eqlive-green text-white px-8 py-3 rounded-full font-bold hover:bg-eqlive-accent transition">
+                        Fale com Nossa Equipe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript Utilities -->
     <script src="js/utils.js"></script>
     <!-- JavaScript Navigation (SPA) -->
     <script src="js/navigation.js"></script>
     <!-- JavaScript Quiz -->
     <script src="js/quiz.js"></script>
+    
+    <!-- Blog Modal Script -->
+    <script>
+        const blogPosts = {
+            1: {
+                title: 'História de Transformação: "Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"',
+                image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Quando comer deixa de ser prazer e vira um alívio momentâneo para a culpa</h3>
+                            <p class="text-gray-700 leading-relaxed">"Eu escondia embalagens de comida. Comia rápido, sozinha, com vergonha… e depois vinha o peso da culpa. Por muito tempo achei que era só falta de força de vontade. Só quando procurei ajuda entendi que era compulsão alimentar."</p>
+                            <p class="text-gray-700 leading-relaxed mt-4">Essa é a história de muitas pessoas — talvez até a sua. A compulsão alimentar não é exagero. É um transtorno real, que pode ser tratado com apoio profissional e acolhimento.</p>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que é compulsão alimentar?</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3"><span class="text-eqlive-green font-bold">✓</span> <span>Come grandes quantidades de comida em pouco tempo</span></li>
+                                <li class="flex gap-3"><span class="text-eqlive-green font-bold">✓</span> <span>Perde o controle durante o episódio</span></li>
+                                <li class="flex gap-3"><span class="text-eqlive-green font-bold">✓</span> <span>Sente vergonha, arrependimento ou culpa logo depois</span></li>
+                                <li class="flex gap-3"><span class="text-eqlive-green font-bold">✓</span> <span>Muitas vezes esconde o comportamento de familiares e amigos</span></li>
+                            </ul>
+                            <p class="text-sm text-gray-600 mt-4">Importante: não envolve vômitos nem uso de laxantes (como na bulimia), mas impacta a autoestima, o peso, o emocional e a saúde física.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Como identificar se você sofre com isso?</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Comer mesmo sem fome ou após estar satisfeito</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Episódios de "ataque à geladeira" noturno</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Comer escondido</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Sensação de perda de controle ao comer</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Tristeza ou culpa intensa após os episódios</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Dificuldade de emagrecer mesmo com dieta e exercício</li>
+                            </ul>
+                            <p class="text-gray-700 mt-4">Se você se identificou com 3 ou mais desses sinais, vale a pena procurar orientação.</p>
+                        </div>
+
+                        <div class="bg-blue-50 border-l-4 border-eqlive-green p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que a ciência diz?</h4>
+                            <p class="text-gray-700 mb-3">Segundo estudos, até 5% da população sofre com compulsão alimentar, sendo ainda mais comum entre pessoas com obesidade. O transtorno pode estar ligado a fatores genéticos, emocionais, hormonais e comportamentais.</p>
+                            <p class="text-gray-700 font-bold mb-3">O tratamento mais eficaz envolve acompanhamento multiprofissional:</p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Psicoterapia (especialmente terapia cognitivo-comportamental)</li>
+                                <li>• Nutrição consciente e sem restrições extremas</li>
+                                <li>• Avaliação hormonal</li>
+                                <li>• Estratégias de autocuidado e manejo de estresse</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Caso de Sucesso: Paula, 36 anos</h4>
+                            <p class="text-gray-700 mb-3">Paula chegou à Eqlive sentindo-se exausta, envergonhada e sem esperança. Já havia feito várias dietas, perdido peso e engordado tudo novamente — sem entender por quê.</p>
+                            <p class="text-gray-700 mb-3">Na primeira consulta, ela desabou em lágrimas. Pela primeira vez, alguém a escutava sem julgamento.</p>
+                            <p class="text-gray-700 mb-3">Iniciamos um acompanhamento conjunto entre psicóloga, nutricionista e endocrinologista. Paula aprendeu a reconhecer seus gatilhos emocionais, regular seus horários de alimentação e reconectar-se com o seu corpo.</p>
+                            <p class="text-gray-700 font-bold text-eqlive-green">Hoje, 4 meses depois, ela não sente mais culpa ao comer. Sente liberdade. Sente consciência. Sente leveza.</p>
+                        </div>
+
+                        <div class="border-t-2 border-gray-200 pt-6">
+                            <p class="text-gray-700 italic text-center">Se você vive essa realidade, saiba: você não está sozinho(a). Buscar ajuda é um ato de coragem. É o primeiro passo para quebrar o ciclo e conquistar uma nova relação com a comida — e com você mesmo.</p>
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                title: 'Como identificar sinais de desequilíbrio hormonal?',
+                image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Você sente que algo está "fora do eixo"?</h3>
+                            <p class="text-gray-700 leading-relaxed">Cansaço extremo, ganho de peso sem explicação, alterações de humor frequentes? Esses sintomas podem parecer comuns no dia a dia, mas em alguns casos são sinais de que algo não vai bem com seus hormônios.</p>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que são hormônios e por que eles são tão importantes?</h4>
+                            <p class="text-gray-700 mb-4">Os hormônios são substâncias químicas produzidas pelas glândulas do nosso corpo que regulam funções vitais como:</p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Metabolismo</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Sono</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Apetite</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Humor</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Fertilidade</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Energia e disposição</li>
+                            </ul>
+                            <p class="text-gray-700 mt-4">Quando há um desequilíbrio, o corpo começa a "dar sinais" — e ignorá-los pode agravar os sintomas.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Principais sinais de desequilíbrio hormonal</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Cansaço persistente, mesmo após dormir bem</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Alterações no peso sem mudança alimentar</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Queda de cabelo</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Acne ou pele muito oleosa</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Alterações de humor</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Dificuldade de concentração ou memória</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Menstruação irregular ou ausência de ciclo</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Diminuição da libido</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Insônia ou sono não reparador</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-red-500 flex-shrink-0"></i> Inchaço e retenção de líquidos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Quando devo procurar um endocrinologista?</h4>
+                            <p class="text-gray-700 mb-4">Se você apresenta <strong>dois ou mais desses sintomas</strong> de forma contínua, é fundamental buscar avaliação com um especialista.</p>
+                            <p class="text-gray-700 mb-4">O endocrinologista é o médico responsável por investigar o funcionamento das glândulas e avaliar os níveis hormonais através de exames específicos.</p>
+                            <p class="text-gray-700">Quanto antes for feito o diagnóstico, mais rápido e eficaz será o tratamento — que pode incluir ajustes alimentares, mudanças no estilo de vida e, se necessário, reposição hormonal.</p>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Como a Eqlive pode te ajudar?</h4>
+                            <p class="text-gray-700">Na Clínica Eqlive, nossa abordagem é individualizada. Avaliamos o seu histórico completo para entender como o seu corpo está funcionando de verdade. Nosso objetivo é tratar a causa, e não apenas os sintomas.</p>
+                            <p class="text-gray-700 mt-3 font-bold text-eqlive-green">Equilíbrio hormonal é sinônimo de bem-estar, disposição e autoestima. Se você sente que algo está "fora do eixo", não ignore os sinais.</p>
+                        </div>
+                    </div>
+                `
+            },
+            3: {
+                title: 'Carboidrato à Noite Engorda? Entenda de uma Vez por Todas!',
+                image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">O mito que mais engana pessoas sobre nutrição</h3>
+                            <p class="text-gray-700 leading-relaxed">Se você já ouviu que "não pode comer carboidrato à noite porque vai engordar", saiba que essa é uma das frases mais repetidas — e também mais mal compreendidas — no mundo da nutrição.</p>
+                            <p class="text-gray-700 leading-relaxed mt-4">Será mesmo que o horário em que você come é mais importante do que o que e quanto você come? Vamos esclarecer esse mito com base nas evidências científicas.</p>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que são carboidratos?</h4>
+                            <p class="text-gray-700 mb-4">Carboidratos são a principal fonte de energia do corpo. Eles estão presentes em alimentos como:</p>
+                            <ul class="space-y-2 text-gray-700 mb-4">
+                                <li>• Arroz, massas, batatas</li>
+                                <li>• Pães, cereais, frutas</li>
+                                <li>• Leguminosas (feijão, lentilha)</li>
+                            </ul>
+                            <p class="text-gray-700">Quando ingeridos, os carboidratos são transformados em glicose, que alimenta nossos músculos, cérebro e células. <strong>Carboidrato é essencial para o funcionamento saudável do corpo.</strong></p>
+                        </div>
+
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Comer carboidrato à noite faz engordar?</h4>
+                            <p class="text-xl font-bold text-eqlive-green mb-4">Resposta direta: NÃO, não necessariamente!</p>
+                            <p class="text-gray-700 mb-4">O que realmente provoca ganho de peso é o <strong>excesso calórico</strong> — ou seja, consumir mais calorias do que o corpo gasta — independentemente do horário.</p>
+                            <p class="text-gray-700">Estudos científicos mostram que <strong>não há evidência sólida de que comer carboidratos à noite, por si só, cause acúmulo de gordura.</strong></p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que realmente importa?</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">1</span> <span class="text-gray-700"><strong>Qualidade do que você come:</strong> alimentos naturais vs ultraprocessados</span></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">2</span> <span class="text-gray-700"><strong>Quantidade total de calorias:</strong> ingeridas no dia</span></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">3</span> <span class="text-gray-700"><strong>Nível de atividade física</strong></span></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">4</span> <span class="text-gray-700"><strong>Seu metabolismo individual</strong></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Então posso comer arroz, pão ou macarrão no jantar?</h4>
+                            <p class="text-gray-700 mb-4"><strong>Sim, pode!</strong> Mas com atenção:</p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span><strong>Prefira carboidratos integrais:</strong> arroz integral, batata-doce, quinoa — têm mais fibras</span></li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span><strong>Evite exageros:</strong> porções moderadas garantem energia sem sobrecarga</span></li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span><strong>Combine com proteína e gorduras boas:</strong> frango, ovos, peixe, azeite, abacate</span></li>
+                            </ul>
+                            <p class="text-gray-700 mt-4">Essa estratégia evita picos de glicose, favorece o controle da fome e mantém o metabolismo saudável.</p>
+                        </div>
+
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Quando é importante ajustar o consumo de carboidratos à noite?</h4>
+                            <p class="text-gray-700 mb-3">Em algumas situações específicas, pode haver ajustes, orientados por profissionais:</p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><strong>• Diabetes ou resistência à insulina:</strong> podem precisar modular o tipo e a quantidade de carboidrato noturno</li>
+                                <li><strong>• Estratégias para emagrecimento:</strong> podem usar leve redução calórica no jantar</li>
+                                <li><strong>• Exercícios físicos à noite:</strong> podem se beneficiar de ingestão adequada de carboidratos para recuperação muscular</li>
+                            </ul>
+                            <p class="text-gray-700 mt-4"><strong>Cada caso é único!</strong> A orientação de um nutricionista é fundamental para um plano alimentar personalizado e eficaz.</p>
+                        </div>
+
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <h4 class="font-bold text-lg mb-4">Resumindo:</h4>
+                            <ul class="space-y-2 text-left inline-block">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-peach flex-shrink-0"></i> Comer carboidrato à noite, de forma equilibrada, <strong>não engorda</strong></li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-peach flex-shrink-0"></i> O ganho de peso é causado pelo <strong>excesso calórico diário</strong>, não pelo horário</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-peach flex-shrink-0"></i> Escolha carboidratos de qualidade e mantenha equilíbrio no prato</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            4: {
+                title: 'Check-up Clínico Anual: Por que Você Deveria Fazer Todo Ano',
+                image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Prevenção é o melhor remédio</h3>
+                            <p class="text-gray-700 leading-relaxed">Um check-up clínico anual não é apenas para pessoas "doentes". É uma ferramenta essencial de prevenção e autocuidado para qualquer pessoa que deseja viver com qualidade de vida.</p>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Por que fazer um check-up anual?</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 bg-green-50 p-4 rounded"><i data-lucide="shield" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Detecta problemas precocemente:</strong> muitas doenças não apresentam sintomas no início</span></li>
+                                <li class="flex gap-3 bg-green-50 p-4 rounded"><i data-lucide="activity" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Monitora sua saúde:</strong> acompanha pressão, peso, triglicerídeos, glicose</span></li>
+                                <li class="flex gap-3 bg-green-50 p-4 rounded"><i data-lucide="eye" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Avalia hábitos:</strong> sono, estresse, alimentação, exercício</span></li>
+                                <li class="flex gap-3 bg-green-50 p-4 rounded"><i data-lucide="heart" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Previne futuras complicações:</strong> custa muito menos tratar precocemente</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-50 border-l-4 border-eqlive-green p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que está incluído em um check-up completo?</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Avaliação clínica completa (pressão, peso, altura)</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Exames de sangue (hemograma, colesterol, glicose, função hepática/renal)</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Ultrassom abdominal</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Avaliação dos hormônios (tireoide, cortisol, estrogênio)</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> Avaliação psicológica do estresse</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Quem deveria fazer um check-up anual?</h4>
+                            <p class="text-gray-700 mb-4"><strong>Todos! Principalmente:</strong></p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>✓ Pessoas acima de 40 anos</li>
+                                <li>✓ Quem tem histórico familiar de doenças</li>
+                                <li>✓ Pessoas com estilo de vida sedentário</li>
+                                <li>✓ Fumantes e ex-fumantes</li>
+                                <li>✓ Quem quer se manter saudável e ativo</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Na Eqlive fazemos diferente</h4>
+                            <p class="text-gray-700 mb-3">Nosso check-up é <strong>multiprofissional</strong>, envolvendo médicos, nutricionista, psicólogo e coach de bem-estar.</p>
+                            <p class="text-gray-700">Não apenas coletamos dados — nós interpretamos a sua saúde como um todo e criamos um plano de ação personalizado para você viver em equilíbrio.</p>
+                        </div>
+
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <h4 class="font-bold text-lg mb-4">Investir em check-ups anuais é investir em você</h4>
+                            <p class="text-gray-100">Longevidade começa com atitudes pequenas, mas consistentes. Um check-up por ano pode ser a diferença entre estar vivo e estar vivendo de verdade.</p>
+                        </div>
+                    </div>
+                `
+            },
+            5: {
+                title: 'Dica da Semana: Prevenção e Cuidado com a Saúde Mental',
+                image: 'https://images.unsplash.com/photo-1573496359142-b8d5cb0f95f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">5 Hábitos Simples para Fortalecer sua Saúde Mental</h3>
+                            <p class="text-gray-700 leading-relaxed">Saúde mental não é apenas "não estar triste". É estar em equilíbrio emocional, com resiliência para lidar com os desafios da vida. Aqui estão 5 hábitos que fazem real diferença:</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 border-l-4 border-eqlive-green p-6 rounded">
+                                <h4 class="font-bold text-lg text-eqlive-dark mb-3 flex items-center gap-2"><i data-lucide="moon" class="w-6 h-6 text-eqlive-green"></i> Hábito 1: Durma bem</h4>
+                                <p class="text-gray-700">Durante o sono, seu cérebro reconstrói-se, seus hormônios se regulam e suas emoções se estabilizam. Defina uma rotina: dormir e acordar nos mesmos horários, quarto escuro, sem celular 1 hora antes de dormir.</p>
+                                <p class="text-sm text-gray-600 mt-3">Meta: 7-9 horas de sono de qualidade por noite.</p>
+                            </div>
+
+                            <div class="bg-green-50 border-l-4 border-eqlive-green p-6 rounded">
+                                <h4 class="font-bold text-lg text-eqlive-dark mb-3 flex items-center gap-2"><i data-lucide="activity" class="w-6 h-6 text-eqlive-green"></i> Hábito 2: Mexa-se</h4>
+                                <p class="text-gray-700">Exercício físico libera endorfinas, melhora a circulação cerebral e reduz ansiedade. Não precisa ser corrida de maratona — uma caminhada de 30 minutos 3x na semana já faz diferença.</p>
+                                <p class="text-sm text-gray-600 mt-3">Meta: Movimentar o corpo de forma que você goste.</p>
+                            </div>
+
+                            <div class="bg-yellow-50 border-l-4 border-eqlive-green p-6 rounded">
+                                <h4 class="font-bold text-lg text-eqlive-dark mb-3 flex items-center gap-2"><i data-lucide="brain" class="w-6 h-6 text-eqlive-green"></i> Hábito 3: Medite ou Respire</h4>
+                                <p class="text-gray-700">Apenas 10 minutos de meditação por dia reduz estresse, melhora foco e traz calma. Se meditação formal não é seu estilo, faça respiração profunda: inspire 4x, segure 4x, expire 4x.</p>
+                                <p class="text-sm text-gray-600 mt-3">Meta: Pratica a "pausa consciente" todos os dias.</p>
+                            </div>
+
+                            <div class="bg-pink-50 border-l-4 border-eqlive-green p-6 rounded">
+                                <h4 class="font-bold text-lg text-eqlive-dark mb-3 flex items-center gap-2"><i data-lucide="heart" class="w-6 h-6 text-eqlive-green"></i> Hábito 4: Cultive Conexões</h4>
+                                <p class="text-gray-700">Solidão mata tanto quanto fumar. Passe tempo com pessoas que você ama, converse, ria. Se sente isolado, busque um grupo, hobby ou comunidade que combine com você.</p>
+                                <p class="text-sm text-gray-600 mt-3">Meta: Tenha uma conexão significativa pelo menos 2x na semana.</p>
+                            </div>
+
+                            <div class="bg-purple-50 border-l-4 border-eqlive-green p-6 rounded">
+                                <h4 class="font-bold text-lg text-eqlive-dark mb-3 flex items-center gap-2"><i data-lucide="camera" class="w-6 h-6 text-eqlive-green"></i> Hábito 5: Pratique Gratidão</h4>
+                                <p class="text-gray-700">Nosso cérebro é treinado para focar em problemas. Inverta isso: antes de dormir, escreva 3 coisas pelas quais você é grato. Muda sua perspectiva e traz mais alegria.</p>
+                                <p class="text-sm text-gray-600 mt-3">Meta: Registre sua gratidão todos os dias.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">E se eu ainda sentir necessidade de ajuda?</h4>
+                            <p class="text-gray-700 mb-3">Ótimo! Buscar ajuda é sinal de força, não fraqueza. Terapia com um psicólogo qualificado pode ser transformadora.</p>
+                            <p class="text-gray-700">Na Eqlive, nós temos psicólogos experientes em ansiedade, depressão, relacionamentos, estresse. Fale conosco!</p>
+                        </div>
+
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg">
+                            <p class="text-center italic">"Cuidar da sua mente é tão importante quanto cuidar do seu corpo. Na verdade, elas trabalham juntas."</p>
+                        </div>
+                    </div>
+                `
+            },
+            6: {
+                title: 'Vivendo em Equilíbrio: Descubra o Seu Novo Espaço de Saúde',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Bem-vindo ao Vivendo em Equilíbrio</h3>
+                            <p class="text-gray-700 leading-relaxed">Você já imaginou ter um espaço confiável para aprender sobre saúde de verdade, cuidar melhor de si e encontrar inspiração para uma vida com mais equilíbrio?</p>
+                            <p class="text-gray-700 leading-relaxed mt-4"><strong>É exatamente isso que você acaba de encontrar.</strong></p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-eqlive-green/10 to-eqlive-peach/10 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que você vai encontrar aqui?</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Endocrinologia:</strong> Compreenda os impactos dos hormônios no seu bem-estar</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Nutrição Prática:</strong> Desmistificação de dietas da moda e orientação real</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Saúde Mental:</strong> Psicologia e cuidado emocional</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Avaliação Neuropsicológica:</strong> Entender seu perfil completo</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Check-ups e Autocuidado:</strong> Prevenção como ferramenta principal</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Histórias Reais:</strong> Histórias de transformação que inspiram</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-eqlive-base p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Por que você deveria seguir este blog?</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="bookmark" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span>Conteúdo baseado em evidências científicas</span></li>
+                                <li class="flex gap-2"><i data-lucide="bookmark" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span>Escrito por profissionais da saúde qualificados</span></li>
+                                <li class="flex gap-2"><i data-lucide="bookmark" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span>Linguagem acessível (sem jargão desnecessário)</span></li>
+                                <li class="flex gap-2"><i data-lucide="bookmark" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span>Atualizado com as melhores práticas de saúde</span></li>
+                                <li class="flex gap-2"><i data-lucide="bookmark" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span>Sempre com um toque de humanidade e acolhimento</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="border-2 border-eqlive-green rounded-lg p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">A nossa promessa:</h4>
+                            <p class="text-gray-700 mb-3">Aqui, você não é apenas um paciente. Você é uma pessoa que merece ser ouvida, entendida e cuidada.</p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><strong>✓ Tratamos a causa,</strong> não apenas os sintomas</li>
+                                <li><strong>✓ Acolhemos a pessoa,</strong> não a culpa</li>
+                                <li><strong>✓ Acreditamos em prevenção,</strong> não em remédio rápido</li>
+                                <li><strong>✓ Criamos juntos</strong> o caminho para sua transformação</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-eqlive-dark text-white p-8 rounded-lg text-center">
+                            <h3 class="font-serif text-2xl mb-4">Vivendo em Equilíbrio é mais do que um blog.</h3>
+                            <p class="text-gray-100 mb-6">É um espaço para quem acredita que saúde verdadeira se constrói todos os dias, com pequenos passos, boas escolhas e muito acolhimento.</p>
+                            <p class="text-eqlive-peach font-bold">Bem-vindo. Você merecia isso.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openPostModal(postId) {
+            const post = blogPosts[postId];
+            if (!post) return;
+            
+            document.getElementById('postTitle').textContent = post.title;
+            document.getElementById('modalImg').src = post.image;
+            document.getElementById('postContent').innerHTML = post.content;
+            document.getElementById('postModal').classList.remove('hidden');
+            
+            // Travar rolagem do body
+            document.body.style.overflow = 'hidden';
+            
+            // Re-render lucide icons in modal
+            lucide.createIcons();
+        }
+
+        function closePostModal() {
+            document.getElementById('postModal').classList.add('hidden');
+            
+            // Destravar rolagem do body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar modal ao clicar fora do conteúdo
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('postModal');
+            if (event.target === modal) {
+                closePostModal();
+            }
+        });
+    </script>
 </body>
-</html>
+</html>`
