@@ -43,13 +43,21 @@
                 }
             }
         }
+
+        // Inicializa os ícones lucide após o carregamento do DOM (compatível com diferentes versões)
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                try { if (lucide.replace) lucide.replace(); } catch (e) {}
+                try { if (lucide.createIcons) lucide.createIcons(); } catch (e) {}
+            }
+        });
     </script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 
 </head>
-<body class="antialiased flex flex-col min-h-screen bg-eqlive-base text-eqlive-dark font-sans">
+<body class="antialiased flex flex-col min-h-screen bg-eqlive-base text-eqlive-dark font-sans" style="background: linear-gradient(to bottom, #F9F8F6, #EDE8E1);">
 
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 bg-[#F9F8F6]/95 backdrop-blur-md border-b border-eqlive-dark/5 transition-all duration-300">
@@ -67,6 +75,7 @@
                     <button onclick="navigateTo('essence')" class="nav-link text-sm font-medium text-eqlive-accent hover:text-[#b88655] transition font-serif italic text-base">Essence</button>
                     <button onclick="navigateTo('quiz')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition flex items-center gap-1"><i data-lucide="activity" class="w-4 h-4"></i> Quiz de Saúde</button>
                     <button onclick="navigateTo('blog')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition">Blog</button>
+                    <button onclick="navigateTo('faq')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition">FAQ</button>
                     <button onclick="navigateTo('location')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition">Localização</button>
                     
                     <a href="https://wa.me/5521967815767" target="_blank" class="bg-eqlive-dark text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-eqlive-green transition shadow-sm hover:shadow-md flex items-center gap-2">
@@ -92,6 +101,7 @@
                 <button onclick="mobileNav('essence')" class="text-left text-2xl font-serif italic text-eqlive-accent border-b border-gray-200 pb-4">Essence</button>
                 <button onclick="mobileNav('quiz')" class="text-left text-2xl font-serif text-eqlive-dark flex items-center gap-2 border-b border-gray-200 pb-4"><i data-lucide="activity"></i> Quiz de Saúde</button>
                 <button onclick="mobileNav('blog')" class="text-left text-2xl font-serif text-eqlive-dark border-b border-gray-200 pb-4">Blog</button>
+                <button onclick="mobileNav('faq')" class="text-left text-2xl font-serif text-eqlive-dark border-b border-gray-200 pb-4">FAQ</button>
                 <button onclick="mobileNav('location')" class="text-left text-2xl font-serif text-eqlive-dark border-b border-gray-200 pb-4">Localização</button>
                 <a href="https://wa.me/5521967815767" class="mt-4 block w-full bg-eqlive-accent text-white text-center py-4 rounded-full text-lg font-medium shadow-lg">Falar com Consultor</a>
             </div>
@@ -528,7 +538,7 @@
         <!-- ================= PAGE: ESSENCE ================= -->
         <div id="essence" class="page-section hidden">
             <section class="relative bg-eqlive-dark text-white py-32 overflow-hidden">
-                <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0">
                     <!-- Client Image Background -->
                     <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Spa like background" class="w-full h-full object-cover opacity-40">
                     <div class="absolute inset-0 bg-gradient-to-t from-eqlive-dark via-eqlive-dark/60 to-transparent z-10"></div>
@@ -840,6 +850,385 @@
             </section>
         </div>
 
+        <!-- ================= PAGE: FAQ ================= -->
+        <div id="faq" class="page-section hidden">
+            <section class="py-20 md:py-32 bg-gradient-to-br from-eqlive-base via-white to-white">
+                <div class="max-w-5xl mx-auto px-4 md:px-8">
+                    <!-- HEADER -->
+                    <div class="text-center mb-20">
+                        <div class="inline-block mb-4 px-4 py-2 bg-eqlive-green/10 rounded-full">
+                            <span class="text-eqlive-green font-semibold text-sm">Dúvidas Frequentes</span>
+                        </div>
+                        <h1 class="font-serif text-5xl md:text-6xl font-bold text-eqlive-dark mb-6">FAQ</h1>
+                        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Encontre respostas para as principais dúvidas sobre os serviços, agendamentos e funcionamento da Clínica Eqlive.</p>
+                    </div>
+
+                    <!-- TABS NAVIGATION -->
+                    <div class="faq-tabs flex flex-wrap gap-3 mb-12 border-b border-gray-200 pb-6">
+                        <button onclick="switchFaqTab('contact')" class="faq-tab-btn px-4 py-2 font-semibold text-gray-600 border-b-2 border-transparent hover:text-eqlive-green hover:border-eqlive-green transition-colors active" data-tab="contact">
+                            <i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>Contato
+                        </button>
+                        <button onclick="switchFaqTab('booking')" class="faq-tab-btn px-4 py-2 font-semibold text-gray-600 border-b-2 border-transparent hover:text-eqlive-green hover:border-eqlive-green transition-colors" data-tab="booking">
+                            <i data-lucide="calendar" class="w-4 h-4 inline mr-2"></i>Agendamentos
+                        </button>
+                        <button onclick="switchFaqTab('payment')" class="faq-tab-btn px-4 py-2 font-semibold text-gray-600 border-b-2 border-transparent hover:text-eqlive-green hover:border-eqlive-green transition-colors" data-tab="payment">
+                            <i data-lucide="credit-card" class="w-4 h-4 inline mr-2"></i>Pagamento
+                        </button>
+                        <button onclick="switchFaqTab('services')" class="faq-tab-btn px-4 py-2 font-semibold text-gray-600 border-b-2 border-transparent hover:text-eqlive-green hover:border-eqlive-green transition-colors" data-tab="services">
+                            <i data-lucide="stethoscope" class="w-4 h-4 inline mr-2"></i>Serviços
+                        </button>
+                    </div>
+
+                    <!-- TAB CONTENT -->
+                    <!-- CONTATO -->
+                    <div id="tab-contact" class="faq-tab-content active">
+                        <div class="grid md:grid-cols-1 gap-4 mb-8">
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Onde fica a Clínica Eqlive?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 leading-relaxed">
+                                        <p class="mb-3">A Clínica Eqlive fica localizada em Itaboraí-RJ</p>
+                                        <div class="flex gap-2 mb-2">
+                                            <i data-lucide="map-pin" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>
+                                            <span><strong>Endereço:</strong> R. Pres. Costa e Silva, 117 – sala 317, Centro, Itaboraí – RJ, CEP: 24800-055</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Qual é o contato da clínica?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-3">
+                                        <div class="flex gap-3 items-center">
+                                            <i data-lucide="message-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>
+                                            <span><strong>WhatsApp:</strong> <a href="https://wa.me/5521967815767" class="text-eqlive-green font-bold hover:underline">(21) 96781-5767</a></span>
+                                        </div>
+                                        <div class="flex gap-3 items-center">
+                                            <i data-lucide="mail" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>
+                                            <span><strong>Email:</strong> clinicaeqlive@gmail.com</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Qual o horário de funcionamento?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-2">
+                                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                            <span class="font-semibold">Segunda a Sexta</span>
+                                            <span class="text-eqlive-green font-bold">9h às 19h</span>
+                                        </div>
+                                        <div class="flex justify-between items-center py-2">
+                                            <span class="font-semibold">Sábado</span>
+                                            <span class="text-eqlive-green font-bold">9h às 12h</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AGENDAMENTOS -->
+                    <div id="tab-booking" class="faq-tab-content hidden">
+                        <div class="grid md:grid-cols-1 gap-4 mb-8">
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Como agendar uma consulta?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700">
+                                        <p class="mb-4">Você pode agendar sua consulta facilmente através do WhatsApp:</p>
+                                        <a href="https://wa.me/5521967815767" class="inline-flex items-center gap-2 bg-eqlive-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-eqlive-dark transition-colors">
+                                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                            Abrir WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Posso remarcar ou cancelar?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-3">
+                                        <p>Sim! Você pode remarcar ou cancelar sua consulta através do WhatsApp.</p>
+                                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                                            <p class="font-semibold text-yellow-800">⚠️ Importante:</p>
+                                            <p class="text-yellow-700">Faça isso com pelo menos 24 horas de antecedência.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Quais especialidades vocês oferecem?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6">
+                                        <p class="text-gray-700 mb-4 font-semibold">Oferecemos atendimento nas seguintes áreas:</p>
+                                        <ul class="space-y-3">
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Endocrinologia</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Nutrição</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Psicologia</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Avaliação Neuropsicológica</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Medicina Integrativa</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Vocês realizam atendimentos online?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700">
+                                        <p class="mb-4">Sim! Oferecemos atendimentos online para sua comodidade.</p>
+                                        <p class="text-sm text-gray-600">Consulte nossa equipe sobre disponibilidade e valores. Entre em contato via WhatsApp para mais informações.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGAMENTO -->
+                    <div id="tab-payment" class="faq-tab-content hidden">
+                        <div class="grid md:grid-cols-1 gap-4 mb-8">
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Vocês aceitam convênio?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700">
+                                        <p class="mb-4">Sim! Aceitamos diversos convênios e planos de saúde.</p>
+                                        <p class="mb-4">Entre em contato conosco via WhatsApp para informações sobre seu plano específico:</p>
+                                        <a href="https://wa.me/5521967815767" class="inline-flex items-center gap-2 bg-eqlive-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-eqlive-dark transition-colors">
+                                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                            Fale Conosco
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Quais formas de pagamento?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6">
+                                        <p class="text-gray-700 mb-4">Aceitamos as seguintes formas de pagamento:</p>
+                                        <ul class="space-y-3">
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Dinheiro</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Cartão de Crédito</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Cartão de Débito</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Transferência Bancária</span>
+                                            </li>
+                                        </ul>
+                                        <p class="text-sm text-gray-600 mt-4">Consulte-nos sobre condições especiais e parcelamentos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SERVIÇOS -->
+                    <div id="tab-services" class="faq-tab-content hidden">
+                        <div class="grid md:grid-cols-1 gap-4 mb-8">
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">O que levar na primeira consulta?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6">
+                                        <p class="text-gray-700 mb-4 font-semibold">Leve consigo:</p>
+                                        <ul class="space-y-3">
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Documento de identidade</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Cartão do convênio (se houver)</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Histórico de exames recentes</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Lista de medicamentos em uso</span>
+                                            </li>
+                                            <li class="flex gap-3 text-gray-700">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
+                                                <span>Informações sobre alergias</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Que roupa usar na avaliação?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-3">
+                                        <p>Use roupas confortáveis e leves.</p>
+                                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                                            <p class="font-semibold text-blue-800">💡 Dica Importante:</p>
+                                            <p class="text-blue-700">Para a bioimpedância, recomendamos trajar apenas roupa íntima para melhor precisão na medição.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Realizam exames laboratoriais?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-3">
+                                        <p>Não realizamos coleta in loco.</p>
+                                        <p>Porém, orientamos sobre os melhores laboratórios parceiros e quais exames são essenciais para seu caso específico.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Avaliam composição corporal?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-3">
+                                        <p>Sim! Realizamos:</p>
+                                        <ul class="space-y-2 ml-4">
+                                            <li class="flex gap-2">
+                                                <span class="text-eqlive-green font-bold">✓</span> Avaliação física completa
+                                            </li>
+                                            <li class="flex gap-2">
+                                                <span class="text-eqlive-green font-bold">✓</span> Bioimpedância (análise de composição corporal)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="faq-item group">
+                                <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg text-eqlive-dark group-open:text-eqlive-green transition-colors">Emitem laudos médicos?</h3>
+                                    </div>
+                                    <i data-lucide="chevron-down" class="w-6 h-6 text-eqlive-green flex-shrink-0 transition-transform duration-300"></i>
+                                </button>
+                                <div class="faq-item-content hidden">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white border-t border-gray-200 rounded-b-xl p-6 text-gray-700 space-y-3">
+                                        <p>Sim! Emitimos laudos médicos para fins diversos, incluindo:</p>
+                                        <ul class="space-y-2 ml-4">
+                                            <li class="flex gap-2">
+                                                <span class="text-eqlive-green font-bold">✓</span> Laudos gerais
+                                            </li>
+                                            <li class="flex gap-2">
+                                                <span class="text-eqlive-green font-bold">✓</span> Laudos para cirurgia bariátrica
+                                            </li>
+                                        </ul>
+                                        <p class="text-sm text-gray-600 mt-3">Consulte nossa equipe sobre suas necessidades específicas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA FINAL -->
+                    <div class="mt-16 p-8 md:p-12 bg-gradient-to-r from-eqlive-green to-eqlive-dark rounded-2xl text-white text-center">
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4">Ainda tem dúvidas?</h3>
+                        <p class="text-lg mb-8 opacity-95">Nossa equipe está pronta para ajudar você!</p>
+                        <a href="https://wa.me/5521967815767" class="inline-flex items-center gap-2 bg-white text-eqlive-green px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            Fale Conosco via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <!-- FOOTER -->
@@ -938,6 +1327,79 @@
     
     <!-- Blog Modal Script -->
     <script>
+        // Função para toggle do accordion FAQ (compatível com ícones <i> ou <svg>)
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const item = button.parentElement;
+
+            // Seleciona o ícone dentro do botão (prioriza <svg>, depois <i>)
+            const getIcon = (el) => el.querySelector('svg') || el.querySelector('i') || null;
+            const icon = getIcon(button);
+
+            // Helpers para abrir/fechar com animação suave usando maxHeight dinâmico
+            const openContent = (el, parent) => {
+                // bloqueia cliques no item enquanto anima
+                if (parent) parent.dataset.animating = 'true';
+                el.classList.remove('hidden');
+                el.style.maxHeight = '0px';
+                requestAnimationFrame(() => {
+                    el.classList.add('open');
+                    el.style.maxHeight = el.scrollHeight + 'px';
+                });
+                const onEnd = (e) => {
+                    if (e.propertyName === 'max-height') {
+                        el.style.maxHeight = 'none';
+                        if (parent) parent.dataset.animating = '';
+                        el.removeEventListener('transitionend', onEnd);
+                    }
+                };
+                el.addEventListener('transitionend', onEnd);
+            };
+
+            const closeContent = (el, parent) => {
+                if (parent) parent.dataset.animating = 'true';
+                el.style.maxHeight = el.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    el.classList.remove('open');
+                    el.style.maxHeight = '0px';
+                });
+                const onEnd = (e) => {
+                    if (e.propertyName === 'max-height') {
+                        el.classList.add('hidden');
+                        el.style.maxHeight = '';
+                        if (parent) parent.dataset.animating = '';
+                        el.removeEventListener('transitionend', onEnd);
+                    }
+                };
+                el.addEventListener('transitionend', onEnd);
+            };
+
+            // Fecha todos os outros
+            document.querySelectorAll('.accordion-content').forEach(other => {
+                if (other !== content && !other.classList.contains('hidden')) {
+                    const otherItem = other.parentElement;
+                    const prevBtn = other.previousElementSibling;
+                    const prevIcon = prevBtn ? getIcon(prevBtn) : null;
+                    if (prevIcon) prevIcon.style.transform = 'rotate(0deg)';
+                    if (otherItem) otherItem.classList.remove('active');
+                    closeContent(other, otherItem);
+                }
+            });
+            // Bloqueia cliques rápidos
+            if (item && item.dataset.animating === 'true') return;
+
+            // Toggle do atual
+            if (content.classList.contains('hidden')) {
+                openContent(content, item);
+                if (item) item.classList.add('active');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                closeContent(content, item);
+                if (item) item.classList.remove('active');
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
         const blogPosts = {
             1: {
                 title: 'História de Transformação: "Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"',
@@ -1107,10 +1569,10 @@
                         <div>
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que realmente importa?</h4>
                             <ul class="space-y-3">
-                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">1</span> <span class="text-gray-700"><strong>Qualidade do que você come:</strong> alimentos naturais vs ultraprocessados</span></li>
-                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">2</span> <span class="text-gray-700"><strong>Quantidade total de calorias:</strong> ingeridas no dia</span></li>
-                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">3</span> <span class="text-gray-700"><strong>Nível de atividade física</strong></span></li>
-                                <li class="flex gap-3 bg-blue-50 p-4 rounded-lg"><span class="text-eqlive-green font-bold text-lg">4</span> <span class="text-gray-700"><strong>Seu metabolismo individual</strong></span></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded"><span class="text-eqlive-green font-bold text-lg">1</span> <div class="text-gray-700"><strong>Qualidade do que você come:</strong> alimentos naturais vs ultraprocessados</div></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded"><span class="text-eqlive-green font-bold text-lg">2</span> <div class="text-gray-700"><strong>Quantidade total de calorias:</strong> ingeridas no dia</div></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded"><span class="text-eqlive-green font-bold text-lg">3</span> <div class="text-gray-700"><strong>Nível de atividade física</strong></div></li>
+                                <li class="flex gap-3 bg-blue-50 p-4 rounded"><span class="text-eqlive-green font-bold text-lg">4</span> <div class="text-gray-700"><strong>Seu metabolismo individual</strong></div></li>
                             </ul>
                         </div>
 
@@ -1291,7 +1753,7 @@
                             </ul>
                         </div>
 
-                        <div class="border-2 border-eqlive-green rounded-lg p-6">
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-3">A nossa promessa:</h4>
                             <p class="text-gray-700 mb-3">Aqui, você não é apenas um paciente. Você é uma pessoa que merece ser ouvida, entendida e cuidada.</p>
                             <ul class="space-y-2 text-gray-700">
@@ -1344,4 +1806,4 @@
         });
     </script>
 </body>
-</html>`
+</html>
