@@ -76,6 +76,28 @@ Ou abra diretamente o arquivo `src/index.html` no seu navegador.
 - Cálculo de resultados
 - Integração com WhatsApp
 
+### Blog com Sistema de Modal
+- **6 artigos completos** com conteúdo expandido
+- **Pop-up modal** com informações detalhadas ao clicar em qualquer post
+- **Featured post** interativo igual aos posts recentes
+- **Rolagem travada** quando modal abre (UX melhorada)
+- Conteúdo baseado em pesquisa do site original com tópicos como:
+  - Compulsão Alimentar
+  - Desequilíbrio Hormonal
+  - Mitos sobre Carboidratos
+  - Check-ups Clínicos
+  - Saúde Mental
+  - Visão geral do espaço Vivendo em Equilíbrio
+
+## ✨ Últimas Atualizações (v1.4)
+
+- ✅ Removido bug de duplicação HTML na seção blog
+- ✅ Melhorada legibilidade dos posts (font-sans, contraste aumentado)
+- ✅ Featured post agora tem mesma formatação dos posts recentes
+- ✅ Sistema de modal pop-up completamente funcional
+- ✅ Logo adicionada ao footer (banner_logo.jpg)
+- ✅ Horários de funcionamento atualizados: Seg-Sex 9h-19h | Sábado 9h-12h
+
 ## 🎯 Cores da Marca
 
 ```css
