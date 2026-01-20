@@ -1,51 +1,86 @@
 body {
-    background-color: #F9F8F6;
-    color: #132D2E;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-}
+            background-color: #F9F8F6;
+            color: #132D2E;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
 
-/* Page Transition Animations */
-.page-section {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
+        /* Page Transition Animations */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-out;
+            transform: translateY(10px);
+        }
 
-.page-section.active {
-    display: block;
-    opacity: 1;
-    animation: fadeIn 0.5s ease-out forwards;
-}
+        .page-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        /* Carousel Scrollbar Hide */
+        .carousel-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
 
-/* Custom Scrollbar for Carousel (if needed fallback) */
-.carousel-container {
-    overflow: hidden;
-    width: 100%;
-    /* padding-right: 20px; */
-}
+        /* Image Zoom Effect */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .group:hover .img-zoom {
+            transform: scale(1.05);
+        }
 
-/* Zoom effect on images */
-.img-zoom {
-    transition: transform 0.7s ease;
-}
-.group:hover .img-zoom {
-    transform: scale(1.05);
-}
+        /* Custom Checkbox Styling for Quiz */
+        .form-checkbox {
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.25em;
+            height: 1.25em;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.25em;
+            display: grid;
+            place-content: center;
+            transition: all 0.2s ease-in-out;
+        }
 
-/* Typographic utilities matching Parsley vibe */
-h1, h2, h3, h4, h5 {
-    font-family: 'Playfair Display', serif;
-}
+        .form-checkbox::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em white;
+            background-color: white;
+            transform-origin: center;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
 
-/* Ajustes finos para Mobile */
-@media (max-width: 768px) {
-    h1 {
-        line-height: 1.1;
-    }
-}
+        .form-checkbox:checked {
+            background-color: #3C5C50;
+            border-color: #3C5C50;
+        }
+
+        .form-checkbox:checked::before {
+            transform: scale(1);
+        }
+        
+        /* Organic Blob Shape for Images */
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transition: border-radius 0.5s ease;
+        }
+        .blob-shape:hover {
+            border-radius: 60% 40% 30% 70% / 50% 40% 50% 60%;
+        }
