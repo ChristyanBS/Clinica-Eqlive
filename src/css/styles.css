@@ -1,0 +1,513 @@
+/* ========================================
+   ESTILOS GLOBAIS - EQLIVE
+   ======================================== */
+
+/* Reset e Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F9F8F6;
+    color: #132D2E;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* ========================================
+   NAVEGAÇÃO
+   ======================================== */
+
+/* Desktop Menu - Forçar exibição */
+@media (min-width: 1024px) {
+    .hidden.lg\:flex,
+    nav .hidden.lg\:flex {
+        display: flex !important;
+        visibility: visible !important;
+    }
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+}
+
+/* Espaçamento do menu horizontal */
+nav > div > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menu items spacing */
+nav .space-x-8 {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #132D2E;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0.25rem 0;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: #3C5C50;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    text-decoration-color: #F2B89A;
+    text-underline-offset: 4px;
+}
+
+/* ========================================
+   TIPOGRAFIA
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+}
+
+p {
+    font-weight: 400;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   PAGE TRANSITIONS (SPA)
+   ======================================== */
+
+.page-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-out;
+    transform: translateY(10px);
+}
+
+.page-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   CAROUSEL/SCROLLBAR HIDE
+   ======================================== */
+
+.carousel-container {
+    -ms-overflow-style: none;  /* IE e Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   IMAGENS
+   ======================================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Image Zoom Effect */
+.img-zoom-container {
+    overflow: hidden;
+}
+
+.img-zoom {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover .img-zoom {
+    transform: scale(1.05);
+}
+
+/* Blob Shape Orgânico */
+.blob-shape {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transition: border-radius 0.5s ease;
+}
+
+.blob-shape:hover {
+    border-radius: 60% 40% 30% 70% / 50% 40% 50% 60%;
+}
+
+/* ========================================
+   FORMULÁRIOS E INPUTS
+   ======================================== */
+
+/* Custom Checkbox */
+.form-checkbox {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.25em;
+    height: 1.25em;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.25em;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.form-checkbox:hover {
+    border-color: #3C5C50;
+}
+
+.form-checkbox::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em white;
+    background-color: white;
+    transform-origin: center;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.form-checkbox:checked {
+    background-color: #3C5C50;
+    border-color: #3C5C50;
+}
+
+.form-checkbox:checked::before {
+    transform: scale(1);
+}
+
+/* Custom Radio */
+.form-radio {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.25em;
+    height: 1.25em;
+    border: 1px solid #D1D5DB;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.form-radio:hover {
+    border-color: #3C5C50;
+}
+
+.form-radio::before {
+    content: "";
+    width: 0.35em;
+    height: 0.35em;
+    border-radius: 50%;
+    background-color: #3C5C50;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+}
+
+.form-radio:checked::before {
+    transform: scale(1);
+}
+
+.form-radio:checked {
+    border-color: #3C5C50;
+}
+
+/* Input e Textarea */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #3C5C50;
+    box-shadow: 0 0 0 3px rgba(60, 92, 80, 0.1);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ========================================
+   BOTÕES
+   ======================================== */
+
+button,
+.btn {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+button:disabled,
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   ANIMAÇÕES
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Classes de Animação */
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.6s ease-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   UTILITÁRIOS
+   ======================================== */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section-padding {
+    padding: 5rem 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 3rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .section-padding {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   ACESSIBILIDADE
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+}

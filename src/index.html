@@ -45,6 +45,9 @@
         }
     </script>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body class="antialiased flex flex-col min-h-screen bg-eqlive-base text-eqlive-dark font-sans">
 
@@ -54,7 +57,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigateTo('home')">
-                    <span class="font-serif text-3xl font-semibold tracking-wide text-eqlive-dark group-hover:opacity-80 transition">Eqlive.</span>
+                    <span class="font-serif text-3xl font-semibold tracking-wide text-eqlive-dark group-hover:opacity-80 transition">Eqlive</span>
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -64,6 +67,7 @@
                     <button onclick="navigateTo('essence')" class="nav-link text-sm font-medium text-eqlive-accent hover:text-[#b88655] transition font-serif italic text-base">Essence</button>
                     <button onclick="navigateTo('quiz')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition flex items-center gap-1"><i data-lucide="activity" class="w-4 h-4"></i> Quiz de Saúde</button>
                     <button onclick="navigateTo('blog')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition">Blog</button>
+                    <button onclick="navigateTo('location')" class="nav-link text-sm font-medium text-eqlive-dark hover:text-eqlive-green hover:underline decoration-eqlive-peach underline-offset-4 transition">Localização</button>
                     
                     <a href="https://wa.me/5521967815767" target="_blank" class="bg-eqlive-dark text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-eqlive-green transition shadow-sm hover:shadow-md flex items-center gap-2">
                         Comece Agora
@@ -526,8 +530,8 @@
             <section class="relative bg-eqlive-dark text-white py-32 overflow-hidden">
                 <div class="absolute inset-0 z-0">
                     <!-- Client Image Background -->
-                    <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Spa like background" class="w-full h-full object-cover opacity-30">
-                    <div class="absolute inset-0 bg-gradient-to-t from-eqlive-dark via-eqlive-dark/50 to-transparent"></div>
+                    <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Spa like background" class="w-full h-full object-cover opacity-40">
+                    <div class="absolute inset-0 bg-gradient-to-t from-eqlive-dark via-eqlive-dark/60 to-transparent z-10"></div>
                 </div>
                 
                 <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
@@ -648,22 +652,27 @@
                             <div class="bg-green-50 p-4 rounded-full text-eqlive-green"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
                             <div>
                                 <h4 class="font-bold text-gray-900 text-lg mb-2">Endereço</h4>
-                                <p class="text-gray-600">R. Pres. Costa e Silva, 117 – sala 317<br>Centro, Itaboraí – RJ, CEP: 24800-055</p>
+                                <p class="text-gray-600">R. Dr. Pereira dos Santos, 107<br>Centro, Itaboraí - RJ<br>CEP: 24800-041</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-6">
                             <div class="bg-green-50 p-4 rounded-full text-eqlive-green"><i data-lucide="clock" class="w-6 h-6"></i></div>
                             <div>
                                 <h4 class="font-bold text-gray-900 text-lg mb-2">Horário</h4>
-                                <p class="text-gray-600">Segunda a Sexta: 08h às 18h</p>
+                                <p class="text-gray-600">Segunda a Sexta: 08h às 18h<br>Sábado: 08h às 12h</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-6">
                             <div class="bg-green-50 p-4 rounded-full text-eqlive-green"><i data-lucide="phone" class="w-6 h-6"></i></div>
                             <div>
                                 <h4 class="font-bold text-gray-900 text-lg mb-2">Contato</h4>
-                                <p class="text-gray-600">(21) 96781-5767</p>
+                                <p class="text-gray-600">(21) 96781-5767<br><a href="mailto:clinicaeqlive@gmail.com" class="text-eqlive-green hover:underline">clinicaeqlive@gmail.com</a></p>
                             </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="https://www.google.com/maps/search/R.+Dr.+Pereira+dos+Santos,+107+Itaborai+RJ/@-22.7475,−42.8576" target="_blank" class="block w-full bg-eqlive-dark text-white py-4 rounded-lg font-bold hover:bg-eqlive-green transition text-center">
+                                Abrir no Google Maps
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -730,7 +739,11 @@
         </a>
     </div>
 
-    <!-- JavaScript Logic -->
-    <script src="main.js"></script>
+    <!-- JavaScript Utilities -->
+    <script src="js/utils.js"></script>
+    <!-- JavaScript Navigation (SPA) -->
+    <script src="js/navigation.js"></script>
+    <!-- JavaScript Quiz -->
+    <script src="js/quiz.js"></script>
 </body>
 </html>
