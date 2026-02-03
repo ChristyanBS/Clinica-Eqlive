@@ -206,13 +206,6 @@ EQLIVE Logo
 - Verifique se o WhatsApp está instalado/configurado
 - Botões internos (navegação) sempre funcionam
 
-### Problema: Live Server abre projeto errado
-**Solução:**
-- O VS Code mantém a última pasta aberta como raiz.
-- Vá em **File** → **Close Folder** para fechar o projeto anterior.
-- Vá em **File** → **Open Folder** e selecione especificamente a pasta `Clinica-Eqlive`.
-- Clique com botão direito em `index.html` → **Open with Live Server**.
-
 ---
 
 ## 💾 EDITAR O ARQUIVO

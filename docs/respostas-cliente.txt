@@ -1,0 +1,153 @@
+RESPOSTAS  OFICIAIS,  ESTRUTURADAS  E  ALINHADAS  AO  MODELO  DA  PARSLEY  
+HEALTH
+   Formulário  de  Validação  e  Feedback  –  Website  Clínica  Eqlive**   1.  Identidade  Visual  e  Design  (Look  &  Feel)   Primeira  Impressão   De  forma  geral,  a  sensação  transmitida  ao  abrir  o  site  está  bem  alinhada  com  um  
+posicionamento
+ 
+premium
+ 
+e
+ 
+integrativo,
+ 
+especialmente
+ 
+no
+ 
+uso
+ 
+de
+ 
+cores
+ 
+suaves,
+ 
+espaçamento
+ 
+e
+ 
+hierarquia
+ 
+visual.
+ O  site  comunica  cuidado,  acolhimento  e  sofisticação,  em  linha  com  a  proposta  da  Eqlive.   👉  Sugestão  de  melhoria:  Aproximar  ainda  mais  do  modelo  Parsley  Health,  reforçando:   mais  espaços  em  branco  (respiro  visual)   títulos  mais  fortes  e  objetivos   menos  blocos  longos  de  texto  em  algumas  seções     ---   Imagens   Algumas  imagens  cumprem  bem  o  papel  conceitual,  porém  idealmente  o  site  deve  evoluir  
+para
+ 
+uso
+ 
+prioritário
+ 
+de
+ 
+fotos
+ 
+reais
+ 
+da
+ 
+clínica
+ 
+e
+ 
+da
+ 
+equipe,
+ 
+especialmente:
+  banner  principal   seções  institucionais   páginas  de  programas  (Essence  /  Mini  Essence)    👉  As  imagens  atuais  podem  ser  usadas  temporariamente,  mas  o  ideal  é  planejar  uma  
+substituição
+ 
+gradual
+ 
+por
+ 
+fotos
+ 
+autorais.
+   ---   Legibilidade   
+
+Os  textos  estão  fáceis  de  ler  tanto  no  desktop  quanto  no  mobile.  A  tipografia  escolhida  é  adequada  e  transmite  profissionalismo.   👉  Ajustes  finos  podem  ser  feitos  em:   tamanho  de  fonte  em  blocos  longos  no  mobile   maior  espaçamento  entre  parágrafos  em  algumas  páginas     ---   Logotipo   O  tamanho  e  a  aplicação  do  logotipo  no  topo  e  no  rodapé  estão  adequados.  A  marca  está  presente  sem  excesso  e  transmite  sobriedade.   👉  Nenhuma  alteração  necessária  neste  ponto.    ---   2.  Conteúdo  e  Textos   Missão,  Visão  e  Valores   A  seção  “Quem  Somos”  está  alinhada  com  a  cultura  da  Eqlive,  transmitindo  cuidado,  escuta  
+e
+ 
+visão
+ 
+integrativa.
+  👉  Sugestão  estratégica:   tornar  o  texto  um  pouco  mais  narrativo  e  humano,  menos  institucional   incluir  mais  claramente  o  conceito  de  cuidado  contínuo  e  jornada,  como  a  Parsley  Health  faz     ---   Descrições  das  Especialidades   As  descrições  estão  corretas  do  ponto  de  vista  técnico,  porém  podem  ser  refinadas  para  
+uma
+ 
+linguagem
+ 
+mais
+ 
+acessível
+ 
+ao
+ 
+paciente,
+ 
+especialmente
+ 
+em:
+  Endocrinologia   Nutrição  Funcional  
+
+ Psiquiatria  /  Saúde  Mental  Integrativa    👉  Recomendação:  Menos  termos  técnicos  isolados  e  mais  explicações  do  “como  isso  impacta  a  vida  do  
+paciente”.
+   ---   Blog   Os  artigos  de  exemplo  (burnout,  ansiedade,  etc.)  podem  ser  mantidos  como  conteúdo  
+inicial,
+ 
+pois
+ 
+estão
+ 
+alinhados
+ 
+ao
+ 
+posicionamento.
+  👉  Em  uma  segunda  fase,  a  clínica  pretende:   substituir  gradualmente  por  textos  autorais   alinhar  os  temas  às  páginas  de  condições  e  programas  (Essence  /  Mini  Essence)     ---   Depoimentos   Os  depoimentos  apresentados  devem  ser  revisados  com  cautela.   👉  Orientação:   priorizar  depoimentos  reais  e  autorizados   usar  iniciais  ou  nomes  abreviados,  se  necessário   evitar  qualquer  promessa  implícita  de  resultado    Esse  ponto  é  importante  tanto  para  credibilidade  quanto  para  segurança  ética.    ---   3.  Funcionalidade:  Quiz  de  Saúde  (Índice  de  Sintomas)   Lógica  do  Quiz   
+
+Os  9  domínios  (Neurológico,  Digestivo,  Hormonal,  Metabólico,  etc.)  cobrem  adequadamente  
+uma
+ 
+triagem
+ 
+inicial
+ 
+e
+ 
+estão
+ 
+alinhados
+ 
+com
+ 
+o
+ 
+modelo
+ 
+de
+ 
+medicina
+ 
+integrativa.
+  👉  O  quiz  cumpre  bem  o  papel  de:   despertar  consciência   mostrar  que  os  sintomas  estão  conectados   preparar  o  paciente  para  o  próximo  passo     ---   Resultado  do  Quiz   A  mensagem  final  direcionando  para  o  WhatsApp  está  adequada.   👉  Sugestão  de  melhoria:   reforçar  que  o  quiz  não  é  diagnóstico   apresentar  o  Mini  Essence  como  o  próximo  passo  natural,  assim  como  a  Parsley  faz     ---   Fluxo   O  tempo  estimado  (5–7  minutos)  e  a  facilidade  de  uso  estão  adequados  para  o  público-alvo  
+da
+ 
+Eqlive.
+  👉  Não  é  cansativo  e  mantém  o  engajamento.    ---   4.  Programa  Eqlive  Essence   Timeline   A  linha  do  tempo  de  “6  Meses  de  Transformação”  descreve  corretamente  a  jornada  do  
+paciente.
+  👉  Ajuste  recomendado:   
+
+trocar  termos  genéricos  por  nomes  mais  conceituais  (ex.:  Avaliação,  Consolidação,  
+Sustentação)
+  alinhar  o  discurso  com  “marcos  de  cuidado”,  não  apenas  fases     ---   Promessas  e  Resultados   ⚠  Este  ponto  merece  atenção  especial.   Algumas  métricas  como:   “5–15  kg  de  perda  de  peso”   “100%  melhora  hormonal”    👉  Devem  ser  ajustadas  ou  retiradas,  para  evitar:   promessas  excessivas   risco  ético  e  regulatório   comparação  com  modelos  estéticos  ou  milagrosos    Recomendação:   focar  em  benefícios  clínicos,  melhora  de  sintomas  e  acompanhamento  estruturado   usar  linguagem  de  processo,  não  de  garantia     ---   5.  Navegação  e  Chamadas  para  Ação  (CTA)   Botões  de  WhatsApp   Os  botões  estão  visíveis  e  bem  posicionados.   👉  Confirmar:   número  correto  
+
+ mensagem  automática  alinhada  ao  tom  premium  (sem  excesso  de  venda)     ---   Menu   A  organização  do  menu  está  clara  e  funcional.   Itens  principais  funcionam  bem:   Quem  Somos   Tratamentos  /  Condições   Eqlive  Essence   Blog    👉  Sugestão  futura:   criar  um  item  específico  “Como  Funciona”   ou  “Programas”,  agrupando  Mini  Essence  e  Essence     ---   Rodapé   As  informações  de  contato,  endereço  e  links  rápidos  estão  corretos.   👉  Nenhuma  alteração  necessária  neste  ponto.    ---   6.  Considerações  Finais   Funcionalidades  ou  Seções  Futuras   Para  próximas  fases,  seria  interessante  considerar:   Página  comparativa:  Consulta  Avulsa  ×  Mini  Essence  ×  Essence  
+
+ Página  “Como  Funciona”  no  estilo  Parsley  Health   Página  de  condições  integradas  (saúde  hormonal,  metabólica,  mental)   Área  de  educação  do  paciente  (guias,  PDFs,  materiais)     ---   Avaliação  Geral  do  Site   Nota  atual  (0  a  10):  8,0   O  site  está  bem  encaminhado,  sólido  e  coerente,  mas  ainda  precisa  de:   ajustes  finos  de  linguagem   refinamento  de  promessas   maior  foco  em  jornada  e  cuidado  contínuo    Com  esses  ajustes,  o  site  pode  facilmente  chegar  a  9,5  ou  10,  no  mesmo  nível  de  
+referência
+ 
+da
+ 
+Parsley
+ 
+Health.
+    

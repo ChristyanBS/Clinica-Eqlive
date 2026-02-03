@@ -1,0 +1,26 @@
+{
+  "name": "clinica-eqlive",
+  "version": "1.0.0",
+  "description": "Website da Clínica Eqlive - Medicina Integrativa e Funcional",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "open src/index.html",
+    "build": "echo \"Build script not yet configured\"",
+    "dev": "echo \"Development server not yet configured\""
+  },
+  "keywords": [
+    "medicina",
+    "funcional",
+    "integrativa",
+    "saúde",
+    "clínica"
+  ],
+  "author": "Christyan Bernardo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/clinica-eqlive.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

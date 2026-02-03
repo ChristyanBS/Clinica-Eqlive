@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Genético | Clínica Eqlive</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eqlive: {
+                            base: '#F5EDE4',
+                            green: '#3C5C50',
+                            dark: '#132D2E',
+                            sand: '#EDE8E1',
+                            accent: '#D4A373',
+                            peach: '#F2B89A',
+                            light: '#F5EDE4',
+                            link: '#688f4e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                try { if (lucide.replace) lucide.replace(); } catch (e) {}
+                try { if (lucide.createIcons) lucide.createIcons(); } catch (e) {}
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="antialiased flex flex-col min-h-screen text-eqlive-dark font-sans">
+    <header class="bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white">
+        <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+                <p class="text-eqlive-peach text-sm uppercase tracking-widest font-semibold">Teste Genético</p>
+                <h1 class="font-serif text-4xl sm:text-5xl mt-2">Descubra a saúde que está no seu DNA.</h1>
+                <p class="text-white/90 mt-4 max-w-2xl">Autoconhecimento e orientação personalizada com base na sua genética.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="index.html#specialties" class="group inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/20 hover:-translate-y-0.5 transition">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    Voltar ao site
+                </a>
+                <a href="https://wa.me/5521967815767" class="group inline-flex items-center gap-2 bg-eqlive-peach text-eqlive-dark px-6 py-3 rounded-full text-sm font-semibold shadow-lg shadow-black/10 hover:bg-[#e3a786] hover:-translate-y-0.5 transition">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                    Agendar teste
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <h2 class="font-serif text-3xl text-eqlive-dark">O que você pode descobrir</h2>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Resposta do corpo a grupos alimentares e nutrientes.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Tendências genéticas para metabolismo e peso.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Perfil de sono, ansiedade e compulsão alimentar.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Tipo de atividade física ideal para o seu organismo.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Predisposição a deficiências de vitaminas e minerais.</li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h2 class="font-serif text-3xl text-eqlive-dark">Para quem é indicado</h2>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Pessoas que querem emagrecer com estratégia personalizada.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Quem busca prevenção de doenças e longevidade.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Atletas e praticantes de atividade física.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Pacientes com histórico familiar de doenças metabólicas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-eqlive-base">
+            <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <h2 class="font-serif text-3xl text-eqlive-dark">Como funciona</h2>
+                    <ol class="space-y-4 text-gray-600">
+                        <li class="flex gap-3"><span class="font-semibold text-eqlive-green">1.</span> Coleta simples de saliva na clínica.</li>
+                        <li class="flex gap-3"><span class="font-semibold text-eqlive-green">2.</span> Análise laboratorial especializada.</li>
+                        <li class="flex gap-3"><span class="font-semibold text-eqlive-green">3.</span> Laudo interpretado por especialistas.</li>
+                        <li class="flex gap-3"><span class="font-semibold text-eqlive-green">4.</span> Orientação personalizada com nossa equipe.</li>
+                    </ol>
+                </div>
+                <div class="space-y-6">
+                    <h2 class="font-serif text-3xl text-eqlive-dark">Benefícios do teste genético</h2>
+                    <div class="bg-white/70 p-6 rounded-2xl border border-white/60">
+                        <h3 class="font-semibold text-eqlive-dark mb-2">Autoconhecimento profundo</h3>
+                        <p class="text-gray-600">Entenda seu corpo e tome decisões mais assertivas sobre alimentação e estilo de vida.</p>
+                    </div>
+                    <div class="bg-white/70 p-6 rounded-2xl border border-white/60">
+                        <h3 class="font-semibold text-eqlive-dark mb-2">Resultados mais rápidos</h3>
+                        <p class="text-gray-600">Estratégias personalizadas elevam a chance de sucesso em emagrecimento e performance.</p>
+                    </div>
+                    <div class="bg-white/70 p-6 rounded-2xl border border-white/60">
+                        <h3 class="font-semibold text-eqlive-dark mb-2">Prevenção e longevidade</h3>
+                        <p class="text-gray-600">Antecipe cuidados e reduza riscos com orientação especializada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-14 bg-eqlive-base">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <h3 class="font-serif text-2xl text-eqlive-dark">Pronto para ouvir o que seu corpo quer te dizer?</h3>
+                    <p class="text-gray-600">Agende seu teste genético e receba orientação precisa.</p>
+                </div>
+                <a href="https://wa.me/5521967815767" class="bg-eqlive-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-eqlive-green transition">Agendar agora</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

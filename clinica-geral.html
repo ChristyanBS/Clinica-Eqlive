@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Geral | Clínica Eqlive</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eqlive: {
+                            base: '#F5EDE4',
+                            green: '#3C5C50',
+                            dark: '#132D2E',
+                            sand: '#EDE8E1',
+                            accent: '#D4A373',
+                            peach: '#F2B89A',
+                            light: '#F5EDE4',
+                            link: '#688f4e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                try { if (lucide.replace) lucide.replace(); } catch (e) {}
+                try { if (lucide.createIcons) lucide.createIcons(); } catch (e) {}
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="antialiased flex flex-col min-h-screen text-eqlive-dark font-sans">
+    <header class="bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white">
+        <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+                <p class="text-eqlive-peach text-sm uppercase tracking-widest font-semibold">Clínica Geral</p>
+                <h1 class="font-serif text-4xl sm:text-5xl mt-2">Atendimento completo e humanizado.</h1>
+                <p class="text-white/90 mt-4 max-w-2xl">Acompanhamento médico contínuo, prevenção e cuidado individualizado em todas as fases da vida.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="index.html#specialties" class="group inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/20 hover:-translate-y-0.5 transition">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    Voltar ao site
+                </a>
+                <a href="https://wa.me/5521967815767" class="group inline-flex items-center gap-2 bg-eqlive-peach text-eqlive-dark px-6 py-3 rounded-full text-sm font-semibold shadow-lg shadow-black/10 hover:bg-[#e3a786] hover:-translate-y-0.5 transition">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                    Agendar consulta
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="py-16 bg-white">
+            <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-10">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="font-serif text-3xl text-eqlive-dark">Diagnóstico personalizado e acompanhamento</h2>
+                        <p class="text-gray-600 mt-3">Atendimento particular com foco em prevenção, check-ups completos e monitoramento contínuo da saúde. Cada plano é ajustado à sua história e objetivos.</p>
+                    </div>
+                    <div class="bg-[#F9F8F6] p-6 rounded-2xl border border-gray-100">
+                        <h3 class="font-semibold text-eqlive-dark mb-2">Atendimento humanizado</h3>
+                        <p class="text-gray-600">Escuta qualificada, ambiente acolhedor e tempo adequado para entender cada detalhe do seu cuidado.</p>
+                    </div>
+                    <div class="bg-[#F9F8F6] p-6 rounded-2xl border border-gray-100">
+                        <h3 class="font-semibold text-eqlive-dark mb-2">Tratamento integrado</h3>
+                        <p class="text-gray-600">Integração com nutrição e saúde emocional para uma visão completa de corpo, mente e estilo de vida.</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h2 class="font-serif text-3xl text-eqlive-dark">Saúde da mulher em todas as fases</h2>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> TPM intensa, oscilações de humor e compulsão alimentar.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> SOP e resistência à insulina com suporte contínuo.</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Perimenopausa e menopausa (insônia, fogachos, ganho de peso).</li>
+                        <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Disfunções da tireoide com acompanhamento especializado.</li>
+                    </ul>
+                    <div class="bg-[#F9F8F6] p-6 rounded-2xl border border-gray-100">
+                        <h3 class="font-semibold text-eqlive-dark mb-2">Emagrecimento saudável</h3>
+                        <p class="text-gray-600">Programa multidisciplinar com endocrinologia, nutrição e suporte emocional para resultados consistentes e sustentáveis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-14 bg-eqlive-base">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <h3 class="font-serif text-2xl text-eqlive-dark">Comece seu acompanhamento com segurança</h3>
+                    <p class="text-gray-600">Agende sua consulta e receba um plano personalizado.</p>
+                </div>
+                <a href="https://wa.me/5521967815767" class="bg-eqlive-dark text-white px-6 py-3 rounded-full font-semibold hover:bg-eqlive-green transition">Agendar agora</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
