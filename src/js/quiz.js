@@ -349,6 +349,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizContainer = document.getElementById('quiz-container');
     if (quizContainer) {
         resetQuiz();
+        // Scroll para o topo
+        window.scrollTo({ top: 0, behavior: 'instant' });
     }
 });
 

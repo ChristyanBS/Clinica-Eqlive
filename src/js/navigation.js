@@ -92,7 +92,11 @@ window.navigateTo = function(pageId, scrollToElement = null) {
     if (current && current.id === pageId && !scrollToElement) {
         return;
     }
-    scrollToTop();
+    if (typeof scrollToTop === 'function') {
+        scrollToTop();
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     
     // Esconde todas as seções
     document.querySelectorAll('.page-section').forEach(section => {
@@ -118,8 +122,12 @@ window.navigateTo = function(pageId, scrollToElement = null) {
         
         requestAnimationFrame(() => {
             target.classList.add('active');
+            if (typeof initIcons === 'function') {
                 initIcons();
+            }
+            if (typeof initCounters === 'function') {
                 initCounters();
+            }
             
             // Se há um elemento alvo, scroll para ele após a página estar renderizada
             if (scrollToElement) {
@@ -136,6 +144,12 @@ window.navigateTo = function(pageId, scrollToElement = null) {
                 }, 500); // Espera 500ms para garantir renderização completa
             }
         });
+    } else {
+        const isCondicoesPage = window.location.pathname.replace(/\\/g, '/').includes('/condicoes/');
+        const basePath = isCondicoesPage ? '../index.html' : 'index.html';
+        const hash = pageId ? `#${pageId}` : '';
+        const extra = scrollToElement ? `:${scrollToElement}` : '';
+        window.location.href = `${basePath}${hash}${extra}`;
     }
 }
 
@@ -237,21 +251,35 @@ function setupCarousel() {
 
 // Inicializar navegação ao carregar
 document.addEventListener('DOMContentLoaded', () => {
-    initIcons();
+    if (typeof initIcons === 'function') {
+        initIcons();
+    }
+    if (typeof initCounters === 'function') {
         initCounters();
+    }
     setupMobileMenu();
-    const hash = window.location.hash.replace('#', '').trim().toLowerCase();
+    const rawHash = window.location.hash.replace('#', '').trim();
+    const hashLower = rawHash.toLowerCase();
     const hashToPage = {
         specialties: 'specialties',
-        especialidades: 'specialties'
+        especialidades: 'specialties',
+        home: 'home',
+        about: 'about',
+        essence: 'essence',
+        blog: 'blog',
+        faq: 'faq',
+        location: 'location'
     };
-    if (hash && hashToPage[hash]) {
-        window.navigateTo(hashToPage[hash]);
-        // Remove hash to evitar scroll automático do navegador para o fim da página
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-        setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'auto' });
-        }, 10);
+    if (rawHash) {
+        const [hashPage, hashTarget] = rawHash.split(':');
+        const pageId = hashToPage[hashLower] || hashPage;
+        window.navigateTo(pageId, hashTarget || null);
+        if (document.getElementById(pageId)) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+            setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: 'auto' });
+            }, 10);
+        }
     } else {
         ensureHomeVisible();
     }

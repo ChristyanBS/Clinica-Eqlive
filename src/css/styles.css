@@ -102,6 +102,290 @@ nav > div > div {
     width: 100%;
 }
 
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    min-width: 560px;
+    z-index: 60;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+    transition-delay: 0s, 0s, 1s;
+}
+
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: transparent;
+}
+
+/* ========================================
+   TEMPLATE CONDIÇÕES (VISUAL-FIRST)
+   ======================================== */
+
+body[data-template="condicao"] {
+    background-color: #F9F7F3;
+    color: #1F3A34;
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body[data-template="condicao"] .eqlive-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+body[data-template="condicao"] .section-pad {
+    padding: clamp(4rem, 6vw, 6rem) 0;
+}
+
+body[data-template="condicao"] .section-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(62, 107, 91, 0.75);
+}
+
+body[data-template="condicao"] .section-title {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    color: #1F3A34;
+    letter-spacing: -0.01em;
+}
+
+body[data-template="condicao"] .section-lead,
+body[data-template="condicao"] .section-pad p,
+body[data-template="condicao"] .section-pad li {
+    line-height: 1.75;
+    color: #5b6b6c;
+    font-size: clamp(0.98rem, 0.5vw + 0.85rem, 1.08rem);
+}
+
+body[data-template="condicao"] .section-lead {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    max-width: 60ch;
+}
+
+body[data-template="condicao"] .section-pad ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+body[data-template="condicao"] .card-base,
+body[data-template="condicao"] .card-soft {
+    background: #ffffff;
+    border: 1px solid rgba(31, 58, 52, 0.1);
+    border-radius: 24px;
+    padding: 1.5rem 1.7rem;
+    box-shadow: 0 20px 60px -50px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+body[data-template="condicao"] .card-soft {
+    background: #EFE7DD;
+    border-color: rgba(31, 58, 52, 0.1);
+}
+
+body[data-template="condicao"] .card-base:hover,
+body[data-template="condicao"] .card-soft:hover {
+    transform: translateY(-4px);
+    border-color: rgba(62, 107, 91, 0.35);
+    box-shadow: 0 24px 50px rgba(19, 45, 46, 0.12);
+}
+
+body[data-template="condicao"] .icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 9999px;
+    background: rgba(62, 107, 91, 0.15);
+    border: 1px solid rgba(31, 58, 52, 0.08);
+    box-shadow: 0 10px 18px rgba(19, 45, 46, 0.08);
+    color: #3E6B5B;
+}
+
+body[data-template="condicao"] .bg-eqlive-dark {
+    background: linear-gradient(135deg, #1F3A34 0%, #2a554b 50%, #3E6B5B 100%);
+}
+
+body[data-template="condicao"] .condicao-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(28rem, 70vh, 46rem);
+    background-image:
+        radial-gradient(circle at 85% 15%, rgba(167, 198, 182, 0.25), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(249, 247, 243, 0.12), transparent 55%),
+        linear-gradient(135deg, #1F3A34 0%, rgba(62, 107, 91, 0.9) 55%, rgba(167, 198, 182, 0.28) 100%);
+}
+
+body[data-template="condicao"] .condicao-hero.section-pad {
+    padding-top: clamp(4.5rem, 10vw, 7rem);
+    padding-bottom: clamp(6rem, 12vw, 9rem);
+}
+
+body[data-template="condicao"] .condicao-hero > .eqlive-container {
+    position: relative;
+    z-index: 1;
+}
+
+body[data-template="condicao"] .condicao-hero .section-kicker {
+    color: #E6DCCF;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+}
+
+body[data-template="condicao"] .condicao-hero h1 {
+    font-size: clamp(2.6rem, 5.6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    max-width: 16ch;
+}
+
+body[data-template="condicao"] .condicao-hero .section-lead {
+    color: rgba(241, 245, 243, 0.9);
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    max-width: 55ch;
+}
+
+body[data-template="condicao"] .condicao-hero p,
+body[data-template="condicao"] .condicao-hero li {
+    color: rgba(233, 240, 236, 0.75);
+}
+
+body[data-template="condicao"] .condicao-hero .cta-primary {
+    background: #F9F7F3;
+    color: #1F3A34;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+body[data-template="condicao"] .condicao-hero .cta-primary:hover {
+    background: #E6DCCF;
+    border-color: #E6DCCF;
+}
+
+body[data-template="condicao"] .condicao-hero .cta-secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+}
+
+body[data-template="condicao"] .condicao-hero .cta-secondary:hover {
+    background: rgba(249, 247, 243, 0.12);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+body[data-template="condicao"] .condicao-hero .relative > .absolute {
+    border-color: rgba(230, 220, 207, 0.35);
+    border-width: 2px;
+    border-radius: 2.5rem;
+}
+
+body[data-template="condicao"] .condicao-hero img {
+    border-radius: 1.75rem;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+}
+
+body[data-template="condicao"] .condicao-hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 120px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z' fill='%23F9F7F3'/%3E%3Cpath d='M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z' fill='%23F9F7F3' fill-opacity='0.8'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    pointer-events: none;
+}
+
+body[data-template="condicao"] main img {
+    border-radius: 24px;
+    box-shadow: 0 18px 36px rgba(19, 45, 46, 0.16);
+}
+
+body[data-template="condicao"] .cta-primary {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.92rem;
+    box-shadow: 0 12px 24px rgba(62, 107, 91, 0.25);
+}
+
+body[data-template="condicao"] .cta-secondary {
+    border-color: rgba(255, 255, 255, 0.45);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+    body[data-template="condicao"] .eqlive-container {
+        padding: 0 1.25rem;
+    }
+
+    body[data-template="condicao"] .section-pad {
+        padding: 3rem 0;
+    }
+
+    body[data-template="condicao"] main img {
+        border-radius: 20px;
+    }
+}
+
+body.questionnaire-page main {
+    padding-top: clamp(7.5rem, 12vw, 9rem);
+}
+
+.nav-dropdown-panel {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 18px 20px;
+    border: 1px solid rgba(19, 45, 46, 0.08);
+    box-shadow: 0 18px 40px rgba(19, 45, 46, 0.12);
+}
+
+.nav-dropdown-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 12px;
+    color: #132D2E;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-dropdown-link:hover {
+    background: rgba(60, 92, 80, 0.12);
+    color: #3C5C50;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s;
+}
+
+@media (max-width: 1023px) {
+    .nav-dropdown-menu {
+        display: none;
+    }
+}
+
 /* Mobile Navigation Items */
 .mobile-nav-item {
     cursor: pointer;
@@ -232,6 +516,110 @@ img {
 /* ========================================
    FORMULÁRIOS E INPUTS
    ======================================== */
+
+/* Questionário Care */
+.care-card {
+    background: #ffffff;
+    border: 1px solid rgba(19, 45, 46, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px -40px rgba(19, 45, 46, 0.3);
+}
+
+.care-option {
+    width: 100%;
+    text-align: left;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(19, 45, 46, 0.12);
+    background: #ffffff;
+    color: #132D2E;
+    font-weight: 500;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.care-option:hover {
+    border-color: rgba(60, 92, 80, 0.5);
+    transform: translateY(-1px);
+}
+
+.care-option.is-selected {
+    border-color: #3C5C50;
+    background: rgba(60, 92, 80, 0.12);
+}
+
+.care-scale button {
+    flex: 1;
+    min-width: 36px;
+    border-radius: 12px;
+    border: 1px solid rgba(19, 45, 46, 0.12);
+    padding: 10px 0;
+    font-weight: 600;
+    color: #132D2E;
+    background: #ffffff;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.care-scale button:hover {
+    border-color: rgba(60, 92, 80, 0.5);
+    transform: translateY(-1px);
+}
+
+.care-scale button.is-selected {
+    border-color: #3C5C50;
+    background: rgba(60, 92, 80, 0.18);
+}
+
+/* Condições - Destaque de sintomas */
+.symptom-highlight {
+    background: radial-gradient(circle at 10% 10%, rgba(211, 146, 162, 0.45), transparent 55%),
+                radial-gradient(circle at 90% 80%, rgba(126, 70, 88, 0.45), transparent 55%),
+                linear-gradient(120deg, #8d5a6c 0%, #a37588 40%, #7a4a59 100%);
+    color: #f8f4f2;
+}
+
+.symptom-highlight-inner {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 28px;
+    padding: 32px 28px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.symptom-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.symptom-item {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: symptomFadeIn 0.6s ease forwards;
+}
+
+.symptom-item strong {
+    font-weight: 600;
+}
+
+@keyframes symptomFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid rgba(19, 45, 46, 0.08);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 18px 50px -35px rgba(19, 45, 46, 0.4);
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: #3C5C50;
+    letter-spacing: -0.02em;
+}
 
 /* Custom Checkbox */
 .form-checkbox {

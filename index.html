@@ -5,51 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com; connect-src 'self' https://cdn.tailwindcss.com https://unpkg.com; frame-src https://www.google.com https://maps.google.com https://maps.googleapis.com; form-action 'self' https://wa.me https://api.whatsapp.com; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://plus.unsplash.com; connect-src 'self' https://unpkg.com; frame-src https://www.google.com https://maps.google.com https://maps.googleapis.com; form-action 'self' https://wa.me https://api.whatsapp.com; upgrade-insecure-requests">
     <title>Clínica Eqlive | Medicina que Trata a Causa Raiz</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="src/assets/icons/banner.png">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Configuration -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        eqlive: {
-                            base: '#F5EDE4',      // Nude clarinho
-                            green: '#3C5C50',     // Sage Green (Original Brand)
-                            dark: '#132D2E',      // Dark Forest Green (Deep Sea)
-                            sand: '#EDE8E1',      // Beige
-                            accent: '#D4A373',    // Gold/Bronze
-                            peach: '#F2B89A',     // Soft Peach
-                            light: '#F5EDE4',
-                            link: '#688f4e'       // Green from their button
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['DM Sans', 'sans-serif'], // Updated to match their site
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    }
-                }
-            }
-        }
-
         // Inicializa os ícones lucide após o carregamento do DOM (compatível com diferentes versões)
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') {
@@ -60,6 +30,7 @@
     </script>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="src/css/tailwind.generated.css">
     <link rel="stylesheet" href="src/css/styles.css">
 
     <style>
@@ -125,6 +96,39 @@
                 <div class="hidden lg:flex items-center gap-1">
                     <!-- Main Navigation -->
                     <div class="flex items-center gap-8">
+                        <div class="relative group nav-dropdown">
+                            <button class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group flex items-center gap-1.5" aria-haspopup="true" aria-expanded="false">
+                                Condições
+                                <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+                                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                            </button>
+                            <div class="nav-dropdown-menu">
+                                <div class="nav-dropdown-panel">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="condicoes/saude-intestinal.html" class="nav-dropdown-link">Saúde intestinal e digestiva</a>
+                                        <a href="condicoes/doencas-autoimunes.html" class="nav-dropdown-link">Doenças autoimunes e inflamação</a>
+                                        <a href="condicoes/saude-metabolica.html" class="nav-dropdown-link">Saúde metabólica</a>
+                                        <a href="condicoes/resistencia-a-insulina.html" class="nav-dropdown-link">Resistência à insulina</a>
+                                        <a href="condicoes/pre-diabetes.html" class="nav-dropdown-link">Pré-diabetes</a>
+                                        <a href="condicoes/sop.html" class="nav-dropdown-link">SOP</a>
+                                        <a href="condicoes/desequilibrio-hormonal.html" class="nav-dropdown-link">Saúde hormonal</a>
+                                        <a href="condicoes/menopausa.html" class="nav-dropdown-link">Perimenopausa e Menopausa</a>
+                                        <a href="condicoes/hipotireoidismo.html" class="nav-dropdown-link">Hipotireoidismo</a>
+                                        <a href="condicoes/tireoidite-de-hashimoto.html" class="nav-dropdown-link">Tireoidite de Hashimoto</a>
+                                        <a href="condicoes/sintomas-inexplicaveis.html" class="nav-dropdown-link">Sintomas inexplicáveis</a>
+                                        <a href="condicoes/desintoxicacao-e-exposicao-ambiental.html" class="nav-dropdown-link">Desintoxicação e exposição ambiental</a>
+                                        <a href="condicoes/longevidade-e-saude.html" class="nav-dropdown-link">Longevidade e vida saudável</a>
+                                        <a href="condicoes/saude-mental.html" class="nav-dropdown-link">Saúde mental</a>
+                                        <a href="condicoes/ansiedade-e-burnout.html" class="nav-dropdown-link">Ansiedade e burnout</a>
+                                        <a href="condicoes/depressao.html" class="nav-dropdown-link">Depressão</a>
+                                    </div>
+                                    <div class="mt-4 pt-4 border-t border-eqlive-dark/10 flex flex-wrap items-center justify-between gap-3">
+                                        <a href="condicoes/index.html" class="nav-dropdown-link">Ver todas as condições</a>
+                                        <a href="care.html" class="cta-outline text-sm">Questionário de saúde</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <button onclick="navigateTo('about')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
                             Quem Somos
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
@@ -137,10 +141,10 @@
                             Essence
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-accent group-hover:w-full transition-all duration-300"></span>
                         </button>
-                        <button onclick="navigateTo('quiz')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group flex items-center gap-1.5">
-                            <i data-lucide="activity" class="w-4 h-4 group-hover:scale-110 transition-transform"></i> Quiz
+                        <a href="care.html" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group flex items-center gap-1.5">
+                            <i data-lucide="activity" class="w-4 h-4 group-hover:scale-110 transition-transform"></i> Questionário
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
-                        </button>
+                        </a>
                         <button onclick="navigateTo('blog')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
                             Blog
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
@@ -212,10 +216,10 @@
                         <i data-lucide="sparkles" class="w-5 h-5 text-eqlive-peach"></i>
                         Essence
                     </button>
-                    <button onclick="mobileNav('quiz')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                    <a href="care.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
                         <i data-lucide="activity" class="w-5 h-5 text-eqlive-peach"></i>
-                        Quiz de Saúde
-                    </button>
+                        Questionário de Saúde
+                    </a>
                     <button onclick="mobileNav('blog')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
                         <i data-lucide="book-open" class="w-5 h-5 text-eqlive-peach"></i>
                         Blog
@@ -228,6 +232,27 @@
                         <i data-lucide="map-pin" class="w-5 h-5 text-eqlive-peach"></i>
                         Localização
                     </button>
+                </div>
+
+                <div class="bg-white/10 rounded-2xl p-2 border border-white/10 flex flex-col gap-1">
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-white/50 px-3 pt-2">Condições</p>
+                    <a href="condicoes/saude-intestinal.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde intestinal e digestiva</a>
+                    <a href="condicoes/doencas-autoimunes.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Doenças autoimunes e inflamação</a>
+                    <a href="condicoes/saude-metabolica.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde metabólica</a>
+                    <a href="condicoes/resistencia-a-insulina.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Resistência à insulina</a>
+                    <a href="condicoes/pre-diabetes.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Pré-diabetes</a>
+                    <a href="condicoes/sop.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">SOP</a>
+                    <a href="condicoes/desequilibrio-hormonal.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde hormonal</a>
+                    <a href="condicoes/menopausa.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Perimenopausa e Menopausa</a>
+                    <a href="condicoes/hipotireoidismo.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Hipotireoidismo</a>
+                    <a href="condicoes/tireoidite-de-hashimoto.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Tireoidite de Hashimoto</a>
+                    <a href="condicoes/sintomas-inexplicaveis.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Sintomas inexplicáveis</a>
+                    <a href="condicoes/desintoxicacao-e-exposicao-ambiental.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Desintoxicação e exposição ambiental</a>
+                    <a href="condicoes/longevidade-e-saude.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Longevidade e vida saudável</a>
+                    <a href="condicoes/saude-mental.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde mental</a>
+                    <a href="condicoes/ansiedade-e-burnout.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Ansiedade e burnout</a>
+                    <a href="condicoes/depressao.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Depressão</a>
+                    <a href="condicoes/index.html" class="mobile-nav-item text-[15px] font-semibold text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Ver todas as condições</a>
                 </div>
                 
                 <!-- CTA Button Mobile -->
@@ -266,9 +291,9 @@
                                 A EQLIVE oferece atendimento médico completo, análises laboratoriais e testes avançados, projetados para oferecer suporte agora e se adaptar às mudanças em sua saúde.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <button onclick="navigateTo('quiz')" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                <a href="care.html" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
                                     Descubra seu Tratamento <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
+                                </a>
                                 <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-eqlive-base/10 transition font-semibold w-fit mx-auto sm:mx-0">
                                     Conheça nossas especialidades
                                 </button>
@@ -532,9 +557,9 @@
                         <button onclick="navigateTo('about')" class="inline-block bg-eqlive-base text-eqlive-dark px-10 py-4 rounded-full font-semibold hover:bg-eqlive-peach transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             Ver mais histórias
                         </button>
-                        <button onclick="navigateTo('quiz')" class="inline-block border-2 border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-eqlive-base hover:text-eqlive-dark transition">
+                        <a href="care.html" class="inline-block border-2 border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-eqlive-base hover:text-eqlive-dark transition">
                             Começar minha jornada
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -1049,9 +1074,9 @@
                                 Com acolhimento e propósito. A EQLIVE é uma clínica de saúde especializada que nasceu com o propósito de oferecer uma experiência de cuidado verdadeiramente transformadora.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <button onclick="navigateTo('quiz')" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                <a href="care.html" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
                                     Descubra seu Tratamento <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
+                                </a>
                                 <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-eqlive-base/10 transition font-semibold w-fit mx-auto sm:mx-0">
                                     Conheça nossas especialidades
                                 </button>
@@ -3001,10 +3026,10 @@
                                 <i data-lucide="message-circle" class="w-5 h-5"></i>
                                 Agende uma Consulta
                             </a>
-                            <button onclick="navigateTo('quiz')" class="inline-flex items-center justify-center gap-2 border-2 border-eqlive-dark text-eqlive-dark px-8 py-4 rounded-full font-semibold hover:bg-eqlive-dark hover:text-white transition">
+                            <a href="care.html" class="inline-flex items-center justify-center gap-2 border-2 border-eqlive-dark text-eqlive-dark px-8 py-4 rounded-full font-semibold hover:bg-eqlive-dark hover:text-white transition">
                                 <i data-lucide="activity" class="w-5 h-5"></i>
-                                Faça o Quiz de Saúde
-                            </button>
+                                Faça o Questionário de Saúde
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -3664,7 +3689,7 @@
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li><button onclick="navigateTo('home')" class="hover:text-eqlive-peach text-left transition">Início</button></li>
                         <li><button onclick="navigateTo('specialties')" class="hover:text-eqlive-peach text-left transition">Tratamentos</button></li>
-                        <li><button onclick="navigateTo('quiz')" class="hover:text-eqlive-peach text-left transition">Quiz de Saúde</button></li>
+                        <li><a href="care.html" class="hover:text-eqlive-peach text-left transition">Questionário de Saúde</a></li>
                         <li><button onclick="navigateTo('about')" class="hover:text-eqlive-peach text-left transition">Sobre Nós</button></li>
                     </ul>
                 </div>

@@ -40,11 +40,11 @@ clinica-eqlive/
 │   └── assets/
 │       └── images/               # Imagens (se houver)
 ├── docs/
-│   └── dicas-de-commit.md        # Guia de commits
+│   ├── dicas-de-commit.md        # Guia de commits
+│   └── MENU_IMPROVEMENTS.md      # 📋 Documentação melhorias menu
 ├── 📄 .gitignore                 # Configuração Git
 ├── 📄 README.md                  # Este arquivo
 ├── 📄 package.json               # Config do projeto
-├── MENU_IMPROVEMENTS.md          # 📋 Documentação melhorias menu
 └── 📖 Arquivos de Documentação
 ```
 
