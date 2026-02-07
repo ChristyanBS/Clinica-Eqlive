@@ -317,17 +317,6 @@
                     </div>
                 </div>
 
-                <!-- Wave Bottom Section -->
-                <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#F5EDE4;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#F5EDE4;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#F5EDE4" opacity="1"/>
-                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#F5EDE4" opacity="0.8"/>
-                </svg>
             </section>
 
             <!-- Value Proposition (3 Icons) - Como Eqlive Entrega Cuidado Profundo -->
@@ -3673,47 +3662,75 @@
     <!-- FOOTER -->
     <footer class="bg-eqlive-dark text-white pt-20 pb-10 border-t border-white/10">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-1">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="col-span-1 lg:col-span-1">
                     <img src="src/assets/images/banner_logo.png" alt="Eqlive Logo" class="h-16 mb-6 rounded">
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
-                        Medicina integrativa focada em longevidade e bem-estar. Cuidamos de você por inteiro, tratando a causa raiz e não apenas os sintomas.
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Medicina integrativa focada em longevidade e bem-estar.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://www.instagram.com/clinica_eqlive/" target="_blank" class="text-gray-400 hover:text-white transition" aria-label="Instagram da Clínica Eqlive"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61573857150257" target="_blank" class="text-gray-400 hover:text-white transition" aria-label="Facebook da Clínica Eqlive"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/clinica_eqlive/" target="_blank" class="text-gray-400 hover:text-eqlive-peach transition duration-300" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61573857150257" target="_blank" class="text-gray-400 hover:text-eqlive-peach transition duration-300" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                     </div>
                 </div>
+
+                <!-- Navegação -->
                 <div>
-                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-widest">Mapa do Site</h4>
+                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-wider">Navegação</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li><button onclick="navigateTo('home')" class="hover:text-eqlive-peach text-left transition">Início</button></li>
-                        <li><button onclick="navigateTo('specialties')" class="hover:text-eqlive-peach text-left transition">Tratamentos</button></li>
-                        <li><a href="care.html" class="hover:text-eqlive-peach text-left transition">Questionário de Saúde</a></li>
-                        <li><button onclick="navigateTo('about')" class="hover:text-eqlive-peach text-left transition">Sobre Nós</button></li>
+                        <li><button onclick="navigateTo('home')" class="hover:text-eqlive-peach transition duration-300">Início</button></li>
+                        <li><button onclick="navigateTo('specialties')" class="hover:text-eqlive-peach transition duration-300">Tratamentos</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-eqlive-peach transition duration-300">Sobre Nós</button></li>
+                        <li><a href="care.html" class="hover:text-eqlive-peach transition duration-300">Questionário</a></li>
                     </ul>
                 </div>
+
+                <!-- Condições -->
                 <div>
-                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-widest">Contato</h4>
+                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-wider">Condições</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="condicoes/saude-intestinal.html" class="hover:text-eqlive-peach transition duration-300 line-clamp-1">Saúde Intestinal</a></li>
+                        <li><a href="condicoes/saude-metabolica.html" class="hover:text-eqlive-peach transition duration-300 line-clamp-1">Saúde Metabólica</a></li>
+                        <li><a href="condicoes/menopausa.html" class="hover:text-eqlive-peach transition duration-300 line-clamp-1">Menopausa</a></li>
+                        <li><a href="condicoes/index.html" class="hover:text-eqlive-peach transition duration-300 font-medium text-eqlive-peach">Ver todas →</a></li>
+                    </ul>
+                </div>
+
+                <!-- Recursos -->
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-wider">Recursos</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-1 flex-shrink-0"></i> <span>R. Pres. Costa e Silva, 117 - sala 317<br>Centro, Itaboraí - RJ, CEP: 24800-055</span></li>
-                        <li class="flex items-center gap-2">
-                            <a href="https://wa.me/5521967815767" class="hover:text-eqlive-peach flex items-center gap-2 transition">
-                                <i data-lucide="phone" class="w-4 h-4"></i> (21) 96781-5767
-                            </a>
+                        <li><button onclick="navigateTo('blog')" class="hover:text-eqlive-peach transition duration-300">Blog</button></li>
+                        <li><button onclick="navigateTo('faq')" class="hover:text-eqlive-peach transition duration-300">FAQ</button></li>
+                        <li><button onclick="navigateTo('essence')" class="hover:text-eqlive-peach transition duration-300 font-serif italic">Essence</button></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div>
+                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-wider">Contato</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 mt-0.5 flex-shrink-0 text-eqlive-peach"></i>
+                            <a href="https://wa.me/5521967815767" class="hover:text-eqlive-peach transition duration-300">(21) 96781-5767</a>
                         </li>
-                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> clinicaeqlive@gmail.com</li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 mt-0.5 flex-shrink-0 text-eqlive-peach"></i>
+                            <a href="mailto:clinicaeqlive@gmail.com" class="hover:text-eqlive-peach transition duration-300">clinicaeqlive@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 mt-0.5 flex-shrink-0 text-eqlive-peach"></i>
+                            <span class="text-xs">R. Pres. Costa e Silva, 117<br>Centro, Itaboraí - RJ</span>
+                        </li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-6 text-white text-sm uppercase tracking-widest">Agendamento</h4>
-                    <p class="text-gray-400 text-sm mb-4">Pronto para transformar sua saúde?</p>
-                    <a href="https://wa.me/5521967815767" class="inline-block border border-white/20 hover:border-eqlive-peach text-white px-6 py-3 rounded-full text-sm hover:text-eqlive-peach transition">Agendar Consulta</a>
                 </div>
             </div>
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-                <p>EQLIVE © Copyright – 2026 | Todos os direitos reservados.</p>
-                <p>Desenvolvido por Christyan Bernardo</p>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs">
+                <p class="text-gray-500">© 2026 EQLIVE Clínica Integrativa. Todos os direitos reservados.</p>
+                <p class="text-gray-500">Desenvolvido por <span class="text-eqlive-peach font-medium">Christyan Bernardo</span></p>
             </div>
         </div>
     </footer>

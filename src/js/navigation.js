@@ -163,6 +163,16 @@ function ensureHomeVisible() {
     }
 }
 
+function ensureVisibleSection() {
+    const activeSection = document.querySelector('.page-section.active');
+    if (activeSection) {
+        activeSection.classList.remove('is-hidden');
+        activeSection.classList.add('is-visible');
+        return;
+    }
+    ensureHomeVisible();
+}
+
 // Carrossel/Carousel - INFINITO
 function setupCarousel() {
     const track = document.getElementById('carousel-track');
@@ -281,7 +291,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
         }
     } else {
-        ensureHomeVisible();
+        ensureVisibleSection();
     }
     setupCarousel();
+});
+
+window.addEventListener('pageshow', () => {
+    ensureVisibleSection();
 });
