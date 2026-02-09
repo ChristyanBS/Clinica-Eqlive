@@ -18,7 +18,7 @@ html {
 :root {
     --nav-height: 80px;
     --wave-height: clamp(72px, 10vw, 120px);
-    --wave-color: #F5EDE4;
+    --wave-color: #f9f7f3;
 }
 
 body {
@@ -834,7 +834,7 @@ img {
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em white;
-    background-color: #F5EDE4;
+    background-color: #f9f7f3;
     transform-origin: center;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
@@ -1030,7 +1030,7 @@ button:disabled,
 
 /* Botão da pergunta - soma scale suave e sombra dinâmica */
 .accordion-item > button {
-    background: linear-gradient(90deg, #F5EDE4 0%, #F2F0EE 100%);
+    background: linear-gradient(90deg, #f9f7f3 0%, #F2F0EE 100%);
     border: 1px solid rgba(19,45,46,0.06);
     color: #132D2E;
     padding: 1rem 1.25rem;
@@ -1056,7 +1056,7 @@ button:disabled,
 
 /* Conteúdo do acordeão - animação suave para FAQ */
 .accordion-content {
-    background: #F5EDE4;
+    background: #f9f7f3;
     border-top: 1px solid rgba(19,45,46,0.04);
     overflow: hidden;
     max-height: 0;
@@ -1103,7 +1103,7 @@ button:disabled,
    ======================================== */
 
 .accordion-item > button {
-    background: linear-gradient(90deg, #F5EDE4 0%, #F2F0EE 100%);
+    background: linear-gradient(90deg, #f9f7f3 0%, #F2F0EE 100%);
     border: 1px solid rgba(19,45,46,0.06);
     color: #132D2E;
     padding: 1rem 1.25rem;
@@ -1156,7 +1156,7 @@ button:disabled,
     padding: 0.75rem 1rem;
     font-weight: 600;
     color: #6b7280;
-    background: #F5EDE4;
+    background: #f9f7f3;
     border: 1px solid rgba(19, 45, 46, 0.08);
     border-radius: 0.9rem;
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);

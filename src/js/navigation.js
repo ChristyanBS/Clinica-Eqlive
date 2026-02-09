@@ -89,13 +89,18 @@ window.mobileNav = function(pageId) {
 // Navegação SPA com suporte a âncoras
 window.navigateTo = function(pageId, scrollToElement = null) {
     const current = document.querySelector('.page-section.active');
-    if (current && current.id === pageId && !scrollToElement) {
-        return;
-    }
+    const isAlreadyOnPage = current && current.id === pageId && !scrollToElement;
+    
+    // Sempre faz scroll para o topo
     if (typeof scrollToTop === 'function') {
         scrollToTop();
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Se já está na página, apenas faz o scroll e retorna
+    if (isAlreadyOnPage) {
+        return;
     }
     
     // Esconde todas as seções
