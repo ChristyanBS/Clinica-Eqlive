@@ -8,9 +8,15 @@ let selectedSymptoms = {};
 const totalSteps = 10; // 0-9 + resultado
 
 // Inicializar quiz
-window.startQuiz = function() {
-    console.log('Quiz iniciado');
-    currentStep = 1;
+window.startQuiz = function(startAt = 0) {
+    // Mostrar o quiz container
+    const quizContainer = document.getElementById('quiz-container');
+    if (quizContainer) {
+        quizContainer.style.display = 'block';
+    }
+    
+    const normalizedStart = Number.isInteger(startAt) && startAt >= 0 && startAt <= 9 ? startAt : 0;
+    currentStep = normalizedStart; // Começar no passo indicado
     selectedSymptoms = {
         neurological: [],
         musculoskeletal: [],
@@ -23,17 +29,26 @@ window.startQuiz = function() {
         reproductive: []
     };
     updateQuizUI();
+    
+    // Scroll para o quiz
+    if (quizContainer) {
+        setTimeout(() => {
+            quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    }
 };
 
 // Próximo passo - FUNÇÃO PRINCIPAL
 window.nextStep = function() {
     console.log('nextStep chamado - currentStep:', currentStep);
     collectCurrentStepSymptoms();
+    if (currentStep >= 9) {
+        showResults();
+        return;
+    }
     if (currentStep < 9) {
         currentStep++;
         updateQuizUI();
-    } else if (currentStep === 9) {
-        showResults();
     }
 };
 
@@ -94,7 +109,7 @@ function updateQuizUI() {
         }
     }
 
-    // Atualizar barra de progresso (9 passos de perguntas)
+    // Atualizar barra de progresso (10 passos: 0-9)
     const progress = (currentStep / 9) * 100;
     const progressBar = document.getElementById('quiz-progress');
     if (progressBar) {
@@ -102,37 +117,309 @@ function updateQuizUI() {
     }
 }
 
-// Mostrar resultados
+function getCareSummary() {
+    const stored = sessionStorage.getItem('careData');
+    if (!stored) return '';
+
+    let data = null;
+    try {
+        data = JSON.parse(stored);
+    } catch (e) {
+        return '';
+    }
+
+    const goalLabels = {
+        cronico: 'Ajuda para lidar com um problema cronico',
+        sintomas: 'Respostas para sintomas persistentes',
+        nao_funciona: 'Apoio quando nada mais funcionou',
+        'nao-funciona': 'Apoio quando nada mais funcionou',
+        proativo: 'Um plano de saude proativo',
+        saiba: 'Para saber como a saude pode ajudar'
+    };
+
+    const areaLabels = {
+        'saude-intestinal': 'Saude intestinal e digestiva',
+        'saude-hormonal': 'Saude hormonal',
+        'menopausa': 'Perimenopausa e Menopausa',
+        'fertilidade': 'Fertilidade, gravidez e pos-parto',
+        'metabolismo': 'Metabolismo e controle de peso',
+        'longevidade': 'Longevidade e expectativa de vida saudavel',
+        'saude-masculina': 'Saude masculina',
+        'autoimunes': 'Doencas autoimunes e inflamacao',
+        'sintomas-inexplicaveis': 'Sintomas inexplicaveis e nao diagnosticados',
+        'nenhuma': 'Nenhuma dessas'
+    };
+
+    const goal = data.goal ? (goalLabels[data.goal] || data.goal) : '';
+    const areas = Array.isArray(data.areas)
+        ? data.areas.map(area => areaLabels[area] || area).filter(Boolean)
+        : [];
+    const score = data.score ? data.score : '';
+
+    const lines = [];
+    lines.push('Questionario inicial:');
+    if (goal) lines.push(`- Objetivo: ${goal}`);
+    if (areas.length) lines.push(`- Areas de apoio: ${areas.join(', ')}`);
+    if (score) lines.push(`- Impacto na qualidade de vida (1-10): ${score}`);
+    return lines.join('\n');
+}
+
+function updateWhatsAppLink() {
+    const button = document.getElementById('quiz-whatsapp');
+    if (!button) return;
+
+    const domainLabels = {
+        neurological: 'Sistema neurologico',
+        musculoskeletal: 'Sistema musculoesqueletico',
+        gastrointestinal: 'Sistema gastrointestinal',
+        metabolic: 'Sistema metabolico',
+        respiratory: 'Sistema respiratorio',
+        skin: 'Pele e cabelo',
+        cardiac: 'Sistema cardiovascular',
+        mental: 'Mental e emocional',
+        reproductive: 'Saude reprodutiva'
+    };
+
+    const symptomLines = Object.keys(selectedSymptoms)
+        .filter(key => selectedSymptoms[key] && selectedSymptoms[key].length)
+        .map(key => {
+            const label = domainLabels[key] || key;
+            const items = selectedSymptoms[key].map(symptom => formatSymptomName(symptom)).join(', ');
+            return `${label}: ${items}`;
+        });
+
+    const careSummary = getCareSummary();
+    const messageParts = ['Ola! Fiz o questionario da Eqlive.'];
+    if (careSummary) {
+        messageParts.push('', careSummary);
+    }
+    messageParts.push('', 'Sintomas selecionados:');
+    messageParts.push(symptomLines.length ? symptomLines.map(line => `- ${line}`).join('\n') : '- Nenhum sintoma selecionado');
+    messageParts.push('', 'Gostaria de agendar uma avaliacao.');
+
+    const message = messageParts.join('\n');
+    button.href = `https://wa.me/5521967815767?text=${encodeURIComponent(message)}`;
+}
+
+// Mostrar resultados - VERSÃO SIMPLIFICADA
 window.showResults = function() {
-    collectCurrentStepSymptoms();
+    console.log('showResults() chamado - COMEÇANDO');
+    console.log('currentStep:', currentStep);
+    console.log('selectedSymptoms:', selectedSymptoms);
     
-    // Esconder todos os steps
-    document.querySelectorAll('.quiz-step').forEach(step => {
-        step.classList.add('hidden');
-    });
-
-    // Mostrar resultado
-    const resultElement = document.getElementById('quiz-result');
-    if (resultElement) {
+    try {
+        // 1. Coletar sintomas do step atual
+        collectCurrentStepSymptoms();
+        console.log('✓ Sintomas coletados');
+        
+        // 2. Esconder todos os steps de quiz
+        document.querySelectorAll('.quiz-step').forEach(step => {
+            step.classList.add('hidden');
+        });
+        console.log('✓ Todos os steps escondidos');
+        
+        // 3. Encontrar e mostrar elemento de resultado
+        const resultElement = document.getElementById('quiz-result');
+        if (!resultElement) {
+            console.error('❌ CRÍTICO: #quiz-result NÃO ENCONTRADO!');
+            console.log('Tentando criar fallback...');
+            const container = document.getElementById('quiz-container');
+            if (container) {
+                container.innerHTML = '<h2>Obrigado por completar o teste!</h2><p>Clique no botão abaixo para nos contatar.</p><a href="https://wa.me/5521967815767" target="_blank">Conversar no WhatsApp</a>';
+            }
+            return;
+        }
+        
         resultElement.classList.remove('hidden');
+        console.log('✓ quiz-result removido da classe hidden');
+        
+        // 4. FORÇAR visibilidade com inline style
+        resultElement.style.display = 'block';
+        resultElement.style.visibility = 'visible';
+        console.log('✓ Inline styles aplicados');
+        
+        // 5. Gerar conteúdo dos domínios
+        console.log('=== INICIANDO GERAÇÃO DE CONTEÚDO ===');
+        const domainsContainer = document.getElementById('domains-breakdown');
+        if (domainsContainer) {
+            console.log('✓ domainsContainer encontrado');
+            let domainsHTML = '';
+            const domains = [
+                { id: 'neurological', name: '🧠 Sistema Neurológico', description: 'Humor, foco, memória e clareza cognitiva' },
+                { id: 'musculoskeletal', name: '💪 Sistema Musculoesquelético', description: 'Dor, inflamação, mobilidade' },
+                { id: 'gastrointestinal', name: '🍽️ Sistema Gastrointestinal', description: 'Digestão e equilíbrio intestinal' },
+                { id: 'metabolic', name: '⚡ Sistema Metabólico', description: 'Energia e regulação' },
+                { id: 'respiratory', name: '💨 Sistema Respiratório', description: 'Respiração e imunidade' },
+                { id: 'skin', name: '✨ Pele e Cabelo', description: 'Saúde hormonal e nutricional' },
+                { id: 'cardiac', name: '❤️ Sistema Cardiovascular', description: 'Circulação e resistência' },
+                { id: 'mental', name: '🧘 Mental e Emocional', description: 'Estresse, sono e emoção' },
+                { id: 'reproductive', name: '🌸 Saúde Reprodutiva', description: 'Ciclo, hormônios e fertilidade' }
+            ];
+            
+            domains.forEach(domain => {
+                const count = selectedSymptoms[domain.id]?.length || 0;
+                const severity = count === 0 ? 'Ótimo' : count <= 2 ? 'Moderado' : 'Importante';
+                const color = count === 0 ? 'green' : count <= 2 ? 'yellow' : 'red';
+                const bgClass = color === 'green' ? 'bg-green-50 border-green-200' : 
+                               color === 'yellow' ? 'bg-yellow-50 border-yellow-200' : 'bg-red-50 border-red-200';
+                const textClass = color === 'green' ? 'text-green-700' : 
+                                 color === 'yellow' ? 'text-yellow-700' : 'text-red-700';
+                
+                domainsHTML += `
+                    <div class="p-4 rounded-xl border ${bgClass}">
+                        <div class="flex items-start justify-between mb-2">
+                            <h4 class="font-semibold text-gray-800">${domain.name}</h4>
+                            <span class="text-xs font-bold px-3 py-1 rounded-full ${textClass} bg-white border">${severity}</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">${domain.description}</p>
+                        <p class="text-xs text-gray-500"><strong>${count}</strong> ${count === 1 ? 'sintoma' : 'sintomas'} selecionados</p>
+                    </div>
+                `;
+            });
+            domainsContainer.innerHTML = domainsHTML;
+            console.log('✓ HTML dos domínios inserido');
+        } else {
+            console.error('❌ domainsContainer NÃO ENCONTRADO');
+        }
+        
+        // 6. Gerar recomendações
+        const recommendationsContainer = document.getElementById('recommendations');
+        if (recommendationsContainer) {
+            console.log('✓ recommendationsContainer encontrado');
+            const affectedDomains = Object.entries(selectedSymptoms)
+                .filter(([_, symptoms]) => symptoms.length > 0)
+                .length;
+            
+            let html = '';
+            if (affectedDomains === 0) {
+                html = '<li class="text-green-700 font-semibold">✓ Excelente! Nenhum sintoma significativo relatado.</li>';
+            } else if (affectedDomains <= 2) {
+                html = '<li class="text-amber-700 font-semibold">🎯 Recomendamos agendar uma avaliação profissional.</li>';
+            } else {
+                html = '<li class="text-red-700 font-semibold">⚠️ Você apresenta múltiplos sintomas - Agende agora!</li>';
+            }
+            recommendationsContainer.innerHTML = html;
+            console.log('✓ Recomendações inseridas');
+        } else {
+            console.error('❌ recommendationsContainer NÃO ENCONTRADO');
+        }
+        
+        // 7. Gerar link WhatsApp com mensagem completa e profissional
+        const whatsappBtn = document.getElementById('quiz-whatsapp');
+        if (whatsappBtn) {
+            // Recuperar dados do questionário
+            const careData = JSON.parse(sessionStorage.getItem('careData') || '{}');
+            
+            // Construir mensagem profissional
+            let message = 'TESTE DE SINTOMAS EQLIVE\n';
+            message += '='.repeat(40) + '\n\n';
+            
+            // Adicionar informações do questionário
+            if (careData.Goal) {
+                const goalLabel = {
+                    'preventivo': 'Cuidado Preventivo',
+                    'otimizar': 'Otimizar Saúde',
+                    'tratar': 'Tratar Condição Existente'
+                };
+                message += 'OBJETIVO:\n';
+                message += `${goalLabel[careData.Goal] || careData.Goal}\n\n`;
+            }
+            
+            if (careData.Areas) {
+                const areasLabel = {
+                    'saude_geral': 'Saúde Geral',
+                    'condicoes': 'Condições Específicas',
+                    'performance': 'Performance e Energia'
+                };
+                const areasText = careData.Areas.map(a => areasLabel[a] || a).join(', ');
+                message += 'ÁREAS DE INTERESSE:\n';
+                message += `${areasText}\n\n`;
+            }
+            
+            if (careData.Score) {
+                message += 'IMPACTO NA QUALIDADE DE VIDA:\n';
+                message += `${careData.Score}/10\n\n`;
+            }
+            
+            // Adicionar sintomas por domínio
+            message += 'SINTOMAS RELATADOS:\n';
+            message += '-'.repeat(40) + '\n';
+            
+            const domainLabels = {
+                'neurological': 'SISTEMA NEUROLÓGICO',
+                'musculoskeletal': 'SISTEMA MUSCULOESQUELÉTICO',
+                'gastrointestinal': 'SISTEMA GASTROINTESTINAL',
+                'metabolic': 'SISTEMA METABÓLICO',
+                'respiratory': 'SISTEMA RESPIRATÓRIO',
+                'skin': 'PELE E CABELO',
+                'cardiac': 'SISTEMA CARDIOVASCULAR',
+                'mental': 'SAÚDE MENTAL E EMOCIONAL',
+                'reproductive': 'SAÚDE REPRODUTIVA'
+            };
+            
+            let hasSymptoms = false;
+            Object.entries(selectedSymptoms).forEach(([domain, symptoms]) => {
+                if (symptoms.length > 0) {
+                    hasSymptoms = true;
+                    const domainLabel = domainLabels[domain] || domain;
+                    message += `\n${domainLabel}\n`;
+                    message += `Total de sintomas: ${symptoms.length}\n`;
+                    symptoms.forEach(symptom => {
+                        const symptomName = formatSymptomName(symptom);
+                        message += `• ${symptomName}\n`;
+                    });
+                }
+            });
+            
+            if (!hasSymptoms) {
+                message += '\nNenhum sintoma significativo relatado.\n';
+            }
+            
+            message += '\n' + '-'.repeat(40) + '\n';
+            message += '\nSolicitação: Agendar avaliação profissional para discussão e planejamento terapêutico.';
+            
+            whatsappBtn.href = `https://wa.me/5521967815767?text=${encodeURIComponent(message)}`;
+            console.log('✓ Link WhatsApp atualizado com mensagem profissional');
+            console.log('Mensagem:', message);
+        }
+        
+        // 8. Atualizar barra de progresso
+        const progressBar = document.getElementById('quiz-progress');
+        if (progressBar) {
+            progressBar.style.width = '100%';
+        }
+        
+        // 9. Scroll para o topo
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        console.log('✅ showResults COMPLETADO COM SUCESSO');
+        
+    } catch(error) {
+        console.error('❌ ERRO CRÍTICO em showResults():', error);
+        console.error('Stack:', error.stack);
+        
+        // Fallback: mostrar mensagem de erro
+        const fallback = document.getElementById('quiz-result');
+        if (fallback) {
+            fallback.style.display = 'block';
+            fallback.innerHTML = '<h2 style="color: red;">Erro ao processar resultados</h2><p>Por favor, recarregue a página e tente novamente.</p>';
+        }
     }
-
-    // Gerar breakdown dos domínios
-    generateDomainsBreakdown();
-    generateRecommendations();
-
-    // Atualizar progresso
-    const progressBar = document.getElementById('quiz-progress');
-    if (progressBar) {
-        progressBar.style.width = '100%';
-    }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 // Gerar breakdown dos domínios
 function generateDomainsBreakdown() {
-    const domains = [
+    try {
+        console.log('generateDomainsBreakdown iniciado');
+        const domainsContainer = document.getElementById('domains-breakdown');
+        console.log('domainsContainer encontrado:', !!domainsContainer);
+        if (!domainsContainer) {
+            console.error('ERRO CRÍTICO: #domains-breakdown não encontrado no DOM');
+            return;
+        }
+        console.log('selectedSymptoms:', JSON.stringify(selectedSymptoms));
+        
+        const domains = [
         { 
             id: 'neurological', 
             name: '🧠 Sistema Neurológico',
@@ -180,9 +467,6 @@ function generateDomainsBreakdown() {
         }
     ];
 
-    const domainsContainer = document.getElementById('domains-breakdown');
-    if (!domainsContainer) return;
-
     domainsContainer.innerHTML = '';
 
     domains.forEach(domain => {
@@ -213,6 +497,11 @@ function generateDomainsBreakdown() {
         `;
         domainsContainer.innerHTML += html;
     });
+        console.log('✅ generateDomainsBreakdown completado com sucesso');
+    } catch(error) {
+        console.error('❌ ERRO em generateDomainsBreakdown():', error);
+        console.error('Stack:', error.stack);
+    }
 }
 
 // Formatar nome do sintoma
@@ -282,44 +571,55 @@ function formatSymptomName(symptom) {
 
 // Gerar recomendações
 function generateRecommendations() {
-    const recommendationsContainer = document.getElementById('recommendations');
-    if (!recommendationsContainer) return;
+    try {
+        console.log('generateRecommendations iniciado');
+        const recommendationsContainer = document.getElementById('recommendations');
+        console.log('recommendationsContainer encontrado:', !!recommendationsContainer);
+        if (!recommendationsContainer) {
+            console.error('ERRO CRÍTICO: #recommendations não encontrado no DOM');
+            return;
+        }
 
-    // Contar domínios com sintomas
-    const affectedDomains = Object.entries(selectedSymptoms)
-        .filter(([_, symptoms]) => symptoms.length > 0)
-        .sort((a, b) => b[1].length - a[1].length);
+        // Contar domínios com sintomas
+        const affectedDomains = Object.entries(selectedSymptoms)
+            .filter(([_, symptoms]) => symptoms.length > 0)
+            .sort((a, b) => b[1].length - a[1].length);
 
-    const specialtyMap = {
-        neurological: { specialty: 'Psiquiatria / Neurologia', icon: '🧠' },
-        gastrointestinal: { specialty: 'Nutrição Funcional', icon: '🍽️' },
-        metabolic: { specialty: 'Endocrinologia', icon: '⚡' },
-        reproductive: { specialty: 'Endocrinologia / Ginecologia', icon: '🌸' },
-        respiratory: { specialty: 'Clínica Geral / Pulmonologia', icon: '💨' },
-        cardiac: { specialty: 'Cardiologia / Clínica Geral', icon: '❤️' },
-        skin: { specialty: 'Nutrição / Endocrinologia', icon: '✨' },
-        musculoskeletal: { specialty: 'Clínica Geral / Fisioterapia', icon: '💪' },
-        mental: { specialty: 'Psiquiatria / Psicologia', icon: '🧘' }
-    };
+        const specialtyMap = {
+            neurological: { specialty: 'Psiquiatria / Neurologia', icon: '🧠' },
+            gastrointestinal: { specialty: 'Nutrição Funcional', icon: '🍽️' },
+            metabolic: { specialty: 'Endocrinologia', icon: '⚡' },
+            reproductive: { specialty: 'Endocrinologia / Ginecologia', icon: '🌸' },
+            respiratory: { specialty: 'Clínica Geral / Pulmonologia', icon: '💨' },
+            cardiac: { specialty: 'Cardiologia / Clínica Geral', icon: '❤️' },
+            skin: { specialty: 'Nutrição / Endocrinologia', icon: '✨' },
+            musculoskeletal: { specialty: 'Clínica Geral / Fisioterapia', icon: '💪' },
+            mental: { specialty: 'Psiquiatria / Psicologia', icon: '🧘' }
+        };
 
-    let html = '';
+        let html = '';
 
-    if (affectedDomains.length === 0) {
-        html = '<li class="text-green-700 font-semibold">✓ Excelente! Nenhum sintoma significativo relatado. Continue com hábitos saudáveis!</li>';
-    } else if (affectedDomains.length <= 2) {
-        const specialties = affectedDomains.map(([domain, _]) => specialtyMap[domain].specialty).join(' e ');
-        html = `<li class="text-amber-700">🎯 Recomendamos consulta com: <strong>${specialties}</strong></li>`;
-        html += '<li>✓ Realizar avaliação inicial profunda</li>';
-        html += '<li>✓ Identificar conexões entre os sintomas</li>';
-        html += '<li>✓ Criar protocolo de tratamento integrado</li>';
-    } else {
-        html = '<li class="text-red-700 font-semibold">⚠️ Múltiplos sistemas afetados - Recomendamos Eqlive Essence</li>';
-        html += '<li>✓ Avaliação multidisciplinar completa (6 meses)</li>';
-        html += '<li>✓ Equipe: Nutrição + Endocrinologia + Psiquiatria + Clínica Geral</li>';
-        html += '<li>✓ Identificar e tratar causas raiz integrativamente</li>';
+        if (affectedDomains.length === 0) {
+            html = '<li class="text-green-700 font-semibold">✓ Excelente! Nenhum sintoma significativo relatado. Continue com hábitos saudáveis!</li>';
+        } else if (affectedDomains.length <= 2) {
+            const specialties = affectedDomains.map(([domain, _]) => specialtyMap[domain].specialty).join(' e ');
+            html = `<li class="text-amber-700">🎯 Recomendamos consulta com: <strong>${specialties}</strong></li>`;
+            html += '<li>✓ Realizar avaliação inicial profunda</li>';
+            html += '<li>✓ Identificar conexões entre os sintomas</li>';
+            html += '<li>✓ Criar protocolo de tratamento integrado</li>';
+        } else {
+            html = '<li class="text-red-700 font-semibold">⚠️ Múltiplos sistemas afetados - Recomendamos Eqlive Essence</li>';
+            html += '<li>✓ Avaliação multidisciplinar completa (6 meses)</li>';
+            html += '<li>✓ Equipe: Nutrição + Endocrinologia + Psiquiatria + Clínica Geral</li>';
+            html += '<li>✓ Identificar e tratar causas raiz integrativamente</li>';
+        }
+
+        recommendationsContainer.innerHTML = html;
+        console.log('✅ generateRecommendations completado com sucesso');
+    } catch(error) {
+        console.error('❌ ERRO em generateRecommendations():', error);
+        console.error('Stack:', error.stack);
     }
-
-    recommendationsContainer.innerHTML = html;
 }
 
 // Reset do quiz
@@ -351,6 +651,46 @@ document.addEventListener('DOMContentLoaded', () => {
         resetQuiz();
         // Scroll para o topo
         window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Fallback para navegacao do quiz caso handlers inline estejam bloqueados
+    document.addEventListener('click', (event) => {
+        const target = event.target.closest('[onclick]');
+        if (!target) return;
+
+        // Se o handler inline esta ativo, nao duplique a acao
+        if (typeof target.onclick === 'function') return;
+
+        const inline = target.getAttribute('onclick') || '';
+        if (inline.includes('startQuiz')) {
+            const match = inline.match(/startQuiz\s*\((\d+)\)/);
+            const startAt = match ? parseInt(match[1], 10) : 0;
+            startQuiz(startAt);
+            return;
+        }
+        if (inline.includes('nextStep')) {
+            nextStep();
+            return;
+        }
+        if (inline.includes('prevStep')) {
+            prevStep();
+            return;
+        }
+        if (inline.includes('showResults')) {
+            console.log('Fallback: showResults disparado pelo click');
+            showResults();
+            return;
+        }
+    });
+
+    // Setup para o botão de resultados finais
+    const finalBtn = document.getElementById('final-results-btn');
+    if (finalBtn && !finalBtn.onclick) {
+        console.log('Setupando listener para final-results-btn');
+        finalBtn.addEventListener('click', () => {
+            console.log('final-results-btn clicado');
+            showResults();
+        });
     }
 });
 

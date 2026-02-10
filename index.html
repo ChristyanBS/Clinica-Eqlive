@@ -423,12 +423,18 @@
                         <h2 class="font-serif text-3xl lg:text-5xl text-eqlive-dark mb-4">Medicina funcional para condições complexas e crônicas</h2>
                         <p class="text-gray-600 text-lg">Tratamos a pessoa, não apenas a doença.</p>
                     </div>
-                    <div class="hidden md:flex gap-3">
+                    <div class="flex gap-3">
                         <button id="prev-btn" style="width: 48px; height: 48px; border: 2px solid #132D2E; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; background: transparent; transition: all 0.3s ease;" class="hover:bg-eqlive-dark hover:text-white hover:shadow-lg transform hover:scale-110">
-                            <i data-lucide="arrow-left" style="width: 20px; height: 20px; color: #132D2E;"></i>
+                            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #132D2E;">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
                         </button>
                         <button id="next-btn" style="width: 48px; height: 48px; border: 2px solid #132D2E; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; background: transparent; transition: all 0.3s ease;" class="hover:bg-eqlive-dark hover:text-white hover:shadow-lg transform hover:scale-110">
-                            <i data-lucide="arrow-right" style="width: 20px; height: 20px; color: #132D2E;"></i>
+                            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #132D2E;">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -439,93 +445,88 @@
                         <div id="carousel-track" class="flex gap-6 transition-transform duration-500 ease-out min-w-max">
                             
                             <!-- Card 1: SAÚDE DIGESTIVA -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-nutricao')">
+                            <a href="condicoes/saude-intestinal.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-eqlive-green shadow-sm">
                                     <i data-lucide="apple" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde Digestiva</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Causa raiz para inchaço, refluxo, SIBO, intolerâncias, IBS e disbiose com testes avançados.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 2: HORMÔNIOS -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-endocrinologia')">
+                            <a href="condicoes/desequilibrio-hormonal.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-eqlive-accent shadow-sm">
                                     <i data-lucide="activity" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Hormônios e Endocrinologia</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Fadiga, tireoide, SOP, menopausa, TPM, resistência à insulina e desequilíbrios hormonais.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 3: AUTOIMUNE -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-clinicageral')">
+                            <a href="condicoes/doencas-autoimunes.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-blue-600 shadow-sm">
                                     <i data-lucide="shield" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Doenças Autoimunes</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Investigação profunda quando o sistema imune ataca o corpo. Hashimoto, artrite, lúpus, IBD.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 4: SAÚDE MENTAL -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-psiquiatria')">
+                            <a href="condicoes/saude-mental.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-eqlive-peach shadow-sm">
                                     <i data-lucide="brain" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde Mental Integrada</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Ansiedade, depressão, burnout, TDAH e transtornos de humor vistos sob ótica biológica.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 5: CARDIOMETABÓLICO -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-endocrinologia')">
+                            <a href="condicoes/saude-metabolica.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-yellow-600 shadow-sm">
                                     <i data-lucide="heart" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde Cardiometabólica</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Colesterol, pressão alta, diabetes, síndrome metabólica e prevenção cardiovascular.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 6: SAÚDE DA MULHER -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-clinicageral')">
+                            <a href="condicoes/saude-mental-da-mulher.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-pink-600 shadow-sm">
                                     <i data-lucide="flower" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde da Mulher</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Fertilidade, gestação, pós-parto, menopausa, perimenopausa e equilíbrio hormonal integral.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 7: SONO E ENERGIA -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-clinicageral')">
+                            <a href="condicoes/sintomas-inexplicaveis.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-indigo-600 shadow-sm">
                                     <i data-lucide="moon" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Sono e Energia</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Insônia, sono agitado, fadiga crônica e otimização de energia com protocolo integrado.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
 
                             <!-- Card 8: EMAGRECIMENTO E PERFORMANCE -->
-                            <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-nutricao')">
+                            <a href="condicoes/resistencia-a-insulina.html" class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col">
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-green-600 shadow-sm">
                                     <i data-lucide="zap" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Emagrecimento Saudável</h3>
                                 <p class="text-gray-500 text-sm mb-6 flex-grow">Perda de peso sustentável, otimização metabólica e Programa Eqlive Essence completo.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Mobile Carousel Controls -->
-                <div class="flex md:hidden justify-center gap-4 mt-8">
-                    <button id="prev-btn-mobile" class="w-12 h-12 border-2 border-eqlive-dark rounded-full flex items-center justify-center hover:bg-eqlive-dark hover:text-white transition cursor-pointer hover:shadow-lg transform hover:scale-110"><i data-lucide="arrow-left" class="text-eqlive-dark"></i></button>
-                    <button id="next-btn-mobile" class="w-12 h-12 border-2 border-eqlive-dark rounded-full flex items-center justify-center hover:bg-eqlive-dark hover:text-white transition cursor-pointer hover:shadow-lg transform hover:scale-110"><i data-lucide="arrow-right" class="text-eqlive-dark"></i></button>
-                </div>
             </section>
 
             <!-- Testimonials Section -->
@@ -1039,7 +1040,7 @@
                                 </div>
                             </div>
 
-                            <a href="https://wa.me/5521967815767?text=Fiz%20o%20Índice%20de%20Sintomas%20Eqlive%20e%20gostaria%20de%20marcar%20uma%20avaliação!" target="_blank" class="block w-full bg-eqlive-dark text-white py-5 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg text-lg hover:shadow-xl mb-6">
+                            <a id="quiz-whatsapp" href="https://wa.me/5521967815767?text=Fiz%20o%20Índice%20de%20Sintomas%20Eqlive%20e%20gostaria%20de%20marcar%20uma%20avaliação!" target="_blank" class="block w-full bg-eqlive-dark text-white py-5 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg text-lg hover:shadow-xl mb-6">
                                 Agendar Avaliação Profissional
                             </a>
                             <button onclick="resetQuiz()" class="text-gray-400 hover:text-gray-600 text-sm underline">Refazer o teste</button>
@@ -1959,133 +1960,156 @@
 
         <!-- ================= PAGE: COMO FUNCIONA ================= -->
         <div id="how" class="page-section is-hidden">
-            <!-- COMO FUNCIONA - PROCESSO -->
-            <section class="py-24 bg-white">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center max-w-3xl mx-auto mb-20">
-                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho para Saúde</span>
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Como Funciona Seu Tratamento</h2>
-                        <p class="text-gray-600 text-lg">Um processo estruturado, compassivo e orientado para resultados reais.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <!-- Step 1 -->
-                        <div class="relative">
-                            <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-green/5 rounded-2xl p-8 text-center h-full flex flex-col">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-dark text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Consulta Inicial</h3>
-                                <p class="text-gray-600">Escuta qualificada, entendimento completo da sua história de vida e objetivos de saúde.</p>
+            <!-- HERO -->
+            <section class="relative overflow-hidden bg-[#F9F8F6]">
+                <div class="absolute -top-24 -right-20 w-72 h-72 bg-eqlive-green/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 bg-eqlive-peach/10 rounded-full blur-3xl"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 relative z-10">
+                    <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+                        <div>
+                            <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Como Funciona</span>
+                            <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark leading-tight mb-6">Um plano de saúde integrado, construído ao redor de você</h2>
+                            <p class="text-lg text-gray-600 mb-6">Na Eqlive, a jornada começa com escuta profunda, segue com investigação da causa raiz e evolui com um plano multidisciplinar que se adapta ao seu ritmo e às suas metas.</p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-dark text-white px-7 py-3 rounded-full font-semibold hover:bg-eqlive-green transition">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    Conversa inicial
+                                </a>
+                                <a href="care.html" class="inline-flex items-center justify-center gap-2 border border-eqlive-dark/20 text-eqlive-dark px-7 py-3 rounded-full font-semibold hover:border-eqlive-green hover:text-eqlive-green transition">
+                                    <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+                                    Questionario de saude
+                                </a>
                             </div>
-                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
-                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
-                            </div>
+                            <p class="text-sm text-gray-500 mt-4">Atendimento humanizado, foco em resultados sustentaveis e equipe integrada.</p>
                         </div>
-
-                        <!-- Step 2 -->
-                        <div class="relative">
-                            <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-accent/5 rounded-2xl p-8 text-center h-full flex flex-col">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-green text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Testes Funcionais</h3>
-                                <p class="text-gray-600">Bateria de testes avançados para identificar as verdadeiras causas raiz dos seus sintomas.</p>
+                        <div class="bg-white rounded-3xl p-8 shadow-xl border border-eqlive-dark/10">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-12 h-12 rounded-full bg-eqlive-green/10 text-eqlive-green flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs uppercase tracking-[0.25em] text-eqlive-dark/50">Primeiras semanas</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark">Clareza, direcao e acolhimento</h3>
+                                </div>
                             </div>
-                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
-                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="relative">
-                            <div class="bg-gradient-to-br from-eqlive-accent/5 to-eqlive-peach/5 rounded-2xl p-8 text-center h-full flex flex-col">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-accent text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Plano Personalizado</h3>
-                                <p class="text-gray-600">Estratégia integrada de tratamento com medicina, nutrição, estilo de vida e suporte mental.</p>
-                            </div>
-                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
-                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
-                            </div>
-                        </div>
-
-                        <!-- Step 4 -->
-                        <div class="relative">
-                            <div class="bg-gradient-to-br from-eqlive-peach/5 to-eqlive-dark/5 rounded-2xl p-8 text-center h-full flex flex-col">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-peach text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
-                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Acompanhamento</h3>
-                                <p class="text-gray-600">Monitoramento contínuo, ajustes no plano e suporte total até alcançar seus objetivos.</p>
-                            </div>
+                            <ul class="space-y-4 text-gray-600">
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Mapeamento completo do historico e sintomas.</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Definicao dos exames e marcadores relevantes.</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Plano inicial com prioridades claras e metas reais.</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Orientacoes praticas para ja se sentir melhor.</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- TABELA COMPARATIVA -->
-            <section class="py-24 bg-white">
-                <div class="max-w-7xl mx-auto px-4">
+            <!-- ETAPAS -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-16">
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Como Somos Diferentes</h2>
-                        <p class="text-gray-600 text-lg">Medicina Funcional vs. Atendimento Tradicional</p>
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Etapas do cuidado</span>
+                        <h3 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Da investigacao a evolucao continua</h3>
+                        <p class="text-lg text-gray-600">Um metodo claro para compreender o que esta acontecendo no seu corpo e transformar isso em progresso consistente.</p>
                     </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-dark/5 to-white">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-dark text-white flex items-center justify-center font-bold mb-4">1</div>
+                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Consulta de descoberta</h4>
+                            <p class="text-gray-600">Escuta detalhada do seu historico, rotina, sintomas e objetivos.</p>
+                        </div>
+                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-green/5 to-white">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-green text-white flex items-center justify-center font-bold mb-4">2</div>
+                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Investigacao funcional</h4>
+                            <p class="text-gray-600">Exames e analises que apontam a causa raiz dos desequilibrios.</p>
+                        </div>
+                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-accent/5 to-white">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-accent text-white flex items-center justify-center font-bold mb-4">3</div>
+                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Plano personalizado</h4>
+                            <p class="text-gray-600">Nutricao, endocrinologia e suporte emocional alinhados ao seu perfil.</p>
+                        </div>
+                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-peach/10 to-white">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-peach text-white flex items-center justify-center font-bold mb-4">4</div>
+                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Acompanhamento continuo</h4>
+                            <p class="text-gray-600">Ajustes regulares para consolidar resultados e bem-estar duradouro.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead>
-                                <tr class="border-b-2 border-eqlive-dark/20">
-                                    <th class="py-4 px-6 text-left text-eqlive-dark font-semibold"></th>
-                                    <th class="py-4 px-6 text-center">
-                                        <div class="flex flex-col items-center gap-2">
-                                            <div class="w-10 h-10 rounded-full bg-eqlive-green/20 flex items-center justify-center">
-                                                <i data-lucide="check-circle-2" class="w-6 h-6 text-eqlive-green"></i>
-                                            </div>
-                                            <span class="font-semibold text-eqlive-dark">Eqlive</span>
-                                        </div>
-                                    </th>
-                                    <th class="py-4 px-6 text-center">
-                                        <div class="flex flex-col items-center gap-2">
-                                            <div class="w-10 h-10 rounded-full bg-gray-200/50 flex items-center justify-center">
-                                                <i data-lucide="x-circle" class="w-6 h-6 text-gray-500"></i>
-                                            </div>
-                                            <span class="font-semibold text-gray-600">Tradicional</span>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Abordagem Centrada no Paciente</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition bg-eqlive-green/2">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Diagnóstico de Causa Raiz</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Testes Avançados e Genéticos</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition bg-eqlive-green/2">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Equipe Multidisciplinar</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Nutrição Personalizada</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition bg-eqlive-green/2">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Acompanhamento Contínuo</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
-                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Foco em Prevenção</td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
-                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <!-- O QUE VOCE RECEBE -->
+            <section class="py-20 bg-[#F9F8F6]">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-3xl p-8 border border-eqlive-dark/10 shadow-sm">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-green/10 text-eqlive-green flex items-center justify-center mb-5">
+                                <i data-lucide="stethoscope" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl text-eqlive-dark mb-3">Consulta aprofundada</h4>
+                            <p class="text-gray-600 mb-4">Um olhar completo para seu corpo, sintomas e historia pessoal.</p>
+                            <ul class="space-y-3 text-sm text-gray-600">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Tempo dedicado a escuta real.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Hipoteses clinicas integradas.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Foco na causa raiz.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-3xl p-8 border border-eqlive-dark/10 shadow-sm">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-accent/10 text-eqlive-accent flex items-center justify-center mb-5">
+                                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl text-eqlive-dark mb-3">Plano integrado</h4>
+                            <p class="text-gray-600 mb-4">Um plano que une medicina, nutricao e estilo de vida.</p>
+                            <ul class="space-y-3 text-sm text-gray-600">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Metas claras e realistas.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Recomendacoes praticas.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Adaptacoes para sua rotina.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-3xl p-8 border border-eqlive-dark/10 shadow-sm">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-peach/20 text-eqlive-dark flex items-center justify-center mb-5">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl text-eqlive-dark mb-3">Acompanhamento real</h4>
+                            <p class="text-gray-600 mb-4">Monitoramento continuo para ajustar o plano e garantir evolucao.</p>
+                            <ul class="space-y-3 text-sm text-gray-600">
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Revisoes estrategicas.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Suporte multidisciplinar.</li>
+                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Foco em resultados sustentaveis.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SUA EQUIPE -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Equipe integrada</span>
+                        <h3 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Profissionais que se conectam em um unico plano</h3>
+                        <p class="text-lg text-gray-600">Endocrinologia, nutricao funcional e saude emocional trabalham juntas para criar um cuidado completo.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="rounded-2xl p-8 border border-eqlive-dark/10 bg-[#F9F8F6]">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-dark text-white flex items-center justify-center mb-5">
+                                <i data-lucide="activity" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl text-eqlive-dark mb-2">Endocrinologia funcional</h4>
+                            <p class="text-gray-600">Equilibrio hormonal, metabolismo e interpretacao avancada de exames.</p>
+                        </div>
+                        <div class="rounded-2xl p-8 border border-eqlive-dark/10 bg-[#F9F8F6]">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-green text-white flex items-center justify-center mb-5">
+                                <i data-lucide="leaf" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl text-eqlive-dark mb-2">Nutricao funcional</h4>
+                            <p class="text-gray-600">Planos alimentares estrategicos, suplementacao e educacao nutricional.</p>
+                        </div>
+                        <div class="rounded-2xl p-8 border border-eqlive-dark/10 bg-[#F9F8F6]">
+                            <div class="w-12 h-12 rounded-full bg-eqlive-peach text-white flex items-center justify-center mb-5">
+                                <i data-lucide="heart" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl text-eqlive-dark mb-2">Saude emocional</h4>
+                            <p class="text-gray-600">Apoio para ansiedade, compulsao, estresse e rotina mais leve.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -2093,13 +2117,16 @@
             <!-- CTA FINAL -->
             <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white">
                 <div class="max-w-4xl mx-auto px-4 text-center">
-                    <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para Começar?</h2>
-                    <p class="text-xl text-white/90 mb-8">Agende sua consulta inicial e descubra como a medicina funcional pode transformar sua saúde.</p>
-                    
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para comecar?</h2>
+                    <p class="text-xl text-white/90 mb-8">Vamos entender seu momento e desenhar um plano que funcione de verdade.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-peach text-eqlive-dark px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Agende Sua Consulta
+                            Agendar conversa
+                        </a>
+                        <a href="care.html" class="inline-flex items-center justify-center gap-2 border border-white/40 text-white px-8 py-4 rounded-full font-semibold text-lg hover:border-white hover:bg-white/10 transition">
+                            <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+                            Fazer questionario
                         </a>
                     </div>
                 </div>

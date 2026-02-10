@@ -116,7 +116,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 areas: Array.from(state.areas),
                 score: state.score
             }));
-            
+
+            const quizContainer = document.getElementById('quiz-container');
+            if (quizContainer) {
+                quizContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(() => {
+                    if (typeof startQuiz === 'function') {
+                        startQuiz();
+                    }
+                }, 300);
+                return;
+            }
+
             window.location.href = 'join-care.html';
         });
     });

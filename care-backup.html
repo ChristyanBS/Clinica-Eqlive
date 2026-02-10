@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário de Saúde | Clínica Eqlive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                try { if (lucide.replace) lucide.replace(); } catch (e) {}
+                try { if (lucide.createIcons) lucide.createIcons(); } catch (e) {}
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="src/css/tailwind.generated.css">
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="min-h-screen bg-white text-eqlive-dark questionnaire-page">
+    <nav class="fixed w-full z-50 bg-eqlive-base/98 backdrop-blur-lg border-b border-eqlive-dark/8 shadow-sm transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigateTo('home')">
+                    <img src="src/assets/images/banner_logo.png" alt="Eqlive" class="h-11 group-hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <div class="hidden lg:flex items-center gap-1">
+                    <div class="flex items-center gap-8">
+                        <div class="relative group nav-dropdown">
+                            <button class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group flex items-center gap-1.5" aria-haspopup="true" aria-expanded="false">
+                                Condições
+                                <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+                                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                            </button>
+                            <div class="nav-dropdown-menu">
+                                <div class="nav-dropdown-panel">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <a href="condicoes/saude-intestinal.html" class="nav-dropdown-link">Saúde intestinal e digestiva</a>
+                                        <a href="condicoes/doencas-autoimunes.html" class="nav-dropdown-link">Doenças autoimunes e inflamação</a>
+                                        <a href="condicoes/saude-metabolica.html" class="nav-dropdown-link">Saúde metabólica</a>
+                                        <a href="condicoes/resistencia-a-insulina.html" class="nav-dropdown-link">Resistência à insulina</a>
+                                        <a href="condicoes/pre-diabetes.html" class="nav-dropdown-link">Pré-diabetes</a>
+                                        <a href="condicoes/sop.html" class="nav-dropdown-link">SOP</a>
+                                        <a href="condicoes/desequilibrio-hormonal.html" class="nav-dropdown-link">Saúde hormonal</a>
+                                        <a href="condicoes/menopausa.html" class="nav-dropdown-link">Perimenopausa e Menopausa</a>
+                                        <a href="condicoes/hipotireoidismo.html" class="nav-dropdown-link">Hipotireoidismo</a>
+                                        <a href="condicoes/tireoidite-de-hashimoto.html" class="nav-dropdown-link">Tireoidite de Hashimoto</a>
+                                        <a href="condicoes/sintomas-inexplicaveis.html" class="nav-dropdown-link">Sintomas inexplicáveis</a>
+                                        <a href="condicoes/desintoxicacao-e-exposicao-ambiental.html" class="nav-dropdown-link">Desintoxicação e exposição ambiental</a>
+                                        <a href="condicoes/longevidade-e-saude.html" class="nav-dropdown-link">Longevidade e vida saudável</a>
+                                        <a href="condicoes/saude-mental.html" class="nav-dropdown-link">Saúde mental</a>
+                                        <a href="condicoes/ansiedade-e-burnout.html" class="nav-dropdown-link">Ansiedade e burnout</a>
+                                        <a href="condicoes/depressao.html" class="nav-dropdown-link">Depressão</a>
+                                    </div>
+                                    <div class="mt-4 pt-4 border-t border-eqlive-dark/10 flex flex-wrap items-center justify-between gap-3">
+                                        <a href="condicoes/index.html" class="nav-dropdown-link">Ver todas as condições</a>
+                                        <a href="care.html" class="cta-outline text-sm">Questionário de saúde</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="navigateTo('about')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
+                            Quem Somos
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <button onclick="navigateTo('specialties')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
+                            Tratamentos
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <button onclick="navigateTo('how')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
+                            Como Funciona
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <button onclick="navigateTo('essence')" class="nav-link-desktop text-sm font-500 text-eqlive-accent hover:text-[#b88655] transition-colors duration-300 font-serif italic relative group">
+                            Essence
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-accent group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <a href="care.html" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group flex items-center gap-1.5">
+                            <i data-lucide="activity" class="w-4 h-4 group-hover:scale-110 transition-transform"></i> Questionário
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </a>
+                        <button onclick="navigateTo('blog')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
+                            Blog
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <button onclick="navigateTo('faq')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
+                            FAQ
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <button onclick="navigateTo('location')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                    </div>
+                    
+                    <div class="h-6 w-px bg-eqlive-dark/10 mx-4"></div>
+                    
+                    <a href="https://wa.me/5521967815767" target="_blank" class="bg-gradient-to-r from-eqlive-dark to-eqlive-green text-white px-6 py-2.5 rounded-full text-sm font-600 hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        Comece Agora
+                    </a>
+                </div>
+
+                <div class="lg:hidden flex items-center gap-3">
+                    <button onclick="navigateTo('location')" class="text-eqlive-dark hover:text-eqlive-green transition p-2">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-eqlive-dark hover:text-eqlive-green focus:outline-none p-2" aria-expanded="false" aria-controls="mobile-menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu-overlay" class="hidden lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-30 opacity-0 transition-opacity duration-500 ease-out"></div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-gradient-to-b from-eqlive-dark via-eqlive-dark/95 to-eqlive-green/95 fixed top-0 right-0 h-[100dvh] w-[85vw] max-w-sm pt-16 pb-8 overflow-y-auto overscroll-contain z-40 transform transition-transform duration-600 ease-out translate-x-full shadow-2xl rounded-l-3xl border-l border-white/10 will-change-transform">
+            <div class="px-5 flex flex-col gap-4 min-h-[calc(100dvh-17rem)] text-white">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="h-11 w-11 rounded-2xl bg-white border border-white/40 flex items-center justify-center">
+                            <img src="src/assets/images/banner_logo.png" alt="Eqlive" class="h-6">
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-white/60">Clínica Eqlive</p>
+                            <h3 class="font-serif text-2xl">Menu</h3>
+                        </div>
+                    </div>
+                    <button id="mobile-menu-close" aria-label="Fechar menu" class="h-10 w-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white/10 rounded-2xl p-2 border border-white/10 flex flex-col gap-1">
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-white/50 px-3 pt-2">Navegação</p>
+                    <button onclick="mobileNav('about')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="info" class="w-5 h-5 text-eqlive-peach"></i>
+                        Quem Somos
+                    </button>
+                    <button onclick="mobileNav('specialties')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="stethoscope" class="w-5 h-5 text-eqlive-peach"></i>
+                        Tratamentos
+                    </button>
+                    <button onclick="mobileNav('how')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="settings" class="w-5 h-5 text-eqlive-peach"></i>
+                        Como Funciona
+                    </button>
+                    <button onclick="mobileNav('essence')" class="mobile-nav-item text-[15px] font-medium text-eqlive-peach flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition font-serif italic">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-eqlive-peach"></i>
+                        Essence
+                    </button>
+                    <a href="care.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="activity" class="w-5 h-5 text-eqlive-peach"></i>
+                        Questionário
+                    </a>
+                    <button onclick="mobileNav('blog')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="book-open" class="w-5 h-5 text-eqlive-peach"></i>
+                        Blog
+                    </button>
+                    <button onclick="mobileNav('faq')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="help-circle" class="w-5 h-5 text-eqlive-peach"></i>
+                        FAQ
+                    </button>
+                    <button onclick="mobileNav('location')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-eqlive-peach"></i>
+                        Localização
+                    </button>
+                </div>
+
+                <div class="bg-white/10 rounded-2xl p-4 border border-white/10 flex flex-col gap-3">
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-white/50">Condições</p>
+                    <div class="grid grid-cols-1 gap-2 text-sm">
+                        <a href="condicoes/saude-intestinal.html" class="text-white/80 hover:text-white transition">Saúde intestinal e digestiva</a>
+                        <a href="condicoes/saude-metabolica.html" class="text-white/80 hover:text-white transition">Saúde metabólica</a>
+                        <a href="condicoes/ansiedade-e-burnout.html" class="text-white/80 hover:text-white transition">Ansiedade e burnout</a>
+                        <a href="condicoes/menopausa.html" class="text-white/80 hover:text-white transition">Perimenopausa e Menopausa</a>
+                    </div>
+                    <a href="condicoes/index.html" class="text-sm text-eqlive-peach hover:text-white transition">Ver todas as condições</a>
+                </div>
+            </div>
+            <div class="px-5 mt-6">
+                <a href="https://wa.me/5521967815767" target="_blank" class="w-full flex items-center justify-center gap-2 bg-white text-eqlive-dark font-semibold py-3 rounded-2xl hover:shadow-lg transition">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    Comece Agora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-10 sm:pt-32 sm:pb-14">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="care-card overflow-hidden">
+                <div class="px-6 sm:px-10 py-5 border-b border-eqlive-dark/10 text-center">
+                    <p class="text-xs uppercase tracking-[0.3em] text-eqlive-dark/60">Junte-se à Eqlive</p>
+                </div>
+
+                <div class="p-6 sm:p-10">
+                    <div class="care-step" data-step="1">
+                        <h1 class="font-serif text-2xl sm:text-3xl text-center">Qual das opções a seguir melhor descreve o que você está procurando neste momento?</h1>
+                        <p class="text-center text-slate-500 text-sm sm:text-base mt-3">A jornada de saúde de cada pessoa é diferente. Responda a algumas perguntas rápidas para descobrirmos o próximo passo ideal.</p>
+
+                        <div class="mt-8 space-y-3">
+                            <button type="button" class="care-option" data-care-goal="cronico">Ajuda para lidar com um problema crônico</button>
+                            <button type="button" class="care-option" data-care-goal="sintomas">Respostas para sintomas persistentes</button>
+                            <button type="button" class="care-option" data-care-goal="nao-funciona">Apoio quando nada mais funcionou</button>
+                            <button type="button" class="care-option" data-care-goal="proativo">Um plano de saúde proativo</button>
+                            <button type="button" class="care-option" data-care-goal="saiba">Para saber como a saúde pode ajudar</button>
+                        </div>
+
+                        <div class="mt-8 flex justify-end">
+                            <button type="button" class="cta-primary" data-care-next disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="care-step hidden" data-step="2">
+                        <h2 class="font-serif text-2xl sm:text-3xl text-center">Em quais áreas da sua saúde você gostaria de ter mais apoio?</h2>
+                        <p class="text-center text-slate-500 text-sm sm:text-base mt-3">Selecione todas as opções aplicáveis. Isso ajuda a personalizar seu plano de cuidado.</p>
+
+                        <div class="mt-8 space-y-3">
+                            <button type="button" class="care-option" data-care-area="saude-intestinal">Saúde intestinal e digestiva</button>
+                            <button type="button" class="care-option" data-care-area="saude-hormonal">Saúde hormonal</button>
+                            <button type="button" class="care-option" data-care-area="menopausa">Perimenopausa e Menopausa</button>
+                            <button type="button" class="care-option" data-care-area="fertilidade">Fertilidade, Gravidez e Pós-parto</button>
+                            <button type="button" class="care-option" data-care-area="metabolismo">Metabolismo e Controle de Peso</button>
+                            <button type="button" class="care-option" data-care-area="longevidade">Longevidade e expectativa de vida saudável</button>
+                            <button type="button" class="care-option" data-care-area="saude-masculina">Saúde masculina</button>
+                            <button type="button" class="care-option" data-care-area="autoimunes">Doenças autoimunes e inflamação</button>
+                            <button type="button" class="care-option" data-care-area="sintomas-inexplicaveis">Sintomas inexplicáveis e não diagnosticados</button>
+                            <button type="button" class="care-option" data-care-area="nenhuma">Nenhuma dessas</button>
+                        </div>
+
+                        <div class="mt-8 flex items-center justify-between gap-3">
+                            <button type="button" class="cta-outline" data-care-prev>Voltar</button>
+                            <button type="button" class="cta-primary" data-care-next disabled>Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="care-step hidden" data-step="3">
+                        <h2 class="font-serif text-2xl sm:text-3xl text-center">O quanto seus sintomas afetam sua qualidade de vida?</h2>
+                        <p class="text-center text-slate-500 text-sm sm:text-base mt-3">Escolha um número de 1 a 10.</p>
+
+                        <div class="mt-8 care-scale flex gap-2">
+                            <button type="button" data-care-score="1">1</button>
+                            <button type="button" data-care-score="2">2</button>
+                            <button type="button" data-care-score="3">3</button>
+                            <button type="button" data-care-score="4">4</button>
+                            <button type="button" data-care-score="5">5</button>
+                            <button type="button" data-care-score="6">6</button>
+                            <button type="button" data-care-score="7">7</button>
+                            <button type="button" data-care-score="8">8</button>
+                            <button type="button" data-care-score="9">9</button>
+                            <button type="button" data-care-score="10">10</button>
+                        </div>
+                        <div class="mt-3 flex justify-between text-xs text-slate-400">
+                            <span>Mínimo</span>
+                            <span>O pior que você pode imaginar</span>
+                        </div>
+
+                        <div class="mt-8 flex items-center justify-between gap-3">
+                            <button type="button" class="cta-outline" data-care-prev>Voltar</button>
+                            <button type="button" class="cta-primary" data-care-finish disabled>Continuar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="py-16 -mt-2">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="w-full bg-white rounded-3xl shadow-xl p-8 md:p-12 relative overflow-hidden transition-all duration-300" id="quiz-container">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gray-100">
+                        <div id="quiz-progress" class="h-full bg-gradient-to-r from-eqlive-dark to-eqlive-green transition-all duration-500" style="width: 0%"></div>
+                    </div>
+
+                    <div id="quiz-step-0" class="quiz-step text-center">
+                        <div class="w-24 h-24 bg-eqlive-green/10 rounded-full flex items-center justify-center mx-auto mb-8 text-eqlive-green">
+                            <i data-lucide="heart-pulse" class="w-12 h-12"></i>
+                        </div>
+                        <h2 class="font-serif text-3xl text-eqlive-dark mb-4">Complete sua avaliacao funcional</h2>
+                        <p class="text-gray-500 text-sm uppercase tracking-widest font-semibold mb-8">Indice de Sintomas Eqlive</p>
+                        <p class="text-gray-600 mb-10 text-lg leading-relaxed max-w-md mx-auto">Uma ferramenta de autoavaliacao para mapear quais sistemas do corpo precisam de suporte e direcionar o cuidado.</p>
+                        <div class="bg-[#F9F8F6] p-6 rounded-2xl mb-10 border border-eqlive-green/20">
+                            <div class="grid grid-cols-3 gap-4 text-center mb-6">
+                                <div>
+                                    <div class="text-2xl font-bold text-eqlive-green mb-1">9</div>
+                                    <div class="text-xs text-gray-600 uppercase font-semibold">Dominios</div>
+                                </div>
+                                <div class="border-l border-r border-gray-200">
+                                    <div class="text-2xl font-bold text-eqlive-dark mb-1">30+</div>
+                                    <div class="text-xs text-gray-600 uppercase font-semibold">Sintomas</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-eqlive-accent mb-1">5min</div>
+                                    <div class="text-xs text-gray-600 uppercase font-semibold">Tempo</div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600">Avaliacao estruturada para identificar padroes de sintomas e orientar seu cuidado.</p>
+                        </div>
+                        <button onclick="startQuiz()" type="button" class="bg-eqlive-dark text-white px-12 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg w-full md:w-auto text-lg">Iniciar Avaliacao</button>
+                    </div>
+
+                    <!-- Step 1: Neurológico -->
+                    <div id="quiz-step-1" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Neurológico</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Foco, memória, clareza mental e saúde emocional - Avaliado por especialistas em Psiquiatria e Neuropsicologia na Eqlive</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="neurological" value="dor_cabeca" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dores de cabeça</span><span class="text-sm text-gray-500 block">Frequentes ou intensas</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="neurological" value="brain_fog" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Brain fog / Confusão mental</span><span class="text-sm text-gray-500 block">Dificuldade de concentração</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="neurological" value="memoria" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Problemas de memória</span><span class="text-sm text-gray-500 block">Esquecimento, dificuldade de retenção</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="neurological" value="tontura" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Tonturas ou vertigem</span><span class="text-sm text-gray-500 block">Sensação de desequilíbrio</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="neurological" value="tremor" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Tremores ou tremulação</span><span class="text-sm text-gray-500 block">Especialmente nas mãos</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Musculoesquelético -->
+                    <div id="quiz-step-2" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Musculoesquelético</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Dor, inflamação, mobilidade e recuperação - Avaliado por Clínica Geral integrada com Nutrição Funcional</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="musculoskeletal" value="dor_costas" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dor nas costas</span><span class="text-sm text-gray-500 block">Aguda ou crônica</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="musculoskeletal" value="articulacoes" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dor ou rigidez nas articulações</span><span class="text-sm text-gray-500 block">Joelhos, quadris, ombros</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="musculoskeletal" value="inflamacao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Inflamação ou inchaço</span><span class="text-sm text-gray-500 block">Nas articulações ou músculos</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="musculoskeletal" value="rigidez" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Rigidez ou limitação de movimento</span><span class="text-sm text-gray-500 block">Especialmente ao acordar</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="musculoskeletal" value="recuperacao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Recuperação lenta de lesões</span><span class="text-sm text-gray-500 block">Feridas que demoram a cicatrizar</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Gastrointestinal -->
+                    <div id="quiz-step-3" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Gastrointestinal</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Digestão, absorção, imunidade e saúde intestinal - Especialidade de Nutrição Funcional da Eqlive</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="gastrointestinal" value="inchaço" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Inchaço abdominal</span><span class="text-sm text-gray-500 block">Barriguinha inchadinha frequente</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="gastrointestinal" value="gases" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Gases ou flatulência</span><span class="text-sm text-gray-500 block">Desconforto digestivo</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="gastrointestinal" value="constipacao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Constipação ou prisão de ventre</span><span class="text-sm text-gray-500 block">Dificuldade ao evacuar</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="gastrointestinal" value="diarreia" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Diarreia ou soltura</span><span class="text-sm text-gray-500 block">Frequente ou intermitente</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="gastrointestinal" value="azia" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Azia ou refluxo</span><span class="text-sm text-gray-500 block">Sensação de queimação</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="gastrointestinal" value="intolerancia" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Intolerâncias alimentares</span><span class="text-sm text-gray-500 block">Lactose, glúten ou outros</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Metabólico -->
+                    <div id="quiz-step-4" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Metabólico</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Regulação de açúcar, energia e emagrecimento saudável - Foco do Programa Eqlive Essence</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="metabolic" value="ganho_peso" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Ganho de peso não intencional</span><span class="text-sm text-gray-500 block">Apesar da atividade física</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="metabolic" value="dificuldade_perder" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dificuldade em perder peso</span><span class="text-sm text-gray-500 block">Resistência alimentar</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="metabolic" value="fome_insaciavel" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Fome insaciável ou compulsão</span><span class="text-sm text-gray-500 block">Desejo constante de comida</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="metabolic" value="queda_energia" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Queda de energia após refeições</span><span class="text-sm text-gray-500 block">Sonolência pós-almoço</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="metabolic" value="desejo_açucar" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Desejo intenso por açúcar</span><span class="text-sm text-gray-500 block">Especialmente à noite</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Respiratório -->
+                    <div id="quiz-step-5" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Respiratório</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Respiração, imunidade e inflamação - Avaliado por especialistas em Clínica Geral da Eqlive</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="respiratory" value="falta_ar" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Falta de ar</span><span class="text-sm text-gray-500 block">Em atividades leves</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="respiratory" value="tosse" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Tosse crônica</span><span class="text-sm text-gray-500 block">Frequente ou irritativa</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="respiratory" value="congestao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Congestão ou rinite</span><span class="text-sm text-gray-500 block">Persistente ou sazonal</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="respiratory" value="alergias" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Alergias frequentes</span><span class="text-sm text-gray-500 block">Ambientais ou alimentares</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="respiratory" value="sensibilidade" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Sensibilidade a cheiros ou poluição</span><span class="text-sm text-gray-500 block">Reação rápida a odores</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Pele e Cabelo -->
+                    <div id="quiz-step-6" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Pele e Cabelo</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Sinais de saúde hormonal, nutricional e inflamação - Avaliado por Endocrinologia e Nutrição integradas</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="skin" value="acne" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Acne ou espinhas</span><span class="text-sm text-gray-500 block">Frequentes ou cíclicas</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="skin" value="eczema" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Eczema ou dermatite</span><span class="text-sm text-gray-500 block">Coceira ou ressecamento</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="skin" value="pele_oleosa" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Pele muito oleosa ou seca</span><span class="text-sm text-gray-500 block">Desequilíbrio</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="skin" value="manchas" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Manchas ou descolorações</span><span class="text-sm text-gray-500 block">Na pele ou unhas</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="skin" value="cabelo_queda" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Queda de cabelo</span><span class="text-sm text-gray-500 block">Acelerada ou anormal</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="skin" value="cabelo_fino" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Cabelo fino ou sem volume</span><span class="text-sm text-gray-500 block">Britável ou opaco</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Cardíaco -->
+                    <div id="quiz-step-7" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Cardiovascular</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Resistência, circulação e saúde cardiaca - Avaliado por Clínica Geral com foco em saúde preventiva</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="cardiac" value="dor_peito" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dor no peito</span><span class="text-sm text-gray-500 block">Em repouso ou atividade</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="cardiac" value="palpitacoes" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Palpitações ou ritmo irregular</span><span class="text-sm text-gray-500 block">Batidas aceleradas</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="cardiac" value="pressao_alta" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Pressão arterial elevada</span><span class="text-sm text-gray-500 block">Leitura consistentemente alta</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="cardiac" value="intolerancia_exercicio" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Intolerância ao exercício</span><span class="text-sm text-gray-500 block">Fadiga excessiva</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="cardiac" value="inchaço_pernas" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Inchaço nas pernas ou pés</span><span class="text-sm text-gray-500 block">Retenção de líquidos</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 8: Mental e Emocional -->
+                    <div id="quiz-step-8" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Mental e Emocional</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Estresse, sono e saúde mental - Especialidade de Psiquiatria integrada da Eqlive</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="mental" value="ansiedade" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Ansiedade ou preocupação</span><span class="text-sm text-gray-500 block">Constante ou episódica</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="mental" value="depressao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Depressão ou tristeza</span><span class="text-sm text-gray-500 block">Sentimento persistente</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="mental" value="irritabilidade" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Irritabilidade ou mudanças de humor</span><span class="text-sm text-gray-500 block">Reações desproporcionais</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="mental" value="insonia" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Insônia ou sono ruim</span><span class="text-sm text-gray-500 block">Dificuldade para adormecer</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="mental" value="fadiga_mental" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Fadiga ou burnout</span><span class="text-sm text-gray-500 block">Esgotamento mental</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="mental" value="dificuldade_concentracao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dificuldade de concentração</span><span class="text-sm text-gray-500 block">Falta de foco</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Próximo</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 9: Reprodutivo e Genital -->
+                    <div id="quiz-step-9" class="quiz-step hidden">
+                        <div class="mb-6 cursor-pointer text-gray-400 hover:text-eqlive-green flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition" onclick="prevStep()">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
+                        </div>
+                        <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Saúde Reprodutiva</h2>
+                        <p class="text-gray-500 text-center mb-8 text-sm">Ciclo menstrual, hormônios e bem-estar feminino - Programa de Saúde da Mulher Eqlive</p>
+                        <div class="grid gap-3 max-w-lg mx-auto">
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="reproductive" value="tpm" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">TPM severa ou cólicas intensas</span><span class="text-sm text-gray-500 block">Antes do ciclo menstrual</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="reproductive" value="ciclo_irregular" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Ciclo menstrual irregular</span><span class="text-sm text-gray-500 block">Ausência ou muito frequente</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="reproductive" value="sangramento_abundante" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Sangramento muito abundante</span><span class="text-sm text-gray-500 block">Fluxo menstrual pesado</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="reproductive" value="libido_baixa" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Libido baixa ou disfunção sexual</span><span class="text-sm text-gray-500 block">Falta de interesse</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="reproductive" value="dificuldade_concepcao" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Dificuldade em conceber</span><span class="text-sm text-gray-500 block">Questões de fertilidade</span></span>
+                            </label>
+                            <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
+                                <input type="checkbox" data-category="reproductive" value="sintomas_menopausa" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
+                                <span class="ml-3 text-gray-700"><span class="font-semibold">Sintomas de menopausa/perimenopausa</span><span class="text-sm text-gray-500 block">Ondas de calor, suores noturnos</span></span>
+                            </label>
+                        </div>
+                        <div class="mt-10 text-center">
+                            <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Ver Resultados</button>
+                        </div>
+                    </div>
+
+                    <!-- Resultado Final -->
+                    <div id="quiz-result" class="quiz-step hidden text-center">
+                        <div class="w-24 h-24 bg-eqlive-green/10 rounded-full flex items-center justify-center mx-auto mb-8 text-eqlive-green">
+                            <i data-lucide="check-circle" class="w-12 h-12"></i>
+                        </div>
+                        <h2 class="font-serif text-4xl text-eqlive-dark mb-3">Sua Avaliação Completa</h2>
+                        <p class="text-gray-500 mb-8 uppercase tracking-widest text-xs font-bold">Baseado em seus 9 domínios de saúde</p>
+                        <div id="result-summary" class="bg-[#F9F8F6] p-8 rounded-2xl border border-eqlive-green/20 mb-10 text-left">
+                            <h3 class="font-serif text-2xl text-eqlive-dark mb-6 border-b border-gray-200 pb-3">Seu Perfil de Sintomas</h3>
+                            <div id="domains-breakdown" class="grid gap-4 mb-8"></div>
+                            <div class="bg-white p-6 rounded-xl border border-eqlive-accent/20">
+                                <h4 class="font-semibold text-eqlive-dark mb-3">Próximos Passos Recomendados:</h4>
+                                <ul id="recommendations" class="space-y-2 text-sm text-gray-700"></ul>
+                            </div>
+                        </div>
+                        <a id="quiz-whatsapp" href="https://wa.me/5521967815767?text=Fiz%20o%20Indice%20de%20Sintomas%20Eqlive%20e%20gostaria%20de%20marcar%20uma%20avaliacao!" target="_blank" class="block w-full bg-eqlive-dark text-white py-5 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg text-lg hover:shadow-xl mb-6">Agendar Avaliacao Profissional</a>
+                        <button onclick="resetQuiz()" class="text-gray-400 hover:text-gray-600 text-sm underline">Refazer o teste</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="src/js/navigation.js"></script>
+    <script src="src/js/quiz.js"></script>
+    <script src="src/js/care.js"></script>
+</body>
+</html>

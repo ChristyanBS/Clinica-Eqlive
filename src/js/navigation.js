@@ -181,87 +181,164 @@ function ensureVisibleSection() {
 // Carrossel/Carousel - INFINITO
 function setupCarousel() {
     const track = document.getElementById('carousel-track');
-    if (track) {
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const prevBtnMob = document.getElementById('prev-btn-mobile');
-        const nextBtnMob = document.getElementById('next-btn-mobile');
-        
-        console.log('Carousel Setup:', { track: !!track, prevBtn: !!prevBtn, nextBtn: !!nextBtn, prevBtnMob: !!prevBtnMob, nextBtnMob: !!nextBtnMob });
-        
-        // Duplicar cards para criar efeito infinito
+    const container = document.querySelector('.carousel-container');
+    if (!track || !container) {
+        return;
+    }
+
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtnMob = document.getElementById('prev-btn-mobile');
+    const nextBtnMob = document.getElementById('next-btn-mobile');
+
+    if (!track.dataset.cloned) {
         const cards = Array.from(track.children);
         cards.forEach(card => {
             const clone = card.cloneNode(true);
             track.appendChild(clone);
         });
-        
-        let scrollAmount = 0;
-        const cardWidth = 340 + 24; // Largura do card + gap
-        const totalCards = cards.length;
-
-        const scrollCarousel = (direction) => {
-            if (direction === 'next') {
-                scrollAmount += cardWidth;
-                track.style.transform = `translateX(-${scrollAmount}px)`;
-                
-                // Se chegou no final, reinicia do começo sem perceber
-                setTimeout(() => {
-                    if (scrollAmount >= cardWidth * totalCards) {
-                        track.style.transition = 'none';
-                        scrollAmount = 0;
-                        track.style.transform = `translateX(0)`;
-                        setTimeout(() => {
-                            track.style.transition = 'transform 500ms ease-out';
-                        }, 50);
-                    }
-                }, 500);
-            } else {
-                scrollAmount -= cardWidth;
-                
-                // Se estava no começo, vai pro final
-                if (scrollAmount < 0) {
-                    track.style.transition = 'none';
-                    scrollAmount = cardWidth * totalCards;
-                    track.style.transform = `translateX(-${scrollAmount}px)`;
-                    setTimeout(() => {
-                        track.style.transition = 'transform 500ms ease-out';
-                        scrollAmount -= cardWidth;
-                        track.style.transform = `translateX(-${scrollAmount}px)`;
-                    }, 50);
-                } else {
-                    track.style.transform = `translateX(-${scrollAmount}px)`;
-                }
-            }
-        };
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                console.log('Prev button clicked');
-                scrollCarousel('prev');
-            });
-        }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                console.log('Next button clicked');
-                scrollCarousel('next');
-            });
-        }
-        if (prevBtnMob) {
-            prevBtnMob.addEventListener('click', () => {
-                console.log('Prev mobile button clicked');
-                scrollCarousel('prev');
-            });
-        }
-        if (nextBtnMob) {
-            nextBtnMob.addEventListener('click', () => {
-                console.log('Next mobile button clicked');
-                scrollCarousel('next');
-            });
-        }
-    } else {
-        console.log('Carousel track not found');
+        track.dataset.cloned = 'true';
     }
+
+    track.querySelectorAll('a').forEach((card) => {
+        card.setAttribute('draggable', 'false');
+    });
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const baseSpeed = prefersReducedMotion ? 0 : 0.35;
+    let rafId = null;
+    let isDragging = false;
+    let isPointerDown = false;
+    let wasDragging = false;
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let startScrollLeft = 0;
+    const dragThreshold = 6;
+    let isAutoEnabled = !prefersReducedMotion;
+
+    const getCardStep = () => {
+        const firstCard = track.children[0];
+        if (!firstCard) return 300;
+        const gap = parseFloat(getComputedStyle(track).gap || '0');
+        return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    const maxScroll = () => track.scrollWidth / 2;
+
+    const normalizeScroll = () => {
+        const limit = maxScroll();
+        if (container.scrollLeft >= limit) {
+            container.scrollLeft -= limit;
+        } else if (container.scrollLeft < 0) {
+            container.scrollLeft += limit;
+        }
+    };
+
+    const tick = () => {
+        if (isAutoEnabled && !isDragging) {
+            container.scrollLeft += baseSpeed;
+            normalizeScroll();
+        }
+        rafId = requestAnimationFrame(tick);
+    };
+
+    const startAuto = () => {
+        if (!isAutoEnabled) return;
+        if (rafId) return;
+        rafId = requestAnimationFrame(tick);
+    };
+
+    const stopAuto = () => {
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        }
+    };
+
+    const scrollByStep = (direction) => {
+        const step = getCardStep();
+        const offset = direction === 'next' ? step : -step;
+        stopAuto();
+        container.scrollBy({ left: offset, behavior: 'smooth' });
+        setTimeout(() => startAuto(), 600);
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollByStep('prev'));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollByStep('next'));
+    if (prevBtnMob) prevBtnMob.addEventListener('click', () => scrollByStep('prev'));
+    if (nextBtnMob) nextBtnMob.addEventListener('click', () => scrollByStep('next'));
+
+    container.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        isPointerDown = true;
+        isDragging = false;
+        wasDragging = false;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startY = event.clientY;
+        startScrollLeft = container.scrollLeft;
+        stopAuto();
+    });
+
+    container.addEventListener('pointermove', (event) => {
+        if (!isPointerDown) return;
+        const dx = event.clientX - startX;
+        const dy = event.clientY - startY;
+        if (!isDragging) {
+            if (Math.abs(dx) < dragThreshold && Math.abs(dy) < dragThreshold) {
+                return;
+            }
+            isDragging = true;
+            container.classList.add('is-dragging');
+            if (pointerId !== null) {
+                container.setPointerCapture(pointerId);
+            }
+        }
+        event.preventDefault();
+        container.scrollLeft = startScrollLeft - dx;
+        normalizeScroll();
+    });
+
+    const endDrag = (event) => {
+        if (!isPointerDown) return;
+        if (isDragging) {
+            wasDragging = true;
+        }
+        isPointerDown = false;
+        isDragging = false;
+        container.classList.remove('is-dragging');
+        if (pointerId !== null && container.hasPointerCapture(pointerId)) {
+            container.releasePointerCapture(pointerId);
+        }
+        pointerId = null;
+        startAuto();
+    };
+
+    container.addEventListener('pointerup', endDrag);
+    container.addEventListener('pointercancel', endDrag);
+    container.addEventListener('mouseleave', () => {
+        if (!isPointerDown) return;
+        isPointerDown = false;
+        isDragging = false;
+        container.classList.remove('is-dragging');
+        pointerId = null;
+        startAuto();
+    });
+
+    container.addEventListener('click', (event) => {
+        if (wasDragging) {
+            wasDragging = false;
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    });
+
+    container.addEventListener('dragstart', (event) => {
+        event.preventDefault();
+    });
+
+    startAuto();
 }
 
 // Inicializar navegação ao carregar
