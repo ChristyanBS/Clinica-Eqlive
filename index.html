@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -84,7 +84,7 @@
 <body class="antialiased flex flex-col min-h-screen text-eqlive-dark font-sans">
 
     <!-- NAVIGATION -->
-    <nav class="fixed w-full z-50 bg-eqlive-base/98 backdrop-blur-lg border-b border-eqlive-dark/8 shadow-sm transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/98 backdrop-blur-lg border-b border-eqlive-dark/8 shadow-sm transition-all duration-300">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -135,6 +135,10 @@
                         </button>
                         <button onclick="navigateTo('specialties')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
                             Tratamentos
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
+                        </button>
+                        <button onclick="navigateTo('how')" class="nav-link-desktop text-sm font-500 text-eqlive-dark transition-all duration-300 relative group">
+                            Como Funciona
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-eqlive-green group-hover:w-full transition-all duration-300"></span>
                         </button>
                         <button onclick="navigateTo('essence')" class="nav-link-desktop text-sm font-500 text-eqlive-accent hover:text-[#b88655] transition-colors duration-300 font-serif italic relative group">
@@ -212,6 +216,10 @@
                         <i data-lucide="stethoscope" class="w-5 h-5 text-eqlive-peach"></i>
                         Tratamentos
                     </button>
+                    <button onclick="mobileNav('how')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <i data-lucide="settings" class="w-5 h-5 text-eqlive-peach"></i>
+                        Como Funciona
+                    </button>
                     <button onclick="mobileNav('essence')" class="mobile-nav-item text-[15px] font-medium text-eqlive-peach flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition font-serif italic">
                         <i data-lucide="sparkles" class="w-5 h-5 text-eqlive-peach"></i>
                         Essence
@@ -277,7 +285,7 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10">
                     <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center justify-between lg:h-96 lg:mt-12">
@@ -291,10 +299,10 @@
                                 A EQLIVE oferece atendimento médico completo, análises laboratoriais e testes avançados, projetados para oferecer suporte agora e se adaptar às mudanças em sua saúde.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="care.html" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                <a href="care.html" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
                                     Descubra seu Tratamento <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                 </a>
-                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-eqlive-base/10 transition font-semibold w-fit mx-auto sm:mx-0">
+                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
                                     Conheça nossas especialidades
                                 </button>
                             </div>
@@ -359,7 +367,7 @@
             </section>
 
             <!-- Resultados das Pacientes -->
-            <section class="py-24 bg-gradient-to-br from-eqlive-green/10 via-white to-eqlive-green/5">
+            <section class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid lg:grid-cols-2 gap-12 items-start">
                         <div>
@@ -409,7 +417,7 @@
             </section>
 
             <!-- Carousel Section: Conditions -->
-            <section class="py-20 bg-eqlive-base overflow-hidden border-t border-gray-100">
+            <section class="py-20 bg-white overflow-hidden border-t border-gray-100">
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
                     <div class="max-w-2xl">
                         <h2 class="font-serif text-3xl lg:text-5xl text-eqlive-dark mb-4">Medicina funcional para condições complexas e crônicas</h2>
@@ -432,7 +440,7 @@
                             
                             <!-- Card 1: SAÚDE DIGESTIVA -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-nutricao')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-eqlive-green shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-eqlive-green shadow-sm">
                                     <i data-lucide="apple" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde Digestiva</h3>
@@ -442,7 +450,7 @@
 
                             <!-- Card 2: HORMÔNIOS -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-endocrinologia')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-eqlive-accent shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-eqlive-accent shadow-sm">
                                     <i data-lucide="activity" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Hormônios e Endocrinologia</h3>
@@ -452,7 +460,7 @@
 
                             <!-- Card 3: AUTOIMUNE -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-clinicageral')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-blue-600 shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-blue-600 shadow-sm">
                                     <i data-lucide="shield" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Doenças Autoimunes</h3>
@@ -462,7 +470,7 @@
 
                             <!-- Card 4: SAÚDE MENTAL -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-psiquiatria')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-eqlive-peach shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-eqlive-peach shadow-sm">
                                     <i data-lucide="brain" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde Mental Integrada</h3>
@@ -472,7 +480,7 @@
 
                             <!-- Card 5: CARDIOMETABÓLICO -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-endocrinologia')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-yellow-600 shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-yellow-600 shadow-sm">
                                     <i data-lucide="heart" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde Cardiometabólica</h3>
@@ -482,7 +490,7 @@
 
                             <!-- Card 6: SAÚDE DA MULHER -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-clinicageral')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-pink-600 shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-pink-600 shadow-sm">
                                     <i data-lucide="flower" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Saúde da Mulher</h3>
@@ -492,7 +500,7 @@
 
                             <!-- Card 7: SONO E ENERGIA -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-clinicageral')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-indigo-600 shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-indigo-600 shadow-sm">
                                     <i data-lucide="moon" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Sono e Energia</h3>
@@ -502,7 +510,7 @@
 
                             <!-- Card 8: EMAGRECIMENTO E PERFORMANCE -->
                             <div class="w-[300px] md:w-[340px] bg-[#F9F8F6] p-8 rounded-2xl border border-gray-200 hover:border-eqlive-green hover:shadow-lg transition-all duration-300 group cursor-pointer flex flex-col" onclick="navigateTo('specialties', 'specialty-nutricao')">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-base flex items-center justify-center mb-6 text-green-600 shadow-sm">
+                                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-green-600 shadow-sm">
                                     <i data-lucide="zap" class="w-8 h-8"></i>
                                 </div>
                                 <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Emagrecimento Saudável</h3>
@@ -543,10 +551,10 @@
                     </div>
                     
                     <div class="mt-12 flex gap-4 justify-center flex-wrap">
-                        <button onclick="navigateTo('about')" class="inline-block bg-eqlive-base text-eqlive-dark px-10 py-4 rounded-full font-semibold hover:bg-eqlive-peach transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <button onclick="navigateTo('about')" class="inline-block bg-white text-eqlive-dark px-10 py-4 rounded-full font-semibold hover:bg-eqlive-peach transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             Ver mais histórias
                         </button>
-                        <a href="care.html" class="inline-block border-2 border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-eqlive-base hover:text-eqlive-dark transition">
+                        <a href="care.html" class="inline-block border-2 border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-eqlive-dark transition">
                             Começar minha jornada
                         </a>
                     </div>
@@ -554,7 +562,7 @@
             </section>
 
             <!-- Three Ways to Start (Pricing/Services structure) -->
-            <section class="py-20 bg-eqlive-base">
+            <section class="py-20 bg-white">
                 <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
                         <h2 class="font-serif text-4xl lg:text-5xl text-eqlive-dark mb-4">Três maneiras de iniciar seu cuidado</h2>
@@ -597,7 +605,7 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10">
                     <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center justify-between lg:h-96 lg:mt-12">
@@ -611,10 +619,10 @@
                                 Descubra quais sistemas do seu corpo precisam de suporte. Avaliação clinicamente estruturada, baseada em 9 domínios de saúde integrada. Leva apenas 5-7 minutos.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <button onclick="startQuiz()" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                <button onclick="startQuiz()" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
                                     Iniciar Avaliação <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                 </button>
-                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-eqlive-base/10 transition font-semibold w-fit mx-auto sm:mx-0">
+                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
                                     Conheça especialidades
                                 </button>
                             </div>
@@ -641,17 +649,17 @@
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f9f7f3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f9f7f3;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
-                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="0.8"/>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                 </svg>
             </section>
 
             <!-- Quiz Container Section -->
-            <section class="py-16">
+            <section class="py-16 -mt-2">
                 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="w-full bg-white rounded-3xl shadow-xl p-8 md:p-12 relative overflow-hidden transition-all duration-300" id="quiz-container">
                         
@@ -1025,7 +1033,7 @@
                             <div id="result-summary" class="bg-[#F9F8F6] p-8 rounded-2xl border border-eqlive-green/20 mb-10 text-left">
                                 <h3 class="font-serif text-2xl text-eqlive-dark mb-6 border-b border-gray-200 pb-3">Seu Perfil de Sintomas</h3>
                                 <div id="domains-breakdown" class="grid gap-4 mb-8"></div>
-                                <div class="bg-eqlive-base p-6 rounded-xl border border-eqlive-accent/20">
+                                <div class="bg-white p-6 rounded-xl border border-eqlive-accent/20">
                                     <h4 class="font-semibold text-eqlive-dark mb-3">Próximos Passos Recomendados:</h4>
                                     <ul id="recommendations" class="space-y-2 text-sm text-gray-700"></ul>
                                 </div>
@@ -1049,7 +1057,7 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10">
                     <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center justify-between lg:h-96 lg:mt-12">
@@ -1063,10 +1071,10 @@
                                 Com acolhimento e propósito. A EQLIVE é uma clínica de saúde especializada que nasceu com o propósito de oferecer uma experiência de cuidado verdadeiramente transformadora.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="care.html" class="bg-eqlive-base text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                <a href="care.html" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
                                     Descubra seu Tratamento <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                 </a>
-                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-eqlive-base/10 transition font-semibold w-fit mx-auto sm:mx-0">
+                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
                                     Conheça nossas especialidades
                                 </button>
                             </div>
@@ -1093,17 +1101,17 @@
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f9f7f3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f9f7f3;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
-                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="0.8"/>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                 </svg>
             </section>
 
             <!-- NOSSA HISTÓRIA & FILOSOFIA -->
-            <section class="py-24 bg-white">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid md:grid-cols-2 gap-16 items-center">
                         <!-- Imagem -->
@@ -1142,7 +1150,7 @@
             </section>
 
             <!-- MISSÃO, VISÃO E VALORES -->
-            <section class="py-24 bg-gradient-to-br from-eqlive-green/10 via-white to-eqlive-green/5">
+            <section class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-3 block">Nossos Princípios</span>
@@ -1204,7 +1212,7 @@
             </section>
 
             <!-- COMO FUNCIONA O ACOMPANHAMENTO -->
-            <section class="py-24 bg-white">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-3 block">Nosso Método</span>
@@ -1259,7 +1267,7 @@
             </section>
 
             <!-- MODELO DE ATENDIMENTO DIFERENTE -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-14">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-3 block">Por que escolher a EQLIVE</span>
@@ -1268,7 +1276,7 @@
                     </div>
 
                     <div class="bg-white rounded-3xl shadow-xl border border-eqlive-dark/10 overflow-hidden">
-                        <div class="grid md:grid-cols-[2fr_1fr_1fr] bg-eqlive-base/60 text-eqlive-dark font-semibold text-sm">
+                        <div class="grid md:grid-cols-[2fr_1fr_1fr] bg-white/60 text-eqlive-dark font-semibold text-sm">
                             <div class="px-6 py-4">Recursos e Abordagens</div>
                             <div class="px-6 py-4 text-center">EQLIVE</div>
                             <div class="px-6 py-4 text-center">Cuidado Tradicional</div>
@@ -1366,7 +1374,7 @@
             </section>
 
             <!-- HISTÓRIAS DE SUCESSO / AVALIAÇÕES -->
-            <section class="py-24 bg-white">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-3 block">Depoimentos</span>
@@ -1424,7 +1432,7 @@
                         </div>
 
                         <!-- Depoimento 4 -->
-                        <div class="bg-eqlive-base rounded-3xl p-10 shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-eqlive-green">
+                        <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-eqlive-green">
                             <div class="flex items-center mb-6">
                                 <div class="flex gap-1">
                                     <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
@@ -1440,7 +1448,7 @@
                         </div>
 
                         <!-- Depoimento 5 -->
-                        <div class="bg-eqlive-base rounded-3xl p-10 shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-eqlive-accent">
+                        <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-eqlive-accent">
                             <div class="flex items-center mb-6">
                                 <div class="flex gap-1">
                                     <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
@@ -1456,7 +1464,7 @@
                         </div>
 
                         <!-- Depoimento 6 -->
-                        <div class="bg-eqlive-base rounded-3xl p-10 shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-eqlive-peach">
+                        <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-eqlive-peach">
                             <div class="flex items-center mb-6">
                                 <div class="flex gap-1">
                                     <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
@@ -1493,10 +1501,10 @@
                     <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">Agende uma consulta com nossa equipe e descubra como a medicina integrada pode mudar sua vida.</p>
                     
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                        <a href="https://wa.me/5521967815767" target="_blank" class="bg-eqlive-base text-eqlive-dark px-8 py-4 rounded-full font-semibold hover:bg-eqlive-sand transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                        <a href="https://wa.me/5521967815767" target="_blank" class="bg-white text-eqlive-dark px-8 py-4 rounded-full font-semibold hover:bg-eqlive-sand transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
                             Agende Agora <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </a>
-                        <button onclick="navigateTo('specialties')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-base/10 transition duration-300 flex items-center justify-center gap-2">
+                        <button onclick="navigateTo('specialties')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition duration-300 flex items-center justify-center gap-2">
                             Conheça Nossas Especialidades
                         </button>
                     </div>
@@ -1511,16 +1519,16 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
-                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="0.8"/>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                 </svg>
                 
-                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10 flex items-center justify-center">
+                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-0 relative z-10 flex items-center justify-center -mt-16">
                     <div class="text-center max-w-3xl mx-auto">
-                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-eqlive-base/10 px-4 py-2 rounded-full">Medicina Funcional Integrativa</span>
+                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">Medicina Funcional Integrativa</span>
                         <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">Tratamentos Que Curam a Raiz</h1>
                         <p class="text-xl md:text-2xl text-white/90 leading-relaxed">Nossa abordagem funcional integra múltiplas especialidades para diagnóstico preciso e recuperação duradoura. Temos a resposta que você procura.</p>
                     </div>
@@ -1528,7 +1536,7 @@
             </section>
 
             <!-- 6 ESPECIALIDADES GRID -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-12 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Nossas Especialidades</span>
@@ -1691,7 +1699,7 @@
             </section>
 
             <!-- MODELO FUNCIONAL - POR QUE FUNCIONA -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -1758,7 +1766,7 @@
             </section>
 
             <!-- CONDIÇÕES QUE TRATAMOS - EXPANDIDO -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Amplo Espectro de Condições</span>
@@ -1867,7 +1875,7 @@
             </section>
 
             <!-- COMO FUNCIONA - PROCESSO -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho para Saúde</span>
@@ -1949,6 +1957,155 @@
             </section>
         </div>
 
+        <!-- ================= PAGE: COMO FUNCIONA ================= -->
+        <div id="how" class="page-section is-hidden">
+            <!-- COMO FUNCIONA - PROCESSO -->
+            <section class="py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho para Saúde</span>
+                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Como Funciona Seu Tratamento</h2>
+                        <p class="text-gray-600 text-lg">Um processo estruturado, compassivo e orientado para resultados reais.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Step 1 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-green/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-dark text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Consulta Inicial</h3>
+                                <p class="text-gray-600">Escuta qualificada, entendimento completo da sua história de vida e objetivos de saúde.</p>
+                            </div>
+                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-accent/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-green text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Testes Funcionais</h3>
+                                <p class="text-gray-600">Bateria de testes avançados para identificar as verdadeiras causas raiz dos seus sintomas.</p>
+                            </div>
+                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-accent/5 to-eqlive-peach/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-accent text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Plano Personalizado</h3>
+                                <p class="text-gray-600">Estratégia integrada de tratamento com medicina, nutrição, estilo de vida e suporte mental.</p>
+                            </div>
+                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-peach/5 to-eqlive-dark/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-peach text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Acompanhamento</h3>
+                                <p class="text-gray-600">Monitoramento contínuo, ajustes no plano e suporte total até alcançar seus objetivos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TABELA COMPARATIVA -->
+            <section class="py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Como Somos Diferentes</h2>
+                        <p class="text-gray-600 text-lg">Medicina Funcional vs. Atendimento Tradicional</p>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b-2 border-eqlive-dark/20">
+                                    <th class="py-4 px-6 text-left text-eqlive-dark font-semibold"></th>
+                                    <th class="py-4 px-6 text-center">
+                                        <div class="flex flex-col items-center gap-2">
+                                            <div class="w-10 h-10 rounded-full bg-eqlive-green/20 flex items-center justify-center">
+                                                <i data-lucide="check-circle-2" class="w-6 h-6 text-eqlive-green"></i>
+                                            </div>
+                                            <span class="font-semibold text-eqlive-dark">Eqlive</span>
+                                        </div>
+                                    </th>
+                                    <th class="py-4 px-6 text-center">
+                                        <div class="flex flex-col items-center gap-2">
+                                            <div class="w-10 h-10 rounded-full bg-gray-200/50 flex items-center justify-center">
+                                                <i data-lucide="x-circle" class="w-6 h-6 text-gray-500"></i>
+                                            </div>
+                                            <span class="font-semibold text-gray-600">Tradicional</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Abordagem Centrada no Paciente</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition bg-eqlive-green/2">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Diagnóstico de Causa Raiz</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Testes Avançados e Genéticos</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition bg-eqlive-green/2">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Equipe Multidisciplinar</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Nutrição Personalizada</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition bg-eqlive-green/2">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Acompanhamento Contínuo</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-eqlive-green/5 transition">
+                                    <td class="py-4 px-6 font-medium text-eqlive-dark">Foco em Prevenção</td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="check" class="w-5 h-5 text-eqlive-green mx-auto"></i></td>
+                                    <td class="py-4 px-6 text-center"><i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA FINAL -->
+            <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para Começar?</h2>
+                    <p class="text-xl text-white/90 mb-8">Agende sua consulta inicial e descubra como a medicina funcional pode transformar sua saúde.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-peach text-eqlive-dark px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            Agende Sua Consulta
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
         <!-- ================= PAGE: ESSENCE ================= -->
         <!-- ================= PAGE: ESSENCE COMPLETO ================= -->
         <div id="essence" class="page-section is-hidden">
@@ -1956,7 +2113,7 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10 flex items-center justify-center">
                     <div class="text-center max-w-3xl mx-auto">
@@ -1973,17 +2130,17 @@
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="waveGradientEssence" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f9f7f3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f9f7f3;stop-opacity:1" />
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
-                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="0.8"/>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                 </svg>
             </section>
 
             <!-- WHAT IS ESSENCE -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -2010,7 +2167,7 @@
             </section>
 
             <!-- FOR WHO -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center max-w-3xl mx-auto mb-16">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Ideal Para</span>
@@ -2226,7 +2383,7 @@
             </section>
 
             <!-- TIMELINE DETALHE -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center max-w-3xl mx-auto mb-16">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Timeline</span>
@@ -2307,7 +2464,7 @@
             </section>
 
             <!-- RESULTS -->
-            <section class="py-24 bg-eqlive-base">
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4">
                     <div class="text-center max-w-3xl mx-auto mb-16">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Resultados Esperados</span>
@@ -2378,20 +2535,20 @@
                 <!-- Header Hero Section -->
                 <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-[64vh] flex items-center">
                     <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                    <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                     <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
-                        <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="0.8"/>
+                        <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                        <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                     </svg>
                     
-                    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+                    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full -mt-16">
                         <div class="max-w-3xl">
-                            <span class="inline-flex items-center gap-2 text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-eqlive-base/10 px-4 py-2 rounded-full">Blog da Clínica</span>
+                            <span class="inline-flex items-center gap-2 text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">Blog da Clínica</span>
                             <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Vivendo em Equilíbrio</h1>
                             <p class="text-lg md:text-xl text-white/95 leading-relaxed">Insights práticos, baseados em fontes confiáveis, sobre endocrinologia, nutrição e bem-estar emocional — com leitura clara e organizada.</p>
                             <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                                <a href="#blog-posts-grid" class="inline-flex items-center justify-center gap-2 bg-eqlive-base text-eqlive-dark px-7 py-3 rounded-full font-semibold hover:bg-eqlive-sand transition shadow-lg">
+                                <a href="#blog-posts-grid" class="inline-flex items-center justify-center gap-2 bg-white text-eqlive-dark px-7 py-3 rounded-full font-semibold hover:bg-eqlive-sand transition shadow-lg">
                                     Ver artigos
                                     <i data-lucide="arrow-down" class="w-5 h-5"></i>
                                 </a>
@@ -2405,8 +2562,8 @@
                 </section>
 
                 <!-- Blog Content Layout -->
-                <section class="py-20 bg-eqlive-base">
-                    <div class="max-w-7xl mx-auto px-4">
+                <section class="bg-white -mt-2">
+                    <div class="max-w-7xl mx-auto px-4 py-20">
                         <div class="grid lg:grid-cols-[2fr_1fr] gap-12">
                             <div class="space-y-12">
                                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -2449,10 +2606,10 @@
                                         </div>
                                         <div class="flex flex-wrap gap-3">
                                             <button class="blog-filter-btn px-5 py-2 bg-eqlive-dark text-white rounded-full font-medium hover:bg-eqlive-green transition" onclick="filterPosts('all', this)">Todos</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-eqlive-base text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Hormônios</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-eqlive-base text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-eqlive-base text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-eqlive-base text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias</button>
+                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Hormônios</button>
+                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
+                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar</button>
+                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias</button>
                                         </div>
                                     </div>
 
@@ -2853,7 +3010,7 @@
                 <aside class="space-y-8">
                     <div class="bg-white rounded-3xl p-8 shadow-xl border border-eqlive-dark/10">
                         <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Pesquisar no blog</h3>
-                        <div class="flex items-center gap-2 bg-eqlive-base rounded-full px-4 py-3">
+                        <div class="flex items-center gap-2 bg-white rounded-full px-4 py-3">
                             <i data-lucide="search" class="w-5 h-5 text-eqlive-green"></i>
                             <input id="blog-search-input" type="text" placeholder="Busque por tema" class="bg-transparent w-full text-sm text-eqlive-dark placeholder:text-gray-500 focus:outline-none" aria-label="Pesquisar no blog">
                         </div>
@@ -2863,10 +3020,10 @@
                         <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Categorias</h3>
                         <div class="flex flex-wrap gap-3">
                             <button class="blog-filter-btn px-4 py-2 bg-eqlive-dark text-white rounded-full text-sm font-medium hover:bg-eqlive-green transition" onclick="filterPosts('all', this)">Todos</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-eqlive-base text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Hormônios</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-eqlive-base text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-eqlive-base text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-eqlive-base text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias</button>
+                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Hormônios</button>
+                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
+                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar</button>
+                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias</button>
                         </div>
                     </div>
 
@@ -2933,7 +3090,7 @@
                 </div>
 
                 <!-- O que você vai encontrar -->
-                <section class="py-24 bg-eqlive-base">
+                <section class="py-24 bg-white -mt-2">
                     <div class="max-w-7xl mx-auto px-4">
                         <h2 class="font-serif text-4xl md:text-5xl text-center text-eqlive-dark mb-20">O Que Você Vai Encontrar</h2>
                         
@@ -3005,7 +3162,7 @@
                 </section>
 
                 <!-- CTA Final -->
-                <section class="py-24 bg-eqlive-base">
+                <section class="py-24 bg-white -mt-2">
                     <div class="max-w-3xl mx-auto px-4 text-center">
                         <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Pronto para Transformar Sua Saúde?</h2>
                         <p class="text-xl text-gray-700 mb-12 max-w-2xl mx-auto">Deixe o conhecimento se transformar em ação. Agende uma consulta com nossos especialistas e descubra como a medicina integrada pode mudar sua vida.</p>
@@ -3030,15 +3187,15 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-[60vh] flex items-center">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
                 </svg>
                 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
                     <div class="text-center max-w-3xl mx-auto">
-                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-eqlive-base/10 px-4 py-2 rounded-full">LOCALIZAÇÃO E CONTATO</span>
+                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">LOCALIZAÇÃO E CONTATO</span>
                         <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Visite a Clínica Eqlive</h1>
                         <p class="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">Localizada no coração de Itaboraí, estamos preparados para receber você com qualidade e cuidado em um ambiente acolhedor.</p>
                     </div>
@@ -3046,7 +3203,7 @@
             </section>
 
             <!-- Main Content Section -->
-            <section class="bg-eqlive-base py-20 relative">
+            <section class="bg-white py-20 relative">
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
                         
@@ -3182,7 +3339,7 @@
             <!-- CTA Section -->
             <section class="relative bg-gradient-to-r from-eqlive-dark via-eqlive-green to-eqlive-dark/90 text-white py-16 overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="text-center">
@@ -3190,11 +3347,11 @@
                         <p class="text-lg text-white/90 max-w-2xl mx-auto mb-10">Entre em contato conosco hoje e agende sua consulta. Nossa equipe especializada está pronta para ajudá-lo.</p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-base text-eqlive-dark px-8 py-4 rounded-xl font-bold hover:bg-eqlive-peach transform hover:scale-105 transition-all duration-300 shadow-lg">
+                            <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white text-eqlive-dark px-8 py-4 rounded-xl font-bold hover:bg-eqlive-peach transform hover:scale-105 transition-all duration-300 shadow-lg">
                                 <i data-lucide="message-circle" class="w-5 h-5"></i>
                                 Falar no WhatsApp
                             </a>
-                            <a href="tel:+5521967815767" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-eqlive-base/10 transform hover:scale-105 transition-all duration-300">
+                            <a href="tel:+5521967815767" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transform hover:scale-105 transition-all duration-300">
                                 <i data-lucide="phone" class="w-5 h-5"></i>
                                 Ligar Agora
                             </a>
@@ -3210,16 +3367,16 @@
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-[70vh] flex items-center">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-eqlive-base/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="1"/>
-                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#f9f7f3" opacity="0.8"/>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                 </svg>
                 
-                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full -mt-16">
                     <div class="text-center max-w-3xl mx-auto">
-                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-eqlive-base/10 px-4 py-2 rounded-full">DÚVIDAS FREQUENTES</span>
+                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">DÚVIDAS FREQUENTES</span>
                         <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Como Podemos Ajudar?</h1>
                         <p class="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">Encontre respostas para todas as suas perguntas sobre agendamentos, convênios, serviços e tudo o que você precisa saber sobre a Clínica Eqlive.</p>
                     </div>
@@ -3227,8 +3384,8 @@
             </section>
 
             <!-- FAQ Content -->
-            <section class="py-16 md:py-24 bg-eqlive-base">
-                <div class="max-w-6xl mx-auto px-4 md:px-8">
+            <section class="bg-white -mt-2">
+                <div class="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24">
                     <div class="grid lg:grid-cols-[260px_1fr] gap-8">
                         <!-- TABS NAVIGATION -->
                         <aside class="bg-white rounded-2xl p-6 shadow-lg border border-eqlive-dark/10">
@@ -3266,7 +3423,7 @@
                             <!-- LOCALIZAÇÃO E CONTATO -->
                             <div id="tab-location" class="faq-tab-content active space-y-4">
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Onde fica a Clínica EQLive?</h3>
                                 </div>
@@ -3280,7 +3437,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Como faço para chegar até a clínica?</h3>
                                 </div>
@@ -3295,7 +3452,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Qual é o telefone ou WhatsApp da clínica?</h3>
                                 </div>
@@ -3309,7 +3466,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Qual o horário de funcionamento?</h3>
                                 </div>
@@ -3326,7 +3483,7 @@
                             <!-- AGENDAMENTOS -->
                             <div id="tab-booking" class="faq-tab-content hidden space-y-4">
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Como agendar uma consulta?</h3>
                                 </div>
@@ -3344,7 +3501,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Posso remarcar ou cancelar uma consulta?</h3>
                                 </div>
@@ -3358,7 +3515,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Quais especialidades estão disponíveis?</h3>
                                 </div>
@@ -3390,7 +3547,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Quais profissionais atendem na clínica?</h3>
                                 </div>
@@ -3406,7 +3563,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Vocês realizam atendimentos online?</h3>
                                 </div>
@@ -3423,7 +3580,7 @@
                                 <!-- PAGAMENTO E CONVÊNIOS -->
                                 <div id="tab-payment" class="faq-tab-content hidden space-y-4">
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Vocês aceitam convênio ou plano de saúde?</h3>
                                 </div>
@@ -3437,7 +3594,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Quais formas de pagamento são aceitas?</h3>
                                 </div>
@@ -3454,7 +3611,7 @@
                             <!-- PROGRAMAS DE ACOMPANHAMENTO -->
                             <div id="tab-programs" class="faq-tab-content hidden space-y-4">
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Como funcionam os programas de emagrecimento?</h3>
                                 </div>
@@ -3473,7 +3630,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Moro em outra cidade. Posso participar?</h3>
                                 </div>
@@ -3487,7 +3644,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">O que é o acompanhamento multidisciplinar?</h3>
                                 </div>
@@ -3504,7 +3661,7 @@
                                 <!-- PRIMEIRA CONSULTA -->
                                 <div id="tab-first-visit" class="faq-tab-content hidden space-y-4">
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">O que devo levar na primeira consulta?</h3>
                                 </div>
@@ -3536,7 +3693,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Que roupa devo usar na avaliação?</h3>
                                 </div>
@@ -3557,7 +3714,7 @@
                                 <!-- AVALIAÇÕES E LAUDOS -->
                                 <div id="tab-evaluations" class="faq-tab-content hidden space-y-4">
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">A clínica realiza exames laboratoriais?</h3>
                                 </div>
@@ -3571,7 +3728,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">A clínica realiza avaliação física e bioimpedância?</h3>
                                 </div>
@@ -3590,7 +3747,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Vocês emitem laudos médicos?</h3>
                                 </div>
@@ -3610,7 +3767,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Vocês emitem laudos para cirurgia bariátrica?</h3>
                                 </div>
@@ -3624,7 +3781,7 @@
                         </div>
 
                         <div class="faq-item">
-                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-eqlive-base hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
+                            <button onclick="toggleFaqItem(this)" class="faq-item-btn w-full bg-white hover:bg-gradient-to-r hover:from-eqlive-green/5 hover:to-transparent border border-gray-200 hover:border-eqlive-green/30 rounded-xl p-6 flex justify-between items-start text-left transition-all duration-300 gap-4">
                                 <div class="flex-1">
                                     <h3 class="font-bold text-lg text-eqlive-dark transition-colors">Qual profissional atende na minha área?</h3>
                                 </div>
@@ -3648,7 +3805,7 @@
                     <div class="mt-16 p-8 md:p-12 bg-gradient-to-r from-eqlive-green to-eqlive-dark rounded-2xl text-white text-center">
                         <h3 class="font-serif text-3xl md:text-4xl font-bold mb-2">Ainda tem dúvidas?</h3>
                         <p class="text-lg mb-8 opacity-95">Nossa equipe está pronta para ajudar você com qualquer pergunta!</p>
-                        <a href="https://wa.me/5521967815767" class="inline-flex items-center gap-2 bg-eqlive-base text-eqlive-green px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
+                        <a href="https://wa.me/5521967815767" class="inline-flex items-center gap-2 bg-white text-eqlive-green px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
                             <i data-lucide="message-circle" class="w-6 h-6"></i>
                             Fale Conosco via WhatsApp
                         </a>
@@ -3768,7 +3925,7 @@
                 </div>
                 
                 <!-- CTA -->
-                <div class="mt-12 bg-eqlive-base p-8 rounded-xl text-center">
+                <div class="mt-12 bg-white p-8 rounded-xl text-center">
                     <h3 class="font-bold text-xl text-eqlive-dark mb-4">Quer mais informações personalizadas?</h3>
                     <a href="https://wa.me/5521967815767" class="inline-block bg-eqlive-green text-white px-8 py-3 rounded-full font-bold hover:bg-eqlive-accent transition">
                         Fale com Nossa Equipe
@@ -3872,7 +4029,7 @@
                             <p class="text-gray-700 leading-relaxed mt-4">Essa é a história de muitas pessoas — talvez até a sua. A compulsão alimentar não é exagero. É um transtorno real, que pode ser tratado com apoio profissional e acolhimento.</p>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que é compulsão alimentar?</h4>
                             <ul class="space-y-3">
                                 <li class="flex gap-3"><span class="text-eqlive-green font-bold">✓</span> <span>Come grandes quantidades de comida em pouco tempo</span></li>
@@ -3908,7 +4065,7 @@
                             </ul>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-3">Caso de Sucesso: Paula, 36 anos</h4>
                             <p class="text-gray-700 mb-3">Paula chegou à Eqlive sentindo-se exausta, envergonhada e sem esperança. Já havia feito várias dietas, perdido peso e engordado tudo novamente — sem entender por quê.</p>
                             <p class="text-gray-700 mb-3">Na primeira consulta, ela desabou em lágrimas. Pela primeira vez, alguém a escutava sem julgamento.</p>
@@ -3932,7 +4089,7 @@
                             <p class="text-gray-700 leading-relaxed">Cansaço extremo, ganho de peso sem explicação, alterações de humor frequentes? Esses sintomas podem parecer comuns no dia a dia, mas em alguns casos são sinais de que algo não vai bem com seus hormônios.</p>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que são hormônios e por que eles são tão importantes?</h4>
                             <p class="text-gray-700 mb-4">Os hormônios são substâncias químicas produzidas pelas glândulas do nosso corpo que regulam funções vitais como:</p>
                             <ul class="space-y-2 text-gray-700">
@@ -3989,7 +4146,7 @@
                             <p class="text-gray-700">Quanto antes for feito o diagnóstico, mais rápido e eficaz será o tratamento — que pode incluir ajustes alimentares, mudanças no estilo de vida e, se necessário, reposição hormonal.</p>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-3">Como a Eqlive pode te ajudar?</h4>
                             <p class="text-gray-700">Na Clínica Eqlive, nossa abordagem é individualizada. Avaliamos o seu histórico completo para entender como o seu corpo está funcionando de verdade. Nosso objetivo é tratar a causa, e não apenas os sintomas.</p>
                             <p class="text-gray-700 mt-3 font-bold text-eqlive-green">Equilíbrio hormonal é sinônimo de bem-estar, disposição e autoestima. Se você sente que algo está "fora do eixo", não ignore os sinais.</p>
@@ -4008,7 +4165,7 @@
                             <p class="text-gray-700 leading-relaxed mt-4">Será mesmo que o horário em que você come é mais importante do que o que e quanto você come? Vamos esclarecer esse mito com base nas evidências científicas.</p>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que são carboidratos?</h4>
                             <p class="text-gray-700 mb-4">Carboidratos são a principal fonte de energia do corpo. Eles estão presentes em alimentos como:</p>
                             <ul class="space-y-2 text-gray-700 mb-4">
@@ -4036,7 +4193,7 @@
                             </ul>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">Então posso comer arroz, pão ou macarrão no jantar?</h4>
                             <p class="text-gray-700 mb-4"><strong>Sim, pode!</strong> Mas com atenção:</p>
                             <ul class="space-y-3 text-gray-700">
@@ -4079,7 +4236,7 @@
                             <p class="text-gray-700 leading-relaxed">Um check-up clínico anual não é apenas para pessoas "doentes". É uma ferramenta essencial de prevenção e autocuidado para qualquer pessoa que deseja viver com qualidade de vida.</p>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">Por que fazer um check-up anual?</h4>
                             <ul class="space-y-3">
                                 <li class="flex gap-3 bg-green-50 p-4 rounded"><i data-lucide="shield" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Detecta problemas precocemente:</strong> muitas doenças não apresentam sintomas no início</span></li>
@@ -4100,7 +4257,7 @@
                             </ul>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">Quem deveria fazer um check-up anual?</h4>
                             <p class="text-gray-700 mb-4"><strong>Todos! Principalmente:</strong></p>
                             <ul class="space-y-2 text-gray-700">
@@ -4167,7 +4324,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">E se eu ainda sentir necessidade de ajuda?</h4>
                             <p class="text-gray-700 mb-3">Ótimo! Buscar ajuda é sinal de força, não fraqueza. Terapia com um psicólogo qualificado pode ser transformadora.</p>
                             <p class="text-gray-700">Na Eqlive, nós temos psicólogos experientes em ansiedade, depressão, relacionamentos, estresse. Fale conosco!</p>
@@ -4202,7 +4359,7 @@
                             </ul>
                         </div>
 
-                        <div class="bg-eqlive-base p-6 rounded-lg">
+                        <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">Por que você deveria seguir este blog?</h4>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex gap-2"><i data-lucide="bookmark" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i> <span>Conteúdo baseado em evidências científicas</span></li>
