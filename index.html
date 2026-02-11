@@ -563,7 +563,7 @@
             </section>
 
             <!-- Three Ways to Start (Pricing/Services structure) -->
-            <section class="py-20 bg-white">
+            <section class="py-20 bg-white -mt-2">
                 <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
                         <h2 class="font-serif text-4xl lg:text-5xl text-eqlive-dark mb-4">Três maneiras de iniciar seu cuidado</h2>
@@ -1522,37 +1522,74 @@
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
+                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10">
+                    <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center justify-between lg:h-96 lg:mt-12">
+                        <!-- Text Content -->
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-eqlive-peach font-bold tracking-widest text-xs uppercase mb-4 block">Tratamentos Especializados</span>
+                            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 text-white">
+                                Comece Sua <span class="text-eqlive-peach italic">Transformação Hoje.</span>
+                            </h1>
+                            <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
+                                Venha conhecer nossa equipe e descubra como a medicina funcional integrativa pode transformar sua saúde, energia e bem-estar para toda a vida.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="https://wa.me/5521967815767" target="_blank" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                    Agende Sua Consulta <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                                <button onclick="navigateTo('location')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
+                                    Visite Nossa Clínica
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Image with Parsley-Style Border -->
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="relative">
+                                <!-- Border Frame Effect (Parsley Style) -->
+                                <div class="absolute -top-3 -right-3 w-full h-full border-2 border-eqlive-peach/30 rounded-[2.5rem] -z-10"></div>
+                                
+                                <!-- Image Container -->
+                                <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl shadow-2xl bg-white flex items-center justify-center p-4">
+                                    <img src="src/assets/images/equipeeqlive.png" 
+                                         alt="Equipe Eqlive" 
+                                         class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wave Bottom Section -->
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
                     <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
                     <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
                 </svg>
-                
-                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-0 relative z-10 flex items-center justify-center -mt-16">
-                    <div class="text-center max-w-3xl mx-auto">
-                        <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">Medicina Funcional Integrativa</span>
-                        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight">Tratamentos Que Curam a Raiz</h1>
-                        <p class="text-xl md:text-2xl text-white/90 leading-relaxed">Nossa abordagem funcional integra múltiplas especialidades para diagnóstico preciso e recuperação duradoura. Temos a resposta que você procura.</p>
-                    </div>
-                </div>
             </section>
 
             <!-- 6 ESPECIALIDADES GRID -->
-            <section class="py-12 bg-white -mt-2">
-                <div class="max-w-7xl mx-auto px-4">
+            <section class="py-20 bg-white -mt-2">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Nossas Especialidades</span>
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Todas as Especialidades Médicas em Um Lugar</h2>
-                        <p class="text-gray-600 text-lg">Equipe multidisciplinar trabalhando em conjunto para oferecer diagnóstico preciso, tratamento integrado e recuperação duradoura.</p>
+                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Especialidades Médicas em um Único Lugar</h2>
+                        <p class="text-gray-600 text-lg leading-relaxed">Equipe multidisciplinar trabalhando em conjunto para oferecer diagnóstico preciso, tratamento integrado e recuperação duradoura.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- CARD 1: ENDOCRINOLOGIA -->
-                        <div id="specialty-endocrinologia" class="bg-white/95 rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
-                            <div class="h-64 bg-gradient-to-br from-eqlive-dark/25 to-eqlive-accent/25 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
-                                <div class="text-5xl opacity-30 group-hover:scale-110 transition duration-500"><i data-lucide="activity" class="w-20 h-20 text-eqlive-accent"></i></div>
+                        <div id="specialty-endocrinologia" class="bg-white rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
+                            <div class="h-64 bg-gradient-to-br from-eqlive-dark/20 to-eqlive-accent/20 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
+                                <div class="text-5xl opacity-40 group-hover:scale-110 transition duration-500"><i data-lucide="activity" class="w-20 h-20 text-eqlive-accent"></i></div>
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
-                                <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Endocrinologia</h3>
+                                <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Endocrinologia Funcional</h3>
                                 <p class="text-gray-500 text-base mb-4 leading-relaxed">Diagnóstico e tratamento de diabetes, distúrbios da tireoide, desequilíbrios hormonais e síndrome metabólica com abordagem multidisciplinar.</p>
                                 <div class="mb-6">
                                     <p class="text-sm font-semibold text-eqlive-green mb-2">Tratamos:</p>
@@ -1572,9 +1609,9 @@
                         </div>
 
                         <!-- CARD 2: NUTRIÇÃO FUNCIONAL -->
-                        <div id="specialty-nutricao" class="bg-white/95 rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
-                            <div class="h-64 bg-gradient-to-br from-eqlive-green/25 to-eqlive-peach/25 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
-                                <div class="text-5xl opacity-30 group-hover:scale-110 transition duration-500"><i data-lucide="apple" class="w-20 h-20 text-eqlive-green"></i></div>
+                        <div id="specialty-nutricao" class="bg-white rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
+                            <div class="h-64 bg-gradient-to-br from-eqlive-green/20 to-eqlive-peach/20 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
+                                <div class="text-5xl opacity-40 group-hover:scale-110 transition duration-500"><i data-lucide="apple" class="w-20 h-20 text-eqlive-green"></i></div>
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Nutrição Funcional</h3>
@@ -1597,9 +1634,9 @@
                         </div>
 
                         <!-- CARD 3: PSIQUIATRIA -->
-                        <div id="specialty-psiquiatria" class="bg-white/95 rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
-                            <div class="h-64 bg-gradient-to-br from-eqlive-accent/25 to-eqlive-peach/25 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
-                                <div class="text-5xl opacity-30 group-hover:scale-110 transition duration-500"><i data-lucide="brain" class="w-20 h-20 text-eqlive-accent"></i></div>
+                        <div id="specialty-psiquiatria" class="bg-white rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
+                            <div class="h-64 bg-gradient-to-br from-eqlive-accent/20 to-eqlive-peach/20 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
+                                <div class="text-5xl opacity-40 group-hover:scale-110 transition duration-500"><i data-lucide="brain" class="w-20 h-20 text-eqlive-accent"></i></div>
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Psiquiatria Integrativa</h3>
@@ -1622,9 +1659,9 @@
                         </div>
 
                         <!-- CARD 4: CLÍNICA GERAL -->
-                        <div id="specialty-clinicageral" class="bg-white/95 rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
-                            <div class="h-64 bg-gradient-to-br from-eqlive-dark/20 to-eqlive-green/20 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
-                                <div class="text-5xl opacity-30 group-hover:scale-110 transition duration-500"><i data-lucide="heart-handshake" class="w-20 h-20 text-eqlive-dark"></i></div>
+                        <div id="specialty-clinicageral" class="bg-white rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
+                            <div class="h-64 bg-gradient-to-br from-eqlive-dark/15 to-eqlive-green/15 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
+                                <div class="text-5xl opacity-40 group-hover:scale-110 transition duration-500"><i data-lucide="heart-handshake" class="w-20 h-20 text-eqlive-dark"></i></div>
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Clínica Geral Integrativa</h3>
@@ -1647,9 +1684,9 @@
                         </div>
 
                         <!-- CARD 5: AVALIAÇÃO NEUROPSICOLÓGICA -->
-                        <div id="specialty-neuropsicologia" class="bg-white/95 rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
-                            <div class="h-64 bg-gradient-to-br from-eqlive-peach/25 to-eqlive-accent/25 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
-                                <div class="text-5xl opacity-30 group-hover:scale-110 transition duration-500"><i data-lucide="clipboard-list" class="w-20 h-20 text-eqlive-peach"></i></div>
+                        <div id="specialty-neuropsicologia" class="bg-white rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
+                            <div class="h-64 bg-gradient-to-br from-eqlive-peach/20 to-eqlive-accent/20 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
+                                <div class="text-5xl opacity-40 group-hover:scale-110 transition duration-500"><i data-lucide="clipboard-list" class="w-20 h-20 text-eqlive-peach"></i></div>
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Avaliação Neuropsicológica</h3>
@@ -1672,9 +1709,9 @@
                         </div>
 
                         <!-- CARD 6: TESTE GENÉTICO -->
-                        <div id="specialty-testegetico" class="bg-white/95 rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
-                            <div class="h-64 bg-gradient-to-br from-eqlive-green/25 to-eqlive-accent/25 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
-                                <div class="text-5xl opacity-30 group-hover:scale-110 transition duration-500"><i data-lucide="dna" class="w-20 h-20 text-eqlive-green"></i></div>
+                        <div id="specialty-testegetico" class="bg-white rounded-3xl overflow-hidden border border-eqlive-dark/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition duration-500 group flex flex-col h-full">
+                            <div class="h-64 bg-gradient-to-br from-eqlive-green/20 to-eqlive-accent/20 flex items-center justify-center overflow-hidden relative ring-1 ring-eqlive-dark/5">
+                                <div class="text-5xl opacity-40 group-hover:scale-110 transition duration-500"><i data-lucide="dna" class="w-20 h-20 text-eqlive-green"></i></div>
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Teste Genético Personalizado</h3>
@@ -1933,147 +1970,261 @@
                 </div>
             </section>
 
-            <!-- CTA FINAL -->
-            <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white">
-                <div class="max-w-4xl mx-auto px-4 text-center">
-                    <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para Transformar Sua Saúde?</h2>
-                    <p class="text-xl text-white/90 mb-8">Venha conhecer nossa equipe e descubra como nossa medicina funcional pode mudar sua vida.</p>
+            <!-- CTA FINAL - RENOVADO COM GRADIENTE DO TOPO -->
+            <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-[70vh] flex items-center py-24">
+                <!-- Background Elements -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+                
+                <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+                    <span class="inline-block border-2 border-eqlive-peach text-eqlive-peach px-6 py-2 rounded-full text-sm tracking-[0.2em] uppercase mb-8">Sua Jornada de Transformação</span>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-peach text-eqlive-dark px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Agende Sua Consulta
+                    <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 text-white">
+                        Comece Sua <span class="text-eqlive-peach italic">Transformação Hoje.</span>
+                    </h2>
+                    
+                    <p class="text-xl md:text-2xl text-gray-100 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+                        Venha conhecer nossa equipe e descubra como a medicina funcional integrativa pode transformar sua saúde, energia e bem-estar para toda a vida.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                        <a href="https://wa.me/5521967815767" target="_blank" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                            Agende Sua Consulta <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <button onclick="navigateTo('location')" class="inline-flex items-center justify-center gap-2 border-2 border-eqlive-peach text-eqlive-peach px-8 py-4 rounded-full font-semibold text-lg hover:bg-eqlive-peach/10 transition">
-                            <i data-lucide="map-pin" class="w-5 h-5"></i>
-                            Visite Nossa Clínica
+                        <button onclick="navigateTo('location')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold flex items-center justify-center gap-2 group mx-auto sm:mx-0">
+                            Visite Nossa Clínica <i data-lucide="map-pin" class="w-5 h-5"></i>
                         </button>
                     </div>
 
-                    <p class="text-white/80 mt-8 text-sm">
-                        <strong>Horário:</strong> Segunda a sexta, 9h às 19h | Sábado, 9h às 12h | Domingo, fechado<br>
-                        <strong>Telefone:</strong> (21) 96781-5767 | <strong>Email:</strong> clinicaeqlive@gmail.com
-                    </p>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="text-left">
+                                <h4 class="font-semibold text-eqlive-peach mb-2 flex items-center gap-2">
+                                    <i data-lucide="clock" class="w-5 h-5"></i>
+                                    Horário de Atendimento
+                                </h4>
+                                <p class="text-white/90 text-sm">Segunda a sexta, 9h às 19h</p>
+                                <p class="text-white/90 text-sm">Sábado, 9h às 12h</p>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-semibold text-eqlive-peach mb-2 flex items-center gap-2">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                    Contato Direto
+                                </h4>
+                                <p class="text-white/90 text-sm">(21) 96781-5767</p>
+                                <p class="text-white/90 text-sm">clinicaeqlive@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
-        </div>
 
         <!-- ================= PAGE: COMO FUNCIONA ================= -->
         <div id="how" class="page-section is-hidden">
-            <!-- HERO -->
-            <section class="relative overflow-hidden bg-[#F9F8F6]">
-                <div class="absolute -top-24 -right-20 w-72 h-72 bg-eqlive-green/10 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-0 left-0 w-80 h-80 bg-eqlive-peach/10 rounded-full blur-3xl"></div>
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 relative z-10">
-                    <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-                        <div>
-                            <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Como Funciona</span>
-                            <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark leading-tight mb-6">Um plano de saúde integrado, construído ao redor de você</h2>
-                            <p class="text-lg text-gray-600 mb-6">Na Eqlive, a jornada começa com escuta profunda, segue com investigação da causa raiz e evolui com um plano multidisciplinar que se adapta ao seu ritmo e às suas metas.</p>
+            <!-- HERO SECTION -->
+            <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
+                <!-- Background Elements -->
+                <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+
+                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10">
+                    <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center justify-between lg:h-96 lg:mt-12">
+                        <!-- Text Content -->
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-eqlive-peach font-bold tracking-widest text-xs uppercase mb-4 block">Como Funciona</span>
+                            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 text-white">
+                                Seu Caminho Para Uma <span class="text-eqlive-peach italic">Saúde Integrada.</span>
+                            </h1>
+                            <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
+                                Um processo estruturado, compassivo e orientado para resultados reais. A jornada começa com escuta profunda, segue com investigação da causa raiz e evolui com um plano multidisciplinar.
+                            </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-dark text-white px-7 py-3 rounded-full font-semibold hover:bg-eqlive-green transition">
-                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                                    Conversa inicial
+                                <a href="https://wa.me/5521967815767" target="_blank" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                    Agende sua Consulta <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                 </a>
-                                <a href="care.html" class="inline-flex items-center justify-center gap-2 border border-eqlive-dark/20 text-eqlive-dark px-7 py-3 rounded-full font-semibold hover:border-eqlive-green hover:text-eqlive-green transition">
-                                    <i data-lucide="clipboard-list" class="w-5 h-5"></i>
-                                    Questionario de saude
-                                </a>
+                                <button onclick="navigateTo('specialties')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
+                                    Conheça nossa metodologia
+                                </button>
                             </div>
-                            <p class="text-sm text-gray-500 mt-4">Atendimento humanizado, foco em resultados sustentaveis e equipe integrada.</p>
                         </div>
-                        <div class="bg-white rounded-3xl p-8 shadow-xl border border-eqlive-dark/10">
-                            <div class="flex items-center gap-3 mb-6">
-                                <div class="w-12 h-12 rounded-full bg-eqlive-green/10 text-eqlive-green flex items-center justify-center">
-                                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        
+                        <!-- Image with Parsley-Style Border -->
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="relative">
+                                <!-- Border Frame Effect (Parsley Style) -->
+                                <div class="absolute -top-3 -right-3 w-full h-full border-2 border-eqlive-peach/30 rounded-[2.5rem] -z-10"></div>
+                                
+                                <!-- Image Container -->
+                                <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl shadow-2xl bg-white flex items-center justify-center p-4">
+                                    <img src="https://images.unsplash.com/photo-1631217314831-c6227db76b6e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1lZGljYWwlMjB0ZWFtfGVufDB8fDB8fHww" 
+                                         alt="Equipe Eqlive" 
+                                         class="w-full h-full object-cover">
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wave Bottom Section -->
+                <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
+                    <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
+                </svg>
+            </section>
+
+            <!-- COMO FUNCIONA - EXPLICAÇÃO DETALHADA -->
+            <section class="py-24 bg-white -mt-2">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <!-- Texto -->
+                        <div class="order-1 md:order-1">
+                            <div class="space-y-8">
                                 <div>
-                                    <p class="text-xs uppercase tracking-[0.25em] text-eqlive-dark/50">Primeiras semanas</p>
-                                    <h3 class="font-serif text-2xl text-eqlive-dark">Clareza, direcao e acolhimento</h3>
+                                    <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-4 block">Nosso Método</span>
+                                    <h2 class="font-serif text-4xl lg:text-5xl text-eqlive-dark mb-6">Um Processo Claro e Humanizado</h2>
+                                </div>
+                                
+                                <div class="space-y-6 text-gray-700 leading-relaxed">
+                                    <p class="text-lg">Na EQLIVE, entendemos que cada pessoa é única. Por isso, nosso processo de tratamento é <strong>estruturado para servir você</strong>, e não o contrário. Começamos com uma escuta profunda e completa para entender sua história, seus desafios e seus objetivos reais.</p>
+                                    
+                                    <p class="text-lg">A partir daí, realizamos uma <strong>investigação funcional aprofundada</strong> através de testes avançados que identificam as verdadeiras causas raiz dos seus sintomas — não apenas o que aparece na superfície. Esse diagnóstico integrado nos permite desenhar um plano personalizado que une medicina, nutrição e suporte emocional.</p>
+                                    
+                                    <p class="text-lg">Mas não paramos aí. Durante todo o acompanhamento, estamos <strong>ajustando, aprendendo e evoluindo com você</strong>. A consistência e a adaptação contínua garantem não apenas resultados como resultados que <strong>duram</strong>.</p>
+                                </div>
+
+                                <div class="pt-6">
+                                    <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center bg-eqlive-dark text-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-green transition duration-300 shadow-lg hover:shadow-xl gap-2">
+                                        Comece Sua Jornada <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <ul class="space-y-4 text-gray-600">
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Mapeamento completo do historico e sintomas.</span></li>
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Definicao dos exames e marcadores relevantes.</span></li>
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Plano inicial com prioridades claras e metas reais.</span></li>
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green mt-0.5"></i><span>Orientacoes praticas para ja se sentir melhor.</span></li>
-                            </ul>
+                        </div>
+
+                        <!-- Imagem -->
+                        <div class="relative order-2 md:order-2">
+                            <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBhdGllbnQlMjBjb25zdWx0YXRpb258ZW58MHx8MHx8fHww" alt="Consulta Personalizada" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-eqlive-peach/20 rounded-3xl -z-10"></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ETAPAS -->
-            <section class="py-20 bg-white">
+            <!-- ETAPAS DO PROCESSO -->
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Etapas do cuidado</span>
-                        <h3 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Da investigacao a evolucao continua</h3>
-                        <p class="text-lg text-gray-600">Um metodo claro para compreender o que esta acontecendo no seu corpo e transformar isso em progresso consistente.</p>
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Etapas Estruturadas</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Da Investigação à Evolução Contínua</h2>
+                        <p class="text-gray-600 text-lg">Um método claro e científico para compreender o que está acontecendo no seu corpo e transformar isso em progresso consistente.</p>
                     </div>
+                    
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-dark/5 to-white">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-dark text-white flex items-center justify-center font-bold mb-4">1</div>
-                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Consulta de descoberta</h4>
-                            <p class="text-gray-600">Escuta detalhada do seu historico, rotina, sintomas e objetivos.</p>
+                        <!-- Step 1 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-green/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-dark text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Consulta de Descoberta</h3>
+                                <p class="text-gray-600 flex-grow">Escuta qualificada, entendimento completo da sua história, rotina, sintomas e objetivos.</p>
+                            </div>
+                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                            </div>
                         </div>
-                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-green/5 to-white">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-green text-white flex items-center justify-center font-bold mb-4">2</div>
-                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Investigacao funcional</h4>
-                            <p class="text-gray-600">Exames e analises que apontam a causa raiz dos desequilibrios.</p>
+
+                        <!-- Step 2 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-accent/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-green text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Investigação Funcional</h3>
+                                <p class="text-gray-600 flex-grow">Exames avançados que apontam a causa raiz dos desequilíbrios e sintomas.</p>
+                            </div>
+                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                            </div>
                         </div>
-                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-accent/5 to-white">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-accent text-white flex items-center justify-center font-bold mb-4">3</div>
-                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Plano personalizado</h4>
-                            <p class="text-gray-600">Nutricao, endocrinologia e suporte emocional alinhados ao seu perfil.</p>
+
+                        <!-- Step 3 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-accent/5 to-eqlive-peach/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-accent text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Plano Personalizado</h3>
+                                <p class="text-gray-600 flex-grow">Estratégia integrada com nutrição, endocrinologia e suporte emocional.</p>
+                            </div>
+                            <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                            </div>
                         </div>
-                        <div class="rounded-2xl p-7 border border-eqlive-dark/10 bg-gradient-to-br from-eqlive-peach/10 to-white">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-peach text-white flex items-center justify-center font-bold mb-4">4</div>
-                            <h4 class="font-semibold text-lg text-eqlive-dark mb-2">Acompanhamento continuo</h4>
-                            <p class="text-gray-600">Ajustes regulares para consolidar resultados e bem-estar duradouro.</p>
+
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-eqlive-peach/5 to-eqlive-dark/5 rounded-2xl p-8 text-center h-full flex flex-col">
+                                <div class="w-16 h-16 rounded-full bg-eqlive-peach text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                                <h3 class="font-semibold text-lg text-eqlive-dark mb-3">Acompanhamento Contínuo</h3>
+                                <p class="text-gray-600 flex-grow">Ajustes regulares e suporte total até alcançar objetivos duráveis.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- O QUE VOCE RECEBE -->
-            <section class="py-20 bg-[#F9F8F6]">
+            
+            <!-- O QUE VOCÊ RECEBE -->
+            <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Durante seu Acompanhamento</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">O que Você Recebe</h2>
+                        <p class="text-gray-600 text-lg">Um cuidado integrado e multidisciplinar que trata você como uma pessoa única.</p>
+                    </div>
+
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-3xl p-8 border border-eqlive-dark/10 shadow-sm">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-green/10 text-eqlive-green flex items-center justify-center mb-5">
-                                <i data-lucide="stethoscope" class="w-6 h-6"></i>
+                        <!-- Consulta Aprofundada -->
+                        <div class="bg-[#F9F8F6] rounded-3xl p-10 border border-eqlive-dark/10 shadow-sm hover:shadow-lg transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-eqlive-green/10 text-eqlive-green flex items-center justify-center mb-6">
+                                <i data-lucide="stethoscope" class="w-7 h-7"></i>
                             </div>
-                            <h4 class="font-serif text-2xl text-eqlive-dark mb-3">Consulta aprofundada</h4>
-                            <p class="text-gray-600 mb-4">Um olhar completo para seu corpo, sintomas e historia pessoal.</p>
+                            <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Consulta Aprofundada</h3>
+                            <p class="text-gray-600 mb-6">Um olhar completo e integrado para seu corpo, história e objetivos pessoais.</p>
                             <ul class="space-y-3 text-sm text-gray-600">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Tempo dedicado a escuta real.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Hipoteses clinicas integradas.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Foco na causa raiz.</li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Tempo dedicado à escuta real</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Análise clínica integrada</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Foco na causa raiz</span></li>
                             </ul>
                         </div>
-                        <div class="bg-white rounded-3xl p-8 border border-eqlive-dark/10 shadow-sm">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-accent/10 text-eqlive-accent flex items-center justify-center mb-5">
-                                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+
+                        <!-- Plano Integrado -->
+                        <div class="bg-[#F9F8F6] rounded-3xl p-10 border border-eqlive-dark/10 shadow-sm hover:shadow-lg transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-eqlive-accent/10 text-eqlive-accent flex items-center justify-center mb-6">
+                                <i data-lucide="clipboard-check" class="w-7 h-7"></i>
                             </div>
-                            <h4 class="font-serif text-2xl text-eqlive-dark mb-3">Plano integrado</h4>
-                            <p class="text-gray-600 mb-4">Um plano que une medicina, nutricao e estilo de vida.</p>
+                            <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Plano Integrado</h3>
+                            <p class="text-gray-600 mb-6">Uma estratégia única que reúne medicina, nutrição e equilíbrio emocional.</p>
                             <ul class="space-y-3 text-sm text-gray-600">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Metas claras e realistas.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Recomendacoes praticas.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Adaptacoes para sua rotina.</li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Metas claras e realistas</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Recomendações práticas</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Adaptado para sua rotina</span></li>
                             </ul>
                         </div>
-                        <div class="bg-white rounded-3xl p-8 border border-eqlive-dark/10 shadow-sm">
-                            <div class="w-12 h-12 rounded-full bg-eqlive-peach/20 text-eqlive-dark flex items-center justify-center mb-5">
-                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+
+                        <!-- Acompanhamento Real -->
+                        <div class="bg-[#F9F8F6] rounded-3xl p-10 border border-eqlive-dark/10 shadow-sm hover:shadow-lg transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-eqlive-peach/20 text-eqlive-dark flex items-center justify-center mb-6">
+                                <i data-lucide="trending-up" class="w-7 h-7"></i>
                             </div>
-                            <h4 class="font-serif text-2xl text-eqlive-dark mb-3">Acompanhamento real</h4>
-                            <p class="text-gray-600 mb-4">Monitoramento continuo para ajustar o plano e garantir evolucao.</p>
+                            <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Acompanhamento Real</h3>
+                            <p class="text-gray-600 mb-6">Monitoramento contínuo para ajustar seu plano e garantir evolução constante.</p>
                             <ul class="space-y-3 text-sm text-gray-600">
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Revisoes estrategicas.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Suporte multidisciplinar.</li>
-                                <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-eqlive-green mt-0.5"></i>Foco em resultados sustentaveis.</li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Revisões estratégicas</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Suporte multidisciplinar</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Resultados duráveis</span></li>
                             </ul>
                         </div>
                     </div>
@@ -2131,32 +2282,66 @@
                     </div>
                 </div>
             </section>
+
+            <!-- DIVISOR FINAL -->
+            <section class="bg-[#F9F8F6] py-10 border-t border-eqlive-dark/10">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="h-1 w-24 bg-eqlive-green/30 rounded-full mx-auto"></div>
+                </div>
+            </section>
         </div>
 
         <!-- ================= PAGE: ESSENCE ================= -->
         <!-- ================= PAGE: ESSENCE COMPLETO ================= -->
         <div id="essence" class="page-section is-hidden">
-            <!-- Hero Section -->
+            <!-- HERO SECTION -->
             <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-screen lg:min-h-[95vh]">
                 <!-- Background Elements -->
                 <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
-                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10 flex items-center justify-center">
-                    <div class="text-center max-w-3xl mx-auto">
-                        <div class="inline-block border-2 border-eqlive-accent text-eqlive-accent px-6 py-2 rounded-full text-sm tracking-[0.2em] uppercase mb-8">Programa Premium de Acompanhamento</div>
-                        <h1 class="font-serif italic text-6xl md:text-7xl lg:text-8xl text-eqlive-accent mb-6 leading-tight">Eqlive Essence</h1>
-                        <p class="text-2xl md:text-3xl text-white/95 max-w-3xl mx-auto leading-relaxed font-light mb-4">
-                            Emagrecimento Saudável, Equilíbrio Hormonal e Bem-Estar em 6 Meses
-                        </p>
-                        <p class="text-lg text-white/80 max-w-2xl mx-auto font-light">Transforme seu corpo e mente com acompanhamento multidisciplinar especializado</p>
+                <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-40 pb-32 relative z-10">
+                    <div class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-20 items-center justify-between lg:h-96 lg:mt-12">
+                        <!-- Text Content -->
+                        <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                            <span class="text-eqlive-accent font-bold tracking-widest text-xs uppercase mb-4 block italic">Eqlive Essence</span>
+                            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 text-white">
+                                Transformação Completa em <span class="text-eqlive-accent italic">6 Meses.</span>
+                            </h1>
+                            <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
+                                Um programa científico e personalizado que une medicina funcional, nutrição estratégica, psicologia e endocrinologia. Emagrecimento saudável com transformação verdadeira do corpo, mente e bem-estar.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="https://wa.me/5521967815767?text=Quero%20saber%20mais%20sobre%20o%20Eqlive%20Essence!" class="bg-eqlive-accent text-white border-2 border-eqlive-accent px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-eqlive-accent transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                    Saiba Mais Sobre o Programa <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                                <button onclick="navigateTo('how')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
+                                    Entenda Como Funciona
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Image with Parsley-Style Border -->
+                        <div class="w-full lg:w-1/2 relative">
+                            <div class="relative">
+                                <!-- Border Frame Effect (Parsley Style) -->
+                                <div class="absolute -top-3 -right-3 w-full h-full border-2 border-eqlive-accent/30 rounded-[2.5rem] -z-10"></div>
+                                
+                                <!-- Image Container -->
+                                <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl shadow-2xl bg-white flex items-center justify-center p-4">
+                                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW4lMjBoZWFsdGh5fGVufDB8fDB8fHww" 
+                                         alt="Transformação Eqlive Essence" 
+                                         class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Wave Bottom Section -->
                 <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="waveGradientEssence" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
                         </linearGradient>
@@ -2166,183 +2351,195 @@
                 </svg>
             </section>
 
-            <!-- WHAT IS ESSENCE -->
+            <!-- O PROGRAMA - VISÃO GERAL -->
             <section class="py-24 bg-white -mt-2">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="grid lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">O Programa</span>
-                            <h2 class="font-serif text-4xl md:text-5xl mb-8 text-eqlive-dark leading-tight">O que é Eqlive Essence?</h2>
-                            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                                Eqlive Essence é um programa científico e personalizado de 6 meses desenvolvido para quem busca mais que apenas perder peso. É uma transformação completa do corpo, mente e saúde emocional.
-                            </p>
-                            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                                Diferente de dietas tradicionais que falham, o Essence integra medicina funcional, nutrição personalizada, psicologia e endocrinologia em um único protocolo que realmente funciona e gera resultados duradouros.
-                            </p>
-                            <div class="flex gap-4">
-                                <a href="https://wa.me/5521967815767?text=Quero%20saber%20mais%20sobre%20o%20Eqlive%20Essence!" class="bg-eqlive-dark text-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-green transition shadow-lg flex items-center gap-2">
-                                    <i data-lucide="message-circle" class="w-5 h-5"></i> Agende uma Consulta
-                                </a>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <!-- Imagem -->
+                        <div class="relative order-2 md:order-1">
+                            <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBhdGllbnQlMjBjb25zdWx0YXRpb258ZW58MHx8MHx8fHww" alt="Programa Essence" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                             </div>
+                            <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-eqlive-accent/20 rounded-3xl -z-10"></div>
                         </div>
-                        <div class="relative">
-                            <img src="https://clinicaeqlive.com/wp-content/uploads/2025/04/cta-1.jpg" alt="Essence Program" class="rounded-3xl shadow-2xl w-full object-cover h-[500px]">
-                            <div class="absolute -top-8 -right-8 w-full h-full border-2 border-eqlive-peach/30 rounded-[2.5rem] -z-10"></div>
+                        
+                        <!-- Texto -->
+                        <div class="order-1 md:order-2">
+                            <div class="space-y-8">
+                                <div>
+                                    <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-4 block">O Programa</span>
+                                    <h2 class="font-serif text-4xl lg:text-5xl text-eqlive-dark mb-6">O que é Eqlive Essence?</h2>
+                                </div>
+                                
+                                <div class="space-y-6 text-gray-700 leading-relaxed">
+                                    <p class="text-lg">Eqlive Essence é um programa científico, personalizado e transformador de <strong>6 meses</strong> desenvolvido para quem busca muito mais que apenas perder peso. É uma <strong>transformação completa</strong> do corpo, mente e saúde emocional.</p>
+                                    
+                                    <p class="text-lg">Diferente de dietas genéricas que falham, o Essence <strong>integra medicina funcional, nutrição personalizada, psicologia e endocrinologia</strong> em um único protocolo que realmente funciona e gera <strong>resultados duradouros</strong>.</p>
+                                    
+                                    <p class="text-lg">Aqui você não é apenas um número de kg a perder. Você é uma jornada de transformação onde <strong>cada aspecto da sua saúde é cuidado</strong>: hormônios, metabolismo, comportamento alimentar, energia e bem-estar emocional.</p>
+                                </div>
+
+                                <div class="pt-6">
+                                    <a href="https://wa.me/5521967815767?text=Quero%20saber%20mais%20sobre%20o%20Eqlive%20Essence!" class="inline-flex items-center bg-eqlive-dark text-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-green transition duration-300 shadow-lg hover:shadow-xl gap-2">
+                                        Conheça o Programa <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- FOR WHO -->
+            <!-- PARA QUEM É O ESSENCE -->
             <section class="py-24 bg-white -mt-2">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Ideal Para</span>
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Para Quem é o Essence?</h2>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Para Quem é o Essence?</h2>
                         <p class="text-gray-600 text-lg">Este programa foi desenvolvido especificamente para pessoas que buscam transformação real e duradoura.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Card 1 -->
-                        <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-green/5 p-8 rounded-2xl border border-eqlive-dark/10">
-                            <div class="w-14 h-14 bg-eqlive-dark rounded-full flex items-center justify-center text-white mb-6">
-                                <i data-lucide="target" class="w-7 h-7"></i>
+                        <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-green/5 p-10 rounded-2xl border border-eqlive-dark/10 hover:shadow-lg transition duration-300">
+                            <div class="w-16 h-16 bg-eqlive-dark rounded-full flex items-center justify-center text-white mb-6">
+                                <i data-lucide="target" class="w-8 h-8"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Buscam Emagrecimento Real</h3>
-                            <p class="text-gray-600">Que querem perder peso de forma saudável, sustentável e com compreensão da causa raiz do ganho de peso.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Buscam Emagrecimento Real</h3>
+                            <p class="text-gray-600 leading-relaxed">Que querem perder peso de forma saudável, sustentável e com compreensão da causa raiz do ganho de peso.</p>
                         </div>
 
                         <!-- Card 2 -->
-                        <div class="bg-gradient-to-br from-eqlive-accent/5 to-eqlive-peach/5 p-8 rounded-2xl border border-eqlive-accent/10">
-                            <div class="w-14 h-14 bg-eqlive-accent rounded-full flex items-center justify-center text-white mb-6">
-                                <i data-lucide="activity" class="w-7 h-7"></i>
+                        <div class="bg-gradient-to-br from-eqlive-accent/5 to-eqlive-peach/5 p-10 rounded-2xl border border-eqlive-accent/10 hover:shadow-lg transition duration-300">
+                            <div class="w-16 h-16 bg-eqlive-accent rounded-full flex items-center justify-center text-white mb-6">
+                                <i data-lucide="activity" class="w-8 h-8"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Com Desequilíbrio Hormonal</h3>
-                            <p class="text-gray-600">Que enfrentam SOP, menopausa, resistência à insulina, TPM intensa ou outros desafios hormonais.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Com Desequilíbrio Hormonal</h3>
+                            <p class="text-gray-600 leading-relaxed">Que enfrentam SOP, menopausa, resistência à insulina, TPM intensa ou outros desafios hormonais.</p>
                         </div>
 
                         <!-- Card 3 -->
-                        <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-dark/5 p-8 rounded-2xl border border-eqlive-green/10">
-                            <div class="w-14 h-14 bg-eqlive-green rounded-full flex items-center justify-center text-white mb-6">
-                                <i data-lucide="brain" class="w-7 h-7"></i>
+                        <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-dark/5 p-10 rounded-2xl border border-eqlive-green/10 hover:shadow-lg transition duration-300">
+                            <div class="w-16 h-16 bg-eqlive-green rounded-full flex items-center justify-center text-white mb-6">
+                                <i data-lucide="brain" class="w-8 h-8"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Com Compulsão Alimentar</h3>
-                            <p class="text-gray-600">Que lutam contra fome emocional, compulsão e padrões de autossabotagem com a alimentação.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Com Compulsão Alimentar</h3>
+                            <p class="text-gray-600 leading-relaxed">Que lutam contra fome emocional, compulsão e padrões de autossabotagem com a alimentação.</p>
                         </div>
 
                         <!-- Card 4 -->
-                        <div class="bg-gradient-to-br from-eqlive-peach/5 to-eqlive-accent/5 p-8 rounded-2xl border border-eqlive-peach/10">
-                            <div class="w-14 h-14 bg-eqlive-peach rounded-full flex items-center justify-center text-white mb-6">
-                                <i data-lucide="heart" class="w-7 h-7"></i>
+                        <div class="bg-gradient-to-br from-eqlive-peach/5 to-eqlive-accent/5 p-10 rounded-2xl border border-eqlive-peach/10 hover:shadow-lg transition duration-300">
+                            <div class="w-16 h-16 bg-eqlive-peach rounded-full flex items-center justify-center text-white mb-6">
+                                <i data-lucide="heart" class="w-8 h-8"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Que Falharam Antes</h3>
-                            <p class="text-gray-600">Que tentaram dietas restritivas, suplementos milagrosos ou exercício em excesso sem sucesso duradouro.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Que Falharam Antes</h3>
+                            <p class="text-gray-600 leading-relaxed">Que tentaram dietas restritivas, suplementos milagrosos ou exercício em excesso sem sucesso duradouro.</p>
                         </div>
 
                         <!-- Card 5 -->
-                        <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-peach/5 p-8 rounded-2xl border border-eqlive-dark/10">
-                            <div class="w-14 h-14 bg-eqlive-dark rounded-full flex items-center justify-center text-white mb-6">
-                                <i data-lucide="zap" class="w-7 h-7"></i>
+                        <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-peach/5 p-10 rounded-2xl border border-eqlive-dark/10 hover:shadow-lg transition duration-300">
+                            <div class="w-16 h-16 bg-eqlive-dark rounded-full flex items-center justify-center text-white mb-6">
+                                <i data-lucide="zap" class="w-8 h-8"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Com Fadiga Crônica</h3>
-                            <p class="text-gray-600">Que vivem exaustas, sem energia, com metabolismo lento e dificuldade para perder peso.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Com Fadiga Crônica</h3>
+                            <p class="text-gray-600 leading-relaxed">Que vivem exaustas, sem energia, com metabolismo lento e dificuldade para perder peso.</p>
                         </div>
 
                         <!-- Card 6 -->
-                        <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-accent/5 p-8 rounded-2xl border border-eqlive-green/10">
-                            <div class="w-14 h-14 bg-eqlive-green rounded-full flex items-center justify-center text-white mb-6">
-                                <i data-lucide="smile" class="w-7 h-7"></i>
+                        <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-accent/5 p-10 rounded-2xl border border-eqlive-green/10 hover:shadow-lg transition duration-300">
+                            <div class="w-16 h-16 bg-eqlive-green rounded-full flex items-center justify-center text-white mb-6">
+                                <i data-lucide="smile" class="w-8 h-8"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Que Querem Bem-Estar</h3>
-                            <p class="text-gray-600">Buscam transformação completa: corpo saudável, mente equilibrada, saúde emocional integrada.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Que Querem Bem-Estar</h3>
+                            <p class="text-gray-600 leading-relaxed">Buscam transformação completa: corpo saudável, mente equilibrada, saúde emocional integrada.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- WHAT YOU GET -->
+            <!-- O QUE VOCÊ RECEBE -->
             <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-eqlive-peach font-bold uppercase tracking-wider text-xs block mb-3">Durante os 6 Meses</span>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <span class="text-eqlive-accent font-bold uppercase tracking-wider text-xs block mb-3">Durante os 6 Meses</span>
                         <h2 class="font-serif text-4xl md:text-5xl mb-6 text-white">O que Você Recebe</h2>
                         <p class="text-white/85 text-lg">Um acompanhamento completo e integrado com nossa equipe multidisciplinar especializada</p>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-12">
+                    <div class="grid md:grid-cols-2 gap-14">
                         <!-- Column 1 -->
-                        <div class="space-y-8">
+                        <div class="space-y-10">
                             <div class="flex gap-6">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-14 w-14 rounded-2xl bg-white/15 text-white">
-                                        <i data-lucide="users" class="w-7 h-7"></i>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/15 text-white">
+                                        <i data-lucide="users" class="w-8 h-8"></i>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-xl text-white mb-2">Avaliação Inicial Completa</h3>
-                                    <p class="text-white/80">Entendimento profundo da sua história, hábitos, objetivos e desafios antes de iniciar o programa.</p>
+                                    <h3 class="font-semibold text-xl text-white mb-3">Avaliação Inicial Profunda</h3>
+                                    <p class="text-white/80">Entendimento completo de sua história, hábitos, objetivos e desafios antes de iniciar o programa.</p>
                                 </div>
                             </div>
 
                             <div class="flex gap-6">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-14 w-14 rounded-2xl bg-white/15 text-white">
-                                        <i data-lucide="apple" class="w-7 h-7"></i>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/15 text-white">
+                                        <i data-lucide="apple" class="w-8 h-8"></i>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-xl text-white mb-2">Consultas com Nutricionista</h3>
+                                    <h3 class="font-semibold text-xl text-white mb-3">Consultoria em Nutrição</h3>
                                     <p class="text-white/80">Sessões individualizadas para criar plano alimentar personalizado, estratégias e educação nutricional.</p>
                                 </div>
                             </div>
 
                             <div class="flex gap-6">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-14 w-14 rounded-2xl bg-white/15 text-white">
-                                        <i data-lucide="activity" class="w-7 h-7"></i>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/15 text-white">
+                                        <i data-lucide="activity" class="w-8 h-8"></i>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-xl text-white mb-2">Acompanhamento Endocrinológico</h3>
+                                    <h3 class="font-semibold text-xl text-white mb-3">Acompanhamento Endocrinológico</h3>
                                     <p class="text-white/80">Consultas com especialista em hormônios e metabolismo para equilibrar seu sistema endócrino.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Column 2 -->
-                        <div class="space-y-8">
+                        <div class="space-y-10">
                             <div class="flex gap-6">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-14 w-14 rounded-2xl bg-white/15 text-white">
-                                        <i data-lucide="brain" class="w-7 h-7"></i>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/15 text-white">
+                                        <i data-lucide="brain" class="w-8 h-8"></i>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-xl text-white mb-2">Suporte Psicológico</h3>
-                                    <p class="text-white/80">Sessões com psicóloga focadas em ansiedade, compulsão alimentar, autossabotagem e comportamentos.</p>
+                                    <h3 class="font-semibold text-xl text-white mb-3">Suporte Psicológico Integrado</h3>
+                                    <p class="text-white/80">Sessões focadas em ansiedade, compulsão alimentar, autossabotagem e padrões comportamentais.</p>
                                 </div>
                             </div>
 
                             <div class="flex gap-6">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-14 w-14 rounded-2xl bg-white/15 text-white">
-                                        <i data-lucide="microscope" class="w-7 h-7"></i>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/15 text-white">
+                                        <i data-lucide="microscope" class="w-8 h-8"></i>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-xl text-white mb-2">Testes e Monitoramento</h3>
+                                    <h3 class="font-semibold text-xl text-white mb-3">Testes e Monitoramento</h3>
                                     <p class="text-white/80">Exames funcionais, dosagens de hormônios e acompanhamento de bioquímicas periódicas.</p>
                                 </div>
                             </div>
 
                             <div class="flex gap-6">
                                 <div class="flex-shrink-0">
-                                    <div class="flex items-center justify-center h-14 w-14 rounded-2xl bg-white/15 text-white">
-                                        <i data-lucide="target" class="w-7 h-7"></i>
+                                    <div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-white/15 text-white">
+                                        <i data-lucide="target" class="w-8 h-8"></i>
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-xl text-white mb-2">Plano Adaptável</h3>
+                                    <h3 class="font-semibold text-xl text-white mb-3">Plano Adaptável e Evolutivo</h3>
                                     <p class="text-white/80">Protocolo que evolui conforme seus resultados, com ajustes contínuos para otimizar progressão.</p>
                                 </div>
                             </div>
@@ -2353,55 +2550,55 @@
 
             <!-- HOW IT WORKS - PROCESS -->
             <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white">
-                <div class="max-w-7xl mx-auto px-4">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-20">
-                        <span class="text-eqlive-peach font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho</span>
+                        <span class="text-eqlive-accent font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho</span>
                         <h2 class="font-serif text-4xl md:text-5xl mb-6 text-white">Como Funciona o Programa</h2>
                         <p class="text-white/85 text-lg">Processo estruturado, compassivo e focado em resultados reais e duradouros</p>
                     </div>
 
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <!-- Step 1 -->
                         <div class="relative">
-                            <div class="bg-white/10 border border-white/10 rounded-2xl p-8 text-center h-full flex flex-col relative z-10">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-dark text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-                                <h3 class="font-semibold text-lg text-white mb-3">Avaliação Profunda</h3>
+                            <div class="bg-white/10 border border-white/20 rounded-2xl p-10 text-center h-full flex flex-col relative z-10 hover:bg-white/15 transition duration-300">
+                                <div class="w-20 h-20 rounded-full bg-eqlive-dark text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6">1</div>
+                                <h3 class="font-semibold text-lg text-white mb-4">Avaliação Profunda</h3>
                                 <p class="text-white/80 flex-grow">Entendimento completo de sua saúde, hábitos, emoções e objetivos reais.</p>
                             </div>
                             <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 z-20">
-                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-accent/60"></i>
                             </div>
                         </div>
 
                         <!-- Step 2 -->
                         <div class="relative">
-                            <div class="bg-white/10 border border-white/10 rounded-2xl p-8 text-center h-full flex flex-col relative z-10">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-green text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-                                <h3 class="font-semibold text-lg text-white mb-3">Plano Personalizado</h3>
+                            <div class="bg-white/10 border border-white/20 rounded-2xl p-10 text-center h-full flex flex-col relative z-10 hover:bg-white/15 transition duration-300">
+                                <div class="w-20 h-20 rounded-full bg-eqlive-green text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6">2</div>
+                                <h3 class="font-semibold text-lg text-white mb-4">Plano Personalizado</h3>
                                 <p class="text-white/80 flex-grow">Criação de protocolo único alinhado com seus objetivos, ritmo e necessidades.</p>
                             </div>
                             <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 z-20">
-                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-accent/60"></i>
                             </div>
                         </div>
 
                         <!-- Step 3 -->
                         <div class="relative">
-                            <div class="bg-white/10 border border-white/10 rounded-2xl p-8 text-center h-full flex flex-col relative z-10">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-accent text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-                                <h3 class="font-semibold text-lg text-white mb-3">Implementação</h3>
+                            <div class="bg-white/10 border border-white/20 rounded-2xl p-10 text-center h-full flex flex-col relative z-10 hover:bg-white/15 transition duration-300">
+                                <div class="w-20 h-20 rounded-full bg-eqlive-accent text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6">3</div>
+                                <h3 class="font-semibold text-lg text-white mb-4">Implementação</h3>
                                 <p class="text-white/80 flex-grow">Início do programa com suporte da equipe multidisciplinar em cada etapa.</p>
                             </div>
                             <div class="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 z-20">
-                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-green/40"></i>
+                                <i data-lucide="arrow-right" class="w-6 h-6 text-eqlive-accent/60"></i>
                             </div>
                         </div>
 
                         <!-- Step 4 -->
                         <div class="relative">
-                            <div class="bg-white/10 border border-white/10 rounded-2xl p-8 text-center h-full flex flex-col relative z-10">
-                                <div class="w-16 h-16 rounded-full bg-eqlive-peach text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
-                                <h3 class="font-semibold text-lg text-white mb-3">Transformação</h3>
+                            <div class="bg-white/10 border border-white/20 rounded-2xl p-10 text-center h-full flex flex-col relative z-10 hover:bg-white/15 transition duration-300">
+                                <div class="w-20 h-20 rounded-full bg-eqlive-peach text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6">4</div>
+                                <h3 class="font-semibold text-lg text-white mb-4">Transformação</h3>
                                 <p class="text-white/80 flex-grow">Resultados progressivos, mudanças reais e bem-estar duradouro em 6 meses.</p>
                             </div>
                         </div>
@@ -2409,80 +2606,105 @@
                 </div>
             </section>
 
-            <!-- TIMELINE DETALHE -->
+            <!-- TIMELINE - SEUS 6 MESES -->
             <section class="py-24 bg-white -mt-2">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Timeline</span>
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Seus 6 Meses de Transformação</h2>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">A Jornada</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Seus 6 Meses de Transformação</h2>
+                        <p class="text-gray-600 text-lg">Uma progressão estratégica que leva você desde a compreensão profunda até a consolidação de resultados duradouros</p>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- MÊS 1-2 -->
-                        <div class="bg-[#F9F8F6] rounded-2xl p-8 border-l-4 border-eqlive-dark">
-                            <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Meses 1-2: Fundação</h3>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex gap-2">
+                    <div class="grid md:grid-cols-3 gap-10">
+                        <!-- MESES 1-2: FUNDAÇÃO -->
+                        <div class="bg-gradient-to-br from-eqlive-dark/5 to-eqlive-green/5 rounded-3xl p-10 border border-eqlive-dark/10 shadow-sm hover:shadow-lg transition duration-300">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-14 h-14 rounded-full bg-eqlive-dark text-white flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="zap" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs uppercase tracking-[0.15em] text-eqlive-dark/60 font-semibold">Fase 1</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark">Meses 1-2: Fundação</h3>
+                                </div>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Avaliação completa e testes iniciais</span>
+                                    <span class="text-gray-700">Avaliação completa e testes iniciais</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Identificação das causas raiz</span>
+                                    <span class="text-gray-700">Identificação das causas raiz</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Implementação do plano personalizado</span>
+                                    <span class="text-gray-700">Implementação do plano personalizado</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Primeiros ajustes e suporte intenso</span>
+                                    <span class="text-gray-700">Primeiros ajustes e suporte intenso</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- MÊS 3-4 -->
-                        <div class="bg-[#F9F8F6] rounded-2xl p-8 border-l-4 border-eqlive-accent">
-                            <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Meses 3-4: Progresso</h3>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex gap-2">
+                        <!-- MESES 3-4: PROGRESSO -->
+                        <div class="bg-gradient-to-br from-eqlive-accent/5 to-eqlive-peach/5 rounded-3xl p-10 border border-eqlive-accent/10 shadow-sm hover:shadow-lg transition duration-300">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-14 h-14 rounded-full bg-eqlive-accent text-white flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="trending-up" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs uppercase tracking-[0.15em] text-eqlive-dark/60 font-semibold">Fase 2</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark">Meses 3-4: Progresso</h3>
+                                </div>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-accent flex-shrink-0 mt-0.5"></i>
-                                    <span>Resultados começam a aparecer</span>
+                                    <span class="text-gray-700">Resultados começam a aparecer</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-accent flex-shrink-0 mt-0.5"></i>
-                                    <span>Mudanças no corpo e energia</span>
+                                    <span class="text-gray-700">Mudanças visíveis no corpo e energia</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-accent flex-shrink-0 mt-0.5"></i>
-                                    <span>Reforço de hábitos saudáveis</span>
+                                    <span class="text-gray-700">Reforço de hábitos saudáveis</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-accent flex-shrink-0 mt-0.5"></i>
-                                    <span>Testes intermediários e ajustes</span>
+                                    <span class="text-gray-700">Testes intermediários e ajustes</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- MÊS 5-6 -->
-                        <div class="bg-[#F9F8F6] rounded-2xl p-8 border-l-4 border-eqlive-green">
-                            <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Meses 5-6: Consolidação</h3>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex gap-2">
+                        <!-- MESES 5-6: CONSOLIDAÇÃO -->
+                        <div class="bg-gradient-to-br from-eqlive-green/5 to-eqlive-accent/5 rounded-3xl p-10 border border-eqlive-green/10 shadow-sm hover:shadow-lg transition duration-300">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-14 h-14 rounded-full bg-eqlive-green text-white flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="award" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs uppercase tracking-[0.15em] text-eqlive-dark/60 font-semibold">Fase 3</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark">Meses 5-6: Consolidação</h3>
+                                </div>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Transformação visível consolidada</span>
+                                    <span class="text-gray-700">Transformação visível consolidada</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Habitualização dos novos padrões</span>
+                                    <span class="text-gray-700">Habitualização dos padrões saudáveis</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Plano de manutenção pós-programa</span>
+                                    <span class="text-gray-700">Plano de manutenção pós-programa</span>
                                 </li>
-                                <li class="flex gap-2">
+                                <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span>Avaliação final e próximas etapas</span>
+                                    <span class="text-gray-700">Avaliação final e próximas etapas</span>
                                 </li>
                             </ul>
                         </div>
@@ -2490,69 +2712,104 @@
                 </div>
             </section>
 
-            <!-- RESULTS -->
+
+            <!-- RESULTADOS ESPERADOS -->
             <section class="py-24 bg-white -mt-2">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Resultados Esperados</span>
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">O que Nossos Clientes Conquistam</h2>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Transformação Mensurável</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">O que Nossos Clientes Conquistam</h2>
+                        <p class="text-gray-600 text-lg">Resultados reais medidos e acompanhados durante os 6 meses de programa</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-gradient-to-br from-eqlive-dark/10 to-eqlive-green/10 p-8 rounded-2xl">
-                            <div class="text-4xl font-bold text-eqlive-dark mb-2">5-15 kg</div>
-                            <p class="text-gray-600 font-semibold">Perda de peso saudável e duradoura</p>
+                        <!-- Resultado 1 -->
+                        <div class="bg-gradient-to-br from-eqlive-dark/10 to-eqlive-green/10 p-10 rounded-2xl border border-eqlive-dark/5 hover:shadow-lg transition duration-300">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <div class="text-5xl font-bold text-eqlive-dark">5-15</div>
+                                <div class="text-2xl text-eqlive-dark/70">kg</div>
+                            </div>
+                            <p class="text-gray-700 font-semibold text-lg">Perda de peso saudável e duradoura</p>
                         </div>
 
-                        <div class="bg-gradient-to-br from-eqlive-accent/10 to-eqlive-peach/10 p-8 rounded-2xl">
-                            <div class="text-4xl font-bold text-eqlive-dark mb-2">100%</div>
-                            <p class="text-gray-600 font-semibold">Melhora no equilíbrio hormonal</p>
+                        <!-- Resultado 2 -->
+                        <div class="bg-gradient-to-br from-eqlive-accent/10 to-eqlive-peach/10 p-10 rounded-2xl border border-eqlive-accent/5 hover:shadow-lg transition duration-300">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <div class="text-5xl font-bold text-eqlive-dark">100%</div>
+                            </div>
+                            <p class="text-gray-700 font-semibold text-lg">Melhora no equilíbrio hormonal</p>
                         </div>
 
-                        <div class="bg-gradient-to-br from-eqlive-green/10 to-eqlive-accent/10 p-8 rounded-2xl">
-                            <div class="text-4xl font-bold text-eqlive-dark mb-2">↑ 80%</div>
-                            <p class="text-gray-600 font-semibold">Aumento de energia e disposição</p>
+                        <!-- Resultado 3 -->
+                        <div class="bg-gradient-to-br from-eqlive-green/10 to-eqlive-accent/10 p-10 rounded-2xl border border-eqlive-green/5 hover:shadow-lg transition duration-300">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <i data-lucide="trending-up" class="w-8 h-8 text-eqlive-green"></i>
+                                <div class="text-5xl font-bold text-eqlive-dark">80%</div>
+                            </div>
+                            <p class="text-gray-700 font-semibold text-lg">Aumento de energia e disposição</p>
                         </div>
 
-                        <div class="bg-gradient-to-br from-eqlive-peach/10 to-eqlive-dark/10 p-8 rounded-2xl">
-                            <div class="text-4xl font-bold text-eqlive-dark mb-2">90%</div>
-                            <p class="text-gray-600 font-semibold">Redução de compulsão alimentar</p>
+                        <!-- Resultado 4 -->
+                        <div class="bg-gradient-to-br from-eqlive-peach/10 to-eqlive-dark/10 p-10 rounded-2xl border border-eqlive-peach/5 hover:shadow-lg transition duration-300">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <div class="text-5xl font-bold text-eqlive-dark">90%</div>
+                            </div>
+                            <p class="text-gray-700 font-semibold text-lg">Redução de compulsão alimentar</p>
                         </div>
 
-                        <div class="bg-gradient-to-br from-eqlive-dark/10 to-eqlive-accent/10 p-8 rounded-2xl">
-                            <div class="text-4xl font-bold text-eqlive-dark mb-2">✓</div>
-                            <p class="text-gray-600 font-semibold">Estabilização do metabolismo</p>
+                        <!-- Resultado 5 -->
+                        <div class="bg-gradient-to-br from-eqlive-dark/10 to-eqlive-accent/10 p-10 rounded-2xl border border-eqlive-dark/5 hover:shadow-lg transition duration-300">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <i data-lucide="check-circle" class="w-8 h-8 text-eqlive-green"></i>
+                                <div class="text-3xl font-bold text-eqlive-dark">Estável</div>
+                            </div>
+                            <p class="text-gray-700 font-semibold text-lg">Metabolismo estabilizado</p>
                         </div>
 
-                        <div class="bg-gradient-to-br from-eqlive-green/10 to-eqlive-peach/10 p-8 rounded-2xl">
-                            <div class="text-4xl font-bold text-eqlive-dark mb-2">Duradouro</div>
-                            <p class="text-gray-600 font-semibold">Resultados que permanecem após</p>
+                        <!-- Resultado 6 -->
+                        <div class="bg-gradient-to-br from-eqlive-green/10 to-eqlive-peach/10 p-10 rounded-2xl border border-eqlive-green/5 hover:shadow-lg transition duration-300">
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <i data-lucide="heart" class="w-8 h-8 text-eqlive-accent"></i>
+                                <div class="text-3xl font-bold text-eqlive-dark">Duradouro</div>
+                            </div>
+                            <p class="text-gray-700 font-semibold text-lg">Resultados mantidos após programa</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- CTA FINAL -->
+
+            <!-- CTA FINAL - COMECE SUA TRANSFORMAÇÃO -->
             <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white">
-                <div class="max-w-4xl mx-auto px-4 text-center">
-                    <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para Sua Transformação?</h2>
-                    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">Agende sua avaliação gratuita agora e descubra como o Essence pode transformar sua vida em 6 meses.</p>
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="font-serif text-5xl md:text-6xl mb-8 leading-tight">Pronto Para Sua <span class="text-eqlive-accent">Transformação?</span></h2>
+                    <p class="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">Agende sua avaliação inicial gratuita agora e descubra como o Eqlive Essence pode transformar completamente sua vida em apenas 6 meses.</p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://wa.me/5521967815767?text=Quero%20emagrecer%20com%20sa%C3%BAde%20e%20conhecer%20o%20Eqlive%20Essence!" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-peach text-eqlive-dark px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Comece Agora
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                        <a href="https://wa.me/5521967815767?text=Quero%20emagrecer%20com%20sa%C3%BAde%20e%20conhecer%20o%20Eqlive%20Essence!" target="_blank" class="inline-flex items-center justify-center gap-3 bg-eqlive-accent text-white px-10 py-5 rounded-full font-semibold text-lg hover:shadow-2xl transition transform hover:-translate-y-1 duration-300">
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            Comece Sua Jornada
                         </a>
-                        <a href="https://wa.me/5521967815767?text=Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Eqlive%20Essence" target="_blank" class="inline-flex items-center justify-center gap-2 border-2 border-eqlive-peach text-eqlive-peach px-8 py-4 rounded-full font-semibold text-lg hover:bg-eqlive-peach/10 transition">
-                            <i data-lucide="phone" class="w-5 h-5"></i>
-                            Tire Suas Dúvidas
-                        </a>
+                        <button onclick="navigateTo('how')" class="inline-flex items-center justify-center gap-3 border-2 border-white text-white px-10 py-5 rounded-full font-semibold text-lg hover:bg-white/10 transition duration-300">
+                            <i data-lucide="info" class="w-6 h-6"></i>
+                            Saiba Mais
+                        </button>
                     </div>
 
-                    <p class="text-white/80 mt-12 text-sm">
-                        <strong>Primeira Consulta Avaliativa</strong> é 100% gratuita | Sem compromisso<br>
-                        <strong>Telefone:</strong> (21) 96781-5767 | <strong>WhatsApp:</strong> <a href="https://wa.me/5521967815767" class="underline hover:text-eqlive-peach">Clique aqui</a>
-                    </p>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                        <p class="text-white/90 mb-6 text-base">
+                            <span class="block font-semibold text-lg mb-2">Primeira Consulta Avaliativa</span>
+                            Totalmente gratuita, sem compromisso | Duração: 30 minutos<br>
+                            <strong>Whatsapp:</strong> <a href="https://wa.me/5521967815767" class="text-eqlive-accent hover:underline">(21) 96781-5767</a> | <strong>Email:</strong> clinicaeqlive@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DIVISOR FINAL -->
+            <section class="bg-[#F9F8F6] py-10 border-t border-eqlive-dark/10">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="h-1 w-24 bg-eqlive-accent/30 rounded-full mx-auto"></div>
                 </div>
             </section>
         </div>
