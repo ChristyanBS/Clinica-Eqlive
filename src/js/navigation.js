@@ -150,8 +150,22 @@ window.navigateTo = function(pageId, scrollToElement = null) {
             }
         });
     } else {
-        const isCondicoesPage = window.location.pathname.replace(/\\/g, '/').includes('/condicoes/');
-        const basePath = isCondicoesPage ? '../index.html' : 'index.html';
+        const normalizedPath = window.location.pathname.replace(/\\/g, '/');
+        let basePath = 'index.html';
+
+        if (normalizedPath.includes('/condicoes/')) {
+            basePath = '../index.html';
+        } else if (normalizedPath.includes('/pages/')) {
+            const parts = normalizedPath.split('/');
+            const pagesIndex = parts.indexOf('pages');
+            if (pagesIndex !== -1) {
+                const depth = Math.max(0, parts.length - pagesIndex - 2);
+                basePath = '../'.repeat(depth + 1) + 'index.html';
+            } else {
+                basePath = '../index.html';
+            }
+        }
+
         const hash = pageId ? `#${pageId}` : '';
         const extra = scrollToElement ? `:${scrollToElement}` : '';
         window.location.href = `${basePath}${hash}${extra}`;
@@ -357,6 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
         especialidades: 'specialties',
         home: 'home',
         about: 'about',
+        how: 'how',
+        'como-funciona': 'how',
         essence: 'essence',
         blog: 'blog',
         faq: 'faq',
