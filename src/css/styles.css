@@ -31,6 +31,21 @@ body {
     min-height: 100vh;
 }
 
+.essence-cta h2 {
+    color: rgba(255, 255, 255, 0.98);
+    text-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+
+.essence-cta p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.essence-footer-transition {
+    height: 64px;
+    background: linear-gradient(180deg, #203f3a 0%, #132D2E 100%);
+}
+
+
 main {
     padding-top: var(--nav-height) !important;
 }
@@ -666,6 +681,71 @@ a {
 
 .carousel-container::-webkit-scrollbar {
     display: none;
+}
+
+/* ========================================
+   PARCERIAS (3D RING)
+   ======================================== */
+
+.partner-3d {
+    position: relative;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+    perspective-origin: center;
+}
+
+.partner-ring {
+    position: relative;
+    width: 560px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: partnerSpin 24s linear infinite;
+    will-change: transform;
+}
+
+.partner-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(260px) translate(-50%, -50%);
+    opacity: 0.95;
+}
+
+.partner-logo img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(19, 45, 46, 0.12));
+}
+
+@keyframes partnerSpin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(-360deg); }
+}
+
+@media (max-width: 768px) {
+    .partner-ring {
+        width: 420px;
+        height: 180px;
+    }
+
+    .partner-logo {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(200px) translate(-50%, -50%);
+    }
+
+    .partner-logo img {
+        height: 72px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .partner-ring {
+        animation: none;
+    }
 }
 
 /* ========================================
