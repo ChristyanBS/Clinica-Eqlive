@@ -1810,3 +1810,41 @@ body.questionnaire-page nav {
 #quiz-result {
     display: none;
 }
+
+/* ======================================== */
+/* BLOG - GRID COMPACTO                      */
+/* ======================================== */
+
+.blog-grid-compact .blog-post {
+    border: 1px solid rgba(19, 45, 46, 0.08);
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 24px -20px rgba(19, 45, 46, 0.35);
+}
+
+.blog-grid-compact .blog-post > div:first-child {
+    height: 160px;
+}
+
+.blog-grid-compact .blog-post > div:first-child img {
+    height: 100%;
+}
+
+.blog-grid-compact .blog-post > div:last-child {
+    padding: 16px 18px;
+}
+
+.blog-grid-compact .blog-post h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.blog-grid-compact .blog-post p {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-hero-text {
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}

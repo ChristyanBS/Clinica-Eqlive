@@ -2970,88 +2970,34 @@
 
         <!-- ================= PAGE: BLOG ================= -->
         <div id="blog" class="page-section is-hidden">
-                <!-- Header Hero Section -->
-                <section class="relative bg-gradient-to-br from-eqlive-dark via-eqlive-green/90 to-eqlive-accent/30 text-white overflow-hidden min-h-[64vh] flex items-center">
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-eqlive-accent/20 rounded-full blur-3xl"></div>
-                    <div class="absolute -bottom-32 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+                <section class="bg-[#f6f3ee]">
+                    <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+                        <div class="bg-white rounded-[24px] p-3 md:p-4 shadow-sm border border-black/5">
+                            <div class="relative overflow-hidden rounded-[22px]">
+                                <img src="src/assets/images/saudeblog.png" alt="Caminho para o Equilíbrio" class="w-full h-[150px] md:h-[180px] object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-r from-eqlive-dark/90 via-eqlive-dark/50 to-transparent"></div>
+                                <div class="absolute inset-0 flex items-center">
+                                    <div class="px-6 md:px-10 text-white max-w-2xl blog-hero-text">
+                                        <p class="text-xs uppercase tracking-widest text-white/90 mb-3">Blog Eqlive</p>
+                                        <h1 class="font-serif text-3xl md:text-5xl leading-tight text-white/98">O Caminho para o Equilíbrio: Bem-estar Integrado</h1>
+                                        <button onclick="openPostModal(5)" class="mt-5 inline-flex items-center gap-2 bg-white text-eqlive-dark px-5 py-2 rounded-full text-sm font-semibold shadow-sm hover:bg-eqlive-sand transition">
+                                            Ler artigo
+                                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0,30 Q360,0 720,30 T1440,30 L1440,120 L0,120 Z" fill="#ffffff" opacity="1"/>
-                        <path d="M0,40 Q360,10 720,40 T1440,40 L1440,120 L0,120 Z" fill="#ffffff" opacity="0.8"/>
-                    </svg>
-                    
-                    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full -mt-16">
-                        <div class="max-w-3xl">
-                            <span class="inline-flex items-center gap-2 text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">Blog da Clínica</span>
-                            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Vivendo em Equilíbrio</h1>
-                            <p class="text-lg md:text-xl text-white/95 leading-relaxed">Insights práticos, baseados em fontes confiáveis, sobre endocrinologia, nutrição e bem-estar emocional — com leitura clara e organizada.</p>
-                            <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                                <a href="#blog-posts-grid" class="inline-flex items-center justify-center gap-2 bg-white text-eqlive-dark px-7 py-3 rounded-full font-semibold hover:bg-eqlive-sand transition shadow-lg">
-                                    Ver artigos
-                                    <i data-lucide="arrow-down" class="w-5 h-5"></i>
-                                </a>
-                                <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white px-7 py-3 rounded-full font-semibold hover:bg-white/10 transition">
-                                    Agendar consulta
-                                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
-                                </a>
+                            <div class="mt-6 flex flex-wrap gap-2">
+                                <button class="blog-filter-btn px-4 py-2 bg-eqlive-dark text-white rounded-full text-xs font-semibold hover:bg-eqlive-green transition" onclick="filterPosts('all', this)">Todos</button>
+                                <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-xs font-semibold border border-black/10 hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar mental</button>
+                                <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-xs font-semibold border border-black/10 hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
+                                <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-xs font-semibold border border-black/10 hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Saúde hormonal</button>
+                                <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-xs font-semibold border border-black/10 hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias reais</button>
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                <!-- Blog Content Layout -->
-                <section class="bg-white -mt-2">
-                    <div class="max-w-7xl mx-auto px-4 py-20">
-                        <div class="grid lg:grid-cols-[2fr_1fr] gap-12">
-                            <div class="space-y-12">
-                                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                    <div>
-                                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-2">Destaque</span>
-                                        <h2 class="font-serif text-3xl md:text-4xl text-eqlive-dark">Leitura recomendada da semana</h2>
-                                    </div>
-                                    <a href="#blog-posts-grid" class="inline-flex items-center gap-2 text-eqlive-green font-semibold hover:text-eqlive-dark transition">
-                                        Ver todos os posts <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                                    </a>
-                                </div>
-
-                                <article class="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition cursor-pointer group border border-eqlive-dark/5" onclick="openPostModal(1)">
-                                    <div class="grid md:grid-cols-2 gap-0">
-                                        <div class="relative h-72 md:h-auto overflow-hidden">
-                                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1000&q=80" alt="Histórias de Transformação" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                                            <div class="absolute top-6 left-6 bg-eqlive-peach text-eqlive-dark px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">EM DESTAQUE</div>
-                                        </div>
-                                        <div class="p-8 md:p-10 flex flex-col justify-center">
-                                            <span class="text-eqlive-green font-bold uppercase text-xs tracking-wider mb-4">Histórias de Transformação</span>
-                                            <h3 class="font-serif text-3xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">"Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"</h3>
-                                            <p class="text-gray-700 mb-6 leading-relaxed">Como a investigação das causas emocionais e metabólicas transformou a relação com a comida — e a saúde integral de uma paciente.</p>
-                                            <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
-                                                <span class="inline-flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> 6 de junho de 2025</span>
-                                                <span class="inline-flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> 5 min de leitura</span>
-                                                <span class="px-3 py-1 bg-eqlive-green/10 text-eqlive-green rounded-full text-xs font-semibold">Comportamento</span>
-                                            </div>
-                                            <button class="inline-flex items-center gap-2 text-eqlive-green font-semibold hover:text-eqlive-dark transition">
-                                                Ler artigo completo <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <div>
-                                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-                                        <div>
-                                            <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-2">Biblioteca de Conteúdos</span>
-                                            <h2 class="font-serif text-3xl md:text-4xl text-eqlive-dark">Últimos artigos</h2>
-                                        </div>
-                                        <div class="flex flex-wrap gap-3">
-                                            <button class="blog-filter-btn px-5 py-2 bg-eqlive-dark text-white rounded-full font-medium hover:bg-eqlive-green transition" onclick="filterPosts('all', this)">Todos</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Hormônios</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar</button>
-                                            <button class="blog-filter-btn px-5 py-2 bg-white text-eqlive-dark rounded-full font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid md:grid-cols-2 gap-8" id="blog-posts-grid">
+                        <div class="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-6 blog-grid-compact" id="blog-posts-grid">
                             <!-- Post 1: Hormônios -->
                             <article class="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer blog-post border border-eqlive-dark/5" data-category="hormones" onclick="openPostModal(2)">
                                 <div class="h-56 overflow-hidden relative">
@@ -3437,67 +3383,13 @@
                         </div>
 
                         <!-- Load More Button -->
-                        <div class="text-center mt-16">
-                            <button onclick="loadMorePosts()" class="bg-eqlive-dark text-white px-10 py-3 rounded-full font-semibold hover:bg-eqlive-green transition shadow-lg hover:shadow-xl">
+                        <div class="text-center mt-12">
+                            <button onclick="loadMorePosts()" class="bg-eqlive-dark text-white px-10 py-3 rounded-full text-sm font-semibold hover:bg-eqlive-green transition shadow-sm hover:shadow-md">
                                 Carregar Mais Posts
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <aside class="space-y-8">
-                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-eqlive-dark/10">
-                        <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Pesquisar no blog</h3>
-                        <div class="flex items-center gap-2 bg-white rounded-full px-4 py-3">
-                            <i data-lucide="search" class="w-5 h-5 text-eqlive-green"></i>
-                            <input id="blog-search-input" type="text" placeholder="Busque por tema" class="bg-transparent w-full text-sm text-eqlive-dark placeholder:text-gray-500 focus:outline-none" aria-label="Pesquisar no blog">
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-eqlive-dark/10">
-                        <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Categorias</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <button class="blog-filter-btn px-4 py-2 bg-eqlive-dark text-white rounded-full text-sm font-medium hover:bg-eqlive-green transition" onclick="filterPosts('all', this)">Todos</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('hormones', this)">Hormônios</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('nutrition', this)">Nutrição</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('wellness', this)">Bem-estar</button>
-                            <button class="blog-filter-btn px-4 py-2 bg-white text-eqlive-dark rounded-full text-sm font-medium hover:bg-eqlive-green hover:text-white transition" onclick="filterPosts('stories', this)">Histórias</button>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-eqlive-dark/10">
-                        <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Mais lidos</h3>
-                        <div class="space-y-4">
-                            <button onclick="openPostModal(14)" class="w-full text-left group">
-                                <p class="text-sm text-gray-500">Nutrição</p>
-                                <h4 class="font-semibold text-eqlive-dark group-hover:text-eqlive-green transition">Dieta Mediterrânea: O Segredo da Longevidade</h4>
-                            </button>
-                            <button onclick="openPostModal(12)" class="w-full text-left group">
-                                <p class="text-sm text-gray-500">Endocrinologia</p>
-                                <h4 class="font-semibold text-eqlive-dark group-hover:text-eqlive-green transition">Resistência à Insulina e Peso: Entenda a Conexão</h4>
-                            </button>
-                            <button onclick="openPostModal(9)" class="w-full text-left group">
-                                <p class="text-sm text-gray-500">Bem-estar</p>
-                                <h4 class="font-semibold text-eqlive-dark group-hover:text-eqlive-green transition">Qualidade de Sono: Como Melhorar Sua Recuperação</h4>
-                            </button>
-                            <button onclick="openPostModal(10)" class="w-full text-left group">
-                                <p class="text-sm text-gray-500">Endocrinologia</p>
-                                <h4 class="font-semibold text-eqlive-dark group-hover:text-eqlive-green transition">SOP: Entenda e Controle</h4>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-eqlive-dark to-eqlive-green text-white rounded-3xl p-8 shadow-xl">
-                        <h3 class="font-serif text-2xl mb-3">Receba novidades</h3>
-                        <p class="text-white/85 mb-6">Resumo semanal com os posts mais relevantes, direto no seu WhatsApp.</p>
-                        <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-eqlive-peach text-eqlive-dark px-6 py-3 rounded-full font-semibold hover:bg-[#e3a786] transition">
-                            Quero receber
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </aside>
-            </div>
-        </section>
+                </section>
 
                 <!-- Blog Post Modal -->
                 <div id="blog-post-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4 py-8">
@@ -3617,7 +3509,6 @@
                         </div>
                     </div>
                 </section>
-                <div class="essence-footer-transition" aria-hidden="true"></div>
         </div>
 
         <!-- ================= PAGE: LOCATION ================= -->
@@ -4824,13 +4715,574 @@
 
                     </div>
                 `
+            },
+            7: {
+                title: 'Alimentos Inflamatórios: O Que Evitar',
+                image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Inflamacao silenciosa impacta energia, peso e humor</h3>
+                            <p class="text-gray-700 leading-relaxed">Nem toda inflamacao aparece em forma de dor. Muitas vezes, ela se manifesta como cansaco, inchaco, dificuldade de emagrecer e queda de disposicao.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sinais comuns de inflamacao cronica</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Fadiga que nao melhora com descanso</li>
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Inchaco frequente e desconforto abdominal</li>
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Oscilacoes de humor e ansiedade</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Alimentos que pioram a inflamacao</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Ultraprocessados e embutidos</li>
+                                <li>• Excesso de acucar e refrigerantes</li>
+                                <li>• Gorduras trans e frituras frequentes</li>
+                                <li>• Alcool em excesso</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Substituicoes inteligentes</h4>
+                            <p class="text-gray-700">Troque snacks por frutas e oleaginosas, prefira agua e chas naturais, e opte por gorduras boas como azeite e abacate.</p>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Se os sintomas persistem, a avaliacao medica ajuda a identificar causas hormonais e metabolicas.</p>
+                        </div>
+                    </div>
+                `
+            },
+            8: {
+                title: 'Saude Digestiva: O Inicio de Tudo',
+                image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Intestino equilibrado, corpo em harmonia</h3>
+                            <p class="text-gray-700 leading-relaxed">Sua digestao influencia imunidade, humor, energia e ate a saude hormonal. Cuidar do intestino e cuidar do corpo inteiro.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sinais de que o intestino precisa de atencao</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Gases e inchaco frequentes</li>
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Alternancia entre diarreia e constipacao</li>
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Pele opaca e baixa imunidade</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Habitos que fortalecem a saude intestinal</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Comer fibras todos os dias (verduras, frutas, graos)</li>
+                                <li>• Hidratar-se bem ao longo do dia</li>
+                                <li>• Respeitar horarios e mastigar com calma</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Quando buscar acompanhamento</h4>
+                            <p class="text-gray-700">Se os sintomas atrapalham sua rotina, procure avaliacao profissional para investigar intolerancias, disbiose ou alteracoes hormonais.</p>
+                        </div>
+                    </div>
+                `
+            },
+            9: {
+                title: 'Qualidade de Sono: Como Melhorar Sua Recuperacao',
+                image: 'https://images.unsplash.com/photo-1528148343865-1218efdf513f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Dormir bem e recuperar o corpo</h3>
+                            <p class="text-gray-700 leading-relaxed">Durante o sono, o organismo regula hormonios, repara tecidos e organiza memorizacao. Sem sono de qualidade, todo o corpo sente.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sinais de sono nao restaurador</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Acordar cansado mesmo com horas na cama</li>
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Sonolencia durante o dia</li>
+                                <li class="flex gap-2"><i data-lucide="alert-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Dificuldade de concentracao e irritabilidade</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Rotina noturna simples</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Evite telas 1 hora antes de dormir</li>
+                                <li>• Mantenha o quarto escuro e fresco</li>
+                                <li>• Defina horario fixo para dormir e acordar</li>
+                            </ul>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Se ronco, despertares frequentes ou insonia persistirem, procure avaliacao medica.</p>
+                        </div>
+                    </div>
+                `
+            },
+            10: {
+                title: 'SOP - Sindrome do Ovario Policistico',
+                image: 'https://images.unsplash.com/photo-1576091160593-112996f3a5c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Entenda os sinais e o cuidado integrado</h3>
+                            <p class="text-gray-700 leading-relaxed">A SOP afeta o equilibrio hormonal e pode impactar ciclo menstrual, pele, peso e fertilidade.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sintomas frequentes</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Ciclo irregular ou ausencia de menstruacao</li>
+                                <li>• Acne e oleosidade intensa</li>
+                                <li>• Ganho de peso e dificuldade de emagrecer</li>
+                                <li>• Pelos em excesso (hirsutismo)</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que ajuda no tratamento</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Alimentacao com controle de carboidratos</li>
+                                <li>• Exercicios regulares</li>
+                                <li>• Acompanhamento endocrinologico e ginecologico</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">SOP tem tratamento</h4>
+                            <p class="text-gray-700">Com abordagem individualizada, e possivel controlar sintomas e melhorar fertilidade e bem-estar.</p>
+                        </div>
+                    </div>
+                `
+            },
+            11: {
+                title: 'Menopausa: Transitando com Saude e Bem-Estar',
+                image: 'https://images.unsplash.com/photo-1532694386590-a9a1ef7a36bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Mudancas naturais, cuidado necessario</h3>
+                            <p class="text-gray-700 leading-relaxed">A menopausa e uma fase de transicao hormonal que merece suporte para preservar energia, sono e autoestima.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sintomas mais comuns</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Ondas de calor e sudorese noturna</li>
+                                <li>• Alteracoes de humor e irritabilidade</li>
+                                <li>• Sono leve ou fragmentado</li>
+                                <li>• Reducao da libido</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Estrategias que ajudam</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Alimentacao rica em fibras e proteinas</li>
+                                <li>• Musculacao para preservar massa magra</li>
+                                <li>• Acompanhamento medico para avaliar reposicao hormonal</li>
+                            </ul>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Cada corpo reage de um jeito. Um plano personalizado melhora a qualidade de vida.</p>
+                        </div>
+                    </div>
+                `
+            },
+            12: {
+                title: 'Resistencia a Insulina e Peso: Entenda a Conexao',
+                image: 'https://images.unsplash.com/photo-1504674900549-19db67e39390?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Quando o corpo nao responde bem a insulina</h3>
+                            <p class="text-gray-700 leading-relaxed">A resistencia a insulina dificulta o controle de glicose e favorece o ganho de peso, principalmente na regiao abdominal.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sinais de alerta</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Fome excessiva e vontade de doce</li>
+                                <li>• Cansaco apos comer</li>
+                                <li>• Dificuldade para emagrecer</li>
+                                <li>• Escurecimento da pele em dobras</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que melhora a sensibilidade</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Reduzir acucar e ultraprocessados</li>
+                                <li>• Praticar atividade fisica regular</li>
+                                <li>• Dormir bem e controlar o estresse</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Diagnostico precoce muda tudo</h4>
+                            <p class="text-gray-700">Com avaliacao medica, e possivel evitar evolucao para diabetes.</p>
+                        </div>
+                    </div>
+                `
+            },
+            13: {
+                title: 'Cortisol Elevado: Quando o Stress Domina Seu Corpo',
+                image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Stress cronico desregula hormonios</h3>
+                            <p class="text-gray-700 leading-relaxed">Cortisol alto por longos periodos afeta sono, apetite, imunidade e memoria.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sinais de cortisol alto</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Dificuldade para dormir ou despertar cansado</li>
+                                <li>• Ansiedade e irritabilidade constantes</li>
+                                <li>• Aumento de gordura abdominal</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Como reduzir naturalmente</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Rotina de sono consistente</li>
+                                <li>• Tecnicas de respiracao e meditacao</li>
+                                <li>• Alimentacao equilibrada e sem excessos</li>
+                            </ul>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">A avaliacao hormonal ajuda a identificar se o cortisol esta impactando sua saude.</p>
+                        </div>
+                    </div>
+                `
+            },
+            14: {
+                title: 'Dieta Mediterranea: O Segredo da Longevidade',
+                image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Um estilo alimentar, nao uma dieta</h3>
+                            <p class="text-gray-700 leading-relaxed">A dieta mediterranea e reconhecida por reduzir riscos cardiacos e favorecer longevidade.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Principios basicos</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Frutas, legumes e verduras em todas as refeicoes</li>
+                                <li>• Azeite de oliva como principal gordura</li>
+                                <li>• Peixes e oleaginosas com frequencia</li>
+                                <li>• Pouco consumo de acucar e ultraprocessados</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Beneficios comprovados</h4>
+                            <p class="text-gray-700">Melhora perfil lipidico, controla glicemia e promove saude intestinal.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Como comecar hoje</h4>
+                            <p class="text-gray-700">Monte pratos coloridos, inclua peixe 2x por semana e troque manteiga por azeite.</p>
+                        </div>
+                    </div>
+                `
+            },
+            15: {
+                title: 'Alimentos Probioticos: Cuide do Seu Microbioma',
+                image: 'https://images.unsplash.com/photo-1505252585461-04db1267ae5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Microbioma equilibrado, saude fortalecida</h3>
+                            <p class="text-gray-700 leading-relaxed">As bacterias beneficas do intestino ajudam na digestao, imunidade e ate no humor.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Fontes de probioticos</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Iogurte natural e kefir</li>
+                                <li>• Chucrute e kimchi</li>
+                                <li>• Kombucha e missô</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Dica pratica</h4>
+                            <p class="text-gray-700">Inclua pequenas porcoes diariamente e combine com fibras para alimentar as boas bacterias.</p>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Se voce tem intolerancias, procure orientacao antes de incluir novos fermentados.</p>
+                        </div>
+                    </div>
+                `
+            },
+            16: {
+                title: 'Jejum Intermitente: Como Fazer Com Seguranca',
+                image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Jejum e estrategia, nao regra</h3>
+                            <p class="text-gray-700 leading-relaxed">O jejum intermitente pode ajudar algumas pessoas, mas nao e indicado para todos.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Formatos mais comuns</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• 12x12 ou 14x10 para iniciantes</li>
+                                <li>• 16x8 para quem ja tem rotina adaptada</li>
+                                <li>• Jejum alternado apenas com acompanhamento</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Quem deve evitar</h4>
+                            <p class="text-gray-700">Gestantes, adolescentes, pessoas com historico de transtorno alimentar ou condicoes clinicas especificas.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Seguranca em primeiro lugar</h4>
+                            <p class="text-gray-700">Priorize qualidade alimentar e acompanhamento profissional.</p>
+                        </div>
+                    </div>
+                `
+            },
+            17: {
+                title: 'Alergia vs Intolerancia: Qual E a Sua?',
+                image: 'https://images.unsplash.com/photo-1585238341710-4a4a0f6efb98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Saber a diferenca evita dietas desnecessarias</h3>
+                            <p class="text-gray-700 leading-relaxed">Alergia envolve o sistema imunologico. Intolerancia e dificuldade de digerir certos alimentos.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Como identificar</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Alergia: coceira, inchaco, falta de ar</li>
+                                <li>• Intolerancia: gases, diarreia, inchaco</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Exames ajudam</h4>
+                            <p class="text-gray-700">Teste medico e acompanhamento nutricional sao essenciais para ajustes corretos.</p>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Nao corte grupos alimentares sem orientacao profissional.</p>
+                        </div>
+                    </div>
+                `
+            },
+            18: {
+                title: 'Meditacao e Mindfulness: Comeca Hoje',
+                image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">10 minutos por dia fazem diferenca</h3>
+                            <p class="text-gray-700 leading-relaxed">Mindfulness e treinar a atencao. Ajuda a reduzir ansiedade e melhorar foco.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Tecnicas simples</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Respiracao 4-4-4 (inspire, segure, expire)</li>
+                                <li>• Observacao dos pensamentos sem julgamento</li>
+                                <li>• Caminhada consciente por 5 minutos</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Como criar rotina</h4>
+                            <p class="text-gray-700">Defina horario fixo e comece com poucos minutos, aumentando gradualmente.</p>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Mindfulness e simples, mas poderoso quando praticado com constancia.</p>
+                        </div>
+                    </div>
+                `
+            },
+            19: {
+                title: 'Movimento e Medicina: Exercicio para Saude Mental',
+                image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Exercicio regula humor e energia</h3>
+                            <p class="text-gray-700 leading-relaxed">Movimento libera endorfinas, melhora o sono e reduz sintomas de ansiedade.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Tipos que funcionam bem</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Caminhada rapida 30 minutos</li>
+                                <li>• Musculacao 2 a 3x por semana</li>
+                                <li>• Atividades relaxantes como yoga</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Plano simples</h4>
+                            <p class="text-gray-700">Combine 150 minutos semanais de atividade moderada com alongamentos diarios.</p>
+                        </div>
+                    </div>
+                `
+            },
+            20: {
+                title: 'Burnout: Reconhecer e Recuperar',
+                image: 'https://images.unsplash.com/photo-1513584684102-7a0d92e4e6d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Exaustao nao e fraqueza</h3>
+                            <p class="text-gray-700 leading-relaxed">Burnout e resultado de estresse prolongado sem recuperacao adequada.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Sinais principais</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Cansaco extremo e falta de motivacao</li>
+                                <li>• Irritabilidade e dificuldade de concentracao</li>
+                                <li>• Queda de produtividade e humor baixo</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Passos para recuperar</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Reduzir sobrecarga e priorizar pausas</li>
+                                <li>• Retomar sono e alimentacao equilibrada</li>
+                                <li>• Apoio psicologico para reestruturar rotina</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            21: {
+                title: 'Ansiedade: Tecnicas Para Controlar e Prevenir',
+                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Respiracao, rotina e apoio fazem diferenca</h3>
+                            <p class="text-gray-700 leading-relaxed">Ansiedade pode ser controlada com praticas simples e acompanhamento adequado.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Tecnicas rapidas</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Respiracao lenta por 2 a 3 minutos</li>
+                                <li>• Grounding: nomear 5 coisas que voce ve</li>
+                                <li>• Pausas curtas durante o dia</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Prevencao no dia a dia</h4>
+                            <p class="text-gray-700">Sono consistente, exercicios leves e reducao de cafeina ajudam muito.</p>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Se os sintomas forem intensos, procure acompanhamento psicologico.</p>
+                        </div>
+                    </div>
+                `
+            },
+            22: {
+                title: '"Reverti meu Pre-Diabetes" - Caso de Sucesso',
+                image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Uma virada com pequenas mudancas</h3>
+                            <p class="text-gray-700 leading-relaxed">Com acompanhamento multiprofissional, um paciente reverteu o pre-diabetes em poucos meses.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que mudou</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Ajuste alimentar com menos acucar</li>
+                                <li>• Caminhadas diarias e musculacao leve</li>
+                                <li>• Sono regular e controle do estresse</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Resultados em 12 semanas</h4>
+                            <p class="text-gray-700">Glicemia controlada, mais energia e perda de medidas sem dieta restritiva.</p>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">A prevencao e o melhor caminho. Avalie sua saude com orientacao profissional.</p>
+                        </div>
+                    </div>
+                `
+            },
+            23: {
+                title: '"Recuperei Minha Energia" - Transformacao Hormonal',
+                image: 'https://images.unsplash.com/photo-1542818906-a0d6f6d3f141?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Quando o cansaço nao e normal</h3>
+                            <p class="text-gray-700 leading-relaxed">A investigacao hormonal revelou causas ocultas para a falta de energia e disposicao.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Etapas do acompanhamento</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Exames completos e ajuste hormonal</li>
+                                <li>• Plano alimentar anti-inflamatorio</li>
+                                <li>• Rotina de sono e atividade fisica leve</li>
+                            </ul>
+                        </div>
+                        <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Resultado</h4>
+                            <p class="text-gray-700">Energia restaurada, humor mais estavel e melhora da disposicao diaria.</p>
+                        </div>
+                    </div>
+                `
+            },
+            24: {
+                title: '"Durmo Como Crianca Novamente" - Sono Restaurador',
+                image: 'https://images.unsplash.com/photo-1528148343865-1218efdf513f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                content: `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Recuperar o sono e recuperar a vida</h3>
+                            <p class="text-gray-700 leading-relaxed">Com ajustes de rotina e avaliacao clinica, uma paciente voltou a dormir a noite inteira.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg">
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">O plano de melhoria</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Higiene do sono com horarios fixos</li>
+                                <li>• Reducao de cafeina e telas noturnas</li>
+                                <li>• Suporte emocional e tecnicas de relaxamento</li>
+                            </ul>
+                        </div>
+                        <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
+                            <p class="text-white/90">Sono profundo e sinal de equilibrio. Procure ajuda se o seu esta sempre ruim.</p>
+                        </div>
+                    </div>
+                `
             }
         };
 
+        function buildFallbackPost(postId) {
+            const card = document.querySelector(`[onclick="openPostModal(${postId})"]`);
+            if (!card) return null;
+
+            const title = (card.querySelector('h3')?.textContent || 'Artigo Eqlive').trim();
+            const image = card.querySelector('img')?.src || '';
+            const badge = card.querySelector('div.absolute.top-4.left-4') || card.querySelector('span.text-eqlive-green');
+            const category = badge ? badge.textContent.trim() : 'Conteudos Eqlive';
+            const excerpt = (card.querySelector('p')?.textContent || 'Conteudo em desenvolvimento pela equipe Eqlive.').trim();
+            const metaSpans = card.querySelectorAll('.text-xs.text-gray-500 span');
+            const date = metaSpans[0]?.textContent?.trim() || 'Atualizado recentemente';
+            const readTime = metaSpans[1]?.textContent?.trim() || 'Leitura rapida';
+
+            const content = `
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-eqlive-green">${category}</p>
+                        <p class="text-sm text-gray-500 mt-1">${date} • ${readTime}</p>
+                        <p class="text-gray-700 leading-relaxed mt-4">${excerpt}</p>
+                        <p class="text-gray-700 mt-4">Estamos finalizando este artigo com um guia completo, exemplos praticos e fontes confiaveis.</p>
+                    </div>
+                    <div class="bg-eqlive-green/5 border border-eqlive-green/10 rounded-2xl p-6">
+                        <h4 class="font-semibold text-eqlive-dark mb-3">O que voce vai encontrar em breve</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Explicacao clara do tema e sinais principais</li>
+                            <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Dicas praticas para aplicar no dia a dia</li>
+                            <li class="flex gap-2"><i data-lucide="check" class="w-5 h-5 text-eqlive-green flex-shrink-0"></i>Quando procurar acompanhamento profissional</li>
+                        </ul>
+                    </div>
+                    <div class="bg-eqlive-dark text-white rounded-2xl p-6 text-center">
+                        <h4 class="font-semibold text-lg mb-2">Quer receber o artigo completo?</h4>
+                        <p class="text-white/85 mb-5">Chame a equipe no WhatsApp e avise que deseja ser notificado.</p>
+                        <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white text-eqlive-dark px-6 py-3 rounded-full font-semibold hover:bg-eqlive-sand transition">
+                            Avise-me no WhatsApp
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return { title, image, content };
+        }
+
         function openPostModal(postId) {
-            const post = blogPosts[postId];
+            const post = blogPosts[postId] || buildFallbackPost(postId);
             if (!post) return;
-            
+
             document.getElementById('postTitle').textContent = post.title;
             document.getElementById('modalImg').src = post.image;
             document.getElementById('postContent').innerHTML = post.content;
