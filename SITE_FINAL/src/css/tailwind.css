@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-eqlive-base text-eqlive-dark font-sans antialiased;
+	}
+
+	h1, h2, h3, h4 {
+		@apply font-serif text-eqlive-dark;
+	}
+
+	p {
+		@apply text-slate-600 leading-relaxed;
+	}
+}
+
+@layer components {
+	.eqlive-container {
+		@apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10;
+	}
+
+	.section-pad {
+		@apply py-16 sm:py-20 lg:py-24;
+	}
+
+	.section-kicker {
+		@apply text-xs uppercase tracking-[0.28em] text-eqlive-green font-semibold;
+	}
+
+	.section-title {
+		@apply text-3xl sm:text-4xl lg:text-5xl leading-tight;
+	}
+
+	.section-lead {
+		@apply mt-4 text-base sm:text-lg text-slate-600;
+	}
+
+	.card-base {
+		@apply rounded-2xl border border-eqlive-dark/10 bg-white/80 shadow-[0_20px_60px_-50px_rgba(0,0,0,0.35)] p-6 sm:p-7;
+	}
+
+	.card-soft {
+		@apply rounded-2xl border border-eqlive-dark/10 bg-eqlive-sand/60 p-6 sm:p-7;
+	}
+
+	.icon-badge {
+		@apply inline-flex h-10 w-10 items-center justify-center rounded-full bg-eqlive-green/15 text-eqlive-green;
+	}
+
+	.cta-primary {
+		@apply inline-flex items-center justify-center gap-2 rounded-full bg-eqlive-green px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-eqlive-green/30 transition hover:-translate-y-0.5 hover:bg-eqlive-dark;
+	}
+
+	.cta-secondary {
+		@apply inline-flex items-center justify-center gap-2 rounded-full border border-white/50 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20;
+	}
+
+	.cta-outline {
+		@apply inline-flex items-center justify-center gap-2 rounded-full border border-eqlive-green/50 px-6 py-3 text-sm font-semibold text-eqlive-green transition hover:bg-eqlive-green/10;
+	}
+}

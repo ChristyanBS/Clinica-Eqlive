@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITULO}} | Clínica Eqlive</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                try { if (lucide.replace) lucide.replace(); } catch (e) {}
+                try { if (lucide.createIcons) lucide.createIcons(); } catch (e) {}
+            }
+        });
+    </script>
+
+    <link rel="stylesheet" href="../src/css/tailwind.generated.css">
+    <link rel="stylesheet" href="../src/css/styles.css">
+</head>
+<body class="min-h-screen" data-template="condicao">
+    <div id="site-nav"></div>
+
+    <main class="pt-28 sm:pt-32">
+        <!-- 1. HERO -->
+        <section class="condicao-hero bg-eqlive-dark text-white section-pad">
+            <div class="eqlive-container grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+                <div>
+                    <p class="section-kicker text-white/70">Condição</p>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif mt-4">{{H1}}</h1>
+                    <p class="section-lead text-white/80">{{SUBTITULO}}</p>
+                    <p class="mt-4 text-white/70 max-w-xl">{{TEXTO_HERO}}</p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="https://wa.me/5521967815767" class="cta-primary">{{CTA_PRIMARIO}}</a>
+                        <a href="#avaliacao" class="cta-secondary">{{CTA_SECUNDARIO}}</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -top-6 -right-6 h-full w-full rounded-[32px] border border-white/20"></div>
+                    <img src="{{HERO_IMAGEM}}" alt="{{HERO_ALT}}" class="relative rounded-[32px] object-cover w-full h-[360px] sm:h-[420px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FRASE IMPACTO -->
+        <section class="section-pad">
+            <div class="eqlive-container">
+                <div class="max-w-3xl text-center">
+                    <h2 class="section-title mt-3">{{IMPACTO_TITULO}}</h2>
+                    <p class="section-lead">{{IMPACTO_SUBTITULO}}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. O QUE É -->
+        <section class="section-pad bg-white">
+            <div class="eqlive-container grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-center">
+                <div class="card-soft">
+                    <img src="{{CONCEITUAL_IMAGEM}}" alt="{{CONCEITUAL_ALT}}" class="w-full rounded-2xl object-cover">
+                </div>
+                <div>
+                    <p class="section-kicker">O que é</p>
+                    <h2 class="section-title mt-3">{{OQUE_TITULO}}</h2>
+                    <p class="section-lead">{{OQUE_TEXTO_1}}</p>
+                    <p class="mt-4 text-slate-600">{{OQUE_TEXTO_2}}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SINTOMAS -->
+        <section class="section-pad bg-eqlive-sand/50">
+            <div class="eqlive-container">
+                <p class="section-kicker">Sinais</p>
+                <h2 class="section-title mt-3">{{SINTOMAS_TITULO}}</h2>
+                <p class="section-lead max-w-2xl">{{SINTOMAS_TEXTO}}</p>
+                <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    {{SINTOMAS_CARDS}}
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. POR QUE PASSA DESPERCEBIDO -->
+        <section class="section-pad bg-white">
+            <div class="eqlive-container grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-center">
+                <div class="relative">
+                    <div class="absolute -bottom-4 -left-4 h-full w-full rounded-[28px] border border-eqlive-dark/10"></div>
+                    <img src="{{PASSA_IMAGEM}}" alt="{{PASSA_ALT}}" class="relative rounded-[28px] w-full h-[320px] object-cover">
+                </div>
+                <div>
+                    <p class="section-kicker">Entenda</p>
+                    <h2 class="section-title mt-3">{{PASSA_TITULO}}</h2>
+                    <div class="mt-5 space-y-3 text-slate-600">
+                        {{PASSA_BULLETS}}
+                    </div>
+                    <p class="mt-5 text-slate-600">{{PASSA_FECHO}}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. COMO A EQLIVE AVALIA -->
+        <section id="avaliacao" class="section-pad bg-eqlive-sand/60">
+            <div class="eqlive-container grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+                <div>
+                    <p class="section-kicker">Modelo de cuidado</p>
+                    <h2 class="section-title mt-3">{{AVALIA_TITULO}}</h2>
+                    <p class="section-lead">{{AVALIA_TEXTO}}</p>
+                    <div class="mt-5 space-y-3 text-slate-600">
+                        {{AVALIA_BULLETS}}
+                    </div>
+                </div>
+                <div class="card-base">
+                    <img src="{{AVALIA_IMAGEM}}" alt="{{AVALIA_ALT}}" class="rounded-2xl object-cover w-full h-[320px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CUIDADO INTEGRADO -->
+        <section class="section-pad bg-white">
+            <div class="eqlive-container text-center">
+                <p class="section-kicker">Cuidado integrado</p>
+                <h2 class="section-title mt-3">{{CUIDADO_TITULO}}</h2>
+                <p class="section-lead max-w-2xl mx-auto">{{CUIDADO_TEXTO}}</p>
+                <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
+                    {{CUIDADO_CARDS}}
+                </div>
+                <p class="mt-8 text-slate-600">{{CUIDADO_FECHO}}</p>
+            </div>
+        </section>
+
+        <!-- 8. PARA QUEM É INDICADO -->
+        <section class="section-pad bg-eqlive-sand/50">
+            <div class="eqlive-container">
+                <p class="section-kicker">Para quem é indicado</p>
+                <h2 class="section-title mt-3">{{INDICADO_TITULO}}</h2>
+                <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    {{INDICADO_CARDS}}
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. DEPOIMENTO -->
+        <section class="section-pad bg-white">
+            <div class="eqlive-container text-center">
+                <p class="section-kicker">Depoimento</p>
+                <div class="max-w-2xl mx-auto mt-6 card-soft">
+                    <div class="flex justify-center text-eqlive-accent mb-4">
+                        <span class="text-lg">★★★★★</span>
+                    </div>
+                    <p class="text-slate-700">{{DEPOIMENTO_TEXTO}}</p>
+                    <p class="mt-4 text-sm text-slate-500">{{DEPOIMENTO_FONTE}}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FECHAMENTO + CTA FINAL -->
+        <section class="section-pad bg-gradient-to-br from-[#3E6B5B]/85 via-[#2a554b] to-[#1F3A34]/95 text-white">
+            <div class="eqlive-container grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+                <div>
+                    <p class="section-kicker text-white/80 font-medium tracking-wide">Fechamento</p>
+                    <h2 class="section-title mt-4 text-white leading-tight">{{FECHO_TITULO}}</h2>
+                    <p class="section-lead text-white/80 mt-5 text-base">{{FECHO_TEXTO}}</p>
+                    <div class="mt-10">
+                        <a href="https://wa.me/5521967815767" class="cta-primary inline-block shadow-lg hover:shadow-2xl transition duration-300">{{CTA_FINAL}}</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -top-6 -right-6 h-full w-full rounded-3xl border-2 border-white/25 group-hover:border-white/50 transition duration-500"></div>
+                    <img src="{{FECHO_IMAGEM}}" alt="{{FECHO_ALT}}" class="relative rounded-3xl w-full h-[320px] object-cover shadow-2xl group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition duration-500">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../src/js/nav-include.js"></script>
+    <script src="../src/js/navigation.js"></script>
+</body>
+</html>
