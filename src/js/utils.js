@@ -185,3 +185,48 @@ function getDeviceType() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+// Modal padrao para alertas
+function ensureAppAlert() {
+    let backdrop = document.getElementById('app-alert');
+    if (backdrop) return backdrop;
+
+    backdrop = document.createElement('div');
+    backdrop.id = 'app-alert';
+    backdrop.className = 'app-modal-backdrop';
+    backdrop.innerHTML = `
+        <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="app-alert-title" aria-describedby="app-alert-message">
+            <h3 class="app-modal-title" id="app-alert-title">Aviso</h3>
+            <p class="app-modal-message" id="app-alert-message"></p>
+            <div class="app-modal-actions">
+                <button type="button" class="app-modal-btn" id="app-alert-close">Ok</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(backdrop);
+
+    const close = () => {
+        backdrop.classList.remove('is-visible');
+        document.body.style.overflow = '';
+    };
+
+    backdrop.addEventListener('click', (event) => {
+        if (event.target === backdrop) {
+            close();
+        }
+    });
+
+    backdrop.querySelector('#app-alert-close')?.addEventListener('click', close);
+    return backdrop;
+}
+
+function showAppAlert(message, title = 'Atenção') {
+    const backdrop = ensureAppAlert();
+    const titleEl = backdrop.querySelector('#app-alert-title');
+    const messageEl = backdrop.querySelector('#app-alert-message');
+    if (titleEl) titleEl.textContent = title;
+    if (messageEl) messageEl.textContent = message;
+    backdrop.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+    backdrop.querySelector('#app-alert-close')?.focus();
+}

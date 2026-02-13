@@ -88,68 +88,8 @@ window.mobileNav = function(pageId) {
 
 // Navegação SPA com suporte a âncoras
 window.navigateTo = function(pageId, scrollToElement = null) {
-    const current = document.querySelector('.page-section.active');
-    const isAlreadyOnPage = current && current.id === pageId && !scrollToElement;
-    
-    // Sempre faz scroll para o topo
-    if (typeof scrollToTop === 'function') {
-        scrollToTop();
-    } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    
-    // Se já está na página, apenas faz o scroll e retorna
-    if (isAlreadyOnPage) {
-        return;
-    }
-    
-    // Esconde todas as seções
-    document.querySelectorAll('.page-section').forEach(section => {
-        if (section.id === pageId) return;
-        if (section.classList.contains('active')) {
-            section.classList.remove('active');
-            section.classList.add('is-visible');
-            setTimeout(() => {
-                section.classList.add('is-hidden');
-                section.classList.remove('is-visible');
-            }, 350);
-        } else {
-            section.classList.add('is-hidden');
-            section.classList.remove('is-visible');
-        }
-    });
-
-    // Mostra a seção alvo
     const target = document.getElementById(pageId);
-    if (target) {
-        target.classList.remove('is-hidden');
-        target.classList.add('is-visible');
-        
-        requestAnimationFrame(() => {
-            target.classList.add('active');
-            if (typeof initIcons === 'function') {
-                initIcons();
-            }
-            if (typeof initCounters === 'function') {
-                initCounters();
-            }
-            
-            // Se há um elemento alvo, scroll para ele após a página estar renderizada
-            if (scrollToElement) {
-                setTimeout(() => {
-                    const element = document.getElementById(scrollToElement);
-                    if (element) {
-                        // Calcula a posição do elemento e faz scroll suave
-                        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                        window.scrollTo({
-                            top: elementPosition - 100, // 100px de offset do topo
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 500); // Espera 500ms para garantir renderização completa
-            }
-        });
-    } else {
+    if (!target) {
         const normalizedPath = window.location.pathname.replace(/\\/g, '/');
         let basePath = 'index.html';
 
@@ -169,7 +109,100 @@ window.navigateTo = function(pageId, scrollToElement = null) {
         const hash = pageId ? `#${pageId}` : '';
         const extra = scrollToElement ? `:${scrollToElement}` : '';
         window.location.href = `${basePath}${hash}${extra}`;
+        return;
     }
+
+    const isInitialRender = document.documentElement && document.documentElement.hasAttribute('data-spa-target');
+
+    const current = document.querySelector('.page-section.active');
+    const isAlreadyOnPage = current && current.id === pageId && !scrollToElement;
+
+    // Sempre faz scroll para o topo (apenas dentro da SPA)
+    if (typeof scrollToTop === 'function') {
+        scrollToTop();
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Se já está na página, apenas faz o scroll e retorna
+    if (isAlreadyOnPage) {
+        return;
+    }
+    
+    // Esconde todas as seções
+    document.querySelectorAll('.page-section').forEach(section => {
+        if (section.id === pageId) return;
+        section.classList.remove('active', 'is-visible');
+        section.classList.add('is-hidden');
+    });
+
+    // Mostra a seção alvo
+    target.classList.remove('is-hidden');
+    target.classList.add('is-visible');
+    target.classList.add('active');
+
+    if (document.documentElement && document.documentElement.hasAttribute('data-spa-target')) {
+        document.documentElement.removeAttribute('data-spa-target');
+    }
+
+    if (typeof initIcons === 'function') {
+        initIcons();
+    }
+    if (typeof initCounters === 'function') {
+        initCounters();
+    }
+    animatePageReveal(target);
+
+    if (scrollToElement) {
+        setTimeout(() => {
+            const element = document.getElementById(scrollToElement);
+            if (element) {
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: elementPosition - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }, 500);
+    }
+}
+
+function collectRevealItems(root) {
+    const selectors = 'h1,h2,h3,h4,p,li,button,a,img';
+    return Array.from(root.querySelectorAll(selectors)).filter((el) => {
+        if (el.closest('nav')) return false;
+        if (el.closest('footer')) return false;
+        if (el.classList.contains('no-reveal')) return false;
+        return true;
+    });
+}
+
+function animatePageReveal(root) {
+    if (!root) return;
+    const items = collectRevealItems(root);
+    if (!items.length) return;
+
+    const maxItems = 26;
+    items.slice(0, maxItems).forEach((el, index) => {
+        el.classList.remove('reveal-in', 'reveal-left', 'reveal-right', 'reveal-item');
+        el.classList.add('reveal-item');
+        el.classList.add(index % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        el.style.setProperty('--reveal-delay', `${Math.min(index * 40, 320)}ms`);
+    });
+
+    requestAnimationFrame(() => {
+        items.slice(0, maxItems).forEach((el) => el.classList.add('reveal-in'));
+    });
+}
+
+function runPageReveal() {
+    const activeSection = document.querySelector('.page-section.active');
+    if (activeSection) {
+        animatePageReveal(activeSection);
+        return;
+    }
+    const mainContent = document.querySelector('main') || document.body;
+    animatePageReveal(mainContent);
 }
 
 // Garantir Home visível ao carregar
@@ -187,9 +220,15 @@ function ensureVisibleSection() {
     if (activeSection) {
         activeSection.classList.remove('is-hidden');
         activeSection.classList.add('is-visible');
+        if (document.documentElement && document.documentElement.hasAttribute('data-spa-target')) {
+            document.documentElement.removeAttribute('data-spa-target');
+        }
         return;
     }
     ensureHomeVisible();
+    if (document.documentElement && document.documentElement.hasAttribute('data-spa-target')) {
+        document.documentElement.removeAttribute('data-spa-target');
+    }
 }
 
 // Carrossel/Carousel - INFINITO
@@ -379,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         location: 'location'
     };
     if (rawHash) {
+        window.__initialHashNavigation = true;
         const [hashPage, hashTarget] = rawHash.split(':');
         const pageId = hashToPage[hashLower] || hashPage;
         window.navigateTo(pageId, hashTarget || null);
@@ -387,13 +427,21 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 window.scrollTo({ top: 0, behavior: 'auto' });
             }, 10);
+            setTimeout(() => {
+                window.__initialHashNavigation = false;
+            }, 800);
         }
     } else {
         ensureVisibleSection();
     }
+    runPageReveal();
     setupCarousel();
 });
 
 window.addEventListener('pageshow', () => {
+    if (window.__initialHashNavigation) {
+        return;
+    }
     ensureVisibleSection();
+    runPageReveal();
 });

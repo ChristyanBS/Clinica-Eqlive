@@ -752,7 +752,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.loadMorePosts = function() {
-    alert('Em breve mais posts! Continue acompanhando o blog Vivendo em Equilíbrio para novos artigos sobre saúde, nutrição e bem-estar.');
+    if (typeof showAppAlert === 'function') {
+        showAppAlert('Em breve mais posts! Continue acompanhando o blog Vivendo em Equilíbrio para novos artigos sobre saúde, nutrição e bem-estar.');
+    } else {
+        alert('Em breve mais posts! Continue acompanhando o blog Vivendo em Equilíbrio para novos artigos sobre saúde, nutrição e bem-estar.');
+    }
 };
 
 window.openPostModal = function(postId) {

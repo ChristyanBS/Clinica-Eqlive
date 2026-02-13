@@ -29,6 +29,27 @@
         });
     </script>
 
+    <script>
+        (function() {
+            var rawHash = window.location.hash.replace('#', '').trim();
+            var pageId = rawHash ? rawHash.split(':')[0] : 'home';
+            document.documentElement.setAttribute('data-spa-target', pageId);
+        })();
+    </script>
+
+    <style>
+        html[data-spa-target] .page-section { display: none; opacity: 0; transform: translateY(10px); pointer-events: none; transition: none; }
+        html[data-spa-target="home"] #home,
+        html[data-spa-target="quiz"] #quiz,
+        html[data-spa-target="about"] #about,
+        html[data-spa-target="specialties"] #specialties,
+        html[data-spa-target="how"] #how,
+        html[data-spa-target="essence"] #essence,
+        html[data-spa-target="blog"] #blog,
+        html[data-spa-target="location"] #location,
+        html[data-spa-target="faq"] #faq { display: block; opacity: 1; transform: translateY(0); pointer-events: auto; }
+    </style>
+
     <!-- CSS -->
     <link rel="stylesheet" href="src/css/tailwind.generated.css">
     <link rel="stylesheet" href="src/css/styles.css">
@@ -337,27 +358,27 @@
                     
                     <div class="grid md:grid-cols-3 gap-12 lg:gap-16">
                         <!-- Item 1: Clareza -->
-                        <div class="flex flex-col items-start text-left group">
-                            <div class="mb-8 w-full aspect-square rounded-2xl overflow-hidden shadow-lg relative bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                                <i data-lucide="beaker" class="w-20 h-20 text-blue-600"></i>
+                        <div class="flex flex-col items-start text-left group transition duration-300 hover:-translate-y-1">
+                            <div class="mb-8 w-full aspect-square rounded-2xl overflow-hidden shadow-lg relative bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center transition duration-300 group-hover:shadow-2xl group-hover:from-blue-100 group-hover:to-blue-200">
+                                <img src="src/assets/images/clarezaexames.png" alt="Clareza nos exames" class="w-full h-full object-contain p-2">
                             </div>
                             <h3 class="font-serif text-2xl mb-4 text-eqlive-dark group-hover:text-eqlive-green transition">Clareza nos seus exames</h3>
                             <p class="text-gray-600 leading-relaxed text-lg">Exames avançados e interpretação clínica ajudam nossos médicos a identificar padrões, desequilíbrios e causas raiz de sintomas que a medicina padrão muitas vezes ignora.</p>
                         </div>
 
                         <!-- Item 2: Abordagem Holística -->
-                        <div class="flex flex-col items-start text-left group">
-                            <div class="mb-8 w-full aspect-square rounded-2xl overflow-hidden shadow-lg relative bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center">
-                                <i data-lucide="users" class="w-20 h-20 text-emerald-600"></i>
+                        <div class="flex flex-col items-start text-left group transition duration-300 hover:-translate-y-1">
+                            <div class="mb-8 w-full aspect-square rounded-2xl overflow-hidden shadow-lg relative bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center transition duration-300 group-hover:shadow-2xl group-hover:from-emerald-100 group-hover:to-emerald-200">
+                                <img src="src/assets/images/holistica.png" alt="Abordagem holistica" class="w-full h-full object-contain p-2">
                             </div>
                             <h3 class="font-serif text-2xl mb-4 text-eqlive-dark group-hover:text-eqlive-green transition">Abordagem Holística</h3>
                             <p class="text-gray-600 leading-relaxed text-lg">Seu médico dedica tempo para entender sua história completa, estilo de vida, objetivos de saúde e contexto social — conectando corpo, mente e emoções.</p>
                         </div>
 
                         <!-- Item 3: Orientação Especializada -->
-                        <div class="flex flex-col items-start text-left group">
-                            <div class="mb-8 w-full aspect-square rounded-2xl overflow-hidden shadow-lg relative bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                                <i data-lucide="target" class="w-20 h-20 text-amber-600"></i>
+                        <div class="flex flex-col items-start text-left group transition duration-300 hover:-translate-y-1">
+                            <div class="mb-8 w-full aspect-square rounded-2xl overflow-hidden shadow-lg relative bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center transition duration-300 group-hover:shadow-2xl group-hover:from-amber-100 group-hover:to-amber-200">
+                                <img src="src/assets/images/personalizado.png" alt="Plano personalizado" class="w-full h-full object-contain p-2">
                             </div>
                             <h3 class="font-serif text-2xl mb-4 text-eqlive-dark group-hover:text-eqlive-green transition">Plano Personalizado</h3>
                             <p class="text-gray-600 leading-relaxed text-lg">Você recebe um plano claro e personalizado (nutrição, suplementação, terapias, lifestyle) desenhado especificamente para sua saúde e objetivos únicos.</p>
@@ -366,14 +387,14 @@
                 </div>
             </section>
 
-            <!-- Resultados das Pacientes -->
+            <!-- Evolução das Pacientes -->
             <section class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid lg:grid-cols-2 gap-12 items-start">
                         <div>
-                            <span class="text-sm uppercase tracking-widest text-eqlive-green font-semibold">Resultado das nossas pacientes</span>
+                            <span class="text-sm uppercase tracking-widest text-eqlive-green font-semibold">Evolução acompanhada de pacientes</span>
                             <h2 class="font-serif text-4xl lg:text-5xl text-eqlive-dark mt-4 leading-tight">Evolução contínua com cuidado integrado EQLIVE.</h2>
-                            <p class="text-gray-600 mt-6 max-w-xl">Acompanhamento multidisciplinar, planos personalizados e cuidado contínuo para resultados reais e sustentáveis.</p>
+                            <p class="text-gray-600 mt-6 max-w-xl">Acompanhamento multidisciplinar, planos personalizados e cuidado contínuo com foco em evolução clínica e bem-estar.</p>
                         </div>
                         <div class="space-y-5">
                             <div class="bg-white border border-gray-200 rounded-2xl p-6 flex items-center gap-4 shadow-sm">
@@ -381,10 +402,8 @@
                                     <i data-lucide="sun" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <div class="text-4xl font-semibold text-eqlive-dark">
-                                        <span class="count-up" data-count="93" data-suffix="%">0</span>
-                                    </div>
-                                    <p class="text-gray-600 text-sm">alcançaram equilíbrio hormonal e emocional</p>
+                                    <div class="text-lg font-semibold text-eqlive-dark">Acompanhamento personalizado</div>
+                                    <p class="text-gray-600 text-sm">Planos ajustados conforme necessidades clínicas.</p>
                                 </div>
                             </div>
 
@@ -393,10 +412,8 @@
                                     <i data-lucide="brain" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <div class="text-4xl font-semibold text-eqlive-dark">
-                                        <span class="count-up" data-count="95" data-suffix="%">0</span>
-                                    </div>
-                                    <p class="text-gray-600 text-sm">melhoraram saúde mental e bem-estar</p>
+                                    <div class="text-lg font-semibold text-eqlive-dark">Saúde emocional integrada</div>
+                                    <p class="text-gray-600 text-sm">Suporte multidisciplinar e avaliações periódicas.</p>
                                 </div>
                             </div>
 
@@ -405,10 +422,8 @@
                                     <i data-lucide="star" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <div class="text-4xl font-semibold text-eqlive-dark">
-                                        <span class="count-up" data-count="12000" data-format="pt-BR">0</span>
-                                    </div>
-                                    <p class="text-gray-600 text-sm">+12 mil atendimentos realizados</p>
+                                    <div class="text-lg font-semibold text-eqlive-dark">Equipe experiente</div>
+                                    <p class="text-gray-600 text-sm">Atendimento humano com foco em processo e cuidado.</p>
                                 </div>
                             </div>
                         </div>
@@ -519,8 +534,8 @@
                                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-green-600 shadow-sm">
                                     <i data-lucide="zap" class="w-8 h-8"></i>
                                 </div>
-                                <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Emagrecimento Saudável</h3>
-                                <p class="text-gray-500 text-sm mb-6 flex-grow">Perda de peso sustentável, otimização metabólica e Programa Eqlive Essence completo.</p>
+                                <h3 class="font-serif text-xl mb-3 text-eqlive-dark group-hover:text-eqlive-green transition">Gestão de Peso com Saúde</h3>
+                                <p class="text-gray-500 text-sm mb-6 flex-grow">Apoio ao controle de peso com foco metabólico e Programa Eqlive Essence completo.</p>
                                 <span class="text-eqlive-green text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">Ver especialidades <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
                             </a>
                         </div>
@@ -548,7 +563,7 @@
                     
                     <div class="flex flex-col items-center mb-10">
                         <p class="font-bold tracking-widest text-sm uppercase text-eqlive-peach">Maria S.</p>
-                        <p class="text-gray-300 text-sm">Paciente há 2 anos • Transformação completa de saúde</p>
+                        <p class="text-gray-300 text-sm">Paciente há 2 anos • Jornada de cuidado em saúde</p>
                     </div>
                     
                     <div class="mt-12 flex gap-4 justify-center flex-wrap">
@@ -565,8 +580,8 @@
             <!-- Cuidado Profundo (Sua saude e complexa) -->
             <section class="py-24 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid lg:grid-cols-2 gap-14 items-center">
-                        <div>
+                    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        <div class="lg:pr-4">
                             <span class="text-sm uppercase tracking-widest text-eqlive-green font-semibold">Cuidado profundo</span>
                             <h2 class="font-serif text-4xl lg:text-5xl text-eqlive-dark mt-4 leading-tight">Sua saude e complexa, e seus sintomas sao apenas parte da historia.</h2>
                             <p class="text-gray-600 mt-6 text-lg leading-relaxed">
@@ -601,7 +616,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="relative">
+                        <div class="relative lg:pl-4">
                             <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                                 <img src="src/assets/images/consultorio.jpg" alt="Consulta integrada Eqlive" class="w-full h-full object-cover">
                             </div>
@@ -934,7 +949,7 @@
                                 <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar
                             </div>
                             <h2 class="font-serif text-2xl md:text-3xl text-eqlive-dark mb-2 text-center">Sistema Metabólico</h2>
-                            <p class="text-gray-500 text-center mb-8 text-sm">Regulação de açúcar, energia e emagrecimento saudável - Foco do Programa Eqlive Essence</p>
+                            <p class="text-gray-500 text-center mb-8 text-sm">Regulação de açúcar, energia e gestão de peso com saúde - Foco do Programa Eqlive Essence</p>
                             <div class="grid gap-3 max-w-lg mx-auto">
                                 <label class="quiz-checkbox flex items-start p-4 rounded-xl border border-gray-200 hover:border-eqlive-green hover:bg-green-50/50 transition cursor-pointer group">
                                     <input type="checkbox" data-category="metabolic" value="ganho_peso" class="form-checkbox h-5 w-5 text-eqlive-green rounded mt-0.5">
@@ -1140,7 +1155,7 @@
                                 </label>
                             </div>
                             <div class="mt-10 text-center">
-                                <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Ver Resultados</button>
+                                <button onclick="nextStep()" class="bg-eqlive-dark text-white px-16 py-4 rounded-full font-medium hover:bg-eqlive-green transition shadow-lg">Ver resumo</button>
                             </div>
                         </div>
 
@@ -1190,7 +1205,7 @@
                                 Excelência em <span class="text-eqlive-peach italic">Saúde Integrada.</span>
                             </h1>
                             <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
-                                Com acolhimento e propósito. A EQLIVE é uma clínica de saúde especializada que nasceu com o propósito de oferecer uma experiência de cuidado verdadeiramente transformadora.
+                                Com acolhimento e propósito. A EQLIVE é uma clínica de saúde especializada que nasceu com o propósito de oferecer uma experiência de cuidado centrada na pessoa.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <a href="care.html" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
@@ -1255,9 +1270,9 @@
                                 <div class="space-y-6 text-gray-700 leading-relaxed">
                                     <p class="text-lg">A seção "Quem Somos" está alinhada com a cultura da Eqlive, transmitindo <strong>cuidado, escuta e visão integrativa</strong>. Acreditamos que saúde verdadeira vai muito além de prescrições — é sobre ser ouvido, compreendido e amparado em cada etapa do seu caminho.</p>
                                     
-                                    <p class="text-lg">Aqui, você não é apenas um paciente. Você é <strong>uma jornada de transformação</strong>. Começamos com escuta qualificada, conhecendo sua história, seus desafios e seus sonhos. Depois, caminhamos ao seu lado — ajustando, aprendendo e celebrando cada conquista.</p>
+                                    <p class="text-lg">Aqui, você não é apenas um paciente. Você é <strong>uma jornada de cuidado</strong>. Começamos com escuta qualificada, conhecendo sua história, seus desafios e seus sonhos. Depois, caminhamos ao seu lado — ajustando, aprendendo e celebrando cada conquista.</p>
                                     
-                                    <p class="text-lg">Na EQLIVE, <strong>o cuidado contínuo é uma promessa</strong>. Desde a primeira consulta até os acompanhamentos futuros, você receberá não apenas técnica e ciência, mas também a confiança de que existe alguém verdadeiramente dedicado ao seu bem-estar. Cada detalhe, cada conversa, cada ajuste no plano de tratamento é pensado especialmente para você.</p>
+                                    <p class="text-lg">Na EQLIVE, <strong>o cuidado contínuo é um compromisso</strong>. Desde a primeira consulta até os acompanhamentos futuros, você recebe técnica e ciência com uma equipe dedicada ao seu bem-estar. Cada detalhe, cada conversa e cada ajuste no plano de tratamento são pensados especialmente para você.</p>
                                 </div>
 
                                 <div class="pt-6">
@@ -1288,7 +1303,7 @@
                                 </div>
                             </div>
                             <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Missão</h3>
-                            <p class="text-gray-600 leading-relaxed text-lg">Promover saúde integral com excelência técnica e acolhimento humano, oferecendo acompanhamento especializado e personalizado, baseado em ciência, escuta e confiança — para transformar a vida de cada paciente com respeito à sua história e individualidade.</p>
+                            <p class="text-gray-600 leading-relaxed text-lg">Promover saúde integral com excelência técnica e acolhimento humano, oferecendo acompanhamento especializado e personalizado, baseado em ciência, escuta e confiança — para apoiar o bem-estar de cada paciente com respeito à sua história e individualidade.</p>
                         </div>
 
                         <!-- Visão -->
@@ -1299,7 +1314,7 @@
                                 </div>
                             </div>
                             <h3 class="font-serif text-2xl text-eqlive-dark mb-4">Visão</h3>
-                            <p class="text-gray-600 leading-relaxed text-lg">Ser reconhecida como referência em saúde personalizada e multidisciplinar, construindo um novo padrão de atendimento que valoriza o paciente como protagonista do seu processo de transformação.</p>
+                            <p class="text-gray-600 leading-relaxed text-lg">Ser reconhecida como referência em saúde personalizada e multidisciplinar, construindo um novo padrão de atendimento que valoriza o paciente como protagonista do seu processo de cuidado.</p>
                         </div>
 
                         <!-- Valores -->
@@ -1313,7 +1328,7 @@
                             <ul class="space-y-3">
                                 <li class="flex items-start gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span class="text-gray-600"><strong>Excelência:</strong> Responsabilidade técnica e melhores resultados</span>
+                                    <span class="text-gray-600"><strong>Excelência:</strong> Responsabilidade técnica e cuidado baseado em evidências</span>
                                 </li>
                                 <li class="flex items-start gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
@@ -1362,7 +1377,7 @@
                                 <i data-lucide="trending-up" class="w-6 h-6"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-eqlive-dark mb-3">Evolução Contínua</h3>
-                            <p class="text-gray-600">Acompanhamento regular para ajustar o tratamento, consolidar resultados e promover bem-estar duradouro.</p>
+                            <p class="text-gray-600">Acompanhamento regular para ajustar o tratamento e promover bem-estar com consistência.</p>
                         </div>
                     </div>
 
@@ -1373,7 +1388,7 @@
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Equipe multidisciplinar integrada (endocrinologia, nutrição e saúde emocional).</li>
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Atendimento particular e humanizado, com tempo dedicado à escuta.</li>
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Avaliação corpo-mente com foco na causa raiz dos sintomas.</li>
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Planos personalizados e acompanhamento contínuo para resultados reais.</li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Planos personalizados e acompanhamento contínuo para evolução acompanhada.</li>
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green"></i> Recursos avançados como testes genéticos e avaliações neuropsicológicas.</li>
                             </ul>
                         </div>
@@ -1394,7 +1409,7 @@
                     <div class="text-center mb-14">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-3 block">Por que escolher a EQLIVE</span>
                         <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-4">Um modelo de atendimento diferente</h2>
-                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">EQLIVE oferece cuidado integrado, ciência e acolhimento, transformando sua saúde com excelência.</p>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">EQLIVE oferece cuidado integrado, ciência e acolhimento, fortalecendo seu cuidado em saúde com excelência.</p>
                     </div>
 
                     <div class="bg-white rounded-3xl shadow-xl border border-eqlive-dark/10 overflow-hidden">
@@ -1458,7 +1473,7 @@
                             </div>
                             <h3 class="font-serif text-3xl text-white mb-2">Dra. Caroline Bersot</h3>
                             <p class="text-eqlive-peach font-semibold text-lg mb-4">Clínica Geral e Endocrinologia</p>
-                            <p class="text-gray-200 text-base leading-relaxed mb-6">Formação especializada em clínica geral integrativa e endocrinologia funcional, com foco em transformação metabólica.</p>
+                            <p class="text-gray-200 text-base leading-relaxed mb-6">Formação especializada em clínica geral integrativa e endocrinologia funcional, com foco em equilíbrio metabólico.</p>
                             <a href="https://wa.me/5521967815767" class="inline-flex items-center text-white font-semibold text-base border-b border-white/70 hover:text-eqlive-peach hover:border-eqlive-peach transition gap-2">
                                 Agende com Dra. Caroline <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
@@ -1500,8 +1515,8 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs mb-3 block">Depoimentos</span>
-                        <h2 class="font-serif text-5xl text-eqlive-dark mb-6">Histórias de Sucesso</h2>
-                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nosso compromisso é com resultados que transformam vidas. Veja o que nossas pacientes têm a dizer.</p>
+                        <h2 class="font-serif text-5xl text-eqlive-dark mb-6">Depoimentos</h2>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nosso compromisso é com cuidado humano e acompanhamento estruturado. Veja o que nossas pacientes têm a dizer.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1532,7 +1547,7 @@
                                     <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i>
                                 </div>
                             </div>
-                            <p class="text-gray-700 text-lg mb-6 leading-relaxed italic">"Sou paciente da clínica a mais de 1 ano. Melhor clínica de Itaboraí, não só pela infraestrutura mas pela qualidade dos profissionais. Na Eqlive, me sinto realmente ouvida e cuidada. E seguindo as orientações, não tem como não ter resultados."</p>
+                            <p class="text-gray-700 text-lg mb-6 leading-relaxed italic">"Sou paciente da clínica a mais de 1 ano. Melhor clínica de Itaboraí, não só pela infraestrutura mas pela qualidade dos profissionais. Na Eqlive, me sinto realmente ouvida e cuidada. E seguindo as orientações, tenho percebido evolução ao longo do tempo."</p>
                             <p class="font-semibold text-eqlive-dark">Jessica Alcantara</p>
                             <p class="text-sm text-gray-500">11 críticas · 1 foto • há 6 meses</p>
                         </div>
@@ -1619,7 +1634,7 @@
                 </div>
                 
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h2 class="font-serif text-5xl mb-6">Pronto para Transformar Sua Saúde?</h2>
+                        <h2 class="font-serif text-5xl mb-6">Pronto para começar?</h2>
                     <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">Agende uma consulta com nossa equipe e descubra como a medicina integrada pode mudar sua vida.</p>
                     
                     <div class="flex flex-col sm:flex-row gap-6 justify-center">
@@ -1649,10 +1664,10 @@
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-eqlive-peach font-bold tracking-widest text-xs uppercase mb-4 block">Tratamentos Especializados</span>
                             <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 text-white">
-                                Comece Sua <span class="text-eqlive-peach italic">Transformação Hoje.</span>
+                                Comece Sua <span class="text-eqlive-peach italic">Jornada de cuidado hoje.</span>
                             </h1>
                             <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
-                                Venha conhecer nossa equipe e descubra como a medicina funcional integrativa pode transformar sua saúde, energia e bem-estar para toda a vida.
+                                Venha conhecer nossa equipe e descubra como a medicina funcional integrativa pode apoiar sua saúde, energia e bem-estar no dia a dia.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <a href="https://wa.me/5521967815767" target="_blank" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
@@ -1700,7 +1715,7 @@
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Nossas Especialidades</span>
                         <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Especialidades Médicas em um Único Lugar</h2>
-                        <p class="text-gray-600 text-lg leading-relaxed">Equipe multidisciplinar trabalhando em conjunto para oferecer diagnóstico preciso, tratamento integrado e recuperação duradoura.</p>
+                        <p class="text-gray-600 text-lg leading-relaxed">Equipe multidisciplinar trabalhando em conjunto para oferecer diagnóstico preciso e acompanhamento integrado.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1736,11 +1751,11 @@
                             </div>
                             <div class="p-8 flex flex-col flex-grow">
                                 <h3 class="font-serif text-2xl font-medium mb-3 text-eqlive-dark">Nutrição Funcional</h3>
-                                <p class="text-gray-500 text-base mb-4 leading-relaxed">Planos nutricionais personalizados que vão além da dieta. Anti-inflamatório, para saúde intestinal, emagrecimento saudável e performance.</p>
+                                <p class="text-gray-500 text-base mb-4 leading-relaxed">Planos nutricionais personalizados que vão além da dieta. Anti-inflamatório, para saúde intestinal, gestão de peso e performance.</p>
                                 <div class="mb-6">
                                     <p class="text-sm font-semibold text-eqlive-green mb-2">Áreas de atuação:</p>
                                     <ul class="text-sm text-gray-600 space-y-1">
-                                        <li>• Emagrecimento sustentável</li>
+                                        <li>• Gestão de peso sustentável</li>
                                         <li>• Saúde da mulher e hormônios</li>
                                         <li>• Recuperação pós-bariátrica</li>
                                         <li>• Nutrição na gestação</li>
@@ -1793,7 +1808,7 @@
                                         <li>• Avaliação completa de saúde</li>
                                         <li>• Prevenção de doenças</li>
                                         <li>• Saúde da mulher integrada</li>
-                                        <li>• Emagrecimento saudável</li>
+                                        <li>• Gestão de peso com saúde</li>
                                         <li>• Monitoramento contínuo</li>
                                     </ul>
                                 </div>
@@ -1898,7 +1913,7 @@
                                     </div>
                                     <div>
                                         <h3 class="font-semibold text-lg text-eqlive-dark mb-2">Equipe Multidisciplinar</h3>
-                                        <p class="text-gray-600">Médicos, nutricionistas e psicólogos trabalham juntos para resultados integrados e duradouros.</p>
+                                        <p class="text-gray-600">Médicos, nutricionistas e psicólogos trabalham juntos para acompanhamento integrado e consistente.</p>
                                     </div>
                                 </div>
 
@@ -2039,7 +2054,7 @@
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho para Saúde</span>
                         <h2 class="font-serif text-4xl md:text-5xl mb-6 text-eqlive-dark">Como Funciona Seu Tratamento</h2>
-                        <p class="text-gray-600 text-lg">Um processo estruturado, compassivo e orientado para resultados reais.</p>
+                        <p class="text-gray-600 text-lg">Um processo estruturado, compassivo e orientado para acompanhamento e evolução.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -2094,14 +2109,14 @@
             <!-- CTA FINAL - RENOVADO COM GRADIENTE DO TOPO -->
             <section class="relative bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white overflow-hidden min-h-[70vh] flex items-center py-24 essence-cta">
                 <div class="max-w-4xl mx-auto px-4 text-center">
-                    <span class="inline-block border-2 border-eqlive-peach text-eqlive-peach px-6 py-2 rounded-full text-sm tracking-[0.2em] uppercase mb-8">Sua Jornada de Transformação</span>
+                    <span class="inline-block border-2 border-eqlive-peach text-eqlive-peach px-6 py-2 rounded-full text-sm tracking-[0.2em] uppercase mb-8">Sua Jornada de Cuidado</span>
                     
                     <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight mb-6 text-white">
-                        Comece Sua <span class="text-eqlive-peach italic">Transformação Hoje.</span>
+                        Comece Sua <span class="text-eqlive-peach italic">Jornada de cuidado hoje.</span>
                     </h2>
                     
                     <p class="text-xl md:text-2xl text-white/95 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-                        Venha conhecer nossa equipe e descubra como a medicina funcional integrativa pode transformar sua saúde, energia e bem-estar para toda a vida.
+                        Venha conhecer nossa equipe e descubra como a medicina funcional integrativa pode apoiar sua saúde, energia e bem-estar no dia a dia.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -2154,7 +2169,7 @@
                                 Seu Caminho Para Uma <span class="text-eqlive-peach italic">Saúde Integrada.</span>
                             </h1>
                             <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
-                                Um processo estruturado, compassivo e orientado para resultados reais. A jornada começa com escuta profunda, segue com investigação da causa raiz e evolui com um plano multidisciplinar.
+                                Um processo estruturado, compassivo e orientado para acompanhamento e evolução. A jornada começa com escuta profunda, segue com investigação da causa raiz e evolui com um plano multidisciplinar.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <a href="https://wa.me/5521967815767" target="_blank" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
@@ -2174,7 +2189,7 @@
                                 
                                 <!-- Image Container -->
                                 <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl shadow-2xl bg-white flex items-center justify-center p-4">
-                                    <img src="https://images.unsplash.com/photo-1631217314831-c6227db76b6e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1lZGljYWwlMjB0ZWFtfGVufDB8fDB8fHww" 
+                                    <img src="src/assets/images/topocomofunciona.png"
                                          alt="Equipe Eqlive" 
                                          class="w-full h-full object-cover">
                                 </div>
@@ -2213,7 +2228,7 @@
                                     
                                     <p class="text-lg">A partir daí, realizamos uma <strong>investigação funcional aprofundada</strong> através de testes avançados que identificam as verdadeiras causas raiz dos seus sintomas — não apenas o que aparece na superfície. Esse diagnóstico integrado nos permite desenhar um plano personalizado que une medicina, nutrição e suporte emocional.</p>
                                     
-                                    <p class="text-lg">Mas não paramos aí. Durante todo o acompanhamento, estamos <strong>ajustando, aprendendo e evoluindo com você</strong>. A consistência e a adaptação contínua garantem não apenas resultados como resultados que <strong>duram</strong>.</p>
+                                    <p class="text-lg">Mas não paramos aí. Durante todo o acompanhamento, estamos <strong>ajustando, aprendendo e evoluindo com você</strong>. A consistência e a adaptação contínua sustentam a evolução com segurança.</p>
                                 </div>
 
                                 <div class="pt-6">
@@ -2241,7 +2256,7 @@
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Etapas Estruturadas</span>
                         <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Da Investigação à Evolução Contínua</h2>
-                        <p class="text-gray-600 text-lg">Um método claro e científico para compreender o que está acontecendo no seu corpo e transformar isso em progresso consistente.</p>
+                        <p class="text-gray-600 text-lg">Um método claro e científico para compreender o que está acontecendo no seu corpo e traduzir isso em progresso consistente.</p>
                     </div>
                     
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -2342,7 +2357,7 @@
                             <ul class="space-y-3 text-sm text-gray-600">
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Revisões estratégicas</span></li>
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Suporte multidisciplinar</span></li>
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Resultados duráveis</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i><span>Evolução sustentada</span></li>
                             </ul>
                         </div>
                     </div>
@@ -2417,13 +2432,13 @@
                         <div class="w-full lg:w-1/2 flex flex-col justify-center">
                             <span class="text-eqlive-accent font-bold tracking-widest text-xs uppercase mb-4 block italic">Eqlive Essence</span>
                             <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl leading-tight mb-6 text-white">
-                                Transformação Completa em <span class="text-eqlive-accent italic">6 Meses.</span>
+                                Jornada de cuidado em <span class="text-eqlive-accent italic">6 meses.</span>
                             </h1>
                             <p class="text-lg text-gray-100 mb-10 max-w-lg leading-relaxed font-light">
-                                Um programa científico e personalizado que une medicina funcional, nutrição estratégica, psicologia e endocrinologia. Emagrecimento saudável com transformação verdadeira do corpo, mente e bem-estar.
+                                Um programa científico e personalizado que une medicina funcional, nutrição estratégica, psicologia e endocrinologia. Gestão de peso com foco em saúde e bem-estar.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <a href="https://wa.me/5521967815767?text=Quero%20saber%20mais%20sobre%20o%20Eqlive%20Essence!" class="bg-eqlive-accent text-white border-2 border-eqlive-accent px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-eqlive-accent transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                                <a href="https://wa.me/5521967815767?text=Quero%20saber%20mais%20sobre%20o%20Eqlive%20Essence!" class="bg-white text-eqlive-dark border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-eqlive-peach hover:border-eqlive-peach transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
                                     Saiba Mais Sobre o Programa <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                                 </a>
                                 <button onclick="navigateTo('how')" class="text-white border-2 border-white/50 px-8 py-4 rounded-full hover:border-white hover:bg-white/10 transition font-semibold w-fit mx-auto sm:mx-0">
@@ -2441,7 +2456,7 @@
                                 <!-- Image Container -->
                                 <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl shadow-2xl bg-white flex items-center justify-center p-4">
                                     <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d29tYW4lMjBoZWFsdGh5fGVufDB8fDB8fHww" 
-                                         alt="Transformação Eqlive Essence" 
+                                         alt="Eqlive Essence" 
                                          class="w-full h-full object-cover">
                                 </div>
                             </div>
@@ -2483,11 +2498,11 @@
                                 </div>
                                 
                                 <div class="space-y-6 text-gray-700 leading-relaxed">
-                                    <p class="text-lg">Eqlive Essence é um programa científico, personalizado e transformador de <strong>6 meses</strong> desenvolvido para quem busca muito mais que apenas perder peso. É uma <strong>transformação completa</strong> do corpo, mente e saúde emocional.</p>
+                                    <p class="text-lg">Eqlive Essence é um programa científico e personalizado de <strong>6 meses</strong> para quem busca acompanhamento estruturado de saúde. É um cuidado integrado do corpo, mente e saúde emocional.</p>
                                     
-                                    <p class="text-lg">Diferente de dietas genéricas que falham, o Essence <strong>integra medicina funcional, nutrição personalizada, psicologia e endocrinologia</strong> em um único protocolo que realmente funciona e gera <strong>resultados duradouros</strong>.</p>
+                                    <p class="text-lg">Diferente de dietas genéricas, o Essence <strong>integra medicina funcional, nutrição personalizada, psicologia e endocrinologia</strong> em um único protocolo com acompanhamento contínuo.</p>
                                     
-                                    <p class="text-lg">Aqui você não é apenas um número de kg a perder. Você é uma jornada de transformação onde <strong>cada aspecto da sua saúde é cuidado</strong>: hormônios, metabolismo, comportamento alimentar, energia e bem-estar emocional.</p>
+                                    <p class="text-lg">Aqui você não é apenas um número na balança. Você é uma jornada de cuidado onde <strong>cada aspecto da sua saúde é acompanhado</strong>: hormônios, metabolismo, comportamento alimentar, energia e bem-estar emocional.</p>
                                 </div>
 
                                 <div class="pt-6">
@@ -2529,8 +2544,8 @@
                             <div class="w-12 h-12 rounded-full bg-eqlive-peach/20 text-eqlive-dark flex items-center justify-center mb-5">
                                 <i data-lucide="trending-up" class="w-6 h-6"></i>
                             </div>
-                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Resultados Progressivos</h3>
-                            <p class="text-gray-600">Evolucao com consultas regulares durante 6 meses para resultados consistentes.</p>
+                            <h3 class="font-semibold text-xl text-eqlive-dark mb-3">Evolução Acompanhada</h3>
+                            <p class="text-gray-600">Acompanhamento com consultas regulares durante 6 meses para ajustes contínuos.</p>
                         </div>
                     </div>
 
@@ -2543,7 +2558,7 @@
                             <i data-lucide="star" class="w-5 h-5 fill-eqlive-peach"></i>
                         </div>
                         <p class="text-gray-700 text-lg italic text-center">
-                            "Com o Programa EQLIVE Essence, encontrei equilibrio fisico e emocional. O acompanhamento multidisciplinar me ajudou a emagrecer com saude, controlar hormonios e superar desafios emocionais com confianca."
+                            "Com o Programa EQLIVE Essence, encontrei equilibrio fisico e emocional. O acompanhamento multidisciplinar me ajudou a cuidar do peso com saude, acompanhar hormonios e superar desafios emocionais com confianca."
                         </p>
                         <p class="text-sm text-gray-500 text-center mt-4">Rio de Janeiro</p>
                     </div>
@@ -2556,7 +2571,7 @@
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Ideal Para</span>
                         <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Para Quem é o Essence?</h2>
-                        <p class="text-gray-600 text-lg">Este programa foi desenvolvido especificamente para pessoas que buscam transformação real e duradoura.</p>
+                        <p class="text-gray-600 text-lg">Este programa foi desenvolvido para pessoas que buscam acompanhamento estruturado e sustentável.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -2593,7 +2608,7 @@
                                 <i data-lucide="heart" class="w-8 h-8"></i>
                             </div>
                             <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Que Falharam Antes</h3>
-                            <p class="text-gray-600 leading-relaxed">Que tentaram dietas restritivas, suplementos milagrosos ou exercício em excesso sem sucesso duradouro.</p>
+                            <p class="text-gray-600 leading-relaxed">Que tentaram dietas restritivas, suplementos milagrosos ou exercício em excesso sem resposta consistente.</p>
                         </div>
 
                         <!-- Card 5 -->
@@ -2611,7 +2626,7 @@
                                 <i data-lucide="smile" class="w-8 h-8"></i>
                             </div>
                             <h3 class="font-semibold text-xl text-eqlive-dark mb-4">Que Querem Bem-Estar</h3>
-                            <p class="text-gray-600 leading-relaxed">Buscam transformação completa: corpo saudável, mente equilibrada, saúde emocional integrada.</p>
+                            <p class="text-gray-600 leading-relaxed">Buscam cuidado integrado: corpo saudável, mente equilibrada, saúde emocional acompanhada.</p>
                         </div>
                     </div>
                 </div>
@@ -2700,7 +2715,7 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold text-xl text-white mb-3">Plano Adaptável e Evolutivo</h3>
-                                    <p class="text-white/80">Protocolo que evolui conforme seus resultados, com ajustes contínuos para otimizar progressão.</p>
+                                    <p class="text-white/80">Protocolo que evolui conforme sua resposta, com ajustes contínuos para otimizar a progressão.</p>
                                 </div>
                             </div>
                         </div>
@@ -2714,7 +2729,7 @@
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-accent font-bold uppercase tracking-wider text-xs block mb-3">Seu Caminho</span>
                         <h2 class="font-serif text-4xl md:text-5xl mb-6 text-white">Como Funciona o Programa</h2>
-                        <p class="text-white/85 text-lg">Processo estruturado, compassivo e focado em resultados reais e duradouros</p>
+                        <p class="text-white/85 text-lg">Processo estruturado, compassivo e focado em acompanhamento e evolução</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -2758,8 +2773,8 @@
                         <div class="relative">
                             <div class="bg-white/10 border border-white/20 rounded-2xl p-10 text-center h-full flex flex-col relative z-10 hover:bg-white/15 transition duration-300">
                                 <div class="w-20 h-20 rounded-full bg-eqlive-peach text-white flex items-center justify-center text-3xl font-bold mx-auto mb-6">4</div>
-                                <h3 class="font-semibold text-lg text-white mb-4">Transformação</h3>
-                                <p class="text-white/80 flex-grow">Resultados progressivos, mudanças reais e bem-estar duradouro em 6 meses.</p>
+                                <h3 class="font-semibold text-lg text-white mb-4">Evolução</h3>
+                                <p class="text-white/80 flex-grow">Acompanhamento contínuo, ajustes regulares e suporte ao longo de 6 meses.</p>
                             </div>
                         </div>
                     </div>
@@ -2771,8 +2786,8 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-20">
                         <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">A Jornada</span>
-                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Seus 6 Meses de Transformação</h2>
-                        <p class="text-gray-600 text-lg">Uma progressão estratégica que leva você desde a compreensão profunda até a consolidação de resultados duradouros</p>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">Seus 6 Meses de Acompanhamento</h2>
+                        <p class="text-gray-600 text-lg">Uma progressão estratégica que leva você desde a compreensão profunda até a consolidação de hábitos e cuidado contínuo</p>
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-10">
@@ -2821,7 +2836,7 @@
                             <ul class="space-y-4">
                                 <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-accent flex-shrink-0 mt-0.5"></i>
-                                    <span class="text-gray-700">Resultados começam a aparecer</span>
+                                    <span class="text-gray-700">Sinais de progresso são acompanhados</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-accent flex-shrink-0 mt-0.5"></i>
@@ -2852,7 +2867,7 @@
                             <ul class="space-y-4">
                                 <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
-                                    <span class="text-gray-700">Transformação visível consolidada</span>
+                                    <span class="text-gray-700">Consolidação de hábitos e rotinas</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-eqlive-green flex-shrink-0 mt-0.5"></i>
@@ -2873,77 +2888,50 @@
             </section>
 
 
-            <!-- RESULTADOS ESPERADOS -->
+            <!-- INDICADORES ACOMPANHADOS -->
             <section class="py-24 bg-white -mt-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center max-w-3xl mx-auto mb-20">
-                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Transformação Mensurável</span>
-                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">O que Nossos Clientes Conquistam</h2>
-                        <p class="text-gray-600 text-lg">Resultados reais medidos e acompanhados durante os 6 meses de programa</p>
+                        <span class="text-eqlive-green font-bold uppercase tracking-wider text-xs block mb-3">Indicadores Acompanhados</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-eqlive-dark mb-6">O que acompanhamos ao longo do programa</h2>
+                        <p class="text-gray-600 text-lg">Evolução clínica e hábitos acompanhados durante 6 meses, com ajustes contínuos.</p>
                     </div>
 
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Resultado 1 -->
                         <div class="bg-gradient-to-br from-eqlive-dark/10 to-eqlive-green/10 p-10 rounded-2xl border border-eqlive-dark/5 hover:shadow-lg transition duration-300">
-                            <div class="flex items-baseline gap-2 mb-4">
-                                <div class="text-5xl font-bold text-eqlive-dark">5-15</div>
-                                <div class="text-2xl text-eqlive-dark/70">kg</div>
-                            </div>
-                            <p class="text-gray-700 font-semibold text-lg">Perda de peso saudável e duradoura</p>
+                            <h3 class="text-lg font-semibold text-eqlive-dark mb-2">Gestão de peso com saúde</h3>
+                            <p class="text-gray-700">Acompanhamento do peso e composição corporal conforme cada caso.</p>
                         </div>
-
-                        <!-- Resultado 2 -->
                         <div class="bg-gradient-to-br from-eqlive-accent/10 to-eqlive-peach/10 p-10 rounded-2xl border border-eqlive-accent/5 hover:shadow-lg transition duration-300">
-                            <div class="flex items-baseline gap-2 mb-4">
-                                <div class="text-5xl font-bold text-eqlive-dark">100%</div>
-                            </div>
-                            <p class="text-gray-700 font-semibold text-lg">Melhora no equilíbrio hormonal</p>
+                            <h3 class="text-lg font-semibold text-eqlive-dark mb-2">Equilíbrio hormonal</h3>
+                            <p class="text-gray-700">Monitoramento clínico e ajustes baseados em exames e sintomas.</p>
                         </div>
-
-                        <!-- Resultado 3 -->
                         <div class="bg-gradient-to-br from-eqlive-green/10 to-eqlive-accent/10 p-10 rounded-2xl border border-eqlive-green/5 hover:shadow-lg transition duration-300">
-                            <div class="flex items-baseline gap-2 mb-4">
-                                <i data-lucide="trending-up" class="w-8 h-8 text-eqlive-green"></i>
-                                <div class="text-5xl font-bold text-eqlive-dark">80%</div>
-                            </div>
-                            <p class="text-gray-700 font-semibold text-lg">Aumento de energia e disposição</p>
+                            <h3 class="text-lg font-semibold text-eqlive-dark mb-2">Energia e disposição</h3>
+                            <p class="text-gray-700">Avaliação periódica de fadiga, sono e rotina diária.</p>
                         </div>
-
-                        <!-- Resultado 4 -->
                         <div class="bg-gradient-to-br from-eqlive-peach/10 to-eqlive-dark/10 p-10 rounded-2xl border border-eqlive-peach/5 hover:shadow-lg transition duration-300">
-                            <div class="flex items-baseline gap-2 mb-4">
-                                <div class="text-5xl font-bold text-eqlive-dark">90%</div>
-                            </div>
-                            <p class="text-gray-700 font-semibold text-lg">Redução de compulsão alimentar</p>
+                            <h3 class="text-lg font-semibold text-eqlive-dark mb-2">Relação com a alimentação</h3>
+                            <p class="text-gray-700">Suporte para hábitos, apetite emocional e escolhas conscientes.</p>
                         </div>
-
-                        <!-- Resultado 5 -->
                         <div class="bg-gradient-to-br from-eqlive-dark/10 to-eqlive-accent/10 p-10 rounded-2xl border border-eqlive-dark/5 hover:shadow-lg transition duration-300">
-                            <div class="flex items-baseline gap-2 mb-4">
-                                <i data-lucide="check-circle" class="w-8 h-8 text-eqlive-green"></i>
-                                <div class="text-3xl font-bold text-eqlive-dark">Estável</div>
-                            </div>
-                            <p class="text-gray-700 font-semibold text-lg">Metabolismo estabilizado</p>
+                            <h3 class="text-lg font-semibold text-eqlive-dark mb-2">Metabolismo e exames</h3>
+                            <p class="text-gray-700">Indicadores laboratoriais acompanhados com foco em saúde global.</p>
                         </div>
-
-                        <!-- Resultado 6 -->
                         <div class="bg-gradient-to-br from-eqlive-green/10 to-eqlive-peach/10 p-10 rounded-2xl border border-eqlive-green/5 hover:shadow-lg transition duration-300">
-                            <div class="flex items-baseline gap-2 mb-4">
-                                <i data-lucide="heart" class="w-8 h-8 text-eqlive-accent"></i>
-                                <div class="text-3xl font-bold text-eqlive-dark">Duradouro</div>
-                            </div>
-                            <p class="text-gray-700 font-semibold text-lg">Resultados mantidos após programa</p>
+                            <h3 class="text-lg font-semibold text-eqlive-dark mb-2">Bem-estar emocional</h3>
+                            <p class="text-gray-700">Suporte emocional integrado ao plano de cuidado.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
 
-            <!-- CTA FINAL - COMECE SUA TRANSFORMAÇÃO -->
+            <!-- CTA FINAL - COMECE SUA JORNADA -->
             <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white essence-cta">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="font-serif text-5xl md:text-6xl mb-8 leading-tight">Pronto Para Sua <span class="text-eqlive-accent">Transformação?</span></h2>
-                    <p class="text-xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed">Agende sua avaliação inicial gratuita agora e descubra como o Eqlive Essence pode transformar completamente sua vida em apenas 6 meses.</p>
+                    <h2 class="font-serif text-5xl md:text-6xl mb-8 leading-tight">Pronto para iniciar sua <span class="text-eqlive-accent">jornada?</span></h2>
+                    <p class="text-xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed">Agende sua avaliação inicial e entenda se o Eqlive Essence faz sentido para o seu momento de saúde.</p>
                     
                     <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
                         <a href="https://wa.me/5521967815767?text=Quero%20emagrecer%20com%20sa%C3%BAde%20e%20conhecer%20o%20Eqlive%20Essence!" target="_blank" class="inline-flex items-center justify-center gap-3 bg-white text-eqlive-dark px-10 py-5 rounded-full font-semibold text-lg hover:shadow-2xl transition transform hover:-translate-y-1 duration-300">
@@ -3054,7 +3042,7 @@
                                 </div>
                                 <div class="p-8">
                                     <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">Prevenção e Cuidado com a Saúde Mental</h3>
-                                    <p class="text-gray-600 text-sm mb-6">Estratégias práticas para proteger e cuidar da sua saúde mental no dia a dia. Pequenos passos para grande transformação.</p>
+                                    <p class="text-gray-600 text-sm mb-6">Estratégias práticas para proteger e cuidar da sua saúde mental no dia a dia. Pequenos passos para mudanças consistentes.</p>
                                     <div class="flex items-center justify-between text-xs text-gray-500">
                                         <span>6 de maio de 2025</span>
                                         <span>3 min</span>
@@ -3317,15 +3305,15 @@
                                 </div>
                             </article>
 
-                            <!-- Post 21: História de Transformação - Diabetes -->
+                            <!-- Post 21: História de Cuidado - Diabetes -->
                             <article class="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer blog-post border border-eqlive-dark/5" data-category="stories" onclick="openPostModal(22)">
                                 <div class="h-56 overflow-hidden relative">
-                                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Transformação Diabetes" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Cuidado Diabetes" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                                     <div class="absolute top-4 left-4 bg-white/90 text-eqlive-dark px-3 py-1 rounded-full text-xs font-semibold">Histórias</div>
                                 </div>
                                 <div class="p-8">
-                                    <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Reverti meu Pré-Diabetes\" - Caso de Sucesso</h3>
-                                    <p class="text-gray-600 text-sm mb-6">Como uma mudança de estilo de vida evitou o desenvolvimento de diabetes tipo 2 e transformou a saúde de forma permanente.</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Melhorei o controle do Pré-Diabetes\" - Caso Real</h3>
+                                    <p class="text-gray-600 text-sm mb-6">Como ajustes de estilo de vida ajudaram no controle do pré-diabetes com acompanhamento profissional.</p>
                                     <div class="flex items-center justify-between text-xs text-gray-500">
                                         <span>31 de julho de 2025</span>
                                         <span>6 min</span>
@@ -3333,15 +3321,15 @@
                                 </div>
                             </article>
 
-                            <!-- Post 22: História de Transformação - Energia -->
+                            <!-- Post 22: História de Cuidado - Energia -->
                             <article class="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer blog-post border border-eqlive-dark/5" data-category="stories" onclick="openPostModal(23)">
                                 <div class="h-56 overflow-hidden relative">
-                                    <img src="https://images.unsplash.com/photo-1542818906-a0d6f6d3f141?auto=format&fit=crop&w=600&q=80" alt="Transformação Energia" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                    <img src="https://images.unsplash.com/photo-1542818906-a0d6f6d3f141?auto=format&fit=crop&w=600&q=80" alt="Cuidado Energia" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                                     <div class="absolute top-4 left-4 bg-white/90 text-eqlive-dark px-3 py-1 rounded-full text-xs font-semibold">Histórias</div>
                                 </div>
                                 <div class="p-8">
-                                    <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Recuperei Minha Energia\" - Transformação Hormonal</h3>
-                                    <p class="text-gray-600 text-sm mb-6">Saiba como equilibrar hormônios levou a recuperação de energia, disposição e qualidade de vida extraordinária.</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Recuperei Minha Energia\" - Ajustes Hormonais</h3>
+                                    <p class="text-gray-600 text-sm mb-6">Entenda como o acompanhamento hormonal pode apoiar energia, disposição e qualidade de vida.</p>
                                     <div class="flex items-center justify-between text-xs text-gray-500">
                                         <span>28 de julho de 2025</span>
                                         <span>5 min</span>
@@ -3349,15 +3337,15 @@
                                 </div>
                             </article>
 
-                            <!-- Post 23: História de Transformação - Sono -->
+                            <!-- Post 23: História de Cuidado - Sono -->
                             <article class="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer blog-post border border-eqlive-dark/5" data-category="stories" onclick="openPostModal(24)">
                                 <div class="h-56 overflow-hidden relative">
-                                    <img src="https://images.unsplash.com/photo-1528148343865-1218efdf513f?auto=format&fit=crop&w=600&q=80" alt="Transformação Sono" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                    <img src="https://images.unsplash.com/photo-1528148343865-1218efdf513f?auto=format&fit=crop&w=600&q=80" alt="Cuidado Sono" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                                     <div class="absolute top-4 left-4 bg-white/90 text-eqlive-dark px-3 py-1 rounded-full text-xs font-semibold">Histórias</div>
                                 </div>
                                 <div class="p-8">
                                     <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Durmo Como Criança Novamente\" - Sono Restaurador</h3>
-                                    <p class="text-gray-600 text-sm mb-6">Como resolver insônia crônica mudou completamente a vida, saúde e relacionamentos de uma paciente.</p>
+                                    <p class="text-gray-600 text-sm mb-6">Como o acompanhamento do sono ajudou a reorganizar rotina e bem-estar de uma paciente.</p>
                                     <div class="flex items-center justify-between text-xs text-gray-500">
                                         <span>25 de julho de 2025</span>
                                         <span>6 min</span>
@@ -3365,15 +3353,15 @@
                                 </div>
                             </article>
 
-                            <!-- Post 24: História de Transformação - Peso e Saúde -->
+                            <!-- Post 24: História de Cuidado - Peso e Saúde -->
                             <article class="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group cursor-pointer blog-post border border-eqlive-dark/5" data-category="stories" onclick="openPostModal(25)">
                                 <div class="h-56 overflow-hidden relative">
-                                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Transformação Peso" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Cuidado Peso" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                                     <div class="absolute top-4 left-4 bg-white/90 text-eqlive-dark px-3 py-1 rounded-full text-xs font-semibold">Histórias</div>
                                 </div>
                                 <div class="p-8">
-                                    <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Emagreci de Verdade\" - Perda de Peso Sustentável</h3>
-                                    <p class="text-gray-600 text-sm mb-6">Uma jornada completa de perda de peso focada em saúde, nutrição e equilíbrio hormonal duradouro.</p>
+                                    <h3 class="font-serif text-2xl text-eqlive-dark mb-4 group-hover:text-eqlive-green transition leading-tight">\"Cuidei do Peso com Saúde\" - Acompanhamento Sustentável</h3>
+                                    <p class="text-gray-600 text-sm mb-6">Uma jornada de cuidado focada em saúde, nutrição e equilíbrio hormonal com acompanhamento contínuo.</p>
                                     <div class="flex items-center justify-between text-xs text-gray-500">
                                         <span>22 de julho de 2025</span>
                                         <span>7 min</span>
@@ -3467,8 +3455,8 @@
                                         <i data-lucide="star" class="w-6 h-6"></i>
                                     </div>
                                     <div>
-                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Histórias de Transformação</h3>
-                                        <p class="text-gray-700">Histórias reais de pacientes que transformaram suas vidas através de saúde integrada.</p>
+                                        <h3 class="font-bold text-eqlive-dark text-lg mb-2">Histórias de Cuidado</h3>
+                                        <p class="text-gray-700">Relatos reais de pacientes que passaram por acompanhamento integrado.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3494,8 +3482,8 @@
                 <!-- CTA Final -->
                 <section class="py-24 bg-gradient-to-r from-eqlive-dark via-eqlive-dark to-eqlive-green text-white essence-cta -mt-2">
                     <div class="max-w-3xl mx-auto px-4 text-center">
-                        <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para Transformar Sua Saúde?</h2>
-                        <p class="text-xl text-white/95 mb-12 max-w-2xl mx-auto">Deixe o conhecimento se transformar em ação. Agende uma consulta com nossos especialistas e descubra como a medicina integrada pode mudar sua vida.</p>
+                        <h2 class="font-serif text-4xl md:text-5xl mb-6">Pronto para cuidar da sua saúde?</h2>
+                        <p class="text-xl text-white/95 mb-12 max-w-2xl mx-auto">Transforme conhecimento em cuidado. Agende uma consulta com nossos especialistas e entenda como a medicina integrada pode apoiar seu bem-estar.</p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white text-eqlive-dark px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition transform hover:-translate-y-1">
@@ -3526,8 +3514,11 @@
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
                     <div class="text-center max-w-3xl mx-auto">
                         <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">LOCALIZAÇÃO E CONTATO</span>
-                        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Visite a Clínica Eqlive</h1>
-                        <p class="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">Localizada no coração de Itaboraí, estamos preparados para receber você com qualidade e cuidado em um ambiente acolhedor.</p>
+                        <div class="location-hero-icon-wrapper" aria-hidden="true">
+                            <img src="src/assets/images/localização.png" alt="" class="location-hero-icon">
+                        </div>
+                        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">Visite a Clínica Eqlive</h1>
+                        <p class="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed">Localizada no coração de Itaboraí, estamos preparados para receber você com qualidade e cuidado em um ambiente acolhedor.</p>
                     </div>
                 </div>
             </section>
@@ -3673,8 +3664,8 @@
 
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="text-center">
-                        <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Pronto para começar?</h2>
-                        <p class="text-lg text-white/90 max-w-2xl mx-auto mb-10">Entre em contato conosco hoje e agende sua consulta. Nossa equipe especializada está pronta para ajudá-lo.</p>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">Pronto para começar?</h2>
+                        <p class="text-lg text-white max-w-2xl mx-auto mb-10">Entre em contato conosco hoje e agende sua consulta. Nossa equipe especializada está pronta para ajudá-lo.</p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="https://wa.me/5521967815767" target="_blank" class="inline-flex items-center justify-center gap-2 bg-white text-eqlive-dark px-8 py-4 rounded-xl font-bold hover:bg-eqlive-peach transform hover:scale-105 transition-all duration-300 shadow-lg">
@@ -3708,8 +3699,11 @@
                 <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full -mt-16">
                     <div class="text-center max-w-3xl mx-auto">
                         <span class="inline-block text-eqlive-peach font-bold uppercase tracking-wider text-xs mb-4 bg-white/10 px-4 py-2 rounded-full">DÚVIDAS FREQUENTES</span>
-                        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6">Como Podemos Ajudar?</h1>
-                        <p class="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed">Encontre respostas para todas as suas perguntas sobre agendamentos, convênios, serviços e tudo o que você precisa saber sobre a Clínica Eqlive.</p>
+                        <div class="faq-hero-icon-wrapper" aria-hidden="true">
+                            <img src="src/assets/images/interrogação.png" alt="" class="faq-hero-icon">
+                        </div>
+                        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">Como Podemos Ajudar?</h1>
+                        <p class="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed">Encontre respostas claras sobre agendamentos, convênios, valores, serviços e os primeiros passos para cuidar da sua saúde com a Clínica Eqlive.</p>
                     </div>
                 </div>
             </section>
@@ -4134,8 +4128,8 @@
 
                     <!-- CTA FINAL -->
                     <div class="mt-16 p-8 md:p-12 bg-gradient-to-r from-eqlive-green to-eqlive-dark rounded-2xl text-white text-center">
-                        <h3 class="font-serif text-3xl md:text-4xl font-bold mb-2">Ainda tem dúvidas?</h3>
-                        <p class="text-lg mb-8 opacity-95">Nossa equipe está pronta para ajudar você com qualquer pergunta!</p>
+                        <h3 class="font-serif text-3xl md:text-4xl font-bold mb-2 text-white">Ainda tem dúvidas?</h3>
+                        <p class="text-lg mb-8 text-white">Nossa equipe responde rápido e ajuda você a escolher o melhor caminho.</p>
                         <a href="https://wa.me/5521967815767" class="inline-flex items-center gap-2 bg-white text-eqlive-green px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
                             <i data-lucide="message-circle" class="w-6 h-6"></i>
                             Fale Conosco via WhatsApp
@@ -4350,7 +4344,7 @@
 
         const blogPosts = {
             1: {
-                title: 'História de Transformação: "Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"',
+                title: 'História de Cuidado: "Eu achava que era só fraqueza, mas descobri que era compulsão alimentar"',
                 image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                 content: `
                     <div class="space-y-6">
@@ -4657,7 +4651,7 @@
 
                         <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">E se eu ainda sentir necessidade de ajuda?</h4>
-                            <p class="text-gray-700 mb-3">Ótimo! Buscar ajuda é sinal de força, não fraqueza. Terapia com um psicólogo qualificado pode ser transformadora.</p>
+                            <p class="text-gray-700 mb-3">Ótimo! Buscar ajuda é sinal de força, não fraqueza. Terapia com um psicólogo qualificado pode apoiar mudanças positivas.</p>
                             <p class="text-gray-700">Na Eqlive, nós temos psicólogos experientes em ansiedade, depressão, relacionamentos, estresse. Fale conosco!</p>
                         </div>
 
@@ -4686,7 +4680,7 @@
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Saúde Mental:</strong> Psicologia e cuidado emocional</span></li>
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Avaliação Neuropsicológica:</strong> Entender seu perfil completo</span></li>
                                 <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Check-ups e Autocuidado:</strong> Prevenção como ferramenta principal</span></li>
-                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Histórias Reais:</strong> Histórias de transformação que inspiram</span></li>
+                                <li class="flex gap-3"><i data-lucide="check-circle" class="w-6 h-6 text-eqlive-green flex-shrink-0"></i> <span class="text-gray-700"><strong>Histórias Reais:</strong> Relatos de cuidado que inspiram</span></li>
                             </ul>
                         </div>
 
@@ -4702,13 +4696,13 @@
                         </div>
 
                         <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
-                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">A nossa promessa:</h4>
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-3">Nosso compromisso:</h4>
                             <p class="text-gray-700 mb-3">Aqui, você não é apenas um paciente. Você é uma pessoa que merece ser ouvida, entendida e cuidada.</p>
                             <ul class="space-y-2 text-gray-700">
                                 <li><strong>✓ Tratamos a causa,</strong> não apenas os sintomas</li>
                                 <li><strong>✓ Acolhemos a pessoa,</strong> não a culpa</li>
                                 <li><strong>✓ Acreditamos em prevenção,</strong> não em remédio rápido</li>
-                                <li><strong>✓ Criamos juntos</strong> o caminho para sua transformação</li>
+                                <li><strong>✓ Criamos juntos</strong> o caminho para o seu cuidado</li>
                             </ul>
                         </div>
 
@@ -5161,13 +5155,13 @@
                 `
             },
             22: {
-                title: '"Reverti meu Pre-Diabetes" - Caso de Sucesso',
+                title: '"Melhorei o controle do Pre-Diabetes" - Caso Real',
                 image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                 content: `
                     <div class="space-y-6">
                         <div>
                             <h3 class="font-bold text-2xl text-eqlive-dark mb-4">Uma virada com pequenas mudancas</h3>
-                            <p class="text-gray-700 leading-relaxed">Com acompanhamento multiprofissional, um paciente reverteu o pre-diabetes em poucos meses.</p>
+                            <p class="text-gray-700 leading-relaxed">Com acompanhamento multiprofissional, um paciente melhorou o controle do pre-diabetes ao longo do processo.</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg">
                             <h4 class="font-bold text-lg text-eqlive-dark mb-4">O que mudou</h4>
@@ -5178,8 +5172,8 @@
                             </ul>
                         </div>
                         <div class="border-l-4 border-eqlive-green bg-blue-50 p-6">
-                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Resultados em 12 semanas</h4>
-                            <p class="text-gray-700">Glicemia controlada, mais energia e perda de medidas sem dieta restritiva.</p>
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Acompanhamento em 12 semanas</h4>
+                            <p class="text-gray-700">Foco em glicemia, energia e ajustes de hábitos conforme evolução clínica.</p>
                         </div>
                         <div class="bg-eqlive-dark text-white p-6 rounded-lg text-center">
                             <p class="text-white/90">A prevencao e o melhor caminho. Avalie sua saude com orientacao profissional.</p>
@@ -5188,7 +5182,7 @@
                 `
             },
             23: {
-                title: '"Recuperei Minha Energia" - Transformacao Hormonal',
+                title: '"Recuperei Minha Energia" - Ajustes Hormonais',
                 image: 'https://images.unsplash.com/photo-1542818906-a0d6f6d3f141?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                 content: `
                     <div class="space-y-6">
@@ -5205,8 +5199,8 @@
                             </ul>
                         </div>
                         <div class="border-2 border-eqlive-green rounded-lg p-6 bg-green-50">
-                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Resultado</h4>
-                            <p class="text-gray-700">Energia restaurada, humor mais estavel e melhora da disposicao diaria.</p>
+                            <h4 class="font-bold text-lg text-eqlive-dark mb-4">Evolução acompanhada</h4>
+                            <p class="text-gray-700">Energia mais estável, humor mais equilibrado e hábitos ajustados ao longo do tempo.</p>
                         </div>
                     </div>
                 `

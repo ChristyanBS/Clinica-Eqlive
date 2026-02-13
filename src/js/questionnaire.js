@@ -142,7 +142,11 @@ class Questionnaire {
                 isValid = !!checkedGoal;
                 if (!isValid) {
                     console.warn('Step 1 validation failed: No goal selected');
-                    alert('Por favor, selecione uma opção para continuar.');
+                    if (typeof showAppAlert === 'function') {
+                        showAppAlert('Por favor, selecione uma opção para continuar.');
+                    } else {
+                        alert('Por favor, selecione uma opção para continuar.');
+                    }
                 }
                 break;
                 
@@ -151,7 +155,11 @@ class Questionnaire {
                 isValid = checkedAreas.length > 0;
                 if (!isValid) {
                     console.warn('Step 2 validation failed: No areas selected');
-                    alert('Por favor, selecione pelo menos uma área de interesse.');
+                    if (typeof showAppAlert === 'function') {
+                        showAppAlert('Por favor, selecione pelo menos uma área de interesse.');
+                    } else {
+                        alert('Por favor, selecione pelo menos uma área de interesse.');
+                    }
                 }
                 break;
                 
@@ -160,7 +168,11 @@ class Questionnaire {
                 isValid = !!selectedScore;
                 if (!isValid) {
                     console.warn('Step 3 validation failed: No score selected');
-                    alert('Por favor, indique seu nível de satisfação.');
+                    if (typeof showAppAlert === 'function') {
+                        showAppAlert('Por favor, indique seu nível de satisfação.');
+                    } else {
+                        alert('Por favor, indique seu nível de satisfação.');
+                    }
                 }
                 break;
                 
