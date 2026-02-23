@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex justify-between items-center h-20">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="navigateTo('home')">
-                        <img src="${prefix}assets/images/banner_logo.png" alt="Eqlive" class="h-11 group-hover:scale-105 transition-transform duration-300">
+                        <img src="${prefix}assets/images/banner_logo.png" alt="Eqlive" class="h-14 group-hover:scale-105 transition-transform duration-300">
                     </div>
                     
                     <!-- Desktop Menu -->
@@ -114,83 +114,100 @@ document.addEventListener('DOMContentLoaded', () => {
             <div id="mobile-menu-overlay" class="hidden lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-30 opacity-0 transition-opacity duration-500 ease-out"></div>
 
             <!-- Mobile Menu Panel -->
-            <div id="mobile-menu" class="hidden lg:hidden bg-gradient-to-b from-eqlive-dark via-eqlive-dark/95 to-eqlive-green/95 fixed top-0 right-0 h-[100dvh] w-[85vw] max-w-sm pt-16 pb-8 overflow-y-auto overscroll-contain z-40 transform transition-transform duration-600 ease-out translate-x-full shadow-2xl rounded-l-3xl border-l border-white/10 will-change-transform">
-                <div class="px-5 flex flex-col gap-4 min-h-[calc(100dvh-17rem)] text-white">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <div class="h-11 w-11 rounded-2xl bg-white border border-white/40 flex items-center justify-center">
+            <div id="mobile-menu" class="hidden lg:hidden bg-gradient-to-b from-eqlive-dark via-eqlive-dark/95 to-eqlive-green/95 fixed top-0 right-0 h-[100dvh] w-[85vw] max-w-sm pt-16 pb-8 overflow-y-auto overscroll-contain z-40 transform transition-transform duration-700 ease-out translate-x-full shadow-2xl rounded-l-3xl border-l border-white/10 will-change-transform">
+                <div class="px-6 flex flex-col gap-6 min-h-[calc(100dvh-17rem)] text-white">
+                    <div class="flex items-center justify-between pb-5 border-b border-white/10">
+                        <div class="flex items-center gap-4 flex-1">
+                            <div class="h-12 w-12 rounded-2xl bg-white border border-white/40 flex items-center justify-center flex-shrink-0">
                                 <img src="${prefix}assets/images/banner_logo.png" alt="Eqlive" class="h-6">
                             </div>
-                            <div>
-                                <p class="text-xs uppercase tracking-widest text-white/60">Clínica Eqlive</p>
-                                <h3 class="font-serif text-2xl">Menu</h3>
+                            <div class="flex-1">
+                                <p class="text-[10px] uppercase tracking-widest text-white/60 font-semibold">Clínica</p>
+                                <h3 class="font-serif text-xl text-white leading-tight">Eqlive</h3>
                             </div>
                         </div>
-                        <button id="mobile-menu-close" aria-label="Fechar menu" class="h-10 w-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition">
+                        <button id="mobile-menu-close" aria-label="Fechar menu" class="h-10 w-10 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center hover:bg-eqlive-peach/20 hover:border-eqlive-peach/30 transition flex-shrink-0">
                             <i data-lucide="x" class="w-5 h-5"></i>
                         </button>
                     </div>
 
-                    <div class="bg-white/10 rounded-2xl p-2 border border-white/10 flex flex-col gap-1">
-                        <p class="text-[11px] uppercase tracking-[0.2em] text-white/50 px-3 pt-2">Navegação</p>
-                        <button onclick="mobileNav('about')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <h3 class="text-lg font-semibold text-white tracking-wider">Acesso rápido</h3>
+                            <div class="flex-1 h-px bg-gradient-to-r from-eqlive-peach/30 to-transparent"></div>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-[0.2em] text-eqlive-peach font-semibold px-2 mb-2">Clínica</p>
+                        <button onclick="mobileNav('about')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
                             <i data-lucide="info" class="w-5 h-5 text-eqlive-peach"></i>
                             Quem Somos
                         </button>
-                        <button onclick="mobileNav('specialties')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <button onclick="mobileNav('specialties')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
                             <i data-lucide="stethoscope" class="w-5 h-5 text-eqlive-peach"></i>
                             Tratamentos
                         </button>
-                        <button onclick="mobileNav('essence')" class="mobile-nav-item text-[15px] font-medium text-eqlive-peach flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition font-serif italic">
+                        <button onclick="mobileNav('how')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
+                            <i data-lucide="settings" class="w-5 h-5 text-eqlive-peach"></i>
+                            Como Funciona
+                        </button>
+                        <button onclick="mobileNav('essence')" class="mobile-nav-item text-[15px] font-medium text-eqlive-peach flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition font-serif italic">
                             <i data-lucide="sparkles" class="w-5 h-5 text-eqlive-peach"></i>
                             Essence
                         </button>
-                        <a href="${prefix}care.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
-                            <i data-lucide="activity" class="w-5 h-5 text-eqlive-peach"></i>
-                            Questionário de Saúde
-                        </a>
-                        <button onclick="mobileNav('blog')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+
+                        <p class="text-[10px] uppercase tracking-[0.18em] text-white px-2.5 py-1 rounded-md bg-white/10 inline-block self-start mt-3">Conteúdo e suporte</p>
+                        <button onclick="mobileNav('blog')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
                             <i data-lucide="book-open" class="w-5 h-5 text-eqlive-peach"></i>
                             Blog
                         </button>
-                        <button onclick="mobileNav('faq')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <button onclick="mobileNav('faq')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
                             <i data-lucide="help-circle" class="w-5 h-5 text-eqlive-peach"></i>
                             FAQ
                         </button>
-                        <button onclick="mobileNav('location')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">
+                        <button onclick="mobileNav('location')" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
                             <i data-lucide="map-pin" class="w-5 h-5 text-eqlive-peach"></i>
                             Localização
                         </button>
+
+                        <p class="text-[10px] uppercase tracking-[0.18em] text-white px-2.5 py-1 rounded-md bg-white/10 inline-block self-start mt-3">Atendimento</p>
+                        <a href="${prefix}care.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">
+                            <i data-lucide="activity" class="w-5 h-5 text-eqlive-peach"></i>
+                            Questionário de Saúde
+                        </a>
                     </div>
 
                     <div class="bg-white/10 rounded-2xl p-2 border border-white/10 flex flex-col gap-1">
-                        <p class="text-[11px] uppercase tracking-[0.2em] text-white/50 px-3 pt-2">Condições</p>
-                        <a href="${prefix}condicoes/saude-intestinal.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde intestinal e digestiva</a>
-                        <a href="${prefix}condicoes/doencas-autoimunes.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Doenças autoimunes e inflamação</a>
-                        <a href="${prefix}condicoes/saude-metabolica.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde metabólica</a>
-                        <a href="${prefix}condicoes/resistencia-a-insulina.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Resistência à insulina</a>
-                        <a href="${prefix}condicoes/pre-diabetes.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Pré-diabetes</a>
-                        <a href="${prefix}condicoes/sop.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">SOP</a>
-                        <a href="${prefix}condicoes/desequilibrio-hormonal.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde hormonal</a>
-                        <a href="${prefix}condicoes/menopausa.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Perimenopausa e Menopausa</a>
-                        <a href="${prefix}condicoes/hipotireoidismo.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Hipotireoidismo</a>
-                        <a href="${prefix}condicoes/tireoidite-de-hashimoto.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Tireoidite de Hashimoto</a>
-                        <a href="${prefix}condicoes/sintomas-inexplicaveis.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Sintomas inexplicáveis</a>
-                        <a href="${prefix}condicoes/desintoxicacao-e-exposicao-ambiental.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Desintoxicação e exposição ambiental</a>
-                        <a href="${prefix}condicoes/longevidade-e-saude.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Longevidade e vida saudável</a>
-                        <a href="${prefix}condicoes/saude-mental.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Saúde mental</a>
-                        <a href="${prefix}condicoes/ansiedade-e-burnout.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Ansiedade e burnout</a>
-                        <a href="${prefix}condicoes/depressao.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Depressão</a>
-                        <a href="${prefix}condicoes/index.html" class="mobile-nav-item text-[15px] font-semibold text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-white/10 transition">Ver todas as condições</a>
+                        <p class="text-[11px] uppercase tracking-[0.2em] text-white px-2.5 py-1 rounded-md bg-white/10 inline-block self-start font-medium">Condições</p>
+                        <p class="text-[10px] uppercase tracking-[0.18em] text-white px-2.5 py-1 rounded-md bg-white/10 inline-block self-start mt-2">Metabólicas e hormonais</p>
+                        <a href="${prefix}condicoes/saude-metabolica.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Saúde metabólica</a>
+                        <a href="${prefix}condicoes/resistencia-a-insulina.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Resistência à insulina</a>
+                        <a href="${prefix}condicoes/pre-diabetes.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Pré-diabetes</a>
+                        <a href="${prefix}condicoes/sop.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">SOP</a>
+                        <a href="${prefix}condicoes/desequilibrio-hormonal.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Saúde hormonal</a>
+                        <a href="${prefix}condicoes/menopausa.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Perimenopausa e Menopausa</a>
+                        <a href="${prefix}condicoes/hipotireoidismo.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Hipotireoidismo</a>
+                        <a href="${prefix}condicoes/tireoidite-de-hashimoto.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Tireoidite de Hashimoto</a>
+
+                        <p class="text-[10px] uppercase tracking-[0.18em] text-white px-2.5 py-1 rounded-md bg-white/10 inline-block self-start mt-3">Inflamação e bem-estar</p>
+                        <a href="${prefix}condicoes/saude-intestinal.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Saúde intestinal e digestiva</a>
+                        <a href="${prefix}condicoes/doencas-autoimunes.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Doenças autoimunes e inflamação</a>
+                        <a href="${prefix}condicoes/sintomas-inexplicaveis.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Sintomas inexplicáveis</a>
+                        <a href="${prefix}condicoes/desintoxicacao-e-exposicao-ambiental.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Desintoxicação e exposição ambiental</a>
+                        <a href="${prefix}condicoes/longevidade-e-saude.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Longevidade e vida saudável</a>
+
+                        <p class="text-[10px] uppercase tracking-[0.18em] text-white px-2.5 py-1 rounded-md bg-white/10 inline-block self-start mt-3">Saúde mental</p>
+                        <a href="${prefix}condicoes/saude-mental.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Saúde mental</a>
+                        <a href="${prefix}condicoes/ansiedade-e-burnout.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Ansiedade e burnout</a>
+                        <a href="${prefix}condicoes/depressao.html" class="mobile-nav-item text-[15px] font-medium text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Depressão</a>
+                        <a href="${prefix}condicoes/index.html" class="mobile-nav-item text-[15px] font-semibold text-white flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-eqlive-peach/10 transition">Ver todas as condições</a>
                     </div>
                     
                     <!-- CTA Button Mobile -->
-                    <div class="mt-10 bg-white/10 rounded-2xl p-3 border border-white/10">
-                        <p class="text-xs text-white/70 mb-3">Atendimento rápido e personalizado.</p>
-                        <a href="https://wa.me/5521967815767" class="block w-full bg-eqlive-peach text-eqlive-dark text-center py-3 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Falar com Consultor
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <a href="https://wa.me/5521967815767" class="block w-full bg-gradient-to-r from-eqlive-peach to-orange-500 text-eqlive-dark text-center py-4 rounded-2xl text-base font-bold shadow-xl hover:shadow-2xl hover:from-orange-500 hover:to-eqlive-peach transition-all flex items-center justify-center gap-3 group">
+                            <i data-lucide="message-circle" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                            <span>Falar com Consultor</span>
                         </a>
+                        <p class="text-[11px] text-white/50 text-center mt-3 font-medium">Resposta em até 2 horas</p>
                     </div>
                 </div>
             </div>

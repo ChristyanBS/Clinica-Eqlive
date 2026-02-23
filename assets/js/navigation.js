@@ -8,28 +8,60 @@ function setupMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileOverlay = document.getElementById('mobile-menu-overlay');
     const closeBtn = document.getElementById('mobile-menu-close');
+    const MENU_CLOSE_DELAY = 700;
+    const menuItems = mobileMenu ? Array.from(mobileMenu.querySelectorAll('.mobile-nav-item')) : [];
+
+    const resetMenuItems = () => {
+        menuItems.forEach((item) => {
+            item.style.transition = 'none';
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(14px)';
+        });
+    };
+
+    const animateMenuItemsIn = () => {
+        menuItems.forEach((item, index) => {
+            const delay = Math.min(index * 50, 900);
+            item.style.transition = `opacity 520ms ease-out ${delay}ms, transform 560ms ease-out ${delay}ms`;
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+        });
+    };
+
     const openMenu = () => {
         if (!mobileMenu) return;
+        resetMenuItems();
         mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.remove('translate-x-full');
-        mobileMenu.classList.add('translate-x-0');
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
         mobileOverlay?.classList.remove('hidden');
-        mobileOverlay?.classList.add('opacity-100');
         mobileOverlay?.classList.remove('opacity-0');
+        mobileOverlay?.classList.add('opacity-0');
         document.body.classList.add('menu-open');
         document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
         if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                mobileOverlay?.classList.add('opacity-100');
+                mobileOverlay?.classList.remove('opacity-0');
+                setTimeout(() => animateMenuItemsIn(), 120);
+            });
+        });
     };
 
     const closeMenu = () => {
         if (!mobileMenu) return;
         mobileMenu.classList.add('translate-x-full');
         mobileMenu.classList.remove('translate-x-0');
-        setTimeout(() => mobileMenu.classList.add('hidden'), 500);
+        setTimeout(() => mobileMenu.classList.add('hidden'), MENU_CLOSE_DELAY);
         mobileOverlay?.classList.add('opacity-0');
         mobileOverlay?.classList.remove('opacity-100');
-        setTimeout(() => mobileOverlay?.classList.add('hidden'), 500);
+        setTimeout(() => mobileOverlay?.classList.add('hidden'), MENU_CLOSE_DELAY);
+        resetMenuItems();
         document.body.classList.remove('menu-open');
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
@@ -72,13 +104,19 @@ function setupMobileMenu() {
 window.mobileNav = function(pageId) {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const menuItems = mobileMenu ? Array.from(mobileMenu.querySelectorAll('.mobile-nav-item')) : [];
     if (mobileMenu) {
         mobileMenu.classList.add('translate-x-full');
         mobileMenu.classList.remove('translate-x-0');
-        setTimeout(() => mobileMenu.classList.add('hidden'), 500);
+        menuItems.forEach((item) => {
+            item.style.transition = 'none';
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(14px)';
+        });
+        setTimeout(() => mobileMenu.classList.add('hidden'), MENU_CLOSE_DELAY);
         mobileOverlay?.classList.add('opacity-0');
         mobileOverlay?.classList.remove('opacity-100');
-        setTimeout(() => mobileOverlay?.classList.add('hidden'), 500);
+        setTimeout(() => mobileOverlay?.classList.add('hidden'), MENU_CLOSE_DELAY);
         document.body.classList.remove('menu-open');
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
