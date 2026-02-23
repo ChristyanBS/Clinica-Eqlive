@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1. Forcar HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Remover extensao .html da URL (para o usuario)
+  RewriteCond %{THE_REQUEST} \s/([^.]+)\.html [NC]
+  RewriteRule ^ /%1 [L,R=301]
+
+  # 3. Reescrever internamente para o arquivo .html
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^([^/]+)$ $1.html [L]
+</IfModule>
